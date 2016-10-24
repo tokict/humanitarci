@@ -19,7 +19,7 @@ class CreateDocumentsTable extends Migration
             $table->integer('donor_id')->unsigned();
             $table->enum('type', ['idScan']);
             $table->string('reference', 45);
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
         });
     }
 

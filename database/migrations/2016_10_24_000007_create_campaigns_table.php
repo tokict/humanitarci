@@ -29,7 +29,7 @@ class CreateCampaignsTable extends Migration
             $table->integer('donors_number')->unsigned()->nullable();
             $table->enum('type', ['money', 'goods', 'services'])->nullable();
             $table->integer('administrator_id')->unsigned();
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
             $table->timestamp('edited_at');
             $table->integer('priority')->default(0);
             $table->string('slug', 200);

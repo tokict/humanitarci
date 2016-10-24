@@ -22,8 +22,8 @@ class CreateLegalEntitiesTable extends Migration
             $table->string('bank_id', 45)->nullable();
             $table->string('bank_acc', 45)->nullable();
             $table->boolean('is_beneficiary')->nullable();
-            $table->dateTime('created_at')->nullable()->default(CURRENT_TIMESTAMP);
-            $table->dateTime('modified_at')->nullable()->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->nullable()->default('CURRENT_TIMESTAMP');
+            $table->dateTime('modified_at')->nullable()->default('CURRENT_TIMESTAMP');
         });
 
         Schema::table('beneficiaries', function (Blueprint $table) {

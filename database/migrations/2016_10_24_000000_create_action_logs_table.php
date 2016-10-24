@@ -18,7 +18,7 @@ class CreateActionLogsTable extends Migration
             $table->integer('id_admin')->unsigned()->nullable();
             $table->integer('donor_id')->unsigned()->nullable();
             $table->longText('params')->nullable();
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
         });
     }
 

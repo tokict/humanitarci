@@ -16,7 +16,7 @@ class CreateMonetaryInputTable extends Migration
             $table->increments('id');
             $table->integer('donor_id')->unsigned();
             $table->integer('amount');
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
             $table->integer('campaign_id')->unsigned();
             $table->integer('payment_provider_data_id')->unsigned();
             $table->integer('bank_transfer_data_id')->unsigned();

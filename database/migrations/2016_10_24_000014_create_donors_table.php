@@ -20,8 +20,8 @@ class CreateDonorsTable extends Migration
             $table->string('total_donations', 45)->nullable();
             $table->string('goods_donated', 45)->nullable();
             $table->string('services_donated', 45)->nullable();
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
-            $table->dateTime('modified_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('modified_at')->default('CURRENT_TIMESTAMP');
         });
 
         Schema::table('action_logs', function (Blueprint $table) {

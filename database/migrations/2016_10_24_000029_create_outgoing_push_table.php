@@ -20,7 +20,7 @@ class CreateOutgoingPushTable extends Migration
             $table->integer('group_id')->unsigned()->nullable();
             $table->integer('legal_entity_id')->unsigned()->nullable();
             $table->longText('body');
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
             $table->dateTime('sent_at')->nullable();
 
             $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('no action')->onUpdate('no action');

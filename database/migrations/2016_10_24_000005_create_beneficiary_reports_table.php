@@ -16,7 +16,7 @@ class CreateBeneficiaryReportsTable extends Migration
             $table->increments('id');
             $table->integer('beneficiary_id')->unsigned();
             $table->enum('type', ['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'yearly', 'total']);
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
             $table->dateTime('start_time');
             $table->longText('data');
 

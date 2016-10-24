@@ -18,7 +18,7 @@ class CreateGoodsInputTable extends Migration
             $table->integer('campaign_id')->unsigned();
             $table->integer('donor_id')->unsigned();
             $table->longText('goods');
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
 
             $table->foreign('donor_id')->references('id')->on('donors')->onDelete('no action')->onUpdate('no action');
             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('no action')->onUpdate('no action');

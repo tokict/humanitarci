@@ -30,8 +30,8 @@ class CreatePersonsTable extends Migration
             $table->boolean('is_admin');
             $table->integer('bank_id')->unsigned()->nullable();
             $table->string('bank_acc', 34)->nullable();
-            $table->dateTime('created_at')->default(CURRENT_TIMESTAMP);
-            $table->dateTime('modified_at')->default(CURRENT_TIMESTAMP);
+            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('modified_at')->default('CURRENT_TIMESTAMP');
             $table->integer('device_id')->unsigned()->nullable();
 
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('no action')->onUpdate('no action');
