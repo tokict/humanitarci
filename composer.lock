@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "055d55d6c23e1e42b560a2ee31de33d4",
-    "content-hash": "94be1abb5180f20fc1fae28cc10c6da0",
+    "hash": "1c2f812df0165560408de1f1af3f2e71",
+    "content-hash": "99fa1c5bb1a3e3a2bd98252dd3b02ce4",
     "packages": [
         {
             "name": "adminarchitect/contacts",
@@ -1947,6 +1947,58 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "reliese/laravel",
+            "version": "v0.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reliese/laravel.git",
+                "reference": "cdbbd8521c6f851dc6c8c3ebf91878a70c786562"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reliese/laravel/zipball/cdbbd8521c6f851dc6c8c3ebf91878a70c786562",
+                "reference": "cdbbd8521c6f851dc6c8c3ebf91878a70c786562",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "~2.5",
+                "illuminate/console": "~5.1",
+                "illuminate/contracts": "~5.1",
+                "illuminate/database": "~5.1",
+                "illuminate/filesystem": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Reliese\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Llanos",
+                    "email": "cristianllanos@outlook.com"
+                }
+            ],
+            "description": "Reliese Components for Laravel Framework code generation.",
+            "homepage": "http://cristianllanos.com",
+            "keywords": [
+                "laravel",
+                "reliese"
+            ],
+            "time": "2016-10-23 22:53:56"
         },
         {
             "name": "swiftmailer/swiftmailer",
