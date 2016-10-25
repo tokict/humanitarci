@@ -156,6 +156,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Terranet\Administrator\ServiceProvider::class,
+        \Reliese\Coders\CodersServiceProvider::class,
 
     ],
 

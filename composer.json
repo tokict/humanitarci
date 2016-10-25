@@ -16,7 +16,8 @@
     "adminarchitect/contacts": "^1.0",
     "adminarchitect/options": "^1.1",
     "adminarchitect/localizer": "v1.0.1.1",
-    "terranet/translatable": "^1.0"
+    "terranet/translatable": "^1.0",
+    "reliese/laravel": "^0.0.9"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
