@@ -30,8 +30,8 @@ class CreatePersonsTable extends Migration
             $table->boolean('is_admin');
             $table->integer('bank_id')->unsigned()->nullable();
             $table->string('bank_acc', 34)->nullable();
-            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
-            $table->dateTime('modified_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('modified_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->integer('device_id')->unsigned()->nullable();
 
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('no action')->onUpdate('no action');
@@ -47,9 +47,6 @@ class CreatePersonsTable extends Migration
             $table->foreign('person_id')->references('id')->on('persons')->onDelete('no action')->onUpdate('no action');
         });
 
-        Schema::table('group_legal_entities', function (Blueprint $table) {
-            $table->foreign('legal_entity_id')->references('id')->on('persons')->onDelete('no action')->onUpdate('no action');
-        });
 
         Schema::table('group_persons', function (Blueprint $table) {
             $table->foreign('person_id')->references('id')->on('persons')->onDelete('no action')->onUpdate('no action');

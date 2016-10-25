@@ -15,8 +15,8 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->increments('id');
             $table->string('reference', 255);
-            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
-            $table->dateTime('modified_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('modified_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('type', ['image', 'video']);
             $table->boolean('is_local')->default(1);
             $table->string('description', 255)->nullable();

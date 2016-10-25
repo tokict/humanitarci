@@ -17,7 +17,7 @@ class CreateSettingsTable extends Migration
             $table->string('key', 45);
             $table->string('value', 45);
             $table->dateTime('created_at');
-            $table->dateTime('modified_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('modified_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

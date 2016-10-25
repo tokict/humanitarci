@@ -23,7 +23,7 @@ class CreateOutgoingMailsTable extends Migration
             $table->longText('body');
             $table->string('attachments', 45)->nullable();
             $table->string('attachment_document_ids', 45)->nullable();
-            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('sent_at')->nullable();
 
             $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('no action')->onUpdate('no action');

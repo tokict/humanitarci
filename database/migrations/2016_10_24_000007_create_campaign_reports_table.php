@@ -16,6 +16,9 @@ class CreateCampaignReportsTable extends Migration
             $table->increments('id');
             $table->integer('campaign_id')->unsigned();
         });
+        Schema::table('campaign_reports', function (Blueprint $table) {
+            $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('no action')->onUpdate('no action');
+        });
     }
 
     /**

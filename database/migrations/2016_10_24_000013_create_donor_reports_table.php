@@ -17,7 +17,7 @@ class CreateDonorReportsTable extends Migration
             $table->integer('donor_id')->unsigned();
             $table->enum('type', ['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'yearly', 'total']);
             $table->dateTime('start_time');
-            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->longText('donator_reportscol')->nullable();
         });
     }

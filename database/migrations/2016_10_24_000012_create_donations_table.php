@@ -20,7 +20,7 @@ class CreateDonationsTable extends Migration
             $table->enum('type', ['money', 'goods', 'service']);
             $table->integer('amount')->unsigned()->nullable();
             $table->enum('status', ['received', 'on_hold', 'used', 'free', 'repurposed'])->default('received');
-            $table->dateTime('created_date')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('payment_reference_used', 45)->nullable();
             $table->enum('source', ['site', 'bank_transfer', 'on_hands', 'sms', 'delivery_service']);
             $table->longText('goods')->nullable();

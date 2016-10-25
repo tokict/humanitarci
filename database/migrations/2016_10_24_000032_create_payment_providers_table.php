@@ -17,8 +17,8 @@ class CreatePaymentProvidersTable extends Migration
             $table->string('name', 45);
             $table->string('key', 45);
             $table->string('api_uri', 255);
-            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
-            $table->dateTime('modified_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->dateTime('modified_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 
         Schema::table('payment_provider_data', function (Blueprint $table) {

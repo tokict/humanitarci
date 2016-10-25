@@ -13,7 +13,7 @@ class CreateCampaignsTable extends Migration
     public function up()
     {
         Schema::create('campaigns', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
+            $table->increments('id')->unsigned();
             $table->string('name', 100);
             $table->integer('beneficiary_id')->unsigned();
             $table->integer('target_amount')->unsigned();
@@ -29,7 +29,7 @@ class CreateCampaignsTable extends Migration
             $table->integer('donors_number')->unsigned()->nullable();
             $table->enum('type', ['money', 'goods', 'services'])->nullable();
             $table->integer('administrator_id')->unsigned();
-            $table->dateTime('created_at')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('edited_at');
             $table->integer('priority')->default(0);
             $table->string('slug', 200);
@@ -44,9 +44,7 @@ class CreateCampaignsTable extends Migration
             $table->foreign('administrator_id')->references('id')->on('admins')->onDelete('no action')->onUpdate('no action');
         });
 
-        Schema::table('campaign_reports', function (Blueprint $table) {
-            $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('no action')->onUpdate('no action');
-        });
+
 
     }
 

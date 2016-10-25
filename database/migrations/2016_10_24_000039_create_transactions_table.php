@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('donation_id')->unsigned();
             $table->integer('amount')->unsigned()->nullable();
             $table->longText('goods')->nullable();
-            $table->dateTime('time')->default('CURRENT_TIMESTAMP');
+            $table->dateTime('time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('type', ['user', 'admin', 'system']);
             $table->string('description', 255);
             $table->integer('campaign_id')->unsigned();
