@@ -17,7 +17,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $swift_code
  * @property string $address_line
  * 
- * @property \Illuminate\Database\Eloquent\Collection $people
+ *
  *
  * @package App\Models
  */
@@ -31,8 +31,4 @@ class Bank extends Eloquent
 		'address_line'
 	];
 
-	public function people()
-	{
-		return $this->hasMany(\App\Models\Person::class);
-	}
 }

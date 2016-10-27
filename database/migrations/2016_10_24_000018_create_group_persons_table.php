@@ -13,7 +13,7 @@ class CreateGroupPersonsTable extends Migration
     public function up()
     {
         Schema::create('group_persons', function (Blueprint $table) {
-            $table->increments('person_id');
+            $table->integer('person_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->dateTime('added_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('modified_at')->default(DB::raw('CURRENT_TIMESTAMP'));

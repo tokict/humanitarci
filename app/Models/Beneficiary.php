@@ -14,8 +14,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property string $name
+ * 	Name cannot be edited after first campaign is created and activated for this beneficiary to prevent manipulations
  * @property string $identifier
- * @property int $group_id
+ * 	Identifier is to use with bank transfers as reference numbers, track input documents related to specific beneficiary etc.
  * @property int $profile_image_id
  * @property int $funds_used
  * @property int $donor_number
@@ -45,7 +46,6 @@ class Beneficiary extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'group_id' => 'int',
 		'profile_image_id' => 'int',
 		'funds_used' => 'int',
 		'donor_number' => 'int',
@@ -59,7 +59,6 @@ class Beneficiary extends Eloquent
 	protected $fillable = [
 		'name',
 		'identifier',
-		'group_id',
 		'profile_image_id',
 		'funds_used',
 		'donor_number',

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupLegalEntitiesTable extends Migration
+class CreateGroupBeneficiariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,14 @@ class CreateGroupLegalEntitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_legal_entities', function (Blueprint $table) {
-            $table->integer('legal_entity_id')->unsigned();
+        Schema::create('group_beneficiaries', function (Blueprint $table) {
+            $table->integer('beneficiary_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->dateTime('added_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('modified_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('status', ['active', 'removed'])->default('active');
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('no action')->onUpdate('no action');
+            $table->foreign('beneficiary_id')->references('id')->on('beneficiaries')->onDelete('no action')->onUpdate('no action');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateGroupLegalEntitiesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('group_legal_entities');
+        Schema::drop('group_beneficiaries');
     }
 }
