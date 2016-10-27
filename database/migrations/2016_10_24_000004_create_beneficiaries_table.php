@@ -29,7 +29,6 @@ class CreateBeneficiariesTable extends Migration
             $table->longText('description');
             $table->tinyInteger('members_public');
             $table->string('photo_ids', 255);
-            $table->integer('company_id')->unsigned()->nullable();
 
             $table->foreign('created_by_id')->references('id')->on('admins')->onDelete('no action')->onUpdate('no action');
         });

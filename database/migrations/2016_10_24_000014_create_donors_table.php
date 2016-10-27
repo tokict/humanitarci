@@ -40,6 +40,10 @@ class CreateDonorsTable extends Migration
             $table->foreign('donor_id')->references('id')->on('donors')->onDelete('no action')->onUpdate('no action');
         });
 
+        Schema::table('bank_transfers_data', function (Blueprint $table) {
+            $table->foreign('donor_id')->references('id')->on('donors')->onDelete('no action')->onUpdate('no action');
+        });
+
     }
 
     /**
@@ -63,6 +67,10 @@ class CreateDonorsTable extends Migration
         });
 
         Schema::table('donor_reports', function (Blueprint $table) {
+            $table->dropForeign(['donor_id']);
+        });
+
+        Schema::table('bank_transfers_data', function (Blueprint $table) {
             $table->dropForeign(['donor_id']);
         });
 

@@ -26,9 +26,6 @@ class CreateLegalEntitiesTable extends Migration
             $table->dateTime('modified_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 
-        Schema::table('beneficiaries', function (Blueprint $table) {
-            $table->foreign('company_id')->references('id')->on('legal_entities')->onDelete('no action')->onUpdate('no action');
-        });
 
         Schema::table('group_legal_entities', function (Blueprint $table) {
             $table->foreign('legal_entity_id')->references('id')->on('legal_entities')->onDelete('no action')->onUpdate('no action');

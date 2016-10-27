@@ -11,11 +11,18 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Bank
+ * This class is referenced when specifying a bank in the system
  * 
  * @property int $id
+ *
  * @property string $name
+ * Formal full name of the bank
+ *
  * @property string $swift_code
+ * Swift code of the bank
+ *
  * @property string $address_line
+ * Address of bank headquarters
  * 
  *
  *

@@ -11,16 +11,30 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class ActionLog
+ * This class handles all logging of actions on the system. It should use events to get them
  * 
  * @property int $id
+ *
  * @property string $action_name
+ * Name of the action event. Needs to be one of the names provided in config
+ *
+ *
  * @property int $id_admin
+ * If the event is initiated by admin, this is the admin id
+ *
  * @property int $donor_id
+ * If the event is initiated by donor, this is the donor id
+ *
  * @property string $params
+ * Params from the event to save for archiving. Serialized array
+ *
  * @property \Carbon\Carbon $created_at
  * 
  * @property \App\Models\Donor $donor
+ * Donor object associated with entry
+ *
  * @property \App\Models\Admin $admin
+ * Admin object associated with entry
  *
  * @package App\Models
  */

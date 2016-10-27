@@ -16,9 +16,10 @@ class CreateBankTransfersDataTable extends Migration
             $table->increments('id');
             $table->string('payee_name', 45);
             $table->string('payee_account', 45);
+            $table->integer('donor_id')->unsigned();
             $table->dateTime('time');
             $table->integer('amount')->unsigned();
-            $table->string('reference', 45);
+            $table->string('reference', 15);
             $table->dateTime('created_at');
         });
     }
