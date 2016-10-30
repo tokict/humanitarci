@@ -6,13 +6,12 @@
     <title>Humanitarci.hr</title>
     <meta name="description"
           content="Humanitarci.hr je potpuno transparentna platforma za doniranje novca, hrane i nuznih potrepstina">
-
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="http://rhythm.bestlooker.pro/images/favicon.png">
+    <link rel="shortcut icon" href="front/images/humanitarci-icon.png">
     <link rel="apple-touch-icon" href="http://rhythm.bestlooker.pro/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="http://rhythm.bestlooker.pro/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114"
@@ -44,7 +43,7 @@
                 <!-- Logo ( * your text or image into link tag *) -->
                 <div class="nav-logo-wrap local-scroll">
                     <a href="#top" class="logo">
-                        <!-- <img src="./landing_files/logo-dark.png" alt=""> -->
+                         <img src="front/images/humanitarci-logo-small.png" alt="">
                     </a>
                 </div>
                 <div class="mobile-nav" style="height: 75px; line-height: 75px; width: 75px;">
