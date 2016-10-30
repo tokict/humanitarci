@@ -198,7 +198,7 @@
                     </div>
 
                     <div class="form-tip" style="color: white">
-                        <i class="fa fa-info-circle"></i> Ne bojte se, mi Vam nikada nećeemo slati spam!
+                        <i class="fa fa-info-circle"></i> Ne bojte se, mi Vam nikada nećemo slati spam!
                     </div>
 
                     <div id="subscribe-result"></div>
