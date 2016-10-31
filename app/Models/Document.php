@@ -11,13 +11,25 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Document
+ * Documents are all documents we use on the site for verification of delivery, bank statement...EVERYTHING
+ * They all need to be archived
  * 
  * @property int $id
  * @property int $organization_id
+ * Id of owner organization
+ *
  * @property int $person_id
+ * Id or the person if it relates to a person
+ *
  * @property int $donor_id
+ * Id of donor if it relates to donor
+ *
  * @property string $type
+ * Type of document
+ *
  * @property string $reference
+ * Reference from the document if present
+ *
  * @property \Carbon\Carbon $created_at
  * 
  * @property \App\Models\Donor $donor

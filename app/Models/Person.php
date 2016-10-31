@@ -11,6 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Person
+ * Person and its counterpart, legal_entity are the base objects from which all starts.
  * 
  * @property int $id
  * @property string $first_name

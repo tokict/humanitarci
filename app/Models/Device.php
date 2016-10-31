@@ -11,10 +11,13 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Device
+ * Devices are devices used by users of site and cms
  * 
  * @property int $id
  * @property string $type
+ * Type of device: 'desktop', 'mobile'
  * @property string $reference
+ * Internal device id
  * @property string $last_seen
  * 
  * @property \Illuminate\Database\Eloquent\Collection $incoming_communications

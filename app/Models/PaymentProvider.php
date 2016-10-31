@@ -11,11 +11,17 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class PaymentProvider
+ * List of payment provider
  * 
  * @property int $id
  * @property string $name
+ * Name of service provider
+ *
  * @property string $key
+ * Authentication key for provider
+ *
  * @property string $api_uri
+ * Api endpoint to use
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  * 

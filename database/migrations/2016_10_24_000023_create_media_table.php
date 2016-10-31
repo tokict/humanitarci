@@ -21,7 +21,6 @@ class CreateMediaTable extends Migration
             $table->boolean('is_local')->default(1);
             $table->string('description', 255)->nullable();
             $table->string('title', 45)->nullable();
-            $table->integer('size_id');
         });
 
         Schema::table('campaigns', function (Blueprint $table) {

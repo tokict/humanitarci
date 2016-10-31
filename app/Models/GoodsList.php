@@ -11,12 +11,16 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class GoodsList
+ * A list of all goods we use to track physical donations
  * 
  * @property int $id
  * @property string $name
+ * Name of item
  * @property string $description
+ * Descritpion
  * @property string $unit_measurement
  * @property string $cover_image_url
+ * A generic image for easier recognition
  *
  * @package App\Models
  */

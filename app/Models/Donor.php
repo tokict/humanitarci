@@ -11,14 +11,28 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Donor
+ * Donor is any person or legal_entity that is registered as a donor on the site
  * 
  * @property int $id
  * @property int $person_id
+ * Id of the person that is the real donor
+ *
  * @property int $entity_id
+ * Id of the legal_entity if the donor is organization
+ *
  * @property string $amount_donated
+ * Total amount this donor has donated
+ *
+ *
  * @property string $total_donations
+ * Total number of donations by this donor
+ *
  * @property string $goods_donated
+ * List of goods and amounts donated by this donor in total -serialized array
+ *
  * @property string $services_donated
+ * List of services donated by this donor = serialized array
+ *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  * 

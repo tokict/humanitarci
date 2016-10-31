@@ -14,13 +14,29 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property string $name
+ * Name of the legal entity
+ *
  * @property string $tax_id
+ * Tax id of the company in the country of registration
+ *
  * @property string $vat_id
+ * Vat id if different from tax id
+ *
  * @property string $city_id
+ * City id of conpany registration
+ *
  * @property string $address
+ * Company headquarters address
+ *
  * @property string $bank_id
+ * id ban from banks table
+ *
  * @property string $bank_acc
+ * Bank account number
+ *
  * @property bool $is_beneficiary
+ * Is the organization a beneficiary
+ *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  * 

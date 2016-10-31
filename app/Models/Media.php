@@ -10,24 +10,30 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Medium
+ * Class Media
+ * All the media used on site
  * 
  * @property int $id
  * @property string $reference
+ * Unique identifier for url
+ *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  * @property string $type
+ * Image, video, etc
+ *
  * @property bool $is_local
+ * Is it on disk
+ *
  * @property string $description
  * @property string $title
- * @property int $size_id
  * 
  * @property \Illuminate\Database\Eloquent\Collection $campaigns
  * @property \Illuminate\Database\Eloquent\Collection $media_links
  *
  * @package App\Models
  */
-class Medium extends Eloquent
+class Media extends Eloquent
 {
 	public $timestamps = false;
 

@@ -11,6 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class PaymentProviderDatum
+ * Data related to payment providers and payments. Callbackd data etc
  * 
  * @property int $id
  * @property int $subscription_id

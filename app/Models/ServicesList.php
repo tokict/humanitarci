@@ -11,11 +11,15 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class ServicesList
+ * List of all services available for donation on the platform
  * 
  * @property int $id
  * @property string $name
+ * Name of service
  * @property string $description
+ * Description
  * @property string $cover_image_url
+ * A symbolic image we use on the site
  * 
  * @property \Illuminate\Database\Eloquent\Collection $donations
  * @property \Illuminate\Database\Eloquent\Collection $subscriptions

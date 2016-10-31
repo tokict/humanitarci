@@ -14,9 +14,13 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property string $name
+ * Name of the cron task run
  * @property string $action
+ * Action performed
  * @property string $params
+ * Params sent to the app
  * @property string $output
+ * Return of the action
  *
  * @package App\Models
  */

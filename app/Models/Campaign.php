@@ -83,19 +83,27 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Internal campaign reference
  *
  * @property string $end_notes
+ * End notes isa a description made on and after delivery of goods to beneficiary. Short description must be present.
  *
  * @property string $media_info
+ * Seralized array on media used with this campaign. For creating cards, sharing, etc
  *
- * 
+ *
+ * @property \App\Models\Media $media
+ * Related media object
+ *
  * @property \App\Models\Admin $admin
+ * Related admin object
  *
  * @property \App\Models\Beneficiary $beneficiary
+ * Related beneficiary object
  *
- * @property \App\Models\Medium $medium
  *
  * @property \App\Models\Organization $organization
+ * Related organization object
  *
  * @property \Illuminate\Database\Eloquent\Collection $campaign_reports
+ *
  *
  * @property \Illuminate\Database\Eloquent\Collection $donations
  *
@@ -171,9 +179,9 @@ class Campaign extends Eloquent
 		return $this->belongsTo(\App\Models\Beneficiary::class);
 	}
 
-	public function medium()
+	public function media()
 	{
-		return $this->belongsTo(\App\Models\Medium::class, 'cover_photo_id');
+		return $this->belongsTo(\App\Models\Media::class, 'cover_photo_id');
 	}
 
 	public function organization()

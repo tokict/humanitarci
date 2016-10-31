@@ -14,21 +14,50 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property int $beneficiary_id
+ * Id of the beneficiary
+ *
  * @property int $campaign_id
+ * campaing for which donation has been made
+ *
  * @property int $donor_id
+ * Who donated it
+ *
  * @property string $type
+ * What's the donation type
+ *
  * @property int $amount
+ * If monetary donation, whats the amount
+ *
  * @property string $status
+ * What's the internal status of the donation
+ *
  * @property \Carbon\Carbon $created_date
- * @property string $payment_reference_used
+ *
+ *
  * @property string $source
+ * Shortcut to see where this donations funds came from
+ *
  * @property string $goods
+ * Serialized array of goods this donation has (From goods table)
+ *
  * @property int $payment_id
+ * Id of payment if cash
+ *
  * @property int $transaction_id
+ * Id of transaction in case this donation was made by transfering goods or cash from other donations
+ *
  * @property int $goods_received_id
+ * Id of goods received that was used to create this donation
+ *
+ *
  * @property int $service_id
+ * Service id if donation is a service
+ *
  * @property bool $service_delivered
+ * Is the service confirmed as delivered
+ *
  * @property int $organization_id
+ * Id or the organization that will handle this donation
  * 
  * @property \App\Models\Beneficiary $beneficiary
  * @property \App\Models\Campaign $campaign

@@ -11,6 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class MediaLink
+ * Linking media with entities using them
  * 
  * @property int $id
  * @property int $document_id
@@ -25,7 +26,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \App\Models\Campaign $campaign
  * @property \App\Models\Document $document
  * @property \App\Models\Donor $donor
- * @property \App\Models\Medium $medium
+ * @property \App\Models\Media $media
  * @property \App\Models\Organization $organization
  * @property \App\Models\Person $person
  *
@@ -75,9 +76,9 @@ class MediaLink extends Eloquent
 		return $this->belongsTo(\App\Models\Donor::class);
 	}
 
-	public function medium()
+	public function media()
 	{
-		return $this->belongsTo(\App\Models\Medium::class, 'media_id');
+		return $this->belongsTo(\App\Models\Media::class, 'media_id');
 	}
 
 	public function organization()

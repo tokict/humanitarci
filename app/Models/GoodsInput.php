@@ -11,12 +11,20 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class GoodsInput
+ * Goods input are all the physical things we received for the platforms beneficiaries. We make donations from this
  * 
  * @property int $id
  * @property int $organization_id
+ * Id of organization that got the input
+ *
  * @property int $campaign_id
+ * Campaign Id this input was meant for
+ *
  * @property int $donor_id
+ * Who is the donor who donated it
+ *
  * @property string $goods
+ * Serialized array of goods that are a part of this donation with quntities (From goods table)
  * @property \Carbon\Carbon $created_at
  * 
  * @property \App\Models\Campaign $campaign

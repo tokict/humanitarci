@@ -10,7 +10,7 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class OutgoingSm
+ * Class OutgoingSms
  * 
  * @property int $id
  * @property int $person_id
@@ -30,7 +30,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class OutgoingSm extends Eloquent
+class OutgoingSms extends Eloquent
 {
 	public $timestamps = false;
 

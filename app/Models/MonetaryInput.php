@@ -11,6 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class MonetaryInput
+ * Monetary input handles all cash coming into the platform. We make donations from this data
  * 
  * @property int $id
  * @property int $donor_id

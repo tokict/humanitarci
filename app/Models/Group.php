@@ -11,6 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Group
+ *
  * 
  * @property int $id
  * @property string $name

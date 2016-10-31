@@ -11,15 +11,25 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Subscription
+ * There are the recurring donations that happen only for specific type of campaign that support recurring.
  * 
  * @property int $id
  * @property int $donor_id
+ * Donor that subscribes
+ *
  * @property int $campaing_id
+ * Subscribing to campaign id
+ *
  * @property int $amount
+ * Amount to be charged
+ *
  * @property int $service_id
+ * Service to be requested
+ *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  * @property string $status
+ * Status of subscription
  * @property string $processing_data
  * 
  * @property \App\Models\Campaign $campaign
