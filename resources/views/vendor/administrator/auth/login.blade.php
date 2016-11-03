@@ -1,5 +1,6 @@
 @inject('config', 'scaffold.config')
 @inject('template', 'scaffold.template')
+
 <!DOCTYPE html>
 <html>
 <head>
