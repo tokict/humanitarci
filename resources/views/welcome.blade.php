@@ -1,4 +1,4 @@
-
+@extends('layouts.full')
 
 <!-- Page Wrap -->
 <div class="page" id="top">

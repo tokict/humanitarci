@@ -10,12 +10,6 @@
   "require": {
     "php": ">=5.5.9",
     "laravel/framework": "5.2.*",
-    "terranet/administrator" : "3.0.9",
-    "adminarchitect/pages": "^1.0",
-    "adminarchitect/news": "^1.0",
-    "adminarchitect/contacts": "^1.0",
-    "adminarchitect/options": "^1.1",
-    "adminarchitect/localizer": "v1.0.1.1",
     "terranet/translatable": "^1.0",
     "reliese/laravel": "^0.0.9"
   },
@@ -24,15 +18,8 @@
     "mockery/mockery": "0.9.*",
     "phpunit/phpunit": "~4.0",
     "symfony/css-selector": "2.8.*|3.0.*",
-    "symfony/dom-crawler": "2.8.*|3.0.*",
-    "terranet/administrator" : "3.0.9"
+    "symfony/dom-crawler": "2.8.*|3.0.*"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "./packages/administrator"
-    }
-  ],
   "autoload": {
     "classmap": [
       "database"
