@@ -1,0 +1,43 @@
+{
+    "name": "terranet/php-humanizer",
+    "description": "Repository was forked from coduo/php-humanizer because of lack of support",
+    "type": "library",
+    "keywords": ["php", "humanize", "humanizer"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michał Dąbrowski",
+            "email": "dabrowski@brillante.pl"
+        },
+        {
+            "name": "Norbert Orzechowicz",
+            "email": "norbert@orzechowicz.pl"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/intl": "^2.3|^3.0",
+        "symfony/config": "^2.3|^3.0",
+        "symfony/translation": "^2.3|^3.0",
+        "symfony/yaml": "^2.3|^3.0"
+    },
+    "require-dev": {
+        "thunderer/shortcode": "~0.5",
+        "phpspec/phpspec": "^2",
+        "phpunit/phpunit": "^4.5|^5.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src",
+            "Coduo\\PHPHumanizer\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1-dev"
+        }
+    }
+}
