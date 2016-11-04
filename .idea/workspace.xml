@@ -2,53 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/screen-reader.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_screen-reader.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/BeneficiariesController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/CampaignsController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/LegalEntitiesController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonsController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/OverviewPanel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/overview.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Beneficiaries.php" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Beneficiaries.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Campaigns.php" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Campaigns.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Donors.php" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Donors.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/LegalEntities.php" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/LegalEntities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/css/extended.css" afterPath="$PROJECT_DIR$/public/administrator/css/extended.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/animated.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/animated.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/fixed-width.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/larger.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/stacked.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_animated.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_animated.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_fixed-width.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_larger.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_stacked.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/public/administrator/font-awesome/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/content.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/content.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/print.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/print.blade.php" />
     </list>
     <ignored path="humanitarci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -935,7 +896,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478248850454</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Navigation fixed nad font-awesome replaced">
+      <created>1478252701157</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1478252701157</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -994,7 +961,8 @@
     <MESSAGE value="Removed superadmin check that did not allow anyone but user with id 1 to login to admin panel. Fxed layout" />
     <MESSAGE value="Added name to dashboard so we can see the current user" />
     <MESSAGE value="more initial setup with css and translations" />
-    <option name="LAST_COMMIT_MESSAGE" value="more initial setup with css and translations" />
+    <MESSAGE value="Navigation fixed nad font-awesome replaced" />
+    <option name="LAST_COMMIT_MESSAGE" value="Navigation fixed nad font-awesome replaced" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
