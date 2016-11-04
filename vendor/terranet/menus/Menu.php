@@ -10,7 +10,7 @@ use Illuminate\View\Factory;
 class Menu implements Countable
 {
     /**
-     * The menus collections.
+     * The menus collections..
      *
      * @var array
      */
