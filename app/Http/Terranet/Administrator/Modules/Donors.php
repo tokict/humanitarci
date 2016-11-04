@@ -42,6 +42,6 @@ class Donors extends Resource implements Navigable, Filtrable, Editable, Validab
 
     public function linkAttributes()
     {
-        return ['icon' => 'fa fa-user'];
+        return ['icon' => 'fa fa-handshake-o'];
     }
 }

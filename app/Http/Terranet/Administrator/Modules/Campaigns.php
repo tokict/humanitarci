@@ -30,7 +30,7 @@ class Campaigns extends Resource implements Navigable, Filtrable, Editable, Vali
      *
      * @var string
      */
-    protected $model = \App\Models\Person::class;
+    protected $model = \App\Models\Campaign::class;
 
     public function title()
     {
@@ -44,6 +44,6 @@ class Campaigns extends Resource implements Navigable, Filtrable, Editable, Vali
 
     public function linkAttributes()
     {
-        return ['icon' => 'fa fa-user'];
+        return ['icon' => 'fa fa-dot-circle-o'];
     }
 }

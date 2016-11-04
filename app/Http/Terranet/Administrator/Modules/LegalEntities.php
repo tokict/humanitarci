@@ -44,6 +44,6 @@ class LegalEntities extends Resource implements Navigable, Filtrable, Editable, 
 
     public function linkAttributes()
     {
-        return ['icon' => 'fa fa-user'];
+        return ['icon' => 'fa fa-bank'];
     }
 }
