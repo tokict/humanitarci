@@ -1,652 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="sudo">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/gritter/images/gritter-light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/gritter/images/gritter-long.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/gritter/images/gritter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/gritter/images/ie-spacer.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/animated-overlay.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_flat_0_aaaaaa_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_flat_75_ffffff_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_glass_55_fbf9ee_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_glass_75_dadada_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_glass_75_e6e6e6_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_glass_95_fef1ec_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-icons_222222_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-icons_2e83ff_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-icons_454545_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-icons_888888_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/images/ui-icons_cd0a0a_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/justified-gallery/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Campaigns.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/LegalEntities.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Persons.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Language.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Text.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/blueimp/jquery.blueimp-gallery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/bootstrap-markdown/bootstrap-markdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/bootstrap-markdown/markdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/bootstrapTour/bootstrap-tour.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/c3/c3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/chartJs/Chart.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/chartist/chartist.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/chartist/chartist.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/chosen/chosen.jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/clipboard/clipboard.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/clockpicker/clockpicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/codemirror.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/apl/apl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/apl/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/asterisk/asterisk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/asterisk/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/clike/clike.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/clike/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/clike/scala.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/clojure/clojure.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/clojure/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/cobol/cobol.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/cobol/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/coffeescript/coffeescript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/coffeescript/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/commonlisp/commonlisp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/commonlisp/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/less.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/less_test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/scss.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/scss_test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/css/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/cypher/cypher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/cypher/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/d/d.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/d/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/diff/diff.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/diff/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/django/django.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/django/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/dtd/dtd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/dtd/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/dylan/dylan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/dylan/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ecl/ecl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ecl/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/eiffel/eiffel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/eiffel/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/erlang/erlang.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/erlang/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/fortran/fortran.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/fortran/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gas/gas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gas/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gfm/gfm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gfm/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gfm/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gherkin/gherkin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/gherkin/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/go/go.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/go/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/groovy/groovy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/groovy/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haml/haml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haml/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haml/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haskell/haskell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haskell/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haxe/haxe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/haxe/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/htmlembedded/htmlembedded.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/htmlembedded/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/htmlmixed/htmlmixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/htmlmixed/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/http/http.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/http/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/jade/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/jade/jade.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/javascript/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/javascript/javascript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/javascript/json-ld.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/javascript/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/javascript/typescript.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/jinja2/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/jinja2/jinja2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/julia/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/julia/julia.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/kotlin/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/kotlin/kotlin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/livescript/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/livescript/livescript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/lua/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/lua/lua.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/markdown/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/markdown/markdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/markdown/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/meta.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/mirc/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/mirc/mirc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/mllike/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/mllike/mllike.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/modelica/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/modelica/modelica.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/nginx/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/nginx/nginx.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ntriples/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ntriples/ntriples.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/octave/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/octave/octave.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/pascal/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/pascal/pascal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/pegjs/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/pegjs/pegjs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/perl/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/perl/perl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/php/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/php/php.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/php/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/pig/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/pig/pig.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/properties/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/properties/properties.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/puppet/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/puppet/puppet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/python/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/python/python.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/q/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/q/q.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/r/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/r/r.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rpm/changes/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rpm/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rpm/rpm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rst/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rst/rst.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ruby/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ruby/ruby.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/ruby/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rust/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/rust/rust.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sass/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sass/sass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/scheme/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/scheme/scheme.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/shell/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/shell/shell.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/shell/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sieve/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sieve/sieve.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/slim/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/slim/slim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/slim/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/smalltalk/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/smalltalk/smalltalk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/smarty/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/smarty/smarty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/smartymixed/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/smartymixed/smartymixed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/solr/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/solr/solr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sparql/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sparql/sparql.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sql/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/sql/sql.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/stex/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/stex/stex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/stex/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tcl/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tcl/tcl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/textile/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/textile/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/textile/textile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tiddlywiki/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tiddlywiki/tiddlywiki.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tiddlywiki/tiddlywiki.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tiki/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tiki/tiki.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tiki/tiki.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/toml/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/toml/toml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tornado/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/tornado/tornado.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/turtle/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/turtle/turtle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/vb/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/vb/vb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/vbscript/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/vbscript/vbscript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/velocity/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/velocity/velocity.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/verilog/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/verilog/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/verilog/verilog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/xml/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/xml/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/xml/xml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/xquery/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/xquery/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/xquery/xquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/yaml/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/yaml/yaml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/z80/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/codemirror/mode/z80/z80.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/colorpicker/bootstrap-colorpicker.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/cropper/cropper.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/d3/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/d3/d3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/dataTables/datatables.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/datamaps/datamaps.all.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/datapicker/bootstrap-datepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/daterangepicker/daterangepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/diff_match_patch/COPYING" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/diff_match_patch/README.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/diff_match_patch/javascript/diff_match_patch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/dotdotdot/jquery.dotdotdot.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/dropzone/dropzone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/dualListbox/jquery.bootstrap-duallistbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/easypiechart/easypiechart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/easypiechart/jquery.easypiechart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/curvedLines.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/excanvas.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.pie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.spline.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.symbol.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.time.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/flot/jquery.flot.tooltip.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/footable/footable.all.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/fullcalendar/fullcalendar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/fullcalendar/moment.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/gritter/jquery.gritter.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/gritter/jquery.gritter.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/i18next/i18next.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/iCheck/icheck.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/idle-timer/idle-timer.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/ionRangeSlider/ion.rangeSlider.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jasny/jasny-bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jeditable/jquery.jeditable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-ar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-bg1251.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-cat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-cs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-dk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-fa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-gl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-hr1250.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-kr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-lt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-mne.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-no.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-pt-br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-sr-latin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-sr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-ua.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/i18n/grid.locale-vi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jqGrid/jquery.jqGrid.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery-ui-i18n.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-af.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ar-DZ.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-az.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-be.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-bg.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-bs.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ca.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-cs.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-cy-GB.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-da.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-de.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-el.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-en-AU.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-en-GB.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-en-NZ.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-eo.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-es.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-et.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-eu.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-fa.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-fi.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-fo.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-fr-CA.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-fr-CH.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-fr.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-gl.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-he.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-hi.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-hr.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-hu.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-hy.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-id.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-is.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-it.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ja.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ka.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-kk.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-km.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ko.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ky.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-lb.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-lt.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-lv.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-mk.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ml.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ms.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-nb.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-nl-BE.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-nl.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-nn.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-no.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-pl.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-pt-BR.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-pt.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-rm.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ro.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ru.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-sk.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-sl.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-sq.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-sr-SR.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-sr.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-sv.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-ta.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-th.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-tj.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-tr.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-uk.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-vi.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-zh-CN.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-zh-HK.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/i18n/jquery.ui.datepicker-zh-TW.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/jquery-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/jquery-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/jquery-ui.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jquery-ui/jquery-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jsKnob/jquery.knob.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jsTree/jstree.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/justified-gallery/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/justified-gallery/jquery.justifiedgallery.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/justified-gallery/jquery.justifiedgallery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/justified-gallery/jquery.justifiedgallery.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/justified-gallery/jquery.justifiedgallery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jvectormap/jquery-jvectormap-2.0.2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/ladda/ladda.jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/ladda/ladda.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/ladda/spin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/masonary/masonry.pkgd.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/morris/morris.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/morris/raphael-2.1.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/nestable/jquery.nestable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/nouslider/jquery.nouislider.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/pdfjs/pdf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/pdfjs/pdf.worker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/peity/jquery.peity.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/preetyTextDiff/jquery.pretty-text-diff.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/rickshaw/rickshaw.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/rickshaw/vendor/d3.v3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/select2/select2.full.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/slick/slick.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/sparkline/jquery.sparkline.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/staps/jquery.steps.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/summernote/summernote.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/sweetalert/sweetalert.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/switchery/switchery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/tinycon/tinycon.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/toastr/toastr.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/topojson/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/topojson/topojson.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/typehead/bootstrap3-typeahead.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/validate/jquery.validate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/video/responsible-video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/wow/wow.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/hr/buttons.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/hr/dashboard.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/hr/errors.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/hr/messages.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/hr/module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/public/front/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/et-line.eot" afterPath="$PROJECT_DIR$/public/front/fonts/et-line.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/et-line.ttf" afterPath="$PROJECT_DIR$/public/front/fonts/et-line.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/et-line.woff" afterPath="$PROJECT_DIR$/public/front/fonts/et-line.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/client-1.png" afterPath="$PROJECT_DIR$/public/front/images/client-1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/client-2.png" afterPath="$PROJECT_DIR$/public/front/images/client-2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/client-3.png" afterPath="$PROJECT_DIR$/public/front/images/client-3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/client-4.png" afterPath="$PROJECT_DIR$/public/front/images/client-4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/client-5.png" afterPath="$PROJECT_DIR$/public/front/images/client-5.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/client-6.png" afterPath="$PROJECT_DIR$/public/front/images/client-6.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/djeca.jpg" afterPath="$PROJECT_DIR$/public/front/images/djeca.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/feature-1.png" afterPath="$PROJECT_DIR$/public/front/images/feature-1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/feature-2.png" afterPath="$PROJECT_DIR$/public/front/images/feature-2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/feature-3.png" afterPath="$PROJECT_DIR$/public/front/images/feature-3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/humanitarci-icon.png" afterPath="$PROJECT_DIR$/public/front/images/humanitarci-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/humanitarci-logo-large.png" afterPath="$PROJECT_DIR$/public/front/images/humanitarci-logo-large.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/humanitarci-logo-small.png" afterPath="$PROJECT_DIR$/public/front/images/humanitarci-logo-small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/logo-dark.png" afterPath="$PROJECT_DIR$/public/front/images/logo-dark.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/logo-footer.png" afterPath="$PROJECT_DIR$/public/front/images/logo-footer.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/promo-3.png" afterPath="$PROJECT_DIR$/public/front/images/promo-3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/promo-4.png" afterPath="$PROJECT_DIR$/public/front/images/promo-4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/screenshot-1.jpg" afterPath="$PROJECT_DIR$/public/front/images/screenshot-1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/screenshot-2.jpg" afterPath="$PROJECT_DIR$/public/front/images/screenshot-2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/screenshot-3.jpg" afterPath="$PROJECT_DIR$/public/front/images/screenshot-3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/screenshot-4.jpg" afterPath="$PROJECT_DIR$/public/front/images/screenshot-4.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/screenshot-5.jpg" afterPath="$PROJECT_DIR$/public/front/images/screenshot-5.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/screenshot-6.jpg" afterPath="$PROJECT_DIR$/public/front/images/screenshot-6.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/.gitkeep" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/.gitkeep" />
+    <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Beneficiaries.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Donors.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Languages.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Settings.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Texts.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_11_04_075931_create_texts_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_11_04_075944_create_languages_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/en/buttons.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/en/dashboard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/en/errors.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/en/messages.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/vendor/administrator/en/module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/ActionLog.php" afterPath="$PROJECT_DIR$/app/Models/ActionLog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Admin.php" afterPath="$PROJECT_DIR$/app/Models/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Bank.php" afterPath="$PROJECT_DIR$/app/Models/Bank.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/BankTransfersDatum.php" afterPath="$PROJECT_DIR$/app/Models/BankTransfersDatum.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Beneficiary.php" afterPath="$PROJECT_DIR$/app/Models/Beneficiary.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/BeneficiaryReport.php" afterPath="$PROJECT_DIR$/app/Models/BeneficiaryReport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Campaign.php" afterPath="$PROJECT_DIR$/app/Models/Campaign.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/CampaignReport.php" afterPath="$PROJECT_DIR$/app/Models/CampaignReport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/City.php" afterPath="$PROJECT_DIR$/app/Models/City.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/CronTasksLog.php" afterPath="$PROJECT_DIR$/app/Models/CronTasksLog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Device.php" afterPath="$PROJECT_DIR$/app/Models/Device.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Document.php" afterPath="$PROJECT_DIR$/app/Models/Document.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Donation.php" afterPath="$PROJECT_DIR$/app/Models/Donation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Donor.php" afterPath="$PROJECT_DIR$/app/Models/Donor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/DonorReport.php" afterPath="$PROJECT_DIR$/app/Models/DonorReport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/GoodsInput.php" afterPath="$PROJECT_DIR$/app/Models/GoodsInput.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/GoodsList.php" afterPath="$PROJECT_DIR$/app/Models/GoodsList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Group.php" afterPath="$PROJECT_DIR$/app/Models/Group.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/GroupLegalEntity.php" afterPath="$PROJECT_DIR$/app/Models/GroupLegalEntity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/GroupPerson.php" afterPath="$PROJECT_DIR$/app/Models/GroupPerson.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/IncomingCommunication.php" afterPath="$PROJECT_DIR$/app/Models/IncomingCommunication.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/LegalEntity.php" afterPath="$PROJECT_DIR$/app/Models/LegalEntity.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Media.php" afterPath="$PROJECT_DIR$/app/Models/Media.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/MediaLink.php" afterPath="$PROJECT_DIR$/app/Models/MediaLink.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/MonetaryInput.php" afterPath="$PROJECT_DIR$/app/Models/MonetaryInput.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Organization.php" afterPath="$PROJECT_DIR$/app/Models/Organization.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/OrganizationReport.php" afterPath="$PROJECT_DIR$/app/Models/OrganizationReport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/OutgoingMail.php" afterPath="$PROJECT_DIR$/app/Models/OutgoingMail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/OutgoingPush.php" afterPath="$PROJECT_DIR$/app/Models/OutgoingPush.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/OutgoingSms.php" afterPath="$PROJECT_DIR$/app/Models/OutgoingSms.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/PaymentProvider.php" afterPath="$PROJECT_DIR$/app/Models/PaymentProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/PaymentProviderDatum.php" afterPath="$PROJECT_DIR$/app/Models/PaymentProviderDatum.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Person.php" afterPath="$PROJECT_DIR$/app/Models/Person.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/PlatformReport.php" afterPath="$PROJECT_DIR$/app/Models/PlatformReport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Region.php" afterPath="$PROJECT_DIR$/app/Models/Region.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/ServicesList.php" afterPath="$PROJECT_DIR$/app/Models/ServicesList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Setting.php" afterPath="$PROJECT_DIR$/app/Models/Setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Subscription.php" afterPath="$PROJECT_DIR$/app/Models/Subscription.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Transaction.php" afterPath="$PROJECT_DIR$/app/Models/Transaction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000000_create_action_logs_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000000_create_action_logs_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000001_create_admins_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000001_create_admins_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000002_create_bank_transfers_data_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000002_create_bank_transfers_data_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000003_create_banks_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000003_create_banks_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000004_create_beneficiaries_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000004_create_beneficiaries_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000005_create_beneficiary_reports_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000005_create_beneficiary_reports_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000006_create_campaigns_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000006_create_campaigns_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000007_create_campaign_reports_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000007_create_campaign_reports_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000008_create_cities_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000008_create_cities_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000009_create_cron_tasks_log_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000009_create_cron_tasks_log_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000010_create_devices_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000010_create_devices_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000011_create_documents_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000011_create_documents_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000012_create_donations_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000012_create_donations_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000013_create_donor_reports_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000013_create_donor_reports_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000014_create_donors_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000014_create_donors_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000015_create_goods_input_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000015_create_goods_input_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000016_create_goods_list_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000016_create_goods_list_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000017_create_group_legal_entities_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000017_create_group_legal_entities_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000018_create_group_persons_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000018_create_group_persons_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000019_create_groups_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000019_create_groups_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000021_create_incoming_communication_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000021_create_incoming_communication_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000022_create_legal_entities_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000022_create_legal_entities_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000023_create_media_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000023_create_media_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000024_create_media_links_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000024_create_media_links_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000025_create_monetary_input_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000025_create_monetary_input_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000026_create_organization_reports_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000026_create_organization_reports_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000027_create_organizations_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000027_create_organizations_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000028_create_outgoing_mails_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000028_create_outgoing_mails_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000029_create_outgoing_push_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000029_create_outgoing_push_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000030_create_outgoing_sms_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000030_create_outgoing_sms_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000031_create_payment_provider_data_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000031_create_payment_provider_data_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000032_create_payment_providers_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000032_create_payment_providers_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000033_create_persons_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000033_create_persons_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000034_create_platform_reports_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000034_create_platform_reports_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000035_create_regions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000035_create_regions_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000036_create_services_list_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000036_create_services_list_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000037_create_settings_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000037_create_settings_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000038_create_subscriptions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000038_create_subscriptions_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000039_create_transactions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000039_create_transactions_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/css/extended.css" afterPath="$PROJECT_DIR$/public/administrator/css/extended.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/js/plugins/metisMenu/jquery.metisMenu.js" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/metisMenu/jquery.metisMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/administrator/js/plugins/pace/pace.min.js" afterPath="$PROJECT_DIR$/public/administrator/js/plugins/pace/pace.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/animate.min.css" afterPath="$PROJECT_DIR$/public/front/css/animate.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/front/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/et-line.css" afterPath="$PROJECT_DIR$/public/front/css/et-line.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/public/front/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/magnific-popup.css" afterPath="$PROJECT_DIR$/public/front/css/magnific-popup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/owl.carousel.css" afterPath="$PROJECT_DIR$/public/front/css/owl.carousel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/style-responsive.css" afterPath="$PROJECT_DIR$/public/front/css/style-responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/style.css" afterPath="$PROJECT_DIR$/public/front/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/vertical-rhythm.min.css" afterPath="$PROJECT_DIR$/public/front/css/vertical-rhythm.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/et-line.svg" afterPath="$PROJECT_DIR$/public/front/fonts/et-line.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/public/front/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/SmoothScroll.js" afterPath="$PROJECT_DIR$/public/front/js/SmoothScroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/all.js" afterPath="$PROJECT_DIR$/public/front/js/all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/public/front/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/common.js" afterPath="$PROJECT_DIR$/public/front/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/contact-form.js" afterPath="$PROJECT_DIR$/public/front/js/contact-form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/gmap3.min.js" afterPath="$PROJECT_DIR$/public/front/js/gmap3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/imagesloaded.pkgd.min.js" afterPath="$PROJECT_DIR$/public/front/js/imagesloaded.pkgd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/isotope.pkgd.min.js" afterPath="$PROJECT_DIR$/public/front/js/isotope.pkgd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery-1.11.2.min.js" afterPath="$PROJECT_DIR$/public/front/js/jquery-1.11.2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.ajaxchimp.min.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.ajaxchimp.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.appear.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.appear.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.countTo.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.countTo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.downCount.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.downCount.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.easing.1.3.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.easing.1.3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.fitvids.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.fitvids.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.localScroll.min.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.localScroll.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.magnific-popup.min.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.magnific-popup.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.parallax-1.1.3.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.parallax-1.1.3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.scrollTo.min.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.scrollTo.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.simple-text-rotator.min.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.simple-text-rotator.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.sticky.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.sticky.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/jquery.viewport.mini.js" afterPath="$PROJECT_DIR$/public/front/js/jquery.viewport.mini.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/maps.js" afterPath="$PROJECT_DIR$/public/front/js/maps.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/masonry.pkgd.min.js" afterPath="$PROJECT_DIR$/public/front/js/masonry.pkgd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/owl.carousel.min.js" afterPath="$PROJECT_DIR$/public/front/js/owl.carousel.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/stats.js" afterPath="$PROJECT_DIR$/public/front/js/stats.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/util.js" afterPath="$PROJECT_DIR$/public/front/js/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/wow.min.js" afterPath="$PROJECT_DIR$/public/front/js/wow.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/full.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/full.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/messages.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/messages.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/notifications.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/notifications.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/tasks.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/tasks.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/dashboard/database.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/dashboard/database.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/dashboard/members.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/dashboard/members.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/actions.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/actions.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/row.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/row.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/scripts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/errors/403.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/errors/403.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/batch.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/batch.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/export.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/export.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/filters.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/filters.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/paginator.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/paginator.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/row.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/row.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/scopes.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/scopes.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/index/scripts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/content.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/content.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/print.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/print.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/settings.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/settings.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/menus/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/menus/sidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/menus/tools.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/menus/tools.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/actions.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/actions.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/badges.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/badges.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/breadcrumbs.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/breadcrumbs.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/messages.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/messages.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/scripts/editors.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/scripts/editors.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/scripts/listeners.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/scripts/listeners.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/view/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/view/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/model.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/view/model.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/relations/one_to_many.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/view/relations/one_to_many.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/relations/one_to_one.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/administrator/view/relations/one_to_one.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/child/dropdown.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/child/dropdown.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/child/item.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/child/item.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/default.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/default.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/item/dropdown.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/item/dropdown.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/item/item.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/item/item.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/menu.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/menu.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills-justified.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills-justified.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills-stacked.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills-stacked.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-tabs-justified.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-tabs-justified.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-tabs.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-tabs.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/navbar-left.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/navbar-left.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/navbar-right.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/navbar-right.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/style.blade.php" afterPath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/style.blade.php" />
     </list>
     <ignored path="humanitarci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1231,6 +599,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1294,6 +694,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Administrator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Terranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Administrator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1458,7 +888,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478162976910</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="more initial setup with css and translations">
+      <created>1478248714559</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1478248714559</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1467,7 +903,7 @@
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21114683" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21114683" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4154275" sideWeight="0.50213444" order="10" side_tool="true" content_ui="tabs" />
@@ -1516,7 +952,8 @@
     <MESSAGE value="Fixed view includes for FE" />
     <MESSAGE value="Removed superadmin check that did not allow anyone but user with id 1 to login to admin panel. Fxed layout" />
     <MESSAGE value="Added name to dashboard so we can see the current user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added name to dashboard so we can see the current user" />
+    <MESSAGE value="more initial setup with css and translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="more initial setup with css and translations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
