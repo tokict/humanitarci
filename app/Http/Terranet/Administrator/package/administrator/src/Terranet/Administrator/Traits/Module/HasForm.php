@@ -5,6 +5,7 @@ namespace Terranet\Administrator\Traits\Module;
 use Codesleeve\Stapler\ORM\StaplerableInterface;
 use Doctrine\DBAL\Schema\Column;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 use Terranet\Administrator\Traits\MethodsCollector;
 use Terranet\Translatable\Translatable;
 
@@ -65,12 +66,33 @@ trait HasForm
             }
 
             // detect enums
+
             if (array_has($type, 'type') && 'select' == $type['type']) {
-                $type['options'] = ['' => '--Empty--'];
+                $options = $this->getEnumValues($model->getTable(),$column );
+
+                $type['options'] = [];
+                foreach ($options as $key =>  $option) {
+                    $type['options'][$key] = ucfirst($option);
+                }
+
             }
 
             return [$column, $type];
         });
+    }
+
+
+    public static function getEnumValues($table, $column)
+    {
+        $type = DB::select( DB::raw("SHOW COLUMNS FROM $table WHERE Field = '$column'") )[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $type, $matches);
+        $enum = array();;
+        foreach( explode(',', $matches[1]) as $value )
+        {
+            $v = trim( $value, "'" );
+            $enum[] = $v;
+        }
+        return $enum;
     }
 
     /**

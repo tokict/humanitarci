@@ -133,6 +133,6 @@ class Person extends Eloquent
 
 	public function outgoing_sms()
 	{
-		return $this->hasMany(\App\Models\OutgoingSm::class);
+		return $this->hasMany(\App\Models\OutgoingSms::class);
 	}
 }
