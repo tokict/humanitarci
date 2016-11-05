@@ -1,4 +1,7 @@
-
+/vendor
+/vendor/
+!/vendor/terranet/
+!/vendor/terranet/administrator/
 node_modules/
 
 # Laravel 4 specific

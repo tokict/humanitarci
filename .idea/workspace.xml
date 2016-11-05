@@ -1,13 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="Navigation fixed nad font-awesome replaced">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/terranet/administrator" afterPath="$PROJECT_DIR$/vendor/terranet/administrator" />
+    <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/administrator" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Menu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenuBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenuFacade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenuItem.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenusServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavMenuPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavPillsPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavTabPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavbarPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavbarRightPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/SidebarMenuPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Presenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/PresenterInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/shots/multilevel-menu-pingpong.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/config/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/child/dropdown.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/child/item.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/default.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/item/dropdown.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/item/item.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/menu.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-pills-justified.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-pills-stacked.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-pills.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-tabs-justified.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-tabs.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/navbar-left.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/navbar-right.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/style.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/UPGRADE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/Collection/FormatterSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/Collection/OxfordSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/DateTime/DifferenceSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/DateTime/FormatterSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/DateTime/PreciseFormatterSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/String/WordBreakpointSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Collection/Formatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Collection/Oxford.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/CollectionHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Difference.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Difference/CompoundResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Formatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/PreciseDifference.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/PreciseFormatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Day.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Hour.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/JustNow.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Minute.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Month.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Second.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Week.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Year.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTimeHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/Ordinal.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/Ordinal/Builder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/Ordinal/StrategyInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/RomanNumeral.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/NumberHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/Ordinal/EnStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/Ordinal/IdStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/Ordinal/NlStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.af.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.bg.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.da.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.de.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.en.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.es.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.fr.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.id.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.it.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.nl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.no.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.pl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.pt.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.pt_BR.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.ru.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.th.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.tr.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.uk.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.zh_CN.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.da.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.en.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.es.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.fr.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.id.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.it.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.nl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.pl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.ru.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.th.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.uk.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.zh_CN.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/BinarySuffix.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/Breakpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/HtmlTruncate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/Humanize.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/MetricSuffix.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/ShortcodeProcessor.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/TextTruncate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/TruncateInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/WordBreakpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/StringHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Translator/Builder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/CollectionHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/DateTimeHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/NumberHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/StringHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/bootstrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/phpunit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/Exception/LocalesNotDefinedException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/HasTranslations.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/Translatable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/TranslatableServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/config.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Menu.php" afterPath="$PROJECT_DIR$/vendor/terranet/menus/Menu.php" />
     </list>
     <ignored path="humanitarci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,11 +166,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38952163">
+            <state vertical-scroll-proportion="-12.666667">
               <caret line="157" column="7" selection-start-line="157" selection-start-column="7" selection-end-line="157" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Key.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/terranet/administrator/src/Terranet/Administrator/Form/Type/Key.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,16 +206,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OverviewPanel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/OverviewPanel.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,18 +221,18 @@
       <file leaf-file-name="overview.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/overview.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-10.666667">
               <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.25775656">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -174,9 +301,9 @@
         <option value="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/packages/administrator/src/Navigation/Presenters/Bootstrap/SidebarMenuPresenter.php" />
         <option value="$PROJECT_DIR$/packages/administrator/vendor/terranet/menus/Presenters/Bootstrap/SidebarMenuPresenter.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -242,6 +369,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="humanitarci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="humanitarci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="humanitarci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="humanitarci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="terranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="humanitarci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="humanitarci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="terranet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="administrator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -256,15 +437,15 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bootstrap/cache" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vendor/terranet" />
       <recent name="$PROJECT_DIR$/public/administrator/font-awesome" />
       <recent name="$PROJECT_DIR$/public/administrator/js/plugins" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/resources/lang/vendor/administrator" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/bootstrap/cache" />
     </key>
   </component>
   <component name="RunManager">
@@ -434,7 +615,19 @@
       <option name="project" value="LOCAL" />
       <updated>1478253105993</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Navigation fixed nad font-awesome replaced">
+      <created>1478335672730</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1478335672730</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Navigation fixed nad font-awesome replaced">
+      <created>1478337084132</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1478337084132</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -445,14 +638,14 @@
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21367061" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4154275" sideWeight="0.50213444" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993513" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41541755" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5203426" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -493,9 +686,9 @@
     <MESSAGE value="Removed superadmin check that did not allow anyone but user with id 1 to login to admin panel. Fxed layout" />
     <MESSAGE value="Added name to dashboard so we can see the current user" />
     <MESSAGE value="more initial setup with css and translations" />
-    <MESSAGE value="Navigation fixed nad font-awesome replaced" />
     <MESSAGE value="Remove duplicated body and js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove duplicated body and js" />
+    <MESSAGE value="Navigation fixed nad font-awesome replaced" />
+    <option name="LAST_COMMIT_MESSAGE" value="Navigation fixed nad font-awesome replaced" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -736,6 +929,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5647059">
           <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -743,14 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6">
           <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,14 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.666667">
@@ -809,8 +987,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38952163">
+        <state vertical-scroll-proportion="-12.666667">
           <caret line="157" column="7" selection-start-line="157" selection-start-column="7" selection-end-line="157" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/terranet/php-humanizer/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/terranet/menus/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/terranet/administrator/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/terranet/administrator/src/Terranet/Administrator/Form/Type/Key.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/overview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.666667">
+          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25775656">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding />
         </state>
       </provider>
