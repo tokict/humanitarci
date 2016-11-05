@@ -10,9 +10,17 @@
   "require": {
     "php": ">=5.5.9",
     "laravel/framework": "5.2.*",
-    "terranet/translatable": "^1.0",
+    "terranet/administrator": "^3.0",
     "reliese/laravel": "^0.0.9"
   },
+  "repositories": [
+
+{
+  "type": "git",
+  "url": "./packages/administrator"
+}
+
+],
   "require-dev": {
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
