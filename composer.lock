@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ee7a2a85b70cae5c88faed8fa1e3bb5c",
-    "content-hash": "6a578cc04022f410206603f8f6102124",
+    "hash": "59e1b0316ec2f1218bf1ef73a178ead9",
+    "content-hash": "02ab30b74a53640ca5ce149d015837c3",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2735,212 +2735,6 @@
             "time": "2016-07-26 08:03:56"
         },
         {
-            "name": "symfony/yaml",
-            "version": "v3.1.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "7ff51b06c6c3d5cc6686df69004a42c69df09e27"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/7ff51b06c6c3d5cc6686df69004a42c69df09e27",
-                "reference": "7ff51b06c6c3d5cc6686df69004a42c69df09e27",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "https://symfony.com",
-            "time": "2016-10-24 18:41:13"
-        },
-        {
-            "name": "terranet/administrator",
-            "version": "v3.0.9",
-            "source": {
-                "type": "git",
-                "url": "./packages/administrator",
-                "reference": "1dde871973943e92e1a0efc3d86523afd39d7d4c"
-            },
-            "require": {
-                "codesleeve/laravel-stapler": "1.0.*",
-                "creativeorange/gravatar": "^1.0",
-                "davejamesmiller/laravel-breadcrumbs": "3.0.*",
-                "doctrine/dbal": "~2.5",
-                "laravelcollective/html": "^5.1|^5.2",
-                "php": ">=5.6.0",
-                "terranet/menus": "2.2.*",
-                "terranet/php-humanizer": "2.*"
-            },
-            "suggest": {
-                "adminarchitect/contacts": "configurable contact form",
-                "adminarchitect/localizer": "to have language detection support by Request Uri, Domain name and Environment",
-                "adminarchitect/news": "news module",
-                "adminarchitect/options": "to store and manage settings",
-                "adminarchitect/pages": "pages module",
-                "terranet/slug": "to allow slugging",
-                "terranet/translatable": "to manage multilingual records"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Terranet\\Administrator": "src/"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Endi",
-                    "email": "endi1982@gmail.com"
-                }
-            ],
-            "description": "Admin Architect - Administration Framework for Laravel. Create Laravel Admin panels at Reactive speed.",
-            "time": "2016-08-25 06:48:18"
-        },
-        {
-            "name": "terranet/menus",
-            "version": "2.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TerranetMD/menus.git",
-                "reference": "fe350de4b86f9462ab4a3f3effe1f7686666646b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TerranetMD/menus/zipball/fe350de4b86f9462ab4a3f3effe1f7686666646b",
-                "reference": "fe350de4b86f9462ab4a3f3effe1f7686666646b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "^5.1|^5.2",
-                "illuminate/support": "^5.1|^5.2",
-                "illuminate/view": "^5.1|^5.2",
-                "laravelcollective/html": "^5.1|^5.2",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pingpong\\Menus\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Pingpong Labs",
-                    "email": "pingpong.labs@gmail.com"
-                }
-            ],
-            "description": "Laravel Menus",
-            "keywords": [
-                "bootstrap",
-                "laravel",
-                "menus",
-                "nav",
-                "navigation",
-                "pingpong"
-            ],
-            "time": "2016-02-04 08:12:58"
-        },
-        {
-            "name": "terranet/php-humanizer",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TerranetMD/php-humanizer.git",
-                "reference": "617c733e13ffc0462b1e54440125a274c4e06f07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TerranetMD/php-humanizer/zipball/617c733e13ffc0462b1e54440125a274c4e06f07",
-                "reference": "617c733e13ffc0462b1e54440125a274c4e06f07",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "symfony/config": "^2.3|^3.0",
-                "symfony/intl": "^2.3|^3.0",
-                "symfony/translation": "^2.3|^3.0",
-                "symfony/yaml": "^2.3|^3.0"
-            },
-            "require-dev": {
-                "phpspec/phpspec": "^2",
-                "phpunit/phpunit": "^4.5|^5.0",
-                "thunderer/shortcode": "~0.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "": "src",
-                    "Coduo\\PHPHumanizer\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Norbert Orzechowicz",
-                    "email": "norbert@orzechowicz.pl"
-                },
-                {
-                    "name": "Michał Dąbrowski",
-                    "email": "dabrowski@brillante.pl"
-                }
-            ],
-            "description": "Repository was forked from coduo/php-humanizer because of lack of support",
-            "keywords": [
-                "humanize",
-                "humanizer",
-                "php"
-            ],
-            "time": "2016-02-02 08:00:08"
-        },
-        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -4265,41 +4059,53 @@
             "time": "2016-07-30 07:22:48"
         },
         {
-            "name": "terranet/translatable",
-            "version": "v1.0",
+            "name": "symfony/yaml",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/TerranetMD/translatable.git",
-                "reference": "02a0514cf3c2e62316b35559e2e66a8daa48f569"
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "7ff51b06c6c3d5cc6686df69004a42c69df09e27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TerranetMD/translatable/zipball/02a0514cf3c2e62316b35559e2e66a8daa48f569",
-                "reference": "02a0514cf3c2e62316b35559e2e66a8daa48f569",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/7ff51b06c6c3d5cc6686df69004a42c69df09e27",
+                "reference": "7ff51b06c6c3d5cc6686df69004a42c69df09e27",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.5.9"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "Terranet\\Translatable\\": "src/"
-                }
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "A Laravel package for multilingual models",
-            "keywords": [
-                "admin architect",
-                "database",
-                "language",
-                "laravel",
-                "translation"
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
             ],
-            "time": "2016-09-26 12:51:13"
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-10-24 18:41:13"
         },
         {
             "name": "webmozart/assert",

@@ -1,0 +1,22 @@
+<?php
+
+namespace DummyRootNamespaceHttp\Terranet\Administrator\Dashboard;
+
+use Illuminate\View\View;
+use Terranet\Administrator\Traits\Stringify;
+use Terranet\Administrator\Contracts\Services\Widgetable;
+
+class DummyClass implements Widgetable
+{
+    use Stringify;
+
+    /**
+     * Widget contents
+     *
+     * @return mixed string|View
+     */
+    public function render()
+    {
+        return view('DummyTemplate')->with([]);
+    }
+}

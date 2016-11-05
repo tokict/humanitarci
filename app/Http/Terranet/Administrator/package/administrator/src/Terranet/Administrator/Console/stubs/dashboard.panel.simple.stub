@@ -1,0 +1,29 @@
+<?php
+
+namespace DummyRootNamespaceHttp\Terranet\Administrator\Dashboard;
+
+use Illuminate\View\View;
+use Terranet\Administrator\Traits\Stringify;
+use Terranet\Administrator\Contracts\Services\Widgetable;
+
+class DummyClass implements Widgetable
+{
+    use Stringify;
+
+    /**
+     * Widget contents
+     *
+     * @return mixed string|View
+     */
+    public function render()
+    {
+        $class = get_class($this);
+
+        return <<<OUT
+<div class="col-lg-12 panel">
+    <h3 class="panel-heading">Hello, World!</h3>
+    <div class="panel-body">Check me out here [{$class}]</div>
+</div>
+OUT;
+    }
+}
