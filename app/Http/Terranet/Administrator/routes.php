@@ -37,9 +37,8 @@ Route::group([
         | goes here.
         |
         */
-        //        Route::controllers([
-        //            'test' => 'App\Http\Controllers\Admin\TestController'
-        //        ]);
+        // Edit Item
+
 
         /*
         |-------------------------------------------------------
@@ -101,6 +100,12 @@ Route::group([
         Route::get('{module}/{id}/{action}', [
             'as'   => 'scaffold.action',
             'uses' => 'Controller@action',
+        ])->where('module', $pattern);
+
+        // Custom method
+        Route::get('{module}/{id}/do/{action}', [
+            'as'   => 'scaffold.action',
+            'uses' => 'Controller@customAction',
         ])->where('module', $pattern);
 
         // Custom batch method

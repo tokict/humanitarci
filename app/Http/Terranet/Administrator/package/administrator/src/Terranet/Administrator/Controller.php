@@ -2,6 +2,8 @@
 
 namespace Terranet\Administrator;
 
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Input;
 use Terranet\Administrator\Contracts\Module;
 use Terranet\Administrator\Middleware\Authenticate;
 use Terranet\Administrator\Middleware\AuthProvider;
@@ -113,6 +115,7 @@ class Controller extends ControllerAbstract
     {
         $this->authorize('create', $eloquent = app('scaffold.module')->model());
 
+        dd($page);
         $eloquent = app('scaffold.actions')->exec('save', [$eloquent, $request]);
 
         return $this->redirectTo($page, $eloquent->id)->with(
@@ -179,6 +182,20 @@ class Controller extends ControllerAbstract
         $this->rememberPreviousPage();
 
         app('scaffold.actions')->exec($action, [$eloquent]);
+
+        return redirect()->to($this->getPreviousUrl())->with(
+            'messages',
+            [trans('administrator::messages.action_success')]
+        );
+    }
+
+    public function customAction($page, $id, $action)
+    {
+        $this->authorize($action, $eloquent = app('scaffold.model'));
+
+        $this->rememberPreviousPage();
+
+        $eloquent->{$action};
 
         return redirect()->to($this->getPreviousUrl())->with(
             'messages',

@@ -2,7 +2,6 @@
 
 namespace App\Http\Terranet\Administrator\Modules;
 
-use App\User;
 use Terranet\Administrator\Contracts\Module\Editable;
 use Terranet\Administrator\Contracts\Module\Exportable;
 use Terranet\Administrator\Contracts\Module\Filtrable;
@@ -45,5 +44,9 @@ class Persons extends Resource implements Navigable, Filtrable, Editable, Valida
     public function linkAttributes()
     {
         return ['icon' => 'fa fa-user'];
+    }
+
+    public function test(){
+        dd(333);
     }
 }
