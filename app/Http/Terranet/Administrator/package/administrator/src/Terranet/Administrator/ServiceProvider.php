@@ -2,7 +2,7 @@
 
 namespace Terranet\Administrator;
 
-include '../app/Http/Terranet/Administrator/package/administrator/src/helpers.php';
+include app_path('Http/Terranet/Administrator/package/administrator/src/helpers.php');
 use App\User;
 use Codesleeve\LaravelStapler\Providers\L5ServiceProvider as StaplerServiceProvider;
 use Collective\Html\FormFacade;
