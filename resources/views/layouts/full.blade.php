@@ -45,7 +45,6 @@
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
 <!-- JS -->
-<script type="text/javascript" src="front/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="front/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="front/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="front/js/SmoothScroll.js"></script>

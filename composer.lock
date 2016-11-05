@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "59e1b0316ec2f1218bf1ef73a178ead9",
-    "content-hash": "02ab30b74a53640ca5ce149d015837c3",
+    "hash": "7869f0064aadbd41ad8626bf5314807e",
+    "content-hash": "f06ee04ae9335dbb26bcc1c549a41a28",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1666,6 +1666,48 @@
                 "reliese"
             ],
             "time": "2016-10-23 22:53:56"
+        },
+        {
+            "name": "sergeymakinen/laravel-phpstorm-stubs",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sergeymakinen/laravel-phpstorm-stubs.git",
+                "reference": "dea4c6cbccddb791f6e75eaf02883b0aa5b2069d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sergeymakinen/laravel-phpstorm-stubs/zipball/dea4c6cbccddb791f6e75eaf02883b0aa5b2069d",
+                "reference": "dea4c6cbccddb791f6e75eaf02883b0aa5b2069d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.1"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Makinen",
+                    "email": "sergey@makinen.ru",
+                    "homepage": "https://makinen.ru"
+                }
+            ],
+            "description": "Laravel PhpStorm autocomplete stubs",
+            "homepage": "https://github.com/sergeymakinen/laravel-phpstorm-stubs",
+            "keywords": [
+                "auto-complete",
+                "autocomplete",
+                "laravel",
+                "laravel-phpstorm-stubs",
+                "phpstorm",
+                "stub",
+                "stubs"
+            ],
+            "time": "2016-09-14 19:14:30"
         },
         {
             "name": "swiftmailer/swiftmailer",

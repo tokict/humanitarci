@@ -1,1 +1,0 @@
-{!! $navigation->render('tools') !!}
