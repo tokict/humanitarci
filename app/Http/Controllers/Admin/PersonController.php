@@ -32,7 +32,7 @@ class PersonController extends Controller
                 'last_name' => 'required|max:30',
                 'social_id' => 'required|unique:persons|max:30',
                 'city_id' => 'required|numeric',
-                'address' => 'required|max:100',
+                'address' => 'required|max:150',
                 'contact_phone' => 'numeric',
                 'contact_email' => 'unique:persons|max:100',
                 'gender' => 'required|max:1|numeric',

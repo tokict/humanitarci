@@ -41,26 +41,29 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-1">
                                     <label class="control-label">Title</label>
-                                    <input type="text" class="form-control" name="title">
+                                    <input type="text" class="form-control" name="title" maxlength="15">
                                     <span class="help-block m-b-none">(Mr. Ms. , etc..)</span>
                                 </div>
 
                                 <div class="col-sm-2"><label class="control-label">First name</label>
                                     <input type="text"
                                            class="form-control"
-                                           name="first_name">
+                                           name="first_name"
+                                           maxlength="30">
                                 </div>
 
                                 <div class="col-sm-2"><label class="control-label">Middle name</label>
                                     <input type="text"
                                            class="form-control"
-                                           name="middle_name">
+                                           name="middle_name"
+                                           maxlength="30">
                                 </div>
 
                                 <div class="col-sm-2"><label class="control-label">Last name</label>
                                     <input type="text"
                                            class="form-control"
-                                           name="last_name">
+                                           name="last_name"
+                                           maxlength="30">
                                 </div>
                                 <div class="col-sm-2"><label class="control-label">Gender</label>
                                     <select class="form-control m-b" name="gender">
@@ -76,7 +79,8 @@
                                 <div class="col-sm-10">
                                     <input type="text"
                                            class="form-control"
-                                           name="social_id">
+                                           name="social_id"
+                                           maxlength="30">
                                     <span class="help-block m-b-none">ID that government uses to identify this person (Social security or tax number i.e)</span>
                                 </div>
                             </div>
@@ -94,7 +98,8 @@
                                 <div class="col-sm-10">
                                     <input type="text"
                                            class="form-control"
-                                           name="address">
+                                           name="address"
+                                           maxlength="150">
                                     <span class="help-block m-b-none">Current address</span>
                                 </div>
                             </div>
@@ -112,7 +117,8 @@
                                 <div class="col-sm-10">
                                     <input type="email"
                                            class="form-control"
-                                           name="contact_email">
+                                           name="contact_email"
+                                           maxlength="100">
                                     <span class="help-block m-b-none">Contact email</span>
                                 </div>
                             </div>

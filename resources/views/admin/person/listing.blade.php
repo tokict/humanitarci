@@ -53,10 +53,10 @@
                                         <td>{{ $person->last_name }}</td>
                                         <td class="center">{{ $person->gender }}</td>
                                         <td class="center">{{ $person->social_id }}</td>
-                                        <td class="center">{{ $person->city }}</td>
+                                        <td class="center">{{ $person->city_id }}</td>
                                         <td class="center">{{ $person->address }}</td>
-                                        <td class="center">{{ $person->phone }}</td>
-                                        <td class="center">{{ $person->email }}</td>
+                                        <td class="center">{{ $person->contact_phone }}</td>
+                                        <td class="center">{{ $person->contact_email }}</td>
                                         <td class="center">{{ $person->social_accounts }}</td>
                                         <td class="center">
                                             <a href="#" class="btn btn-sm btn-primary">View</a>
