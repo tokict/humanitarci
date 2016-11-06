@@ -76,7 +76,7 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Social ID</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-3">
                                     <input type="text"
                                            class="form-control"
                                            name="social_id"
@@ -86,16 +86,17 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
-                                <div class="col-sm-10">
-                                    <input type="text"
-                                           class="form-control"
-                                           name="city_id">
+                                <div class="col-sm-5">
+                                    <select class="form-control citySelect" name="city_id">
+                                        <option value="">Select</option>
+
+                                    </select>
                                     <span class="help-block m-b-none">City of residence</span>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Address</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-4">
                                     <input type="text"
                                            class="form-control"
                                            name="address"
@@ -105,7 +106,7 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Phone</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-2">
                                     <input type="number"
                                            class="form-control"
                                            name="contact_phone">
@@ -114,7 +115,7 @@
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-3">
                                     <input type="email"
                                            class="form-control"
                                            name="contact_email"
@@ -137,11 +138,3 @@
         </div>
     </div>
 @endsection
-
-
-<th>Social id</th>
-<th>City</th>
-<th>Address</th>
-<th>Phone</th>
-<th>Email</th>
-<th>Social accounts</th>

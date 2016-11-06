@@ -18,7 +18,7 @@ trait ControllerIndexTrait {
     {
         if(method_exists($this, $action))
         {
-            return $this->{$action}($request);
+            return $this->{$action}($request, $params);
         }else{
             abort(404, 'Page not found.');
         }

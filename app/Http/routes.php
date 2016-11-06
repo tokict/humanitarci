@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     Route::get('/', 'Admin\AdminController@index');
 
+    //Ajax
+    Route::match(array('GET', 'POST'),'/ajax/{action}/{params?}', 'Admin\AjaxController@index');
+
     //Persons
     Route::match(array('GET', 'POST'),'/person/{action}/{params?}', 'Admin\PersonController@index');
 

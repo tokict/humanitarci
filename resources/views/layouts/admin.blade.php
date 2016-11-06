@@ -19,6 +19,8 @@
     <!-- daterange picker -->
     <link rel="stylesheet"
           href="/administrator/plugins/daterangepicker/daterangepicker-bs3.css">
+    {{--Select2--}}
+    <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
     <!-- Theme style -->
     <link rel="stylesheet" href="/administrator/css/animate.css">
     <link rel="stylesheet" href="/administrator/css/style.css">
@@ -368,6 +370,7 @@
 <!-- ChartJS-->
 <script src="/administrator/js/plugins/chartJs/Chart.min.js"></script>
 
+
 <!-- Toastr -->
 <script src="/administrator/js/plugins/toastr/toastr.min.js"></script>
 
@@ -380,7 +383,11 @@
 {{--<!-- FastClick -->--}}
 {{--<script src="/administrator/plugins/fastclick/fastclick.min.js"></script>--}}
 
-        <!-- date-picker -->
+        <!-- Select2 -->
+<script src="/administrator/js/plugins/select2/select2.full.min.js"></script>
+
+
+<!-- date-picker -->
 <script src="/administrator/plugins/datepicker/bootstrap-datepicker.js"></script>
 
 <script type="text/javascript"
@@ -391,6 +398,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/administrator/js/plugins/pace/pace.min.js"></script>
 <script src="/administrator/js/pages/listings.js"></script>
+<script src="/administrator/js/pages/create.js"></script>
 
 
 </body>
