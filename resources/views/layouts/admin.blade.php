@@ -9,20 +9,20 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="administrator/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/administrator/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/administrator/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- date picker -->
-    <link rel="stylesheet" href="administrator/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet" href="/administrator/plugins/datepicker/datepicker3.css">
     <!-- daterange picker -->
     <link rel="stylesheet"
-          href="administrator/plugins/daterangepicker/daterangepicker-bs3.css">
+          href="/administrator/plugins/daterangepicker/daterangepicker-bs3.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="administrator/css/animate.css">
-    <link rel="stylesheet" href="administrator/css/style.css">
-    <link rel="stylesheet" href="administrator/css/extended.css">
+    <link rel="stylesheet" href="/administrator/css/animate.css">
+    <link rel="stylesheet" href="/administrator/css/style.css">
+    <link rel="stylesheet" href="/administrator/css/extended.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
@@ -30,7 +30,7 @@
 
 
     <!-- iCheck -->
-    <link rel="stylesheet" href="administrator/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="/administrator/plugins/iCheck/square/blue.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,7 +40,7 @@
     <![endif]-->
 
     <link rel="stylesheet"
-          href="administrator/plugins/fancybox/source/jquery.fancybox.css?v=2.1.5"
+          href="/administrator/plugins/fancybox/source/jquery.fancybox.css?v=2.1.5"
           type="text/css" media="screen"/>
 
     <style>
@@ -54,12 +54,12 @@
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
-                            <li class="nav-header">
-                                <div class="dropdown profile-element">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
                                     <span>
                                         <img alt="image" class="img-circle" src="img/profile_small.jpg"/>
                                     </span>
-                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                         <span class="clear">
                                             <span class="block m-t-xs">
                                                 <strong class="font-bold">Tino</strong>
@@ -68,70 +68,125 @@
                                                 <b class="caret"></b>
                                             </span>
                                         </span>
-                                    </a>
-                                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                        <li><a href="profile.html">Profile</a></li>
-                                        <li><a href="contacts.html">Contacts</a></li>
-                                        <li><a href="mailbox.html">Mailbox</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="login.html">Logout</a></li>
-                                    </ul>
-                                </div>
-                                <div class="logo-element">
-                                    IN+
-                                </div>
-                            </li>
-                            <li class="active">
-                                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Overviews</span> <span
-                                            class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li class="active"><a href="index.html">Campaigns</a></li>
-                                    <li><a href="dashboard_2.html">Donations</a></li>
-                                    <li><a href="dashboard_3.html">New users</a></li>
-                                    <li><a href="dashboard_4_1.html">Distribution</a></li>
-                                    <li><a href="dashboard_5.html">Incomes </a></li>
-                                </ul>
-                            </li>
-                            <li class="active">
-                                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Users</span> <span
-                                            class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li class="active"><a href="index.html">Persons</a></li>
-                                    <li><a href="dashboard_2.html">Donors</a></li>
-                                    <li><a href="dashboard_3.html">Beneficiaries</a></li>
-                                </ul>
-                            </li>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Overviews</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="index.html">Campaigns</a></li>
+                        <li><a href="dashboard_2.html">Donations</a></li>
+                        <li><a href="dashboard_3.html">Donors</a></li>
+                        <li><a href="dashboard_4_1.html">Distribution</a></li>
+                        <li><a href="dashboard_5.html">Incomes </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-dot-circle-o"></i> <span class="nav-label">Campaigns</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="/admin/campaign/create">New campaign</a></li>
+                        <li><a href="admin/campaign/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-dollar"></i> <span class="nav-label">Donations</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="/admin/donation/create">New donation</a></li>
+                        <li><a href="/admin/donation/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Beneficiaries</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="/admin/beneficiary/create">New beneficiary</a></li>
+                        <li><a href="/admin/beneficiary/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Donors</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="/admin/donor/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Persons</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="/admin/person/create">New person</a></li>
+                        <li><a href="/admin/person/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Legal entities</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="/admin/legalEntity/create">New entity</a></li>
+                        <li><a href="/admin/legalEntity/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-list-alt"></i> <span class="nav-label">Reports</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
 
-                            <li>
-                                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration</span><span
-                                            class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level collapse">
-                                    <li>
-                                        <a href="#">Third Level <span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Third Level Item</a>
-                                            </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">Documents</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="/admin/document/create">New document</a></li>
+                        <li><a href="/admin/document/listing">List</a></li>
+                    </ul>
+                </li>
 
-                                        </ul>
-                                    </li>
-                                    <li><a href="dashboard_4_1.html">Persons</a></li>
-                                    <li><a href="dashboard_5.html">Legal entities </a></li>
-                                    <li>
-                                        <a href="/admin/users">Admins</a></li>
-                                </ul>
-                            </li>
+                <li>
+                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration</span><span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="#">Settings <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="#">Third Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level Item</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li><a href="dashboard_4_1.html">Persons</a></li>
+                        <li><a href="dashboard_5.html">Legal entities </a></li>
+                        <li>
+                            <a href="/admin/users">Admins</a></li>
+                    </ul>
+                </li>
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David
+                                        Williams</strong>
+                             </span> <span class="text-muted text-xs block">Art Director <b
+                                            class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="#">Logout</a></li>
                         </ul>
@@ -281,11 +336,12 @@
 </div>
 
 
-
 <!-- jQuery 2.1.4 -->
-<script src="administrator/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="/administrator/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
-<script src="administrator/bootstrap/js/bootstrap.min.js"></script>
+<script src="/administrator/bootstrap/js/bootstrap.min.js"></script>
+{{--Datatables --}}
+<script src="/administrator/js/plugins/dataTables/datatables.min.js" type="text/javascript"></script>
 <!-- Flot -->
 <script src="/administrator/js/plugins/flot/jquery.flot.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
@@ -315,25 +371,26 @@
 <!-- Toastr -->
 <script src="/administrator/js/plugins/toastr/toastr.min.js"></script>
 
-<script src="administrator/plugins/daterangepicker/moment.min.js"></script>
-<script src="administrator/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="/administrator/plugins/daterangepicker/moment.min.js"></script>
+<script src="/administrator/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- metisMenu -->
-<script src="administrator/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/administrator/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <!-- SlimScroll -->
-<script src="administrator/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/administrator/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 {{--<!-- FastClick -->--}}
-{{--<script src="administrator/plugins/fastclick/fastclick.min.js"></script>--}}
+{{--<script src="/administrator/plugins/fastclick/fastclick.min.js"></script>--}}
 
         <!-- date-picker -->
-<script src="administrator/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/administrator/plugins/datepicker/bootstrap-datepicker.js"></script>
 
 <script type="text/javascript"
-        src="administrator/plugins/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+        src="/administrator/plugins/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 <!-- AdminLTE App -->
-<script src="administrator/js/inspinia.js"></script>
+<script src="/administrator/js/inspinia.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="administrator/js/plugins/pace/pace.min.js"></script>
+<script src="/administrator/js/plugins/pace/pace.min.js"></script>
+<script src="/administrator/js/pages/listings.js"></script>
 
 
 </body>

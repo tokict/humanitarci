@@ -32,10 +32,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Admin controllers
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'Admin\AdminController@index');
+
+    //Persons
+    Route::match(array('GET', 'POST'),'/person/{action}/{params?}', 'Admin\PersonController@index');
 
 
 });
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'Admin\HomeController@index');

@@ -23,7 +23,6 @@
     "sergeymakinen/laravel-phpstorm-stubs": "^1.0"
   },
   "require-dev": {
-    "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
     "phpunit/phpunit": "~4.0",
     "symfony/css-selector": "2.8.*|3.0.*",
@@ -37,8 +36,6 @@
     ],
     "psr-4": {
       "App\\": "app/",
-      "Pingpong\\Menus\\": "app/Http/Terranet/Administrator/package/menus/",
-      "Coduo\\PHPHumanizer\\": "app/Http/Terranet/Administrator/package/php-humanizer/src/Coduo/PHPHumanizer/"
 
     },
     "psr-0":{

@@ -7,6 +7,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -49,6 +50,13 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Person extends Eloquent
 {
+	use SoftDeletes;
+
+	/**
+	 * The attributes that should be mutated to dates.
+	 *
+	 * @var array
+	 */
 	protected $table = 'persons';
 	public $timestamps = false;
 
@@ -62,7 +70,7 @@ class Person extends Eloquent
 	];
 
 	protected $dates = [
-		'modified_at'
+		'modified_at', 'deleted_at'
 	];
 
 	protected $fillable = [
@@ -74,16 +82,10 @@ class Person extends Eloquent
 		'address',
 		'contact_phone',
 		'contact_email',
-		'social_accounts',
 		'gender',
 		'title',
-		'is_donor',
-		'is_beneficiary',
-		'is_admin',
 		'bank_id',
 		'bank_acc',
-		'modified_at',
-		'device_id'
 	];
 
 	public function bank()
