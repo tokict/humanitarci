@@ -19,6 +19,10 @@ class AlterLegalEntitiesTable extends Migration
 			$table->char('contact_email', 100);
 			$table->char('contact_phone', 20);
 			$table->foreign('represented_by')->references('id')->on('persons')->onDelete('no action')->onUpdate('no action');
+			$table->integer('bank_id')->unsigned()->change();
+			$table->integer('city_id')->unsigned()->change();
+			$table->foreign('bank_id')->references('id')->on('banks')->onDelete('no action')->onUpdate('no action');
+			$table->foreign('city_id')->references('id')->on('cities')->onDelete('no action')->onUpdate('no action');
 
 		});
 	}
@@ -35,6 +39,8 @@ class AlterLegalEntitiesTable extends Migration
 			$table->dropColumn('contact_email');
 			$table->dropColumn('contact_phone');
 			$table->dropForeign(['represented_by']);
+			$table->char('bank_id', 45)->change();
+			$table->dropForeign(['bank_id', 'city_id']);
 		});
 	}
 

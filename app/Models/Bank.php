@@ -21,7 +21,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $swift_code
  * Swift code of the bank
  *
- * @property \App\Models\LegalEntity $entity
+ * @property \App\Models\LegalEntity $legalEntity
  *
  * 
  *
@@ -39,7 +39,7 @@ class Bank extends Eloquent
 	];
 
 
-	public function entity()
+	public function legalEntity()
 	{
 		return $this->belongsTo(\App\Models\LegalEntity::class);
 	}

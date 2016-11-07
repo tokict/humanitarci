@@ -19,6 +19,7 @@ class BankController extends Controller
     public function listing()
     {
         $banks = Bank::paginate(15);
+
         return view('admin.bank.listing', ['banks' => $banks]);
     }
 

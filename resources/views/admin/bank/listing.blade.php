@@ -38,10 +38,10 @@
                                 </thead>
                                 <tbody>
                                 @foreach ($banks as $bank)
-                                    <tr class="gradeX">{{$bank}}
+                                    <tr class="gradeX">
                                         <td>{{ $bank->name }}</td>
                                         <td>{{ $bank->swift_code }}</td>
-                                        <td class="center">{{ $bank->entity }}</td>
+                                        <td class="center">{{ $bank->legalEntity->name }}</td>
 
 
                                         <td class="center">

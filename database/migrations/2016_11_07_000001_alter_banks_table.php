@@ -15,6 +15,7 @@ class AlterBanksTable extends Migration
 	{
 		Schema::table('banks', function(Blueprint $table)
 		{
+			$table->dropColumn('address_line');
 			$table->integer('legal_entity_id')->unsigned();
 			$table->foreign('legal_entity_id')->references('id')->on('legal_entities')->onDelete('no action')->onUpdate('no action');
 
@@ -31,6 +32,7 @@ class AlterBanksTable extends Migration
 		Schema::table('banks', function ($table) {
 			$table->dropColumn('legal_entity_id');
 			$table->dropForeign(['legal_entity_id']);
+			$table->string('address_line', 45)->nullable();
 		});
 	}
 
