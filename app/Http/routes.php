@@ -14,6 +14,40 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get("/login", 'Auth\AuthController@login');
+Route::post("/login", 'Auth\AuthController@login');
 
-
+//Free to browse controllers
 Route::get("/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
+
+
+//Authenticated users of site controllers
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('user/profile', function () {
+        // Uses Auth Middleware
+    });
+});
+
+
+//Admin controllers
+Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
+    Route::get('/', 'Admin\AdminController@index');
+
+    //Ajax
+    Route::match(array('GET', 'POST'),'/ajax/{action}/{params?}', 'Admin\AjaxController@index');
+
+    //Persons
+    Route::match(array('GET', 'POST'),'/person/{action}/{params?}', 'Admin\PersonController@index');
+
+    //Legal entities
+    Route::match(array('GET', 'POST'),'/legal-entity/{action}/{params?}', 'Admin\LegalEntityController@index');
+
+    //Banks
+    Route::match(array('GET', 'POST'),'/bank/{action}/{params?}', 'Admin\BankController@index');
+
+
+});
+Route::auth();
+
+Route::get('/home', 'Admin\HomeController@index');
