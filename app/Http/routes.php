@@ -40,6 +40,12 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     //Persons
     Route::match(array('GET', 'POST'),'/person/{action}/{params?}', 'Admin\PersonController@index');
 
+    //Legal entities
+    Route::match(array('GET', 'POST'),'/legal-entity/{action}/{params?}', 'Admin\LegalEntityController@index');
+
+    //Banks
+    Route::match(array('GET', 'POST'),'/bank/{action}/{params?}', 'Admin\BankController@index');
+
 
 });
 Route::auth();

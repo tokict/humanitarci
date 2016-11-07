@@ -58,9 +58,6 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                                    <span>
-                                        <img alt="image" class="img-circle" src="img/profile_small.jpg"/>
-                                    </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                         <span class="clear">
                                             <span class="block m-t-xs">
@@ -137,8 +134,8 @@
                     <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Legal entities</span> <span
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/legalEntity/create">New entity</a></li>
-                        <li><a href="/admin/legalEntity/listing">List</a></li>
+                        <li class="active"><a href="/admin/legal-entity/create">New entity</a></li>
+                        <li><a href="/admin/legal-entity/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -162,16 +159,13 @@
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li>
-                            <a href="#">Settings <span class="fa arrow"></span></a>
+                            <a href="#">Banks <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="#">Third Level Item</a>
+                                    <a href="/admin/bank/listing">List</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
+                                    <a href="/admin/bank/create">New bank</a>
                                 </li>
 
                             </ul>
@@ -226,7 +220,6 @@
                             <li>
                                 <div class="dropdown-messages-box">
                                     <a href="profile.html" class="pull-left">
-                                        <img alt="image" class="img-circle" src="img/a7.jpg">
                                     </a>
                                     <div class="media-body">
                                         <small class="pull-right">46h ago</small>
@@ -240,7 +233,6 @@
                             <li>
                                 <div class="dropdown-messages-box">
                                     <a href="profile.html" class="pull-left">
-                                        <img alt="image" class="img-circle" src="img/a4.jpg">
                                     </a>
                                     <div class="media-body ">
                                         <small class="pull-right text-navy">5h ago</small>
@@ -254,7 +246,6 @@
                             <li>
                                 <div class="dropdown-messages-box">
                                     <a href="profile.html" class="pull-left">
-                                        <img alt="image" class="img-circle" src="img/profile.jpg">
                                     </a>
                                     <div class="media-body ">
                                         <small class="pull-right">23h ago</small>
