@@ -35,11 +35,7 @@
       "database"
     ],
     "psr-4": {
-      "App\\": "app/",
-
-    },
-    "psr-0":{
-      "Terranet\\Administrator" : "app/Http/Terranet/Administrator/package/administrator/src/"
+      "App\\": "app/"
 
     }
   },
