@@ -10,35 +10,33 @@
   "require": {
     "php": ">=5.5.9",
     "laravel/framework": "5.2.*",
-    "terranet/administrator" : "3.0.9",
-    "adminarchitect/pages": "^1.0",
-    "adminarchitect/news": "^1.0",
-    "adminarchitect/contacts": "^1.0",
-    "adminarchitect/options": "^1.1",
-    "adminarchitect/localizer": "v1.0.1.1",
-    "terranet/translatable": "^1.0",
-    "reliese/laravel": "^0.0.9"
+    "reliese/laravel": "^0.0.9",
+    "davejamesmiller/laravel-breadcrumbs": "^3.0",
+    "codesleeve/laravel-stapler": "^1.0",
+    "imagine/imagine": "^0.6.3",
+    "symfony/polyfill-intl-icu": "^1.2",
+    "symfony/intl": "^3.1",
+    "symfony/config": "^3.1",
+    "symfony/filesystem": "^3.1",
+    "creativeorange/gravatar": "^1.0",
+    "laravelcollective/html": "5.2.*",
+    "sergeymakinen/laravel-phpstorm-stubs": "^1.0"
   },
   "require-dev": {
-    "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
     "phpunit/phpunit": "~4.0",
     "symfony/css-selector": "2.8.*|3.0.*",
-    "symfony/dom-crawler": "2.8.*|3.0.*",
-    "terranet/administrator" : "3.0.9"
+    "symfony/dom-crawler": "2.8.*|3.0.*"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "./packages/administrator"
-    }
-  ],
+
+
   "autoload": {
     "classmap": [
       "database"
     ],
     "psr-4": {
       "App\\": "app/"
+
     }
   },
   "autoload-dev": {

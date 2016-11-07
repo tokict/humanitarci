@@ -21,8 +21,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $swift_code
  * Swift code of the bank
  *
- * @property string $address_line
- * Address of bank headquarters
+ * @property \App\Models\LegalEntity $legalEntity
+ *
  * 
  *
  *
@@ -35,7 +35,13 @@ class Bank extends Eloquent
 	protected $fillable = [
 		'name',
 		'swift_code',
-		'address_line'
+		'legal_entity_id'
 	];
+
+
+	public function legalEntity()
+	{
+		return $this->belongsTo(\App\Models\LegalEntity::class);
+	}
 
 }

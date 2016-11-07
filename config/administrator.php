@@ -34,12 +34,8 @@ return [
         }
 
         $user = auth('admin')->user();
-        
-        if (method_exists($user, 'isSuperAdmin')) {
-            return call_user_func([$user, 'isSuperAdmin']);
-        }
 
-        return (1 === (int) $user->id);
+        return !empty($user->id);
     },
     /**
      * The menu item that should be used as the default landing page of the administrative section
