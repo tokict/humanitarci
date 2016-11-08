@@ -14,8 +14,22 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property int $legal_entity_id
- * 
- * @property \App\Models\LegalEntity $legal_entity
+ * @property int $name
+ * @property int $contact_email
+ * @property int $contact_phone
+ * @property int $donations_address
+ * @property int $donations_coordinates
+ * @property int $description
+ * @property int $logo_id
+ * @property int $represented_by
+ * @property int $city_id
+ * @property int $status
+ *
+ * @property \App\Models\Person $person
+ * @property \App\Models\LegalEntity $legalEntity
+ * @property \App\Models\City $city
+ * @property \App\Models\Media $logo
+ *
  * @property \Illuminate\Database\Eloquent\Collection $admins
  * @property \Illuminate\Database\Eloquent\Collection $campaigns
  * @property \Illuminate\Database\Eloquent\Collection $documents
@@ -34,17 +48,31 @@ class Organization extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'legal_entity_id' => 'int'
+		'legal_entity_id' => 'int',
+        '$logo_id' => 'int',
+        'city_id' => 'int',
+        'represented_by' => 'int'
 	];
 
 	protected $fillable = [
-		'legal_entity_id'
+		'legal_entity_id',
+		'name',
+		'contact_email',
+		'contact_phone',
+		'donations_address',
+		'donations_coordinates',
+		'description',
+		'logo_id',
+		'represented_by',
+		'city_id',
+		'status',
 	];
 
 	public function legal_entity()
 	{
 		return $this->belongsTo(\App\Models\LegalEntity::class);
 	}
+
 
 	public function admins()
 	{

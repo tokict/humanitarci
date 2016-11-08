@@ -15,6 +15,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $id
  * @property string $name
  * @property int $region_id
+ *
+ *
  * 
  * @property \App\Models\Region $region
  * @property \Illuminate\Database\Eloquent\Collection $people

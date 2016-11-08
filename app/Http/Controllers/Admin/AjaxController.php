@@ -24,7 +24,9 @@ class AjaxController extends Controller
         $query = Input::get('q');
 
         $result = City::where('name', 'LIKE', '%' . $query . '%')->get();
-
+        foreach($result as $r){
+            $r->region = $r->region;
+        }
         return response()
             ->json($result);
     }
@@ -35,7 +37,9 @@ class AjaxController extends Controller
         $input = Input::get('q');
 
         $result = Person::where('first_name', 'LIKE', '%' . $input . '%')->orWhere('last_name', 'LIKE', '%' . $input . '%')->get();
-
+        foreach($result as $r){
+            $r->city = $r->city;
+        }
         return response()
             ->json($result);
     }
@@ -47,7 +51,10 @@ class AjaxController extends Controller
         $input = Input::get('q');
 
         $result = LegalEntity::where('name', 'LIKE', '%' . $input . '%')->get();
-
+        foreach($result as $r){
+            $r->bank = $r->bank;
+            $r->city = $r->city;
+        }
 
         return response()
             ->json($result);

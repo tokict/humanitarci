@@ -122,18 +122,62 @@ $(".entitySelect").select2({
     },
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
     minimumInputLength: 1,
-    templateResult: formatPerson, // omitted for brevity, see the source of this page
-    templateSelection: formatPersonSelection // omitted for brevity, see the source of this page
+    templateResult: formatEntity, // omitted for brevity, see the source of this page
+    templateSelection: formatEntitySelection // omitted for brevity, see the source of this page
 });
 
-function formatPerson (data) {
-    if (data.loading) return data.name;
+function formatEntity (data) {
+    if (data.loading) return "";
 
     return "<div class='select2-result-repository clearfix'>" +
         "<div class='select2-result-repository__title'>" + data.name + "</small></div>";
 
 }
 
-function formatPersonSelection (data) {
+function formatEntitySelection (data) {
     return data.name || data.text;
+}
+
+function initMap() {
+
+    $.each($('.coordinatesPicker'), function(index, value){
+
+        var center = {lat: 45.815399, lng: 	15.966568};
+        var map = new google.maps.Map(value, {
+            zoom: 6,
+            height: 400,
+            width: 600,
+            center: center
+        });console.log(map);
+
+        google.maps.event.addListener(map, 'click', function(event) {
+            //Get the location that the user clicked.
+            var clickedLocation = event.latLng;
+            //If the marker hasn't been added.
+            if(marker === false){
+                //Create the marker.
+                marker = new google.maps.Marker({
+                    position: clickedLocation,
+                    map: map,
+                    draggable: true //make it draggable
+                });
+                //Listen for drag events!
+                google.maps.event.addListener(marker, 'dragend', function(event){
+                    markerLocation();
+                });
+            } else{
+                //Marker has already been added, so just change its location.
+                marker.setPosition(clickedLocation);
+            }
+            //Get the marker's location.
+            var string = marker.getPosition().lat()+","+marker.getPosition().lng()
+            $(value).siblings("input").val(string);
+        });
+
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+    })
+
 }

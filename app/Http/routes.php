@@ -46,6 +46,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     //Banks
     Route::match(array('GET', 'POST'),'/bank/{action}/{params?}', 'Admin\BankController@index');
 
+    //Organizations
+    Route::match(array('GET', 'POST'),'/organization/{action}/{params?}', 'Admin\OrganizationController@index');
+
 
 });
 Route::auth();

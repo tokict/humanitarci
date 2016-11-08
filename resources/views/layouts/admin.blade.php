@@ -19,6 +19,9 @@
     <!-- daterange picker -->
     <link rel="stylesheet"
           href="/administrator/plugins/daterangepicker/daterangepicker-bs3.css">
+
+    {{--jasny--}}
+    <link href="/administrator/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     {{--Select2--}}
     <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
     <!-- Theme style -->
@@ -170,26 +173,23 @@
 
                             </ul>
                         </li>
-                        <li><a href="dashboard_4_1.html">Persons</a></li>
-                        <li><a href="dashboard_5.html">Legal entities </a></li>
+                        <li><a href="#">Persons <span class="fa arrow"></span></a></li>
                         <li>
-                            <a href="/admin/users">Admins</a></li>
+                            <a href="#">Organizations <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="/admin/organization/listing">List</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/organization/create">New organization</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li><a href="#">Legal entities <span class="fa arrow"></span></a></li>
+                        <li>
+                            <a href="/admin/users">Admins <span class="fa arrow"></span></a></li>
                     </ul>
-                </li>
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David
-                                        Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b
-                                            class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
                 </li>
             </ul>
 
@@ -361,6 +361,9 @@
 <!-- ChartJS-->
 <script src="/administrator/js/plugins/chartJs/Chart.min.js"></script>
 
+<!-- Jasny -->
+<script src="/administrator/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
 
 <!-- Toastr -->
 <script src="/administrator/js/plugins/toastr/toastr.min.js"></script>
@@ -390,7 +393,9 @@
 <script src="/administrator/js/plugins/pace/pace.min.js"></script>
 <script src="/administrator/js/pages/listings.js"></script>
 <script src="/administrator/js/pages/create.js"></script>
-
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw-IJobkXTjBne6HW-naXFKbXZ_BqqbVM&callback=initMap">
+</script>
 
 </body>
 </html>
