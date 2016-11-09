@@ -40,6 +40,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \App\Models\Device $device
  * @property \Illuminate\Database\Eloquent\Collection $admins
  * @property \Illuminate\Database\Eloquent\Collection $documents
+ * @property \Illuminate\Database\Eloquent\Collection $organizations
  * @property \Illuminate\Database\Eloquent\Collection $groups
  * @property \Illuminate\Database\Eloquent\Collection $media_links
  * @property \Illuminate\Database\Eloquent\Collection $outgoing_mails
@@ -106,6 +107,11 @@ class Person extends Eloquent
 	public function admins()
 	{
 		return $this->hasMany(\App\Models\Admin::class);
+	}
+
+	public function organizations()
+	{
+		return $this->hasMany(\App\Models\Organization::class, 'represented_by');
 	}
 
 	public function documents()

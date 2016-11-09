@@ -42,7 +42,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($organizations as $org){{$org}}
+                                @foreach ($organizations as $org)
                                     <tr class="gradeX">
                                         <td>{{ $org->name }}</td>
                                         <td class="center">{{ $org->legalEntity->name }}</td>

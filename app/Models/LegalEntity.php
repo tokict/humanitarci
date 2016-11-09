@@ -96,7 +96,7 @@ class LegalEntity extends Eloquent
 
 	public function person()
 	{
-		return $this->belongsTo(\App\Models\Person::class);
+		return $this->belongsTo(\App\Models\Person::class, 'represented_by');
 	}
 
 	public function bank()

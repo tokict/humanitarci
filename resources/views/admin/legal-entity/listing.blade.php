@@ -40,6 +40,7 @@
                                     <th>Bank acc</th>
                                     <th>Roles</th>
                                     <th>Represented by</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +55,7 @@
                                         <td>{{ isset( $entity->bank)?$entity->bank->name:"" }}</td>
                                         <td class="center">{{ $entity->bank_acc }}</td>
                                         <td>{{ $entity->roles }}</td>
+                                        <td>{{ $org->person->first_name }} {{$org->person->last_name}}</td>
 
 
                                         <td class="center">
@@ -78,6 +80,7 @@
                                     <th>Bank acc</th>
                                     <th>Roles</th>
                                     <th>Represented by</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </tfoot>
                             </table>

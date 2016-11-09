@@ -49,7 +49,7 @@ class Organization extends Eloquent
 
 	protected $casts = [
 		'legal_entity_id' => 'int',
-        '$logo_id' => 'int',
+        'logo_id' => 'int',
         'city_id' => 'int',
         'represented_by' => 'int'
 	];
@@ -68,10 +68,25 @@ class Organization extends Eloquent
 		'status',
 	];
 
-	public function legal_entity()
+	public function legalEntity()
 	{
 		return $this->belongsTo(\App\Models\LegalEntity::class);
 	}
+
+    public function city()
+    {
+        return $this->belongsTo(\App\Models\City::class);
+    }
+
+    public function person()
+    {
+        return $this->belongsTo(\App\Models\Person::class, 'represented_by');
+    }
+
+    public function logo()
+    {
+        return $this->belongsTo(\App\Models\Media::class);
+    }
 
 
 	public function admins()
