@@ -144,7 +144,4 @@ class Person extends Eloquent
 		return $this->hasMany(\App\Models\OutgoingSms::class);
 	}
 
-	public function test(){
-	dd('this is a test');
-}
 }

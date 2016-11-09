@@ -49,7 +49,7 @@
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Parent company</label>
-                                    <select class="form-control entitySelect" name="legal_entity_id">
+                                    <select class="form-control selectEntity" name="legal_entity_id">
                                         <option value="">Select</option>
 
                                     </select>

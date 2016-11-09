@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Create new person</h5>
+                        <h5>Create new admin</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -34,30 +34,22 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" class="form-horizontal" action="/admin/bank/create">
+                        <form method="post" class="form-horizontal" action="/admin/administrator/create">
                             {{csrf_field()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
 
-                                <div class="col-sm-2"><label class="control-label">Name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="name"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-2"
-                                ><label class="control-label">Swift</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="swift_code"
-                                           maxlength="30">
+                                <div class="col-sm-5">
+                                    <label class="control-label">User</label>
+                                    <select class="form-control selectUser" name="user_id">
+                                        <option value="">Select</option>
+                                    </select>
                                 </div>
 
                                 <div class="col-sm-5">
-                                    <label class="control-label">Legal entity</label>
-                                    <select class="form-control selectEntity" name="legal_entity_id">
+                                    <label class="control-label">Organization</label>
+                                    <select class="form-control selectOrganization" name="organization_id">
                                         <option value="">Select</option>
                                     </select>
                                 </div>

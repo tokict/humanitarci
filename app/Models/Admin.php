@@ -14,7 +14,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Admin is a member of an humanitarian organization or staff of platform. It MUST be connected to a person or organization
  * 
  * @property int $id
- * @property int $person_id
+ * @property int $user_id
+ * @property string $created_at
+ * @property int $created_by
  * If the admin is and individual, this is his person id
  *
  * @property int $organization_id
@@ -26,8 +28,11 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \App\Models\Organization $organization
  * Organization object associated with entry
  *
- * @property \App\Models\Person $person
+ * @property \App\Models\User $user
  * Person object associated with entry
+ *
+ * @property \App\Models\User $creator
+ * Who created it
  *
  * @property \Illuminate\Database\Eloquent\Collection $action_logs
  * Collection of logs for this admin
@@ -45,8 +50,9 @@ class Admin extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'person_id' => 'int',
-		'organization_id' => 'int'
+		'user_id' => 'int',
+		'organization_id' => 'int',
+		'created_by' => 'int'
 	];
 
 	protected $hidden = [
@@ -54,9 +60,12 @@ class Admin extends Eloquent
 	];
 
 	protected $fillable = [
-		'person_id',
+		'user_id',
 		'organization_id',
-		'password'
+		'password',
+		'user_id',
+		'created_by'
+
 	];
 
 	public function organization()
@@ -64,9 +73,14 @@ class Admin extends Eloquent
 		return $this->belongsTo(\App\Models\Organization::class);
 	}
 
-	public function person()
+	public function user()
 	{
-		return $this->belongsTo(\App\Models\Person::class);
+		return $this->belongsTo(\App\Models\User::class, 'user_id');
+	}
+
+	public function creator()
+	{
+		return $this->belongsTo(\App\Models\User::class, 'created_by');
 	}
 
 	public function action_logs()

@@ -186,9 +186,18 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">Legal entities <span class="fa arrow"></span></a></li>
                         <li>
-                            <a href="/admin/users">Admins <span class="fa arrow"></span></a></li>
+                            <a href="#">Admins <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="/admin/administrator/listing">List</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/administrator/create">New administrator</a>
+                                </li>
+
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
