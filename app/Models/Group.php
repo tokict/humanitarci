@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Group
@@ -30,7 +30,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Group extends Eloquent
+class Group extends BaseModel
 {
 	public $timestamps = false;
 

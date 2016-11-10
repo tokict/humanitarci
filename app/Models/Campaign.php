@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Campaign
@@ -119,7 +119,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Campaign extends Eloquent
+class Campaign extends BaseModel
 {
 	public $timestamps = false;
 

@@ -52,6 +52,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     //Administrators
     Route::match(array('GET', 'POST'),'/administrator/{action}/{params?}', 'Admin\AdministratorController@index');
 
+    //Beneficiaries
+    Route::match(array('GET', 'POST'),'/beneficiary/{action}/{params?}', 'Admin\BeneficiaryController@index');
+
 
 });
 Route::auth();

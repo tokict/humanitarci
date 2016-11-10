@@ -31,33 +31,39 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Tax id</th>
-                                    <th>City</th>
-                                    <th>Address</th>
-                                    <th>Email</th>
+                                    <th>Identifier</th>
+                                    <th>Profile image</th>
+                                    <th>Donors</th>
+                                    <th>Funds used</th>
+                                    <th>Person</th>
+                                    <th>Group</th>
+                                    <th>Entity</th>
                                     <th>Phone</th>
-                                    <th>Bank</th>
-                                    <th>Bank acc</th>
-                                    <th>Roles</th>
-                                    <th>Represented by</th>
+                                    <th>Email</th>
+                                    <th>Created by</th>
+                                    <th>Description</th>
+                                    <th>Public members</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($legalEntities as $entity)
+                                @foreach ($beneficiaries as $beneficiary)
                                     <tr class="gradeX">
-                                        <td>{{ $entity->name }}</td>
-                                        <td class="center">{{ $entity->tax_id }}</td>
-                                        <td>{{ $entity->city->name }}</td>
-                                        <td>{{ $entity->address }}</td>
-                                        <td>{{ $entity->contact_email }}</td>
-                                        <td>{{ $entity->contact_phone }}</td>
-                                        <td>{{ isset( $entity->bank)?$entity->bank->name:"" }}</td>
-                                        <td class="center">{{ $entity->bank_acc }}</td>
-                                        <td>{{ $entity->roles }}</td>
-                                        <td>{{ $entity->person->first_name }} {{$entity->person->last_name}}</td>
-
-
+                                        <td>{{ $beneficiary->name }}</td>
+                                        <td>{{ $beneficiary->identifier }}</td>
+                                        <td class="center">{{ $beneficiary->profile_image_id }}</td>
+                                        <td>{{ $beneficiary->donor_number }}</td>
+                                        <td>{{ $beneficiary->funds_used }}</td>
+                                        <td class="center">{{ isset($beneficiary->person)?$beneficiary->person->first_name:"" }}
+                                            {{ isset($beneficiary->person)?$beneficiary->person->last_name:""}}</td>
+                                        <td class="center">{{ isset($beneficiary->group)?$beneficiary->group->name:"" }}</td>
+                                        <td class="center">{{ isset($beneficiary->entity)?$beneficiary->entity->name:"" }}</td>
+                                        <td class="center">{{ $beneficiary->contact_phone }}</td>
+                                        <td class="center">{{ $beneficiary->contact_email }}</td>
+                                        <td class="center">{{ $beneficiary->creator->user->person->first_name }}
+                                        {{ $beneficiary->creator->user->person->last_name }}</td>
+                                        <td class="center">{{ $beneficiary->description }}</td>
+                                        <td class="center">{{ isset($beneficiary->members_public)?"Yes":"No" }}</td>
                                         <td class="center">
                                             <a href="#" class="btn btn-sm btn-primary">View</a>
                                             <a href="#" class="btn btn-sm btn-primary">Edit</a>
@@ -67,19 +73,25 @@
 
                                 @endforeach
 
+
+
+
                                 </tbody>
                                 <tfoot>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Tax id</th>
-                                    <th>City</th>
-                                    <th>Address</th>
-                                    <th>Email</th>
+                                    <th>Identifier</th>
+                                    <th>Profile image</th>
+                                    <th>Donors</th>
+                                    <th>Funds used</th>
+                                    <th>Person</th>
+                                    <th>Group</th>
+                                    <th>Entity</th>
                                     <th>Phone</th>
-                                    <th>Bank</th>
-                                    <th>Bank acc</th>
-                                    <th>Roles</th>
-                                    <th>Represented by</th>
+                                    <th>Email</th>
+                                    <th>Created by</th>
+                                    <th>Description</th>
+                                    <th>Public members</th>
                                     <th>Actions</th>
                                 </tr>
                                 </tfoot>

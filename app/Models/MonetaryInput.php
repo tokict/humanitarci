@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class MonetaryInput
@@ -29,7 +29,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class MonetaryInput extends Eloquent
+class MonetaryInput extends BaseModel
 {
 	protected $table = 'monetary_input';
 	public $timestamps = false;

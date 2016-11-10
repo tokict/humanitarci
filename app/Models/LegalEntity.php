@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class LegalEntity
@@ -53,7 +53,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class LegalEntity extends Eloquent
+class LegalEntity extends BaseModel
 {
 	public $timestamps = false;
 

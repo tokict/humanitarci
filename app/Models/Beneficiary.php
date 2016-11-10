@@ -7,8 +7,6 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
-
 /**
  * Class Beneficiary
  * This class handles public data that is to be presented to donors. It is a counterpart to donations class. So, donation goes to the beneficiary
@@ -62,10 +60,12 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $group_id
  * If this beneficiary is a group of people or entities, this is the group id. This MUST not be edited after first active campaign
  * 
- * @property \App\Models\LegalEntity $legal_entity
+ * @property \App\Models\LegalEntity $entity
  * LegalEntity object belonging to this beneficiary
  *
- * @property \App\Models\Admin $admin
+ * @property \App\Models\Person $person
+ *
+ * @property \App\Models\Admin $creator
  * Admin object belonging to this beneficiary
  *
  * @property \App\Models\Group $group
@@ -86,7 +86,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Beneficiary extends Eloquent
+class Beneficiary extends BaseModel
 {
 	public $timestamps = false;
 
@@ -121,12 +121,12 @@ class Beneficiary extends Eloquent
 		'company_id'
 	];
 
-	public function legal_entity()
+	public function entity()
 	{
-		return $this->belongsTo(\App\Models\LegalEntity::class, 'company_id');
+		return $this->belongsTo(\App\Models\LegalEntity::class, 'entity_id');
 	}
 
-	public function admin()
+	public function creator()
 	{
 		return $this->belongsTo(\App\Models\Admin::class, 'created_by_id');
 	}
@@ -144,6 +144,10 @@ class Beneficiary extends Eloquent
 	public function campaigns()
 	{
 		return $this->hasMany(\App\Models\Campaign::class);
+	}
+
+	public function person(){
+		return $this->belongsTo(\App\Models\Person::class, 'person_id');
 	}
 
 	public function donations()

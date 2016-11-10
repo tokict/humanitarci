@@ -8,7 +8,7 @@
 namespace App\Models;
 
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Person
@@ -22,12 +22,15 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  *
+ * @property \App\Models\Person $person
+ * Who is this
+ *
  * @property \Illuminate\Database\Eloquent\Collection $admins
 
  *
  * @package App\Models
  */
-class User extends Eloquent
+class User extends BaseModel
 {
 
 
@@ -58,6 +61,11 @@ class User extends Eloquent
 	public function admins()
 	{
 		return $this->hasMany(\App\Models\Admin::class);
+	}
+
+	public function person()
+	{
+		return $this->belongsTo(\App\Models\Person::class);
 	}
 
 }

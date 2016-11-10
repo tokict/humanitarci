@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class DonorReport
@@ -23,7 +23,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class DonorReport extends Eloquent
+class DonorReport extends BaseModel
 {
 	public $timestamps = false;
 

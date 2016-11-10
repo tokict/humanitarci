@@ -8,7 +8,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Person
@@ -49,7 +49,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Person extends Eloquent
+class Person extends BaseModel
 {
 	use SoftDeletes;
 

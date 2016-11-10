@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class PlatformReport
@@ -20,7 +20,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class PlatformReport extends Eloquent
+class PlatformReport extends BaseModel
 {
 	public $timestamps = false;
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Group;
 use App\Models\LegalEntity;
 use App\Models\Organization;
 use App\Models\Person;
@@ -85,6 +86,17 @@ class AjaxController extends Controller
         foreach($result as $r){
             $r->person = $r->person;
         }
+
+        return response()
+            ->json($result);
+    }
+
+    public function groups()
+    {
+
+        $input = Input::get('q');
+
+        $result = Group::where('name', 'LIKE', '%' . $input . '%')->get();
 
         return response()
             ->json($result);

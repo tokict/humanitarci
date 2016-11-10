@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class CronTasksLog
@@ -24,7 +24,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class CronTasksLog extends Eloquent
+class CronTasksLog extends BaseModel
 {
 	protected $table = 'cron_tasks_log';
 	public $timestamps = false;

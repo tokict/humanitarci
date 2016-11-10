@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- date picker -->
     <link rel="stylesheet" href="/administrator/plugins/datepicker/datepicker3.css">
+
+    <link href="/administrator/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/administrator/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
     <!-- daterange picker -->
     <link rel="stylesheet"
           href="/administrator/plugins/daterangepicker/daterangepicker-bs3.css">
@@ -24,6 +27,12 @@
     <link href="/administrator/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     {{--Select2--}}
     <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
+
+    {{--summernote--}}
+    <link href="/administrator/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/administrator/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+
     <!-- Theme style -->
     <link rel="stylesheet" href="/administrator/css/animate.css">
     <link rel="stylesheet" href="/administrator/css/style.css">
@@ -396,12 +405,19 @@
 <script type="text/javascript"
         src="/administrator/plugins/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+{{--iCheck--}}
+<script src="/administrator/js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="/administrator/js/plugins/summernote/summernote.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="/administrator/js/inspinia.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/administrator/js/plugins/pace/pace.min.js"></script>
 <script src="/administrator/js/pages/listings.js"></script>
 <script src="/administrator/js/pages/create.js"></script>
+<script src="/administrator/js/pages/shared.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw-IJobkXTjBne6HW-naXFKbXZ_BqqbVM&callback=initMap">
 </script>

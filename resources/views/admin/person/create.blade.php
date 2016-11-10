@@ -87,7 +87,7 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
                                 <div class="col-sm-5">
-                                    <select class="form-control citySelect" name="city_id">
+                                    <select class="form-control selectCity" name="city_id">
                                         <option value="">Select</option>
 
                                     </select>

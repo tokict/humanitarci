@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class ActionLog
@@ -38,7 +38,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class ActionLog extends Eloquent
+class ActionLog extends BaseModel
 {
 	public $timestamps = false;
 

@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Setting
@@ -20,7 +20,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Setting extends Eloquent
+class Setting extends BaseModel
 {
 	public $timestamps = false;
 

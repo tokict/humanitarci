@@ -129,7 +129,7 @@
                                                     class="fileinput-filename"></span></div>
                                         <span class="input-group-addon btn btn-default btn-file"><span
                                                     class="fileinput-new">Select file</span><span
-                                                    class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                                                    class="fileinput-exists">Change</span><input type="file" name="image"></span>
                                         <a href="#" class="input-group-addon btn btn-default fileinput-exists"
                                            data-dismiss="fileinput">Remove</a>
                                     </div>
