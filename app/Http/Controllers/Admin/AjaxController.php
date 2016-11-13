@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Beneficiary;
 use App\Models\City;
 use App\Models\Group;
 use App\Models\LegalEntity;
@@ -97,6 +98,17 @@ class AjaxController extends Controller
         $input = Input::get('q');
 
         $result = Group::where('name', 'LIKE', '%' . $input . '%')->get();
+
+        return response()
+            ->json($result);
+    }
+
+    public function beneficiaries()
+    {
+
+        $input = Input::get('q');
+
+        $result = Beneficiary::where('name', 'LIKE', '%' . $input . '%')->get();
 
         return response()
             ->json($result);

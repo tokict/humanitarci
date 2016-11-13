@@ -41,7 +41,6 @@
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Created by</th>
-                                    <th>Description</th>
                                     <th>Public members</th>
                                     <th>Actions</th>
                                 </tr>
@@ -62,7 +61,6 @@
                                         <td class="center">{{ $beneficiary->contact_email }}</td>
                                         <td class="center">{{ $beneficiary->creator->user->person->first_name }}
                                         {{ $beneficiary->creator->user->person->last_name }}</td>
-                                        <td class="center">{{ $beneficiary->description }}</td>
                                         <td class="center">{{ isset($beneficiary->members_public)?"Yes":"No" }}</td>
                                         <td class="center">
                                             <a href="#" class="btn btn-sm btn-primary">View</a>
@@ -90,7 +88,6 @@
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Created by</th>
-                                    <th>Description</th>
                                     <th>Public members</th>
                                     <th>Actions</th>
                                 </tr>

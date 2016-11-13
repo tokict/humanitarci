@@ -32,6 +32,12 @@
     <link href="/administrator/css/plugins/summernote/summernote.css" rel="stylesheet">
     <link href="/administrator/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
 
+    {{--ClockPicker--}}
+    <link href="/administrator/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    {{--DatePicker--}}
+    <link href="/administrator/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
 
     <!-- Theme style -->
     <link rel="stylesheet" href="/administrator/css/animate.css">
@@ -410,6 +416,12 @@
 
 <!-- SUMMERNOTE -->
 <script src="/administrator/js/plugins/summernote/summernote.min.js"></script>
+
+<!-- Clock picker -->
+<script src="/administrator/js/plugins/clockpicker/clockpicker.js"></script>
+
+<!-- Data picker -->
+<script src="/administrator/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 <!-- AdminLTE App -->
 <script src="/administrator/js/inspinia.js"></script>

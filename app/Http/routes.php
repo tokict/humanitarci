@@ -18,7 +18,8 @@ Route::get("/login", 'Auth\AuthController@login');
 Route::post("/login", 'Auth\AuthController@login');
 
 //Free to browse controllers
-Route::get("/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
+Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
+Route::match(array('GET', 'POST'),'/campaign/{action}/{params?}', 'CampaignController@index');
 
 
 //Authenticated users of site controllers
@@ -55,8 +56,10 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     //Beneficiaries
     Route::match(array('GET', 'POST'),'/beneficiary/{action}/{params?}', 'Admin\BeneficiaryController@index');
 
+    //Campaigns
+    Route::match(array('GET', 'POST'),'/campaign/{action}/{params?}', 'Admin\CampaignController@index');
+
 
 });
 Route::auth();
 
-Route::get('/home', 'Admin\HomeController@index');

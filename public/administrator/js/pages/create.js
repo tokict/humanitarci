@@ -78,7 +78,7 @@ $(".selectPerson").select2({
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
     minimumInputLength: 1,
     templateResult: formatPerson, // omitted for brevity, see the source of this page
-    templateSelection: formatselectPersonion // omitted for brevity, see the source of this page
+    templateSelection: formatSelectPersonion // omitted for brevity, see the source of this page
 });
 
 function formatPerson (data) {
@@ -89,7 +89,7 @@ function formatPerson (data) {
 
 }
 
-function formatselectPersonion (data) {
+function formatSelectPersonion (data) {
     return data.first_name?data.first_name+' '+data.last_name: data.text;
 }
 
@@ -123,7 +123,7 @@ $(".selectEntity").select2({
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
     minimumInputLength: 1,
     templateResult: formatEntity, // omitted for brevity, see the source of this page
-    templateSelection: formatselectEntityion // omitted for brevity, see the source of this page
+    templateSelection: formatSelectEntityion // omitted for brevity, see the source of this page
 });
 
 function formatEntity (data) {
@@ -134,7 +134,7 @@ function formatEntity (data) {
 
 }
 
-function formatselectEntityion (data) {
+function formatSelectEntityion (data) {
     return data.name || data.text;
 }
 
@@ -169,7 +169,7 @@ $(".selectOrganization").select2({
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
     minimumInputLength: 1,
     templateResult: formatOrganization, // omitted for brevity, see the source of this page
-    templateSelection: formatselectOrganizationion // omitted for brevity, see the source of this page
+    templateSelection: formatSelectOrganization // omitted for brevity, see the source of this page
 });
 
 function formatOrganization (data) {
@@ -180,7 +180,7 @@ function formatOrganization (data) {
 
 }
 
-function formatselectOrganizationion (data) {
+function formatSelectOrganization (data) {
     return data.name || data.text;
 }
 
@@ -215,7 +215,7 @@ $(".selectUser").select2({
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
     minimumInputLength: 1,
     templateResult: formatUser, // omitted for brevity, see the source of this page
-    templateSelection: formatselectUser // omitted for brevity, see the source of this page
+    templateSelection: formatSelectUser // omitted for brevity, see the source of this page
 });
 
 function formatUser (data) {
@@ -226,7 +226,7 @@ function formatUser (data) {
 
 }
 
-function formatselectUser (data) {
+function formatSelectUser (data) {
     return data.name || data.text;
 }
 
@@ -261,7 +261,7 @@ $(".selectGroup").select2({
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
     minimumInputLength: 1,
     templateResult: formatGroup, // omitted for brevity, see the source of this page
-    templateSelection: formatselectGroup // omitted for brevity, see the source of this page
+    templateSelection: formatSelectGroup // omitted for brevity, see the source of this page
 });
 
 function formatGroup (data) {
@@ -272,51 +272,54 @@ function formatGroup (data) {
 
 }
 
-function formatselectGroup (data) {
+function formatSelectGroup (data) {
     return data.name || data.text;
 }
 
 
-function initMap() {
 
-    $.each($('.coordinatesPicker'), function(index, value){
+$(".selectBeneficiary").select2({
+    ajax: {
+        url: "/admin/ajax/beneficiaries",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+            return {
+                q: params.term, // search term
+                page: params.page
+            };
+        },
+        processResults: function (data, params) {
+            // parse the results into the format expected by Select2
+            // since we are using custom formatting functions we do not need to
+            // alter the remote JSON data, except to indicate that infinite
+            // scrolling can be used
+            params.page = params.page || 1;
 
-        var center = {lat: 45.815399, lng: 	15.966568};
-        var map = new google.maps.Map(value, {
-            zoom: 6,
-            height: 400,
-            width: 600,
-            center: center
-        });console.log(map);
+            return {
+                results: data,
+                pagination: {
+                    more: (params.page * 30) < data.total_count
+                }
+            };
+        },
+        cache: true
+    },
+    escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+    minimumInputLength: 1,
+    templateResult: formatBeneficiary, // omitted for brevity, see the source of this page
+    templateSelection: formatSelectBeneficiary // omitted for brevity, see the source of this page
+});
 
-        google.maps.event.addListener(map, 'click', function(event) {
-            //Get the location that the user clicked.
-            var clickedLocation = event.latLng;
-            //If the marker hasn't been added.
-            if(marker === false){
-                //Create the marker.
-                marker = new google.maps.Marker({
-                    position: clickedLocation,
-                    map: map,
-                    draggable: true //make it draggable
-                });
-                //Listen for drag events!
-                google.maps.event.addListener(marker, 'dragend', function(event){
-                    markerLocation();
-                });
-            } else{
-                //Marker has already been added, so just change its location.
-                marker.setPosition(clickedLocation);
-            }
-            //Get the marker's location.
-            var string = marker.getPosition().lat()+","+marker.getPosition().lng()
-            $(value).siblings("input").val(string);
-        });
+function formatBeneficiary (data) {
+    if (data.loading) return "";
 
-        var marker = new google.maps.Marker({
-            position: center,
-            map: map
-        });
-    })
+    return "<div class='select2-result-repository clearfix'>" +
+        "<div class='select2-result-repository__title'>" + data.name + "</small></div>";
 
 }
+
+function formatSelectBeneficiary (data) {
+    return data.name || data.text;
+}
+

@@ -11,20 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="front/images/humanitarci-icon.png">
+    <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
     <link rel="apple-touch-icon" href="http://rhythm.bestlooker.pro/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="http://rhythm.bestlooker.pro/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114"
           href="http://rhythm.bestlooker.pro/images/apple-touch-icon-114x114.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="front/css/style.css">
-    <link rel="stylesheet" href="front/css/style-responsive.css">
-    <link rel="stylesheet" href="front/css/animate.min.css">
-    <link rel="stylesheet" href="front/css/vertical-rhythm.min.css">
-    <link rel="stylesheet" href="front/css/owl.carousel.css">
-    <link rel="stylesheet" href="front/css/magnific-popup.css">
+    <link rel="stylesheet" href="/front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/front/css/style.css">
+    <link rel="stylesheet" href="/front/css/style-responsive.css">
+    <link rel="stylesheet" href="/front/css/animate.min.css">
+    <link rel="stylesheet" href="/front/css/vertical-rhythm.min.css">
+    <link rel="stylesheet" href="/front/css/owl.carousel.css">
+    <link rel="stylesheet" href="/front/css/magnific-popup.css">
+    <link rel="stylesheet" href="/front/css/extended.css">
     <style type="text/css">
         .accent {
             color: #08c;
@@ -32,46 +33,41 @@
     </style>
 
 <body class="appear-animate">
+@include('sections.navbar')
 @yield('content')
+@include('sections.footer')
 
 
-<!-- Mainly scripts -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-<!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
-<script src="js/plugins/pace/pace.min.js"></script>
 <!-- JS -->
-<script type="text/javascript" src="front/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="front/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="front/js/SmoothScroll.js"></script>
-<script type="text/javascript" src="front/js/jquery.scrollTo.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.localScroll.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.viewport.mini.js"></script>
-<script type="text/javascript" src="front/js/jquery.countTo.js"></script>
-<script type="text/javascript" src="front/js/jquery.appear.js"></script>
-<script type="text/javascript" src="front/js/jquery.sticky.js"></script>
-<script type="text/javascript" src="front/js/jquery.parallax-1.1.3.js"></script>
-<script type="text/javascript" src="front/js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="front/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="front/js/isotope.pkgd.min.js"></script>
-<script type="text/javascript" src="front/js/imagesloaded.pkgd.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/front/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/front/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/front/js/SmoothScroll.js"></script>
+<script type="text/javascript" src="/front/js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/front/js/jquery.localScroll.min.js"></script>
+<script type="text/javascript" src="/front/js/jquery.viewport.mini.js"></script>
+<script type="text/javascript" src="/front/js/jquery.countTo.js"></script>
+<script type="text/javascript" src="/front/js/jquery.appear.js"></script>
+<script type="text/javascript" src="/front/js/jquery.sticky.js"></script>
+<script type="text/javascript" src="/front/js/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="/front/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/front/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/front/js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="/front/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="/front/js/jquery.magnific-popup.min.js"></script>
 <!-- Replace test API Key "AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg" with your own one below
 **** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
-<script type="text/javascript" src="front/js/maps.js"></script>
-<script type="text/javascript" src="front/js/gmap3.min.js"></script>
-<script type="text/javascript" src="front/js/wow.min.js"></script>
-<script type="text/javascript" src="front/js/masonry.pkgd.min.js"></script>
-<script type="text/javascript" src="front/js/jquery.simple-text-rotator.min.js"></script>
-<script type="text/javascript" src="front/js/all.js"></script>
-<script type="text/javascript" src="front/js/contact-form.js"></script>
-<script type="text/javascript" src="front/js/jquery.ajaxchimp.min.js"></script>
+<script type="text/javascript" src="/front/js/maps.js"></script>
+<script type="text/javascript" src="/front/js/gmap3.min.js"></script>
+<script type="text/javascript" src="/front/js/wow.min.js"></script>
+<script type="text/javascript" src="/front/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/front/js/jquery.simple-text-rotator.min.js"></script>
+<script type="text/javascript" src="/front/js/all.js"></script>
+<script type="text/javascript" src="/front/js/contact-form.js"></script>
+<script type="text/javascript" src="/front/js/jquery.ajaxchimp.min.js"></script>
 <!--[if lt IE 10]>
-<script type="text/javascript" src="front/js/placeholder.js"></script><![endif]-->
+<script type="text/javascript" src="/front/js/placeholder.js"></script><![endif]-->
 
 
 <script aria-hidden="true" type="application/x-lastpass" id="hiddenlpsubmitdiv" style="display: none;"></script>
@@ -153,7 +149,7 @@
         }, false)
     } catch (e) {
     }</script>
-<script type="text/javascript" src="front/js/jquery.downCount.js"></script>
+<script type="text/javascript" src="/front/js/jquery.downCount.js"></script>
 
 </body>
 </html>

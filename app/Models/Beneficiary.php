@@ -59,7 +59,10 @@ namespace App\Models;
  *
  * @property int $group_id
  * If this beneficiary is a group of people or entities, this is the group id. This MUST not be edited after first active campaign
- * 
+ *
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $modified_at
+ *
  * @property \App\Models\LegalEntity $entity
  * LegalEntity object belonging to this beneficiary
  *
@@ -102,6 +105,12 @@ class Beneficiary extends BaseModel
 		'company_id' => 'int'
 	];
 
+	protected $dates = [
+		'modified_at',
+		'modified_at',
+
+	];
+
 	protected $fillable = [
 		'name',
 		'identifier',
@@ -118,7 +127,8 @@ class Beneficiary extends BaseModel
 		'description',
 		'members_public',
 		'photo_ids',
-		'company_id'
+		'company_id',
+		'created_at'
 	];
 
 	public function entity()

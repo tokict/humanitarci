@@ -62,7 +62,7 @@ namespace App\Models;
  *
  * @property \Carbon\Carbon $created_at
  *
- * @property \Carbon\Carbon $edited_at
+ * @property \Carbon\Carbon $modified_at
  *
  * @property int $priority
  * Optional priority of campaign to push it up in the queue to get more donations
@@ -137,7 +137,7 @@ class Campaign extends BaseModel
 	];
 
 	protected $dates = [
-		'edited_at',
+		'modified_at',
 		'action_by_date',
 		'ends'
 	];
@@ -158,11 +158,12 @@ class Campaign extends BaseModel
 		'donors_number',
 		'type',
 		'administrator_id',
-		'edited_at',
+		'modified_at',
 		'priority',
 		'slug',
 		'tags',
 		'action_by_date',
+		'starts',
 		'ends',
 		'reference_id',
 		'end_notes',
