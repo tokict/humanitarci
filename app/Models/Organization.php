@@ -30,7 +30,7 @@ namespace App\Models;
  * @property \App\Models\City $city
  * @property \App\Models\Media $logo
  *
- * @property \Illuminate\Database\Eloquent\Collection $admins
+ * @property \Illuminate\Database\Eloquent\Collection $users
  * @property \Illuminate\Database\Eloquent\Collection $campaigns
  * @property \Illuminate\Database\Eloquent\Collection $documents
  * @property \Illuminate\Database\Eloquent\Collection $donations
@@ -89,9 +89,9 @@ class Organization extends BaseModel
     }
 
 
-	public function admins()
+	public function users()
 	{
-		return $this->hasMany(\App\Models\Admin::class);
+		return $this->hasMany(\App\Models\User::class);
 	}
 
 	public function campaigns()

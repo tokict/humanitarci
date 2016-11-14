@@ -31,5 +31,15 @@ class BaseModel extends Eloquent
 		});
 	}
 
+	public function setAtt($name, $value)
+	{
+		$this->attributes[$name] = $value;
+	}
+
+	public function getAtt($name)
+	{
+		return isset($this->attributes[$name])?$this->attributes[$name]:false;
+	}
+
 
 }

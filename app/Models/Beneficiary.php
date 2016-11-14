@@ -46,7 +46,7 @@ namespace App\Models;
  * Ditto..
  *
  * @property int $created_by_id
- * Id of the admin who created this in the system
+ * Id of the user who created this in the system
  *
  * @property string $description
  * Description of the beneficiary. This should be the story about the person / entity and it should provoke empathy
@@ -68,12 +68,13 @@ namespace App\Models;
  *
  * @property \App\Models\Person $person
  *
- * @property \App\Models\Admin $creator
- * Admin object belonging to this beneficiary
+ * @property \App\Models\User $creator
+ * User object belonging to this beneficiary
  *
  * @property \App\Models\Group $group
  * Group object belonging to this beneficiary
  *
+ * @property \App\Models\Media $profile_image
  *
  * @property \Illuminate\Database\Eloquent\Collection $beneficiary_reports
  * Reports collection for this beneficiary
@@ -114,12 +115,13 @@ class Beneficiary extends BaseModel
 	protected $fillable = [
 		'name',
 		'identifier',
-		'group_id' => 'int',
+		'group_id',
 		'profile_image_id',
 		'funds_used',
 		'donor_number',
 		'status',
 		'person_id',
+		'created_by_id',
 		'entity_id',
 		'contact_phone',
 		'contact_mail',
@@ -138,7 +140,7 @@ class Beneficiary extends BaseModel
 
 	public function creator()
 	{
-		return $this->belongsTo(\App\Models\Admin::class, 'created_by_id');
+		return $this->belongsTo(\App\Models\User::class, 'created_by_id');
 	}
 
 	public function group()
@@ -157,7 +159,7 @@ class Beneficiary extends BaseModel
 	}
 
 	public function person(){
-		return $this->belongsTo(\App\Models\Person::class, 'person_id');
+		return $this->belongsTo(\App\Models\Person::class);
 	}
 
 	public function donations()
@@ -169,4 +171,9 @@ class Beneficiary extends BaseModel
 	{
 		return $this->hasMany(\App\Models\MediaLink::class);
 	}
+
+    public function profile_image()
+    {
+        return $this->belongsTo(\App\Models\Media::class);
+    }
 }

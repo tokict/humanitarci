@@ -27,7 +27,7 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover persons-table" >
+                            <table class="table table-striped table-bordered table-hover campaigns-table" >
                                 <thead> <tr>
                                     <th>Name</th>
                                     <th>Beneficiary</th>
@@ -35,6 +35,7 @@
                                     <th>Target amount</th>
                                     <th>Status</th>
                                     <th>Priority</th>
+                                    <th>Cover image</th>
                                     <th>Starts</th>
                                     <th>Ends</th>
                                     <th>Action by</th>
@@ -50,6 +51,7 @@
                                         <td>{{ $campaign->target_amount }}</td>
                                         <td>{{ $campaign->status }}</td>
                                         <td>{{ $campaign->priority }}</td>
+                                        <td><img src="{{ $campaign->cover->getPath() }}"></td>
                                         <td>{{ $campaign->starts }}</td>
                                         <td>{{ $campaign->ends }}</td>
                                         <td>{{ $campaign->action_by_date }}</td>
@@ -75,6 +77,7 @@
                                     <th>Target amount</th>
                                     <th>Status</th>
                                     <th>Priority</th>
+                                    <th>Cover image</th>
                                     <th>Starts</th>
                                     <th>Ends</th>
                                     <th>Action by</th>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Campaign;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $campaigns = Campaign::where('status', 'active')
+        ->orderBy('priority', 'desc')
+        ->take(3)
+        ->get();
+
+        return view('welcome', ['campaigns' => $campaigns]);
     }
 }

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 Route::get("/login", 'Auth\AuthController@login');
 Route::post("/login", 'Auth\AuthController@login');
 
@@ -51,7 +49,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     Route::match(array('GET', 'POST'),'/organization/{action}/{params?}', 'Admin\OrganizationController@index');
 
     //Administrators
-    Route::match(array('GET', 'POST'),'/administrator/{action}/{params?}', 'Admin\AdministratorController@index');
+    Route::match(array('GET', 'POST'),'/user/{action}/{params?}', 'Admin\UserController@index');
 
     //Beneficiaries
     Route::match(array('GET', 'POST'),'/beneficiary/{action}/{params?}', 'Admin\BeneficiaryController@index');

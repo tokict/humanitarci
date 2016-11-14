@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Beneficiary;
+use App\Models\Media;
+use App\Models\MediaLink;
 use App\Models\Person;
 
 
@@ -26,7 +28,7 @@ class BeneficiaryController extends Controller
     public function create($request)
     {
 
-        if(Request::isMethod('post')){
+        if (Request::isMethod('post')) {
             $this->validate($request, [
                 'name' => 'required|max:30',
                 'contact_phone' => 'numeric',
@@ -34,21 +36,50 @@ class BeneficiaryController extends Controller
                 'entity_id' => 'required_without_all:person_id, group_id',
                 'person_id' => 'required_without_all:entity_id, group_id',
                 'group_id' => 'required_without_all:person_id, entity_id',
-                'status' => 'required',
+                'status' => 'required'
 
             ]);
 
             $input = Input::all();
+
+            if (isset($input['profile_image'])) {
+                $media = new Media([]);
+                $save = $media->saveFile($request->file('profile_image'), 'beneficiaries', 'public');
+                if ($save) {
+                    $media->setAtt('path', $save);
+                    $media->setAtt('uploaded_by', Auth::User()->id);
+                    $media->setAtt('type', 'campaign');
+
+                    if ($media->save()) {
+                        $input['profile_image_id'] = $media->id;
+                    }
+                }
+            }
+
+
             $input['created_by_id'] = Auth::User()->id;
             $beneficiary = Beneficiary::create($input);
-            if($beneficiary){
+            if ($beneficiary) {
+                //Save media link
+                if ($media) {
+                    $mediaLink = new MediaLink(
+                        [
+                            'beneficiary_id' => $beneficiary->id,
+                            'media_id' => $media->id,
+                            'organization_id' => Auth::User()->organization_id,
+                            'user_id' => Auth::User()->user_id
+
+                        ]
+                    );
+                    $mediaLink->save();
+                }
                 return redirect('admin/beneficiary/listing');
-            }else{
+            } else {
                 dd("Not saved");
             }
-        }else{
-
         }
         return view('admin.beneficiary.create');
+
     }
+
 }

@@ -27,7 +27,7 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover persons-table" >
+                            <table class="table table-striped table-bordered table-hover beneficiaries-table" >
                                 <thead>
                                 <tr>
                                     <th>Name</th>
@@ -50,7 +50,7 @@
                                     <tr class="gradeX">
                                         <td>{{ $beneficiary->name }}</td>
                                         <td>{{ $beneficiary->identifier }}</td>
-                                        <td class="center">{{ $beneficiary->profile_image_id }}</td>
+                                        <td class="center"><img src="{{ $beneficiary->profile_image->getPath() }}"></td>
                                         <td>{{ $beneficiary->donor_number }}</td>
                                         <td>{{ $beneficiary->funds_used }}</td>
                                         <td class="center">{{ isset($beneficiary->person)?$beneficiary->person->first_name:"" }}
@@ -59,8 +59,8 @@
                                         <td class="center">{{ isset($beneficiary->entity)?$beneficiary->entity->name:"" }}</td>
                                         <td class="center">{{ $beneficiary->contact_phone }}</td>
                                         <td class="center">{{ $beneficiary->contact_email }}</td>
-                                        <td class="center">{{ $beneficiary->creator->user->person->first_name }}
-                                        {{ $beneficiary->creator->user->person->last_name }}</td>
+                                        <td class="center">{{ $beneficiary->creator->person->first_name }}
+                                        {{ $beneficiary->creator->person->last_name }}</td>
                                         <td class="center">{{ isset($beneficiary->members_public)?"Yes":"No" }}</td>
                                         <td class="center">
                                             <a href="#" class="btn btn-sm btn-primary">View</a>

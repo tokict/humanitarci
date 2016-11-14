@@ -34,7 +34,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" class="form-horizontal" action="/admin/legal-entity/create">
+                        <form method="post" enctype="multipart/form-data" class="form-horizontal" action="/admin/legal-entity/create">
                             {{csrf_field()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">

@@ -38,7 +38,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \App\Models\Bank $bank
  * @property \App\Models\City $city
  * @property \App\Models\Device $device
- * @property \Illuminate\Database\Eloquent\Collection $admins
+ * @property \Illuminate\Database\Eloquent\Collection $users
  * @property \Illuminate\Database\Eloquent\Collection $documents
  * @property \Illuminate\Database\Eloquent\Collection $organizations
  * @property \Illuminate\Database\Eloquent\Collection $groups
@@ -104,9 +104,9 @@ class Person extends BaseModel
 		return $this->belongsTo(\App\Models\Device::class);
 	}
 
-	public function admins()
+	public function users()
 	{
-		return $this->hasMany(\App\Models\Admin::class);
+		return $this->hasMany(\App\Models\User::class);
 	}
 
 	public function organizations()

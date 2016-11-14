@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Campaign;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -33,8 +34,10 @@ class CampaignController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function view()
+    public function view($request, $id)
     {
-        return view('campaign.view');
+
+        $campaign = Campaign::whereId($id)->first();
+        return view('campaign.view', ['campaign' => $campaign]);
     }
 }

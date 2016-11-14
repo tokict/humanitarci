@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
 use App\Models\Bank;
 use App\Models\LegalEntity;
 use App\Models\Organization;
@@ -11,19 +10,20 @@ use App\Models\Person;
 
 
 use App\Http\Requests;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 
-class AdministratorController extends Controller
+class UserController extends Controller
 {
     use \App\Traits\ControllerIndexTrait;
 
 
     public function listing()
     {
-        $administrators = Admin::paginate(100);
-        return view('admin.administrator.listing', ['administrators' => $administrators]);
+        $users = User::paginate(100);
+        return view('admin.user.listing', ['users' => $users]);
     }
 
     public function create($request)
@@ -37,14 +37,14 @@ class AdministratorController extends Controller
 
 
 
-            ]);//ToDo: File uploader for logo
+            ]);
 
             $input = Input::all();
             $input['created_by'] = Auth::User()->id;
-            $administrator = Admin::create($input);
+            $administrator = User::create($input);
 
             if($administrator){
-                return redirect('admin/administrator/listing');
+                return redirect('admin/user/listing');
             }else{
                 dd("Not saved");
             }
@@ -52,6 +52,6 @@ class AdministratorController extends Controller
 
         }
 
-        return view('admin.administrator.create');
+        return view('admin.user.create');
     }
 }

@@ -38,6 +38,8 @@
     {{--DatePicker--}}
     <link href="/administrator/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
+    <link href="/administrator/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Theme style -->
     <link rel="stylesheet" href="/administrator/css/animate.css">
@@ -114,7 +116,7 @@
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li class="active"><a href="/admin/campaign/create">New campaign</a></li>
-                        <li><a href="admin/campaign/listing">List</a></li>
+                        <li><a href="/admin/campaign/listing">List</a></li>
                     </ul>
                 </li>
                 <li>

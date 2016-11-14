@@ -14,13 +14,13 @@
                             <div class="blog-item">
                                 
                                 <!-- Post Title -->
-                                <h2 class="blog-item-title font-alt"><a href="blog-single-sidebar-right.html">Lucija Krstić</a></h2>
+                                <h2 class="blog-item-title font-alt"><a href="blog-single-sidebar-right.html">{{$campaign->beneficiary->name}}</a></h2>
                                 
                                 <!-- Author, Categories, Comments -->
                                 <div class="blog-item-data">
-                                    <a href="#"><i class="fa fa-clock-o"></i> 5.12.2016.</a>
+                                    <a href="#"><i class="fa fa-clock-o"></i> {{$campaign->created_at}}.</a>
                                     <span class="separator">&nbsp;</span>
-                                    <a href="#"><i class="fa fa-map-marker"></i> Vojnić kod Trilja</a>
+                                    <a href="#"><i class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city->name}}, {{$campaign->beneficiary->person->city->region->name}}</a>
                                     <span class="separator">&nbsp;</span>
                                     <i class="fa fa-folder-open"></i>
                                     <a href="">Smještaj</a>
@@ -29,15 +29,13 @@
                                 <!-- Media Gallery -->
                                 <div class="blog-media">
                                     <ul class="clearlist content-slider">
+                                        @if(unserialize($campaign->media_info))
+                                        @foreach( unserialize($campaign->media_info) as $media)
                                         <li>
-                                            <img src="/front/images/akcije/1140x642/1.jpg" alt="" />
+                                            <img src="{{$media->getPath()}}" alt="" />
                                         </li>
-                                        <li>
-                                            <img src="/front/images/akcije/1140x642/2.jpg" alt="" />
-                                        </li>
-                                        <li>
-                                            <img src="/front/images/akcije/1140x642/3.jpg" alt="" />
-                                        </li>
+                                            @endforeach
+                                            @endif
                                     </ul>
                                 </div>
                                 

@@ -34,7 +34,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" class="form-horizontal" action="/admin/beneficiary/create">
+                        <form method="post"   enctype="multipart/form-data" class="form-horizontal" action="/admin/beneficiary/create">
                             {{csrf_field()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
@@ -67,7 +67,7 @@
                                                     class="fileinput-filename"></span></div>
                                         <span class="input-group-addon btn btn-default btn-file"><span
                                                     class="fileinput-new">Select file</span><span
-                                                    class="fileinput-exists">Change</span><input type="file" name="image"></span>
+                                                    class="fileinput-exists">Change</span><input type="file" name="profile_image"></span>
                                         <a href="#" class="input-group-addon btn btn-default fileinput-exists"
                                            data-dismiss="fileinput">Remove</a>
                                     </div>

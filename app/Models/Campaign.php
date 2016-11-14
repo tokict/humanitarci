@@ -57,7 +57,9 @@ namespace App\Models;
  *
  * @property string $type
  *
- * @property int $administrator_id
+ * @property \App\Models\Media $cover
+ *
+ * @property int $created_by
  * Id of admin who created campaign
  *
  * @property \Carbon\Carbon $created_at
@@ -92,7 +94,7 @@ namespace App\Models;
  * @property \App\Models\Media $media
  * Related media object
  *
- * @property \App\Models\Admin $admin
+ * @property \App\Models\User $creator
  * Related admin object
  *
  * @property \App\Models\Beneficiary $beneficiary
@@ -132,7 +134,7 @@ class Campaign extends BaseModel
 		'current_funds' => 'int',
 		'funds_transferred_amount' => 'int',
 		'donors_number' => 'int',
-		'administrator_id' => 'int',
+		'created_by' => 'int',
 		'priority' => 'int'
 	];
 
@@ -157,7 +159,7 @@ class Campaign extends BaseModel
 		'funds_transferred_amount',
 		'donors_number',
 		'type',
-		'administrator_id',
+		'created_by',
 		'modified_at',
 		'priority',
 		'slug',
@@ -170,9 +172,9 @@ class Campaign extends BaseModel
 		'media_info'
 	];
 
-	public function admin()
+	public function user()
 	{
-		return $this->belongsTo(\App\Models\Admin::class, 'administrator_id');
+		return $this->belongsTo(\App\Models\User::class, 'created_by');
 	}
 
 	public function beneficiary()
@@ -223,5 +225,16 @@ class Campaign extends BaseModel
 	public function transactions()
 	{
 		return $this->hasMany(\App\Models\Transaction::class);
+	}
+
+
+	public function cover()
+	{
+		return $this->belongsTo(\App\Models\Media::class, 'cover_photo_id');
+	}
+
+	public function creator()
+	{
+		return $this->belongsTo(\App\Models\User::class, 'created_by');
 	}
 }

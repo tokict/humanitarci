@@ -27,7 +27,7 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover persons-table" >
+                            <table class="table table-striped table-bordered table-hover banks-table" >
                                 <thead>
                                 <tr>
                                     <th>Name</th>
