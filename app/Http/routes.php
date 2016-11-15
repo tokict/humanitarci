@@ -57,6 +57,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     //Campaigns
     Route::match(array('GET', 'POST'),'/campaign/{action}/{params?}', 'Admin\CampaignController@index');
 
+    //Filemanager
+    Route::match(array('GET', 'POST', 'FILES'),'/file/{action}/{params?}', 'Admin\FileController@index');
+
 
 });
 Route::auth();

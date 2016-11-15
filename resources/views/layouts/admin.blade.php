@@ -350,7 +350,16 @@
         </div>
         @yield('content')
     </div>
-
+    <div class="modal inmodal fade" id="fileModal" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -425,13 +434,16 @@
 <!-- Data picker -->
 <script src="/administrator/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
+<script type="text/javascript" src="/administrator/js/plugins/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
+
 <!-- AdminLTE App -->
 <script src="/administrator/js/inspinia.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/administrator/js/plugins/pace/pace.min.js"></script>
 <script src="/administrator/js/pages/listings.js"></script>
 <script src="/administrator/js/pages/create.js"></script>
-<script src="/administrator/js/pages/shared.js"></script>
+<script src="/administrator/js/shared.js"></script>
+<script src="/administrator/js/filemanager.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw-IJobkXTjBne6HW-naXFKbXZ_BqqbVM&callback=initMap">
 </script>

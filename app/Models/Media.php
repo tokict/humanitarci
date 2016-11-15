@@ -16,8 +16,10 @@ use League\Flysystem\File;
  * All the media used on site
  *
  * @property int $id
- * @property string path
+ * @property string $reference
  * Unique identifier for url
+ *
+ * @property string $directory
  *
  * @property int $created_by
  *
@@ -51,12 +53,13 @@ class Media extends BaseModel
     ];
 
     protected $fillable = [
-        'path',
+        'reference',
         'modified_at',
         'type',
         'description',
         'title',
-        'created_by'
+        'created_by',
+        'directory'
     ];
 
 
@@ -73,10 +76,11 @@ class Media extends BaseModel
     public function saveFile($file, $category, $permission)
     {
         $s3 = \Storage::disk('s3');
-        $filename = $category . '/' . time() . "." . $file->getClientOriginalExtension();
+        $name = time() . "." . $file->getClientOriginalExtension();
+        $filename = $category . '/' . $name;
         if ($s3->put($filename, file_get_contents($file->getPathname()), $permission)) {
 
-            return $filename;
+            return $name;
         } else {
             return false;
         }
@@ -85,6 +89,6 @@ class Media extends BaseModel
 
     public function getPath()
     {
-        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/'.$this->getAtt('path');
+        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/'.$this->getAtt('directory')."/".$this->getAtt('reference');
     }
 }

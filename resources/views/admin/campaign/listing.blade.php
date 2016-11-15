@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Persons listing</h5>
+                        <h5>Campaigns listing</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -58,7 +58,7 @@
 
                                         <td class="center">
                                             <a href="#" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#fileModal">Edit</a>
                                             <a href="#" class="btn btn-sm btn-primary">Lock</a>
                                         </td>
                                     </tr>

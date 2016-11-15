@@ -67,9 +67,10 @@ class CampaignController extends Controller
                 $save = $media->saveFile($request->file('cover_photo'), 'campaigns', 'public');
 
                 if($save){
-                    $media->setAtt('path', $save);
+                    $media->setAtt('reference', $save);
                     $media->setAtt('uploaded_by', Auth::User()->id);
                     $media->setAtt('type', 'campaign');
+                    $media->setAtt('directory', 'campaigns');
 
                     if($media->save()){
 

@@ -5,3 +5,11 @@
 .campaigns-table img {
     max-height:150px;
 }
+
+#fileModal .modal-dialog {
+    width: 90%;
+}
+
+.folder-list .active {
+    background-color: rgba(67, 255, 0, 0.2);
+}
