@@ -36,7 +36,7 @@ use League\Flysystem\File;
  *
  *
  * @property \Illuminate\Database\Eloquent\Collection $campaigns
- * @property \Illuminate\Database\Eloquent\Collection $media_links
+ * @property \Illuminate\Database\Eloquent\Collection $links
  *
  * @package App\Models
  */
@@ -68,7 +68,7 @@ class Media extends BaseModel
         return $this->hasMany(\App\Models\Campaign::class, 'cover_photo_id');
     }
 
-    public function media_links()
+    public function links()
     {
         return $this->hasMany(\App\Models\MediaLink::class, 'media_id');
     }
@@ -76,7 +76,7 @@ class Media extends BaseModel
     public function saveFile($file, $category, $permission)
     {
         $s3 = \Storage::disk('s3');
-        $name = time() . "." . $file->getClientOriginalExtension();
+        $name = time() .rand(1, 9999). "." . $file->getClientOriginalExtension();
         $filename = $category . '/' . $name;
         if ($s3->put($filename, file_get_contents($file->getPathname()), $permission)) {
 

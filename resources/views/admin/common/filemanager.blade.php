@@ -12,14 +12,18 @@
                             <a href="#" class="file-control" onclick="filemanager.filter('video')">Video</a>
                             <a href="#" class="file-control" onclick="filemanager.filter('images')">Images</a>
                             <div class="hr-line-dashed"></div>
-                            <button class="btn btn-primary btn-block" type="button" onclick="$('#fileUpload').click()">Upload Files</button>
+                            <button class="btn btn-primary btn-block" type="button" id="uploadButton">
+                                Upload Files
+                            </button>
 
-                            <input type="file"  class="hidden" accept="image/jpeg;image/png;application/*" name="files[]" data-url="/admin/file/upload/{{$active}}"
+                            <input type="file" class="hidden" accept="image/jpeg;image/png;application/*" name="files[]"
+                                   data-url="/admin/file/upload/{{$active}}"
                                    multiple id="fileUpload"/>
 
 
-                            <div class="progress progress-striped">
-                                <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-warning">
+                            <div class="progress progress-striped" id="progress">
+                                <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0"
+                                     role="progressbar" class="progress-bar progress-bar-warning">
                                     <span class="sr-only">0% Complete</span>
                                 </div>
                             </div>
@@ -29,7 +33,7 @@
                                 @foreach($folders as $name =>  $items)
                                     <li onclick="filemanager.openFolder('{{$name}}')"
                                         class="{{$name==$active?'active':''}}">
-                                        <a href="#"><i class="fa fa-folder"></i> {{ucfirst($name)}}</a>
+                                        <a href="#">&nbsp;<i class="fa fa-folder"></i> {{ucfirst($name)}}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -43,7 +47,7 @@
                     <div class="col-lg-12">
                         @foreach($folders[$active] as $item)
                             <div class="file-box">
-                                <div class="file">
+                                <div class="file" id="img_{{$item->id}}">
                                     <a href="#">
                                         <span class="corner"></span>
 
@@ -56,9 +60,37 @@
 
                                         </div>
                                         <div class="file-name">
-                                            {{$item->name}}
+                                            <span class="file_title_current" id="title_{{$item->id}}">{{$item->title}}</span>
+                                            <input type="text" value="{{$item->title}}"
+                                                   class="hidden form-control file_title">
+                                            <br/>
+                                            <small class="file_description_current">{{$item->description}}</small>
+                                            <textarea
+                                                    class="form-control hidden file_description">{{$item->description}}</textarea>
                                             <br/>
                                             <small>Added: {{$item->created_at}}</small>
+                                            <div class="controls1"><br>
+                                                <small><i class="fa fa-edit pointer"
+                                                          onclick="filemanager.editImage('{{$item->id}}')"></i> &nbsp;
+                                                </small>
+                                                <small><a href="{{$item->getPath()}}" target="_blank"
+                                                          class="fa fa-eye pointer"></a> &nbsp;</small>
+                                                @if(count($item->links) == 0)
+                                                    <small class="pull-right pointer"
+                                                           onclick="filemanager.deleteImage('{{$item->id}}')"><i
+                                                                class="fa fa-close"></i> &nbsp;</small>
+                                                @else
+                                                    <small class="pull-right">In use</small>
+                                                @endif
+                                            </div>
+                                            <div class="hidden controls2">
+                                                <button class="btn btn-xs btn-success"
+                                                        onclick="filemanager.saveEditImage('{{$item->id}}')">Save
+                                                </button>
+                                                <button class="btn btn-xs btn-warning"
+                                                        onclick="filemanager.cancelEditImage('{{$item->id}}')">Cancel
+                                                </button>
+                                            </div>
                                         </div>
                                     </a>
 

@@ -72,23 +72,7 @@ class FileController extends Controller
                 $media->setAtt('directory', $folder);
 
                 if ($media->save()) {
-
                     $input['cover_photo_id'] = $media->id;
-
-                    //Save media link
-                    $mediaLink = new MediaLink(
-                        [
-                            'media_id' => $media->id,
-                            'organization_id' => Auth::User()->organization_id,
-                            'user_id' => Auth::User()->id
-
-                        ]
-                    );
-                    if (!$mediaLink->save()) {
-                        $fails++;
-                    }
-
-
                 } else {
                     $fails++;
                 }
@@ -100,27 +84,42 @@ class FileController extends Controller
     }
 
 
-    public function delete($request, $files)
+    public function delete($request, $id)
     {
-        dd($files);
-        //$file = Media::where("reference", '=')
+        $file = Media::whereId($id)->first();
+
+        if($file && count($file->links) == 0){
+        //File has no links and we can delete it from db and s3
+            //Delete from s3
+            if($this->s3->delete($id)){
+                if($file->delete()){
+                    return response()->json(['success' => true]);
+                }
+            }
+            return response()->json(['success' => false]);
+
+        }
+
     }
 
 
-    public function describe($request, $description)
+    public function edit($request, $id)
     {
-        //$file = Media::where("")
+        $file = Media::whereId($id)->first();
+        $file->title = Input::get('title');
+        $file->description = Input::get('description');
+
+        if($file->save()){
+            return response()->json(['success' => true]);
+        }else{
+            return response()->json(['success' => false]);
+        }
+
     }
 
-    public function title($request, $title)
-    {
-        //dd($name);
-    }
 
-    public function type($request, $type)
-    {
-        //dd($name);
-    }
+
+
 
 }
 
