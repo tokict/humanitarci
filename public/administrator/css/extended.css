@@ -25,3 +25,7 @@
 .file-name input {
     font-size: 12px;
 }
+
+.file-active {
+    border-color:#1ab394 ;
+}

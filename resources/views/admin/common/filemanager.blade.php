@@ -17,7 +17,7 @@
                             </button>
 
                             <input type="file" class="hidden" accept="image/jpeg;image/png;application/*" name="files[]"
-                                   data-url="/admin/file/upload/{{$active}}"
+                                   data-url="/admin/file/adminUpload/{{$active}}"
                                    multiple id="fileUpload"/>
 
 
@@ -37,6 +37,8 @@
                                     </li>
                                 @endforeach
                             </ul>
+                            <br/><br/>
+                            <button class="btn btn-primary btn-lg pull-right hidden" id="selectDoneButton">Select files</button>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -53,7 +55,7 @@
 
                                         <div class="{{$item->type == 'image'?'image':'icon'}}">
                                             @if($item->type == 'image')
-                                                <img alt="image" class="img-responsive" src="{{$item->getPath()}}">
+                                                <img alt="image" class="img-responsive" src="{{$item->getPath('small')}}">
                                             @else
                                                 <i class="fa fa-file"></i>
                                             @endif
@@ -73,7 +75,7 @@
                                                 <small><i class="fa fa-edit pointer"
                                                           onclick="filemanager.editImage('{{$item->id}}')"></i> &nbsp;
                                                 </small>
-                                                <small><a href="{{$item->getPath()}}" target="_blank"
+                                                <small><a href="{{$item->getPath('original')}}" target="_blank"
                                                           class="fa fa-eye pointer"></a> &nbsp;</small>
                                                 @if(count($item->links) == 0)
                                                     <small class="pull-right pointer"

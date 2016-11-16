@@ -73,13 +73,23 @@ class Media extends BaseModel
         return $this->hasMany(\App\Models\MediaLink::class, 'media_id');
     }
 
-    public function saveFile($file, $category, $permission)
+    public function saveFile($file, $folder, $permission)
     {
         $s3 = \Storage::disk('s3');
-        $name = time() .rand(1, 9999). "." . $file->getClientOriginalExtension();
-        $filename = $category . '/' . $name;
-        if ($s3->put($filename, file_get_contents($file->getPathname()), $permission)) {
+        $name = time() . rand(1, 9999) . "." . $file->getClientOriginalExtension();
+        $this->prepareForUpload($file->getPathname(), $name);
 
+        if ($s3->put($folder . '/original_' . $name, file_get_contents($file->getPathname()), $permission)
+            && $s3->put($folder . '/thumb_' . $name, file_get_contents('/tmp/thumb_' . $name), $permission)
+            && $s3->put($folder . '/small_' . $name, file_get_contents('/tmp/small_' . $name), $permission)
+            && $s3->put($folder . '/medium_' . $name, file_get_contents('/tmp/medium_' . $name), $permission)
+            && $s3->put($folder . '/large_' . $name, file_get_contents('/tmp/large_' . $name), $permission)
+        ) {
+
+            unlink('/tmp/thumb_' . $name);
+            unlink('/tmp/small_' . $name);
+            unlink('/tmp/medium_' . $name);
+            unlink('/tmp/large_' . $name);
             return $name;
         } else {
             return false;
@@ -87,8 +97,37 @@ class Media extends BaseModel
 
     }
 
-    public function getPath()
+    private function prepareForUpload($filepath, $filename)
     {
-        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/'.$this->getAtt('directory')."/".$this->getAtt('reference');
+        if (is_file($filepath)) {
+            $thumb = new \Imagick(realpath($filepath));
+            $thumb->stripImage();
+            $thumb->resizeImage(150, 0, \Imagick::FILTER_LANCZOS, 1);
+            $thumb->writeImage("/tmp/thumb_" . $filename);
+
+            $small = new \Imagick(realpath($filepath));
+            $small->stripImage();
+            $small->resizeImage(300, 0, \Imagick::FILTER_LANCZOS, 1);
+            $small->writeImage("/tmp/small_" . $filename);
+
+            $medium = new \Imagick(realpath($filepath));
+            $medium->stripImage();
+            $medium->resizeImage(600, 0, \Imagick::FILTER_LANCZOS, 1);
+            $medium->writeImage("/tmp/medium_" . $filename);
+
+            $large = new \Imagick(realpath($filepath));
+            $large->stripImage();
+            $large->resizeImage(1000, 0, \Imagick::FILTER_LANCZOS, 1);
+            $large->writeImage("/tmp/large_" . $filename);
+        }
+
+        return true;
     }
+
+    public function getPath($size)
+    {
+        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/" . $size . "_" . $this->getAtt('reference');
+    }
+
+
 }

@@ -49,7 +49,8 @@ class CampaignController extends Controller
                 'short_description' => 'required|max:500',
                 'full_description' => 'required|max:2000',
                 'status' => 'required',
-                'priority' => 'numeric'
+                'priority' => 'numeric',
+                'cover_photo_id' => 'required: exists:media,id'
 
 
             ]);
@@ -60,46 +61,45 @@ class CampaignController extends Controller
             $input['starts'] = date("Y-m-d H:i:s",strtotime($input['start_date']." ".$input['start_time']));
             $input['ends'] = date("Y-m-d H:i:s",strtotime($input['end_date']." ".$input['end_time']));
             $input['action_by_date'] = date("Y-m-d H:i:s",strtotime($input['action_by_date']." ".$input['action_by_time']));
-
+            $input['media_info'] = $input['campaign_photos'];
             //Lets save cover_image if present
-            if(isset($input['cover_photo'])){
-                $media = new Media([]);
-                $save = $media->saveFile($request->file('cover_photo'), 'campaigns', 'public');
 
-                if($save){
-                    $media->setAtt('reference', $save);
-                    $media->setAtt('uploaded_by', Auth::User()->id);
-                    $media->setAtt('type', 'campaign');
-                    $media->setAtt('directory', 'campaigns');
+            $campaign = Campaign::create($input);
+            if($campaign) {
+                //Save media link
+                $mediaLink = new MediaLink(
+                    [
+                        'campaign_id' => $campaign->id,
+                        'media_id' => $input['cover_photo_id'],
+                        'organization_id' => Auth::User()->organization_id,
+                        'user_id' =>Auth::User()->id
 
-                    if($media->save()){
+                    ]
+                );
+                $mediaLink->save();
 
-                        $input['cover_photo_id'] = $media->id;
-                        $campaign = Campaign::create($input);
-                        if($campaign) {
-                            //Save media link
-                            $mediaLink = new MediaLink(
+                if(isset($input['campaign_photos'])){
+                    foreach(explode(",", $input['media_info']) as $id){
+                        $file = Media::whereId($id);
+                        if($file) {
+                            $link = new MediaLink(
                                 [
                                     'campaign_id' => $campaign->id,
-                                    'media_id' => $media->id,
+                                    'media_id' => $id,
                                     'organization_id' => Auth::User()->organization_id,
-                                    'user_id' =>Auth::User()->id
-
+                                    'user_id' => Auth::User()->id
                                 ]
                             );
-                            $mediaLink->save();
-                            return redirect('admin/campaign/listing');
-                        }else{
-                            dd("Not saved");
+                            $link->save();
                         }
-                    }else{
-                        dd("Not saved");
                     }
-                }else{
-                    dd("Could not save image");
                 }
 
+                return redirect('admin/campaign/listing');
+            }else{
+                dd("Not saved");
             }
+
 
         }else{
 

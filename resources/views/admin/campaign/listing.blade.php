@@ -51,14 +51,14 @@
                                         <td>{{ $campaign->target_amount }}</td>
                                         <td>{{ $campaign->status }}</td>
                                         <td>{{ $campaign->priority }}</td>
-                                        <td><img src="{{ $campaign->cover->getPath() }}"></td>
+                                        <td><img src="{{ $campaign->cover->getPath("small") }}"></td>
                                         <td>{{ $campaign->starts }}</td>
                                         <td>{{ $campaign->ends }}</td>
                                         <td>{{ $campaign->action_by_date }}</td>
 
                                         <td class="center">
                                             <a href="#" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#fileModal">Edit</a>
+                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
                                             <a href="#" class="btn btn-sm btn-primary">Lock</a>
                                         </td>
                                     </tr>

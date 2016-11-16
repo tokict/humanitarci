@@ -51,16 +51,16 @@ class FileController extends Controller
         return $this->s3->directories("");
     }
 
-    public function upload($request, $folder)
+    public function adminUpload($request, $category)
     {
         $fails = 0;
         foreach ($request->file('files') as $file) {
             $media = new Media([]);
 
-            $save = $media->saveFile($file, $folder, 'public');
+            $save = $media->saveFile($file, $category . "/" . Auth::User()->organization_id, 'public');
             $type = "document";
 
-            if (in_array($file->getClientOriginalExtension(), ['jpg','JPG' ,'jpeg', 'png', 'PNG'])) {
+            if (in_array($file->getClientOriginalExtension(), ['jpg', 'JPG', 'jpeg', 'png', 'PNG'])) {
                 $type = 'image';
             }
 
@@ -69,7 +69,7 @@ class FileController extends Controller
                 $media->setAtt('reference', $save);
                 $media->setAtt('uploaded_by', Auth::User()->id);
                 $media->setAtt('type', $type);
-                $media->setAtt('directory', $folder);
+                $media->setAtt('directory', $category);
 
                 if ($media->save()) {
                     $input['cover_photo_id'] = $media->id;
@@ -88,11 +88,16 @@ class FileController extends Controller
     {
         $file = Media::whereId($id)->first();
 
-        if($file && count($file->links) == 0){
-        //File has no links and we can delete it from db and s3
+
+        if ($file && count($file->links) == 0 && $file->uploaded_by == Auth::User()->id) {
+            //File has no links and we can delete it from db and s3
             //Delete from s3
-            if($this->s3->delete($id)){
-                if($file->delete()){
+            if ($this->s3->delete($id)) {
+                if ($file->delete()) {
+                    $this->s3->delete("small_" . $id);
+                    $this->s3->delete("medium_" . $id);
+                    $this->s3->delete("large_" . $id);
+                    $this->s3->delete("original_" . $id);
                     return response()->json(['success' => true]);
                 }
             }
@@ -106,19 +111,19 @@ class FileController extends Controller
     public function edit($request, $id)
     {
         $file = Media::whereId($id)->first();
-        $file->title = Input::get('title');
-        $file->description = Input::get('description');
+        if ($file->uploaded_by == Auth::User()->id) {
 
-        if($file->save()){
-            return response()->json(['success' => true]);
-        }else{
-            return response()->json(['success' => false]);
+            $file->title = Input::get('title');
+            $file->description = Input::get('description');
+
+            if ($file->save()) {
+                return response()->json(['success' => true]);
+            } else {
+                return response()->json(['success' => false]);
+            }
         }
 
     }
-
-
-
 
 
 }

@@ -150,22 +150,13 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-4">
                                     <label class="control-label">Cover photo</label>
-                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                        <div class="form-control" data-trigger="fileinput"><i
-                                                    class="glyphicon glyphicon-file fileinput-exists"></i> <span
-                                                    class="fileinput-filename"></span></div>
-                                        <span class="input-group-addon btn btn-default btn-file"><span
-                                                    class="fileinput-new">Select file</span><span
-                                                    class="fileinput-exists">Change</span><input type="file" name="cover_photo"></span>
-                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists"
-                                           data-dismiss="fileinput">Remove</a>
-                                    </div>
+                                    <input type="hidden"  name="cover_photo_id">
+                                    <button type="button" class="fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="control-label">Campaign photos</label>
-                                    <select class="form-control" name="media_info">
-                                        <option value="">Select</option>
-                                    </select>
+                                    <input type="hidden"  name="campaign_photos">
+                                    <button type="button" class="fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
                                 </div>
                             </div>
 

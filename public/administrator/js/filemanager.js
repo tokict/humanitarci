@@ -1,9 +1,13 @@
 var modal;
 var dir;
+var selectedFiles = [];
+var invoker;
+var input;
 $(document).ready(function () {
     $('#fileModal').on('show.bs.modal', function (event) {
         modal = $(this);
-
+         invoker = $(event.relatedTarget);
+         input = $(invoker).prev('input');
         filemanager.openFolder('campaigns');
 
     })
@@ -57,7 +61,32 @@ var filemanager = {
                 }
             );
 
+            if($(invoker).hasClass("fileSelect")){
+                $('#selectDoneButton').removeClass('hidden');
+                $('#selectDoneButton').click(function(){filemanager.selectImages()});
 
+
+                var tmpSel = input.val().split(",");
+
+                if( tmpSel.length){
+                    $.each(tmpSel, function(index, value){ console.log(value);
+                        $("#img_"+value).addClass('file-active');
+                    })
+                }
+
+                $('.file a').click(function(){
+                    var id = $(this).parent().attr('id').split("_")[1];
+
+                    if(selectedFiles.indexOf(id) == -1){
+                        selectedFiles.push(id);
+                        $(this).parent().addClass('file-active');
+                    }else{
+                        selectedFiles.splice(selectedFiles.indexOf(id, 1));
+                        $(this).parent().removeClass('file-active');
+                    }
+                });
+            };
+            //We need to reinstantiate it again because it replaces the original element and we lose all bindings
             $('#fileUpload').fileupload(fileUploadSetup);
         });
     },
@@ -128,6 +157,16 @@ var filemanager = {
                 console.log("Error editing file");
             }
         });
+    },
+    selectImages : function(){
+        var join = selectedFiles.join(',');
+        input.val(join);
+
+        $('.file').removeClass('file-active');
+        $('.selectDoneButton').addClass("hidden");
+        selectedFiles = [];
+        $('#fileModal').modal('toggle');
+
     }
 }
 
