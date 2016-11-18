@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Create new person</h5>
+                        <h5>Create new campaign</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -151,12 +151,12 @@
                                 <div class="col-sm-4">
                                     <label class="control-label">Cover photo</label>
                                     <input type="hidden"  name="cover_photo_id">
-                                    <button type="button" class="fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
+                                    <button type="button" class=" btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-4">
                                     <label class="control-label">Campaign photos</label>
                                     <input type="hidden"  name="campaign_photos">
-                                    <button type="button" class="fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
+                                    <button type="button" class="btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
                                 </div>
                             </div>
 

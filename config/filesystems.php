@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => 's3',
+    'default' => 'public',
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,6 @@ return [
             'root' => storage_path('app/public'),
             'visibility' => 'public',
         ],
-
         's3' => [
             'driver' => 's3',
             'key' => ENV('S3_KEY'),

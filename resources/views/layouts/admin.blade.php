@@ -351,8 +351,17 @@
         @yield('content')
     </div>
     <div class="modal inmodal fade" id="fileModal" tabindex="-1" role="dialog"  aria-hidden="true">
+        <script type="text/javascript">
+            var modal;
+            var dir;
+            var selectedFiles = [];
+            var invoker;
+            var input;
+            var filterType = 'all';
+            var page = 1;
+        </script>
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+            <div class="modal-content" style="height: 600px; overflow: auto;">
                 <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>

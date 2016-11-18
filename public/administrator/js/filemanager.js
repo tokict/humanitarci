@@ -1,13 +1,9 @@
-var modal;
-var dir;
-var selectedFiles = [];
-var invoker;
-var input;
+
 $(document).ready(function () {
     $('#fileModal').on('show.bs.modal', function (event) {
         modal = $(this);
-         invoker = $(event.relatedTarget);
-         input = $(invoker).prev('input');
+        invoker = $(event.relatedTarget);
+        input = $(invoker).prev('input');
         filemanager.openFolder('campaigns');
 
     })
@@ -53,42 +49,86 @@ var filemanager = {
         $.ajax({
             url: '/admin/file/open/' + folder
         }).success(function (response) {
+            //Opening of modal
+            $('#fileModal').find('.modal-body').html(response);
+            filemanager.bindEvents();
 
 
-            modal.find('.modal-body').html(response)
-            $("#uploadButton").click(function () {
-                $('#fileUpload').trigger("click");
-                }
-            );
-
-            if($(invoker).hasClass("fileSelect")){
-                $('#selectDoneButton').removeClass('hidden');
-                $('#selectDoneButton').click(function(){filemanager.selectImages()});
-
-
-                var tmpSel = input.val().split(",");
-
-                if( tmpSel.length){
-                    $.each(tmpSel, function(index, value){ console.log(value);
-                        $("#img_"+value).addClass('file-active');
-                    })
-                }
-
-                $('.file a').click(function(){
-                    var id = $(this).parent().attr('id').split("_")[1];
-
-                    if(selectedFiles.indexOf(id) == -1){
-                        selectedFiles.push(id);
-                        $(this).parent().addClass('file-active');
-                    }else{
-                        selectedFiles.splice(selectedFiles.indexOf(id, 1));
-                        $(this).parent().removeClass('file-active');
-                    }
-                });
-            };
-            //We need to reinstantiate it again because it replaces the original element and we lose all bindings
-            $('#fileUpload').fileupload(fileUploadSetup);
         });
+    },
+    bindEvents: function () {
+        $("#uploadButton").click(function () {
+                $('#fileUpload').trigger("click");
+            }
+        );
+
+        //Check what mode to activate, file select or not
+        if ($(invoker).hasClass("fileSelect")) {
+            $('#selectDoneButton').removeClass('hidden');
+            $('#selectDoneButton').click(function () {
+                filemanager.selectImages()
+            });
+
+            //Selecting and saving files to input fields
+            var tmpSel = input.val().split(",");
+            if (tmpSel.length) {
+                $.each(tmpSel, function (index, value) {
+                    $("#img_" + value).addClass('file-active');
+                })
+            }
+
+            $('.file a').click(function () {
+                var id = $(this).parent().attr('id').split("_")[1];
+
+                if (selectedFiles.indexOf(id) == -1) {
+                    selectedFiles.push(id);
+                    $(this).parent().addClass('file-active');
+                } else {
+                    selectedFiles.splice(selectedFiles.indexOf(id, 1));
+                    $(this).parent().removeClass('file-active');
+                }
+            });
+        }
+
+        //We need to reinstantiate it again because it replaces the original element and we lose all bindings
+        $('#fileUpload').fileupload(fileUploadSetup);
+
+
+        $("#sortFiles").change(function(){filemanager.sort($(this).find(":selected").text())});
+
+        //Bind to pagination links
+        $(".pagination a").click(function(event){
+            event.preventDefault();
+
+            var clickedPage = $(this).text();
+            var search = $("#searchFiles").val();
+            var folder = $('.folder-name.active').text().trim();
+            var sort = $("#sortFiles").find(":selected").val();
+            if(clickedPage == "«"){
+                clickedPage = 1+"";
+            }
+            if(clickedPage == "»"){
+                clickedPage = paginator.lastPage+"";
+            }
+
+            filemanager.call('/admin/file/open/' + folder, {sort: sort, search: search, filterType: filterType, clickedPage:clickedPage}, function (response) {
+
+                $('#fileModal').find('.modal-body').html(response.responseText);
+                filemanager.bindEvents();
+               });
+
+        });
+
+        $(".file-control").click(function(event){
+            event.preventDefault();
+            var filter = $(this).data('filter');
+
+            filemanager.filter(filter);
+        });
+
+
+
+
     },
     deleteImage: function (id) {
 
@@ -129,15 +169,15 @@ var filemanager = {
     },
     saveEditImage: function (id) {
         var img = $("#img_" + id);
-        var title =  img.find(".file_title").val();
-        var description =  img.find(".file_description").val();
+        var title = img.find(".file_title").val();
+        var description = img.find(".file_description").val();
 
         $.ajax({
             url: '/admin/file/edit/' + id,
             type: "post",
             dataType: 'json',
             data: {
-                title : title,
+                title: title,
                 description: description
             }
         }).success(function (response) {
@@ -158,7 +198,7 @@ var filemanager = {
             }
         });
     },
-    selectImages : function(){
+    selectImages: function () {
         var join = selectedFiles.join(',');
         input.val(join);
 
@@ -166,6 +206,62 @@ var filemanager = {
         $('.selectDoneButton').addClass("hidden");
         selectedFiles = [];
         $('#fileModal').modal('toggle');
+
+    },
+    filter: function (type) {
+        filterType = type;
+
+        var sort = $("#sortFiles").find(":selected").val();
+        var search = $("#searchFiles").val();
+        var folder = $('.folder-name.active').text().trim();
+
+        this.call('/admin/file/open/' + folder, {sort: sort, search: search, filterType: type}, function (response) {
+            $('#fileModal').find('.modal-body').html(response.responseText);
+            filemanager.bindEvents();
+        });
+
+    },
+    sort: function (value) {
+
+        var search = $("#searchFiles").val();
+        var folder = $('.folder-name.active').text().trim();
+
+        this.call('/admin/file/open/' + folder, {sort: value, search: search, filterType: filterType}, function (response) {
+            $('#fileModal').find('.modal-body').html(response);
+            filemanager.bindEvents();
+        });
+
+    },
+    search: function () {
+        var search = $("#searchFiles").val();
+        var folder = $('.folder-name.active').text().trim();
+        var sort = $("#sortFiles").find(":selected").val();
+
+        this.call('/admin/file/open/' + folder, {sort: sort, search: search, filterType: filterType}, function (response) {
+            $('#fileModal').find('.modal-body').html(response);
+            $("#searchFiles").val(search);
+            filemanager.bindEvents();
+        });
+    },
+    call: function (url, params, callback) {
+        //Is it from paginator clicking?
+        if(params.hasOwnProperty("page") == false){
+            params.page = params.clickedPage;
+            delete params.clickedPage;
+        }else{
+            params.page = page;
+        }
+
+         $.ajax({
+                url: url,
+                data: params,
+                dataType: 'json'
+
+            }
+        ).always(function (response) {
+            callback(response);
+
+        });
 
     }
 }

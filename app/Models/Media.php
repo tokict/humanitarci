@@ -73,9 +73,14 @@ class Media extends BaseModel
         return $this->hasMany(\App\Models\MediaLink::class, 'media_id');
     }
 
+    public function creator()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'uploaded_by');
+    }
+
     public function saveFile($file, $folder, $permission)
     {
-        $s3 = \Storage::disk('s3');
+        $s3 = \Storage::cloud('s3');
         $name = time() . rand(1, 9999) . "." . $file->getClientOriginalExtension();
         $this->prepareForUpload($file->getPathname(), $name);
 
@@ -126,7 +131,7 @@ class Media extends BaseModel
 
     public function getPath($size)
     {
-        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/" . $size . "_" . $this->getAtt('reference');
+        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/".$this->creator->organization_id."/" . $size . "_" . $this->getAtt('reference');
     }
 
 

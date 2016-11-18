@@ -33,16 +33,46 @@ class FileController extends Controller
 
     public function open($request, $folder)
     {
+        $filterType = Input::get("filterType", null);
+        $filterType = $filterType == "all" ? null : $filterType;
+        $sort = Input::get("sort", 'latest') == 'latest' ? 'DESC' : 'ASC';
+        $page = Input::get("page", 1);
+        $search = Input::get("search", null);
+        $search = $search == "" ? null : $search;
+        $folder = strtolower($folder);
 
-
-        $files = Media::where('uploaded_by', '=', Auth::User()->id)->get();
-        //I do this because for some reason I cannot call Eloquent query in foreach
-        foreach ($files as $file) {
-            $folders[$file->directory][] = $file;
-
+        $folders['campaigns'] = [];
+        $folders['beneficiaries'] = [];
+        $folders['companies'] = [];
+        $folders['people'] = [];
+        $folders['documents '] = [];
+        $folders['other'] = [];
+        if (!isset($folders[$folder])) {
+            die('Go away!');
         }
 
-        return view('admin.common.filemanager', ['folders' => $folders, 'active' => $folder]);
+        /*CAMPAIGNS*/
+
+        $data = Media::where('uploaded_by', Auth::User()->id)
+            ->where('directory', $folder);
+        if (isset($search)) {
+            $data->where('title', 'like', '%' . $search . '%');
+        }
+
+        if (isset($filterType)) {
+            $data->where('type', $filterType);
+        }
+        $data->orderBy('created_at', $sort);
+        $folders[$folder] = $data->paginate(30);
+
+
+        return view('admin.common.filemanager', [
+            'folders' => $folders,
+            'active' => $folder,
+            'type' => $filterType,
+            'sort' => $sort,
+            'search' => $search
+        ]);
     }
 
 
