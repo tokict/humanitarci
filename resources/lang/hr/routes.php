@@ -33,6 +33,8 @@ return array(
         'bills' => 'racuni',
         'clothing' => 'odjeca-obuca',
         'books' => 'knjige',
+        'other' => 'ostalo',
+        'place' => 'mjesto'
     ],
     'pages' => [
         'mission' => 'misija',

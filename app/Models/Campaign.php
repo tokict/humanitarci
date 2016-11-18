@@ -55,6 +55,8 @@ namespace App\Models;
  *
  * @property string $type
  *
+ * @property string $category
+ *
  * @property \App\Models\Media $cover
  *
  * @property int $created_by
@@ -166,7 +168,8 @@ class Campaign extends BaseModel
 		'ends',
 		'reference_id',
 		'end_notes',
-		'media_info'
+		'media_info',
+		'category'
 	];
 
 	public function user()

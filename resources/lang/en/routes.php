@@ -32,6 +32,8 @@ return array(
         'racuni' => 'bills',
         'odjeca-obuca' => 'clothing',
         'knjige' => 'books',
+        'ostalo' => 'other',
+        'mjesto' => 'place'
     ],
     'pages' => [
         'misija' => 'mission',

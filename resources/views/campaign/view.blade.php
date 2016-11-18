@@ -19,13 +19,17 @@
 
                     <!-- Author, Categories, Comments -->
                     <div class="blog-item-data">
-                        <a href="#"><i class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}}.</a>
+                        <a href="#"><i class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}}
+                            .</a>
                         <span class="separator">&nbsp;</span>
-                        <a href="#"><i class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city->name}}
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city_id
+                        ?$campaign->beneficiary->person->city_id:$campaign->beneficiary->entity->city_id}}"><i
+                                    class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city->name}}
                             , {{$campaign->beneficiary->person->city->region->name}}</a>
                         <span class="separator">&nbsp;</span>
                         <i class="fa fa-folder-open"></i>
-                        <a href="">Smještaj</a>
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/
+                        {{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
                     </div>
 
                     <!-- Media Gallery -->

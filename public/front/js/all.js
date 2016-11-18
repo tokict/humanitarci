@@ -975,7 +975,7 @@ function initWorkFilter(){
                  filter: fselector
              });
          });
-         return false;
+
      });
         
      if (window.location.hash) {
