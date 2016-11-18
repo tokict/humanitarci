@@ -25,6 +25,19 @@ class BeneficiaryController extends Controller
         return view('admin.beneficiary.listing', ['beneficiaries' => $beneficiaries]);
     }
 
+    public function view($request, $id)
+    {
+        if (!$this->User->isSuperAdmin()) {
+            $beneficiary = Beneficiary::where('creator.organization_id', $this->User->organization_id)
+                ->where('beneficiary_id', $id)->paginate(50);
+        } else {
+            $beneficiary = Beneficiary::whereId($id);
+        }
+
+
+        return view('admin.beneficiary.view', ['beneficiary' => $beneficiary]);
+    }
+
     public function create($request)
     {
 

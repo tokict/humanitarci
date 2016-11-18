@@ -21,6 +21,7 @@ namespace App\Models;
  * @property string remember_token
  * @property int $created_by
  * @property int $organization_id
+ * @property int $super_admin
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  *
@@ -85,6 +86,11 @@ class User extends BaseModel
 	public function organization()
 	{
 		return $this->belongsTo(\App\Models\Organization::class);
+	}
+
+	public function isSuperAdmin()
+	{
+		return  $this->super_admin;
 	}
 
 }

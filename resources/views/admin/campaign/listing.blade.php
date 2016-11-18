@@ -57,9 +57,9 @@
                                         <td>{{ $campaign->action_by_date }}</td>
 
                                         <td class="center">
-                                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Lock</a>
+                                            <a href="/{{trans('routes.front.campaign')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}" class="btn btn-sm btn-default">
+                                                <i class="fa fa-eye"></i> View</a>
+                                            <a href="/admin/campaign/edit/{{$campaign->id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
 

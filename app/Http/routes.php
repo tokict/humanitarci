@@ -11,13 +11,14 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index');
 Route::get("/login", 'Auth\AuthController@login');
 Route::post("/login", 'Auth\AuthController@login');
 
 //Free to browse controllers
 Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
-Route::match(array('GET', 'POST'),'/campaign/{action}/{params?}', 'CampaignController@index');
+Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.campaigns',[], env('LANGUAGE')).'/{action}/{params?}', 'CampaignsController@index');
 
 
 //Authenticated users of site controllers

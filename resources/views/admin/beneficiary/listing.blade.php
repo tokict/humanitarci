@@ -50,7 +50,7 @@
                                     <tr class="gradeX">
                                         <td>{{ $beneficiary->name }}</td>
                                         <td>{{ $beneficiary->identifier }}</td>
-                                        <td class="center"><img src="{{ $beneficiary->profile_image->getPath() }}"></td>
+                                        <td class="center"><img src="{{ $beneficiary->profile_image->getPath('small') }}"></td>
                                         <td>{{ $beneficiary->donor_number }}</td>
                                         <td>{{ $beneficiary->funds_used }}</td>
                                         <td class="center">{{ isset($beneficiary->person)?$beneficiary->person->first_name:"" }}
@@ -63,7 +63,7 @@
                                         {{ $beneficiary->creator->person->last_name }}</td>
                                         <td class="center">{{ isset($beneficiary->members_public)?"Yes":"No" }}</td>
                                         <td class="center">
-                                            <a href="#" class="btn btn-sm btn-primary">View</a>
+                                            <a href="/{{trans('routes.front.beneficiary')}}/{{trans('routes.actions.view')}}/{{$beneficiary->id}}" class="btn btn-sm btn-primary">View</a>
                                             <a href="#" class="btn btn-sm btn-primary">Edit</a>
                                             <a href="#" class="btn btn-sm btn-primary">Lock</a>
                                         </td>

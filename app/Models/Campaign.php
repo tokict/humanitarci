@@ -28,8 +28,6 @@ namespace App\Models;
  * If the campaign had limits and needs more, it can request more donations. It can do this only once and until it
  * reaches the sum of target_amount and target_amount_extra. After that, the campaign ends and cannot be reactivated
  *
- * @property string $currency
- * Which currency the target _amount is in. (ISO 3 char)
  *
  * @property int $cover_photo_id
  * The id of the cover photo for the campaign from media table. The image should be the one provoking the most empathy
@@ -149,7 +147,6 @@ class Campaign extends BaseModel
 		'beneficiary_id',
 		'target_amount',
 		'target_amount_extra',
-		'currency',
 		'cover_photo_id',
 		'description_short',
 		'description_full',

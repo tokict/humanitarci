@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\MediaLink;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -24,15 +25,33 @@ class CampaignController extends Controller
 
     public function listing()
     {
-        $campaigns = Campaign::paginate(15);
+        if (!$this->User->isSuperAdmin()) {
+            $campaigns = Campaign::where('organization_id', $this->User->organization_id)->paginate(50);
+        } else {
+            $campaigns = Campaign::paginate(50);
+        }
+
 
         return view('admin.campaign.listing', ['campaigns' => $campaigns]);
+    }
+
+    public function view($request, $id)
+    {
+        if (!$this->User->isSuperAdmin()) {
+            $campaign = Campaign::where('organization_id', $this->User->organization_id)
+                ->where('campaign_id', $id)->paginate(50);
+        } else {
+            $campaign = Campaign::whereId($id);
+        }
+
+
+        return view('admin.campaign.view', ['campaign' => $campaign]);
     }
 
     public function create($request)
     {
 
-        if(Request::isMethod('post')){
+        if (Request::isMethod('post')) {
             $this->validate($request, [
 
                 'name' => 'required|max:100',
@@ -58,30 +77,30 @@ class CampaignController extends Controller
 
             $input = Input::all();
             $input['created_by'] = Auth::User()->id;
-            $input['starts'] = date("Y-m-d H:i:s",strtotime($input['start_date']." ".$input['start_time']));
-            $input['ends'] = date("Y-m-d H:i:s",strtotime($input['end_date']." ".$input['end_time']));
-            $input['action_by_date'] = date("Y-m-d H:i:s",strtotime($input['action_by_date']." ".$input['action_by_time']));
+            $input['starts'] = date("Y-m-d H:i:s", strtotime($input['start_date'] . " " . $input['start_time']));
+            $input['ends'] = date("Y-m-d H:i:s", strtotime($input['end_date'] . " " . $input['end_time']));
+            $input['action_by_date'] = date("Y-m-d H:i:s", strtotime($input['action_by_date'] . " " . $input['action_by_time']));
             $input['media_info'] = $input['campaign_photos'];
             //Lets save cover_image if present
 
             $campaign = Campaign::create($input);
-            if($campaign) {
+            if ($campaign) {
                 //Save media link
                 $mediaLink = new MediaLink(
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['cover_photo_id'],
                         'organization_id' => Auth::User()->organization_id,
-                        'user_id' =>Auth::User()->id
+                        'user_id' => Auth::User()->id
 
                     ]
                 );
                 $mediaLink->save();
 
-                if(isset($input['campaign_photos'])){
-                    foreach(explode(",", $input['media_info']) as $id){
+                if (isset($input['campaign_photos'])) {
+                    foreach (explode(",", $input['media_info']) as $id) {
                         $file = Media::whereId($id);
-                        if($file) {
+                        if ($file) {
                             $link = new MediaLink(
                                 [
                                     'campaign_id' => $campaign->id,
@@ -96,12 +115,12 @@ class CampaignController extends Controller
                 }
 
                 return redirect('admin/campaign/listing');
-            }else{
+            } else {
                 dd("Not saved");
             }
 
 
-        }else{
+        } else {
 
         }
         return view('admin.campaign.create');

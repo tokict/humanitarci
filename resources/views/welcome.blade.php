@@ -21,9 +21,9 @@
                         </h3>
 
                         <div class="local-scroll">
-                            <a href="mission.html" class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
+                            <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}" class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
                             <span class="hidden-xs">&nbsp;</span>
-                            <a href="donate.html" class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
+                            <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}" class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
                         </div>
 
                     </div>
@@ -49,9 +49,9 @@
                         </h3>
 
                         <div class="local-scroll">
-                            <a href="mission.html" class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
+                            <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}" class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
                             <span class="hidden-xs">&nbsp;</span>
-                            <a href="donate.html" class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
+                            <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}" class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
                         </div>
 
                     </div>
@@ -77,9 +77,9 @@
                         </h3>
 
                         <div class="local-scroll">
-                            <a href="mission.html" class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
+                            <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}" class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
                             <span class="hidden-xs">&nbsp;</span>
-                            <a href="donate.html" class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
+                            <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}" class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
                         </div>
 
                     </div>
@@ -99,10 +99,10 @@
         <div class="container relative">
 
             <div class="works-filter font-alt align-center">
-                <a href="#" class="filter active" data-filter="*">Novo</a>
-                <a href="#" class="filter" data-filter=".management">Najpoznatije</a>
-                <a href="#" class="filter" data-filter=".design-buid">Potrebe <i class="fa fa-angle-down"></i></a>
-                <a href="#" class="filter" data-filter=".design-buid">Korisnici <i class="fa fa-angle-down"></i></a>
+                <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.new')}}" class="filter active" >Novo</a>
+                <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.popular')}}" class="filter">Najpoznatije</a>
+                <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.near_goal')}}" class="filter">Pred ciljem</a>
+                <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.all')}}" class="filter">Vidi sve</a>
             </div>
 
             <div class="row multi-columns-row">
@@ -111,14 +111,17 @@
                 <div class="col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
 
                     <div class="post-prev-img">
-                        <a href="/campaign/view/1"><img src="{{$campaign->cover->getPath()}}" alt=""></a>
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><img src="{{$campaign->cover->getPath('small')}}" alt=""></a>
                     </div>
 
                     <div class="progress tpl-progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                            1200 kn<span>75%</span>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$campaign->percent_done}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$campaign->percent_done}}%;">
+                            <span>{{$campaign->percent_done}}%</span>
                         </div>
+                        <br/>
+                        {{$campaign->target_amount}} {{env('CURRENCY')}}
                     </div>
+
 
                     <div class="post-prev-info font-alt">
                         {{$campaign->beneficiary->person->city->name}}, {{$campaign->beneficiary->person->city->region->name}} <span>/</span>
@@ -130,7 +133,7 @@
                     </div>
 
                     <div class="post-prev-more">
-                        <a href="/campaign/view/{{$campaign->id}}" class="btn btn-mod btn-gray btn-round">Pročitaj više <i class="fa fa-angle-right"></i></a>
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}" class="btn btn-mod btn-gray btn-round">Pročitaj više <i class="fa fa-angle-right"></i></a>
                     </div>
 
                 </div>

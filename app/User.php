@@ -26,6 +26,6 @@ class User extends Authenticatable
 
     public function isSuperAdmin()
     {
-        return  1 === (int) $this->id;
+        return  (int) $this->super_admin;
     }
 }

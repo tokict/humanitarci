@@ -26,17 +26,18 @@
 
                     <!-- Item With Sub -->
                     <li>
-                        <a href="/campaign/listing" class="mn-has-sub active">Akcije <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="mn-has-sub active">Akcije <i class="fa fa-angle-down"></i></a>
 
                         <!-- Sub -->
                         <ul class="mn-sub">
-                            <li><a href="#">Hrana</a></li>
-                            <li><a href="#">Troškovi liječenja</a></li>
-                            <li><a href="#">Namirnice</a></li>
-                            <li><a href="#">Ogrjev</a></li>
-                            <li><a href="#">Računi</a></li>
-                            <li><a href="#">Odjeća i Obuća</a></li>
-                            <li><a href="#">Knjige za školu</a></li>
+                            <li><a href="/{{trans('routes.front.campaign')}}/{{trans('routes.actions.listing')}}">Sve</a> </li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.food')}}">Hrana</a></li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.medicine')}}">Troškovi liječenja</a></li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.groceries')}}">Namirnice</a></li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.heating')}}">Ogrjev</a></li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.bills')}}">Računi</a></li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.clothing')}}">Odjeća i Obuća</a></li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.books')}}">Knjige za školu</a></li>
                         </ul>
                         <!-- End Sub -->
 
@@ -44,23 +45,23 @@
                     <!-- End Item With Sub -->
 
                     <li>
-                        <a href="about.html" class="mn-has-sub">O nama <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="mn-has-sub">O nama <i class="fa fa-angle-down"></i></a>
 
                         <!-- Sub -->
                         <ul class="mn-sub">
-                            <li><a href="#">Misija</a></li>
-                            <li><a href="#">Tim</a></li>
-                            <li><a href="#">Dosadašnji rad</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}">Misija</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.team')}}">Tim</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.history')}}">Dosadašnji rad</a></li>
                         </ul>
                         <!-- End Sub -->
                     </li>
 
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <a href="/blog">Blog</a>
                     </li>
 
                     <li>
-                        <a href="contact.html">Kontakt</a>
+                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.contacts')}}">Kontakt</a>
                     </li>
 
                     <li>
@@ -84,12 +85,12 @@
                         <ul class="mn-sub">
                             <li>
                                 <div class="mn-wrap">
-                                    <form method="post" class="form">
+                                    <form method="post" class="form" action="/{{trans('routes.front.search')}}/{{trans('routes.actions.all')}}">
                                         <div class="search-wrap">
                                             <button class="search-button animate" type="submit" title="Start Search">
                                                 <i class="fa fa-search"></i>
                                             </button>
-                                            <input type="text" class="form-control search-field" placeholder="Traži...">
+                                            <input type="text" class="form-control search-field" placeholder="Traži..." name="query">
                                         </div>
                                     </form>
                                 </div>
@@ -98,9 +99,9 @@
                     </li>
                     <!-- End Search -->
 
-                    <li><a href="donate.html" target="_blank" style="height: 75px; line-height: 75px;"><span
-                                    class="btn btn-mod btn-circle">Želim pomoći</span></a></li>
-                    <li><a href="donate.html" target="_blank" style="height: 75px; line-height: 75px;"><span
+                    {{--<li><a href="donate.html" target="_blank" style="height: 75px; line-height: 75px;"><span
+                                    class="btn btn-mod btn-circle">Želim pomoći</span></a></li>--}}
+                    <li><a href="/{{trans('routes.front.users')}}/{{trans('routes.actions.register')}}" target="_blank" style="height: 75px; line-height: 75px;"><span
                                     class="btn btn-mod btn-circle btn-gray"><i
                                         class="fa fa-user"></i> Prijava</span></a></li>
 

@@ -4,23 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Models\Campaign;
+use App\Models\Media;
 use Illuminate\Http\Request;
 
-class CampaignController extends Controller
+class CampaignsController extends Controller
 {
     use \App\Traits\ControllerIndexTrait;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
 
     /**
-     * Show then campaign listings.
+     * Show campaign listings.
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,6 +30,9 @@ class CampaignController extends Controller
     {
 
         $campaign = Campaign::whereId($id)->first();
+        $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
+        $campaign->media_info = $media_info;
+
         return view('campaign.view', ['campaign' => $campaign]);
     }
 }

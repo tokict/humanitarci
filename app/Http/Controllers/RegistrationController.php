@@ -6,7 +6,7 @@ use App\Http\Requests;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class RegistrationController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $campaigns = Campaign::where('status', 'active')
-        ->orderBy('created_at', 'desc')
+        ->orderBy('priority', 'desc')
         ->take(3)
         ->get();
 
