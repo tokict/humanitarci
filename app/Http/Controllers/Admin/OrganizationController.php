@@ -42,7 +42,7 @@ class OrganizationController extends Controller
 
 
 
-            ]);//ToDo: File uploader for logo
+            ]);
 
             $organization = Organization::create(Input::all());
 
@@ -54,7 +54,42 @@ class OrganizationController extends Controller
         }else{
 
         }
+        $organization = new Organization([]);
 
-        return view('admin.organization.create');
+        return view('admin.organization.create', ['organization' => $organization]);
+    }
+
+    public function edit($request, $id)
+    {
+        $organization = Organization::find($id);
+        if(Request::isMethod('post')){
+            $this->validate($request, [
+                'name' => 'max:100',
+                'legal_entity_id' => 'required|numeric',
+                'donations_address' => 'max:100',
+                'donations_coordinates' => 'max:100',
+                'description' => 'required',
+                'contact_email' => 'max:100',
+                'contact_phone' => 'max:100',
+                'represented_by' => 'required',
+                'status' => 'required|numeric',
+                'city_id' => 'required|numeric',
+
+
+
+            ]);
+
+            $input = Input::all();
+
+            if($organization->update($input)){
+                return redirect('admin/organization/listing');
+            }else{
+                dd("Not saved");
+            }
+        }else{
+
+        }
+
+        return view('admin.organization.edit', ['organization' => $organization]);
     }
 }

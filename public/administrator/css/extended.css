@@ -81,6 +81,15 @@
 
 #fileModal .modal-dialog {
     width: 90%;
+
+}
+
+#fileModal .modal-content {
+    height: 830px!important;;
+}
+#fileModal .modal-body{
+    height: 750px!important;
+    overflow: auto;
 }
 
 .folder-list .active {

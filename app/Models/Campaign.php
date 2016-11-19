@@ -91,8 +91,6 @@ namespace App\Models;
  * Seralized array on media used with this campaign. For creating cards, sharing, etc
  *
  *
- * @property \App\Models\Media $media
- * Related media object
  *
  * @property \App\Models\User $creator
  * Related admin object
@@ -182,10 +180,7 @@ class Campaign extends BaseModel
 		return $this->belongsTo(\App\Models\Beneficiary::class);
 	}
 
-	public function media()
-	{
-		return $this->belongsTo(\App\Models\Media::class, 'cover_photo_id');
-	}
+
 
 	public function organization()
 	{

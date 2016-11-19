@@ -7,6 +7,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\DB;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -39,6 +40,18 @@ class BaseModel extends Eloquent
 	public function getAtt($name)
 	{
 		return isset($this->attributes[$name])?$this->attributes[$name]:false;
+	}
+
+	public function getEnumValues($column) {
+		$type = DB::select(DB::raw("SHOW COLUMNS FROM ".$this->getTable()." WHERE Field = '{$column}'"))[0]->Type ;
+		preg_match('/^enum\((.*)\)$/', $type, $matches);
+		$enum = array();
+		foreach( explode(',', $matches[1]) as $value )
+		{
+			$v = trim( $value, "'" );
+			$enum = array_add($enum, $v, ucfirst($v));
+		}
+		return $enum;
 	}
 
 

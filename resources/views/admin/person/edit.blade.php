@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Create new person</h5>
+                        <h5>Edit person</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -34,7 +34,8 @@
                                 </ul>
                             </div>
                         @endif
-                            {!! Form::open(['url' => '/admin/person/create', 'class' => 'form-horizontal']) !!}
+                            {!! Form::open(['url' => '/admin/person/edit/'.$person->id, 'class' => 'form-horizontal']) !!}
+                            {{Form::model($person)}}
                             {{Form::token()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
@@ -70,7 +71,7 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
                                 <div class="col-sm-5">
-                                    {{Form::select('city_id', ["" => 'Select'], null, ['class' => 'form-control selectCity'])}}
+                                    {{Form::select('city_id', [$person->city->id => $person->city->name], $person->city->name, ['class' => 'form-control selectCity'])}}
                                     <span class="help-block m-b-none">City of residence</span>
                                 </div>
                             </div>

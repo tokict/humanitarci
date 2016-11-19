@@ -66,7 +66,12 @@ var filemanager = {
         if ($(invoker).hasClass("fileSelect")) {
             $('#selectDoneButton').removeClass('hidden');
             $('#selectDoneButton').click(function () {
-                filemanager.selectImages()
+                filemanager.selectImages();
+
+                //For editing where input field is populated
+                if(input.val() != ""){
+                    selectedFiles = input.val().split(",");
+                }
             });
 
             //Selecting and saving files to input fields
@@ -125,7 +130,6 @@ var filemanager = {
 
             filemanager.filter(filter);
         });
-
 
 
 

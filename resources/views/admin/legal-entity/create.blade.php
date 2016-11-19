@@ -57,7 +57,7 @@
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Current city</label>
-                                    <select class="form-control citySelect" name="city_id">
+                                    <select class="form-control selectCity" name="city_id">
                                         <option value="">Select</option>
 
                                     </select>

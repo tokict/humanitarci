@@ -15,6 +15,7 @@ return array(
         'pages' => 'stranice',
         'users' => 'clanovi',
         'search' => 'trazi',
+        'organizations' => 'udruge'
 
     ],
     'actions' => [

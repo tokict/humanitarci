@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Create new organization</h5>
+                        <h5>Edit organization</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -34,8 +34,8 @@
                                 </ul>
                             </div>
                         @endif
-                            {!! Form::open(['url' => '/admin/organization/create', 'class' => 'form-horizontal']) !!}
-                            {{Form::model($organization)}}
+
+                            {!! Form::open(['url' => '/admin/organization/edit', 'class' => 'form-horizontal']) !!}
                             {{Form::token()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
@@ -47,14 +47,14 @@
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Parent company</label>
-                                    {{Form::select('legal_entity_id', ["" => 'Select'], null, ['class' => 'form-control selectEntity'])}}
+                                    {{Form::select('legal_entity_id', [$organization->legalEntity->id => $organization->legalEntity->name], $organization->legalEntity->name, ['class' => 'form-control selectEntity'])}}
                                     <span class="help-block m-b-none">Legal entity that operates it</span>
                                 </div>
 
 
                                 <div class="col-sm-3">
                                     <label class="control-label">City</label>
-                                    {{Form::select('city_id', ["" => 'Select'], null, ['class' => 'form-control selectCity'])}}
+                                    {{Form::select('city_id', [$organization->city->id => $organization->city->name], $organization->city->name, ['class' => 'form-control selectCity'])}}
                                     <span class="help-block m-b-none">City of operations</span>
                                 </div>
 
@@ -93,7 +93,7 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-2">
                                     <label class="control-label">Status</label>
-                                    {{Form::select('status', [$organization->getEnumvalues('status')], null, ['class' => 'form-control'])}}
+                                    {{Form::select('status', [$organization->getEnumValues('status')], null, ['class' => 'form-control'])}}
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>

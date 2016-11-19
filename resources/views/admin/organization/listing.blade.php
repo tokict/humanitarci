@@ -53,9 +53,14 @@
                                         <td>{{ $org->person->first_name }} {{$org->person->last_name}}</td>
                                         <td class="center">{{ $org->status }}</td>
                                         <td class="center">
-                                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Lock</a>
+                                            <a href="/{{trans('routes.front.organizations')}}/{{trans('routes.actions.view')}}/{{$org->id}}"
+                                               target="_blank" class="btn btn-sm btn-default">
+                                                <i class="fa fa-eye"></i> Go To</a>
+                                            <a href="/admin/organization/view/{{$org->id}}"
+                                               target="_blank" class="btn btn-sm btn-default">
+                                                <i class="fa fa-list"></i> Details</a>
+                                            <a href="/admin/organization/edit/{{$org->id}}"
+                                               class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
 

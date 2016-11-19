@@ -27,8 +27,9 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover campaigns-table" >
-                                <thead> <tr>
+                            <table class="table table-striped table-bordered table-hover campaigns-table">
+                                <thead>
+                                <tr>
                                     <th>Name</th>
                                     <th>Beneficiary</th>
                                     <th>Organization</th>
@@ -57,15 +58,18 @@
                                         <td>{{ $campaign->action_by_date }}</td>
 
                                         <td class="center">
-                                            <a href="/{{trans('routes.front.campaign')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}" class="btn btn-sm btn-default">
-                                                <i class="fa fa-eye"></i> View</a>
-                                            <a href="/admin/campaign/edit/{{$campaign->id}}" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
+                                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"
+                                               target="_blank" class="btn btn-sm btn-default">
+                                                <i class="fa fa-eye"></i> Go To</a>
+                                            <a href="/admin/campaign/view/{{$campaign->id}}"
+                                               target="_blank" class="btn btn-sm btn-default">
+                                                <i class="fa fa-list"></i> Details</a>
+                                            <a href="/admin/campaign/edit/{{$campaign->id}}"
+                                               class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
 
                                 @endforeach
-
-
 
 
                                 </tbody>
