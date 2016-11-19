@@ -15,29 +15,31 @@ use Illuminate\Support\Facades\Route;
  * Date: 11/6/16
  * Time: 9:56 AM
  */
-
-trait ControllerIndexTrait {
+trait ControllerIndexTrait
+{
 
 
     public function index(Request $request, $action, $params = null)
     {
-        if($request->route()->getPrefix() != "/admin") {
-            $action = Lang::get('routes.actions.' . $action, [], '');
-        }
+
         $routeArray = $request->route()->getAction();
         $controllerAction = class_basename($routeArray['controller']);
-        $controller =  explode('@', $controllerAction)[0];
+        $controller = explode('@', $controllerAction)[0];
 
 
+        if ($request->route()->getPrefix() != "/admin") {
+            $action = Lang::get('routes.actions.' . $action, [], '');
 
-        if (Gate::denies($controller, [$this->User, $controller, $action, $params])) {
-            abort(403, 'You do not have permission to access this resource');
+        } else {
+            if (Gate::denies($controller, [$this->User, $controller, $action, $params])) {
+                abort(403, 'You do not have permission to access this resource');
+            }
         }
 
-        if(method_exists($this, $action))
-        {
+
+        if (method_exists($this, $action)) {
             return $this->{$action}($request, $params);
-        }else{
+        } else {
             abort(404, 'Page not found.');
         }
     }
