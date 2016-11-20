@@ -88,7 +88,7 @@ namespace App\Models;
  * End notes isa a description made on and after delivery of goods to beneficiary. Short description must be present.
  *
  * @property string $media_info
- * Seralized array on media used with this campaign. For creating cards, sharing, etc
+ * Media used with this campaign. For creating cards, sharing, etc
  *
  *
  *

@@ -63,9 +63,14 @@
                                         {{ $beneficiary->creator->person->last_name }}</td>
                                         <td class="center">{{ isset($beneficiary->members_public)?"Yes":"No" }}</td>
                                         <td class="center">
-                                            <a href="/{{trans('routes.front.beneficiary')}}/{{trans('routes.actions.view')}}/{{$beneficiary->id}}" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Lock</a>
+                                            <a href="/{{trans('routes.front.beneficiary')}}/{{trans('routes.actions.view')}}/{{$beneficiary->id}}"
+                                               target="_blank" class="btn btn-sm btn-default">
+                                                <i class="fa fa-eye"></i> Go To</a>
+                                            <a href="/admin/beneficiary/view/{{$beneficiary->id}}"
+                                               target="_blank" class="btn btn-sm btn-default">
+                                                <i class="fa fa-list"></i> Details</a>
+                                            <a href="/admin/beneficiary/edit/{{$beneficiary->id}}"
+                                               class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
 

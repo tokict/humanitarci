@@ -221,8 +221,6 @@ class CampaignController extends Controller
                 return redirect('admin/campaign/listing');
 
 
-            } else {
-
             }
         }
 

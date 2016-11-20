@@ -94,6 +94,12 @@ class AuthServiceProvider extends ServiceProvider
             return true;//$user->id === $contact->user_id;
         });
 
+        $gate->define('BankController', function ($user, $controller, $action, $params)  {
+            //Allow all for superadmin
+            //if($user->isSuperAdmin()){return true;}
+            return true;//$user->id === $contact->user_id;
+        });
+
         $gate->define('UserController', function ($user, $controller, $action, $params)  {
             //Allow all for superadmin
             //if($user->isSuperAdmin()){return true;}

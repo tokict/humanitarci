@@ -30,6 +30,17 @@ class BaseModel extends Eloquent
 			return true;
 
 		});
+
+		static::updating(function($model) {
+
+			foreach ($model->toArray() as $name => $value) {
+				if ($value == "") {
+					$model->{$name} = null;
+				}
+			}
+			return true;
+
+		});
 	}
 
 	public function setAtt($name, $value)

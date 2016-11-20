@@ -36,6 +36,7 @@
                         @endif
 
                             {!! Form::open(['url' => '/admin/organization/edit', 'class' => 'form-horizontal']) !!}
+                            {{Form::model($organization)}}
                             {{Form::token()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
@@ -64,7 +65,7 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-3">
                                     <label class="control-label">Donations address</label>
-                                    {{Form::text('address', null,['class' =>'form-control' ] )}}
+                                    {{Form::text('donations_address', null,['class' =>'form-control' ] )}}
                                     <span class="help-block m-b-none">Where does it accept donations</span>
                                 </div>
                                 <div class="col-sm-2">
@@ -126,7 +127,7 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-white" type="submit">Cancel</button>
+                                    <a class="btn btn-white" href="/admin/organization/listing">Cancel</a>
                                     <button class="btn btn-primary" type="submit">Save changes</button>
                                 </div>
                             </div>

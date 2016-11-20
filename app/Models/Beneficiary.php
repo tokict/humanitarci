@@ -54,8 +54,8 @@ namespace App\Models;
  * @property int $members_public
  * Whether the members of the group are to be available to public
  *
- * @property string $photo_ids
- *	Serialized array of photos associated with this beneficiary from media table
+ * @property string $media_info
+ *	Photos associated with this beneficiary from media table
  *
  * @property int $group_id
  * If this beneficiary is a group of people or entities, this is the group id. This MUST not be edited after first active campaign
@@ -63,7 +63,7 @@ namespace App\Models;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  *
- * @property \App\Models\LegalEntity $entity
+ * @property \App\Models\LegalEntity $legalEntity
  * LegalEntity object belonging to this beneficiary
  *
  * @property \App\Models\Person $person
@@ -128,12 +128,12 @@ class Beneficiary extends BaseModel
 		'created_by_id',
 		'description',
 		'members_public',
-		'photo_ids',
+		'media_info',
 		'company_id',
 		'created_at'
 	];
 
-	public function entity()
+	public function legalEntity()
 	{
 		return $this->belongsTo(\App\Models\LegalEntity::class, 'entity_id');
 	}

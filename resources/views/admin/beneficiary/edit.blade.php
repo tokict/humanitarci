@@ -34,7 +34,8 @@
                                 </ul>
                             </div>
                         @endif
-                        {!! Form::open(['url' => '/admin/beneficiary/create', 'class' => 'form-horizontal']) !!}
+                        {!! Form::open(['url' => '/admin/beneficiary/edit/'.$beneficiary->id, 'class' => 'form-horizontal']) !!}
+                        {{Form::model($beneficiary)}}
                         {{Form::token()}}
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
@@ -57,10 +58,16 @@
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-3">
                                 <label class="control-label">Profile image</label><br/>
-                                {{Form::hidden('profile_image')}}
+                                {{Form::hidden('profile_image_id')}}
                                 <button type="button" class=" btn btn-default fileSelect" data-toggle="modal"
                                         data-target="#fileModal">Select image
                                 </button>
+                                <div class="row">
+                                    <div class="col-md-3 p-b-5">
+                                        <img src="{{$beneficiary->profile_image->getPath('thumb')}}" class="img-responsive">
+                                    </div>
+
+                                </div>
                             </div>
                             <div class="col-sm-3">
                                 <label class="control-label">Beneficiary photos</label><br/>
@@ -68,6 +75,13 @@
                                 <button type="button" class=" btn btn-default fileSelect" data-toggle="modal"
                                         data-target="#fileModal">Select images
                                 </button>
+                                <div class="row">
+                                    @foreach($beneficiary->beneficiary_media as $image)
+                                        <div class="col-md-3 p-b-5">
+                                            <img src="{{$image->getPath('thumb')}}" class="img-responsive">
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
@@ -75,19 +89,32 @@
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-3">
                                 <label class="col-sm-2 control-label">Person</label>
-                                {{Form::select('person_id', ["" => 'Select'], null, ['class' => 'form-control selectPerson'])}}
+                                @if(isset($beneficiary->person))
+                                    {{Form::select('person_id', [$beneficiary->person->id => $beneficiary->person->first_name.' '.$beneficiary->person->last_name], $beneficiary->person->id, ['class' => 'form-control selectPerson'])}}
+                                @else
+                                    {{Form::select('person_id', ["" => "Select"], null, ['class' => 'form-control selectPerson'])}}
+                                @endif
                                 <span class="help-block m-b-none">Select person if beneficiary is one person</span>
                             </div>
 
                             <div class="col-sm-3">
                                 <label class="col-sm-2 control-label">Entity</label>
-                                {{Form::select('entity_id', ["" => 'Select'], null, ['class' => 'form-control selectEntity'])}}
+                                @if(isset($beneficiary->legalEntity))
+                                    {{Form::select('entity_id', [$beneficiary->legalEntity->id => $beneficiary->legalEntity->name], $beneficiary->legalEntity->id, ['class' => 'form-control selectEntity'])}}
+                                @else
+                                    {{Form::select('entity_id', ["" => "Select"], null, ['class' => 'form-control selectEntity'])}}
+                                @endif
                                 <span class="help-block m-b-none">Select entity if beneficiary is a legal entity</span>
                             </div>
 
 
                             <div class="col-sm-3"><label class="control-label">Group</label>
-                                {{Form::select('group_id', ["" => 'Select'], null, ['class' => 'form-control selectGroup'])}}
+                                @if(isset($beneficiary->group))
+                                    {{Form::select('group_id', [$beneficiary->group->id => $beneficiary->group->name], $beneficiary->group->id, ['class' => 'form-control selectGroup'])}}
+                                @else
+                                    {{Form::select('group_id', ["" => "Select"], null, ['class' => 'form-control selectGroup'])}}
+                                @endif
+
                                 <span class="help-block m-b-none">Select group of persons or entities</span>
                             </div>
                         </div>
@@ -95,7 +122,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-2"><label class="control-label">Status</label>
-                                {{Form::select('status', $beneficiary->getEnumValues('status'), null, ['class' => 'form-control'])}}
+                                {{Form::select('status', $beneficiary->getEnumValues('status'), $beneficiary->status, ['class' => 'form-control'])}}
                             </div>
                             <div class="col-sm-4 pull-right">
                                 <label class="control-label"></label>

@@ -34,44 +34,37 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" enctype="multipart/form-data" class="form-horizontal" action="/admin/bank/create">
-                            {{csrf_field()}}
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
+                        {!! Form::open(['url' => '/admin/bank/create', 'class' => 'form-horizontal']) !!}
+                        {{Form::token()}}
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
 
-                                <div class="col-sm-2"><label class="control-label">Name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="name"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-2"
-                                ><label class="control-label">Swift</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="swift_code"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-5">
-                                    <label class="control-label">Legal entity</label>
-                                    <select class="form-control selectEntity" name="legal_entity_id">
-                                        <option value="">Select</option>
-                                    </select>
-                                </div>
-
-
+                            <div class="col-sm-5"><label class="control-label">Name</label>
+                                {{Form::text('title', null,['class' =>'form-control' ] )}}
                             </div>
 
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-white" type="submit">Cancel</button>
-                                    <button class="btn btn-primary" type="submit">Save changes</button>
-                                </div>
+                            <div class="col-sm-4"
+                            ><label class="control-label">Swift</label>
+                                {{Form::text('swift_code', null,['class' =>'form-control' ] )}}
                             </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-lg-8">
+                                <label class="control-label">Legal entity</label>
+                                {{Form::select('legal_entity_id', [], null, ['class' => 'form-control selectEntity'])}}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <a class="btn btn-white" href="/admin/bank/listing">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Save changes</button>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>

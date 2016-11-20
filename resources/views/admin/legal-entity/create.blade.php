@@ -34,43 +34,32 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" enctype="multipart/form-data" class="form-horizontal" action="/admin/legal-entity/create">
-                            {{csrf_field()}}
+                            {!! Form::open(['url' => '/admin/beneflegal-entityiary/create', 'class' => 'form-horizontal']) !!}
+
+                            {{Form::token()}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
 
                                 <div class="col-sm-2"><label class="control-label">Name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="name"
-                                           maxlength="30">
+                                    {{Form::text('name', null,['class' =>'form-control' ] )}}
                                 </div>
 
                                 <div class="col-sm-2"><label class="control-label">Tax id</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="tax_id"
-                                           maxlength="30">
+                                    {{Form::text('tax_id', null,['class' =>'form-control' ] )}}
                                 </div>
 
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Current city</label>
-                                    <select class="form-control selectCity" name="city_id">
-                                        <option value="">Select</option>
-
-                                    </select>
+                                    {{Form::select('city_id', [], null, ['class' => 'form-control selectCity'])}}
                                     <span class="help-block m-b-none">City of residence</span>
                                 </div>
 
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Address</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="address"
-                                           maxlength="150">
+                                    {{Form::text('address', null,['class' =>'form-control' ] )}}
                                     <span class="help-block m-b-none">Headquarters address</span>
                                 </div>
 
@@ -80,41 +69,28 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-2">
                                     <label class="control-label">Phone</label>
-                                    <input type="number"
-                                           class="form-control"
-                                           name="contact_phone">
+                                    {{Form::text('contact_phone', null,['class' =>'form-control' ] )}}
                                     <span class="help-block m-b-none">Contact phone</span>
                                 </div>
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Email</label>
-                                    <input type="email"
-                                           class="form-control"
-                                           name="contact_email"
-                                           maxlength="100">
+                                    {{Form::text('contact_email', null,['class' =>'form-control' ] )}}
                                     <span class="help-block m-b-none">Contact email</span>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-2">
+                                <div class="col-sm-5">
                                     <label class="control-label">Bank</label>
-                                    <select class="form-control" name="bank_id">
-                                        <option value="">Select</option>
-                                        @foreach($banks as $bank)
-                                            <option value="{{$bank->id}}">{{$bank->name}}</option>
-                                        @endforeach
-                                    </select>
+                                    {{Form::select('bank_id', $banks, null, ['class' => 'form-control'])}}
                                     <span class="help-block m-b-none">Select bank</span>
                                 </div>
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Bank account</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="bank_acc"
-                                           maxlength="100">
+                                    {{Form::text('bank_acc', null,['class' =>'form-control' ] )}}
                                     <span class="help-block m-b-none">Bank acc number</span>
                                 </div>
                             </div>
@@ -123,9 +99,7 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-2">
                                     <label class="control-label">Represented by</label>
-                                    <select class="form-control selectPerson" name="represented_by">
-                                        <option value="">Select</option>
-                                    </select>
+                                    {{Form::select('represented_by', [], null, ['class' => 'form-control selectPerson'])}}
                                     <span class="help-block m-b-none">Responsible person</span>
                                 </div>
                             </div>
@@ -134,7 +108,7 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-white" type="submit">Cancel</button>
+                                    <a class="btn btn-white" href="/admin/legal-entity/listing">Cancel</a>
                                     <button class="btn btn-primary" type="submit">Save changes</button>
                                 </div>
                             </div>

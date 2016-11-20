@@ -41,17 +41,52 @@ class LegalEntityController extends Controller
 
             ]);
 
-            $person = LegalEntity::create(Input::all());
+            $entity = LegalEntity::create(Input::all());
 
-            if($person){
+            if($entity){
                 return redirect('admin/legal-entity/listing');
-            }else{
-                dd("Not saved");
             }
-        }else{
-
         }
-        $banks = Bank::all();
-        return view('admin.legal-entity.create', ['banks' => $banks]);
+        $banks = Bank::select('name', 'id')->get()->toArray();
+        $bankSrr = [];
+        foreach($banks as $b){
+            $bankSrr[$b['id']] = $b['name'];
+        }
+
+        return view('admin.legal-entity.create', ['banks' => $bankSrr]);
+    }
+
+
+    public function edit($request, $id)
+    {
+        $entity = LegalEntity::find($id);
+        if(Request::isMethod('post')){
+            $this->validate($request, [
+                'name' => 'max:100',
+                'tax_id' => 'required|max:30',
+                'city_id' => 'required|max:5',
+                'address' => 'required|unique:persons|max:100',
+                'bank' => 'numeric',
+                'bank_acc' => 'required|max:150',
+                'contact_email' => 'max:100',
+                'contact_phone' => 'max:100',
+                'representing_person' => 'numeric',
+
+
+            ]);
+
+
+            $input = Input::all();
+            if($entity->update($input)){
+                return redirect('admin/legal-entity/listing');
+            }
+        }
+        $banks = Bank::select('name', 'id')->get()->toArray();
+        $bankSrr = [];
+        foreach($banks as $b){
+            $bankSrr[$b['id']] = $b['name'];
+        }
+
+        return view('admin.legal-entity.edit', ['banks' => $bankSrr, 'entity' => $entity]);
     }
 }
