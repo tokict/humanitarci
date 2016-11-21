@@ -30,7 +30,7 @@
 
                         <!-- Sub -->
                         <ul class="mn-sub">
-                            <li><a href="/{{trans('routes.front.campaign')}}/{{trans('routes.actions.listing')}}">Sve</a> </li>
+                            <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}">Sve</a> </li>
                             <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.food')}}">Hrana</a></li>
                             <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.medicine')}}">Troškovi liječenja</a></li>
                             <li><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.groceries')}}">Namirnice</a></li>

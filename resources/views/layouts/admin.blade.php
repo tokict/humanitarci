@@ -100,10 +100,10 @@
                         IN+
                     </div>
                 </li>
-                <li class="active">
+                <li class="{{$controller == 'AdminController'?'active':''}}">
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Overviews</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <ul class="nav nav-second-level" >
                         <li class="active"><a href="index.html">Campaigns</a></li>
                         <li><a href="dashboard_2.html">Donations</a></li>
                         <li><a href="dashboard_3.html">Donors</a></li>
@@ -114,48 +114,54 @@
                 <li>
                     <a href="#"><i class="fa fa-dot-circle-o"></i> <span class="nav-label">Campaigns</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/campaign/create">New campaign</a></li>
-                        <li><a href="/admin/campaign/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'CampaignController'?'collapse in':''}}">
+                        <li class="{{$controller == 'CampaignController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/campaign/create">New campaign</a></li>
+                        <li class="{{$controller == 'CampaignController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/campaign/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-dollar"></i> <span class="nav-label">Donations</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/donation/create">New donation</a></li>
-                        <li><a href="/admin/donation/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'DonationController'?'collapse in':''}}">
+                        <li class="{{$controller == 'DonationController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/donation/create">New donation</a></li>
+                        <li class="{{$controller == 'DonationController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/donation/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Beneficiaries</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/beneficiary/create">New beneficiary</a></li>
-                        <li><a href="/admin/beneficiary/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'BeneficiaryController'?'collapse in':''}}">
+                        <li class="{{$controller == 'BeneficiaryController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/beneficiary/create">New beneficiary</a></li>
+                        <li class="{{$controller == 'BeneficiaryController' && $action == 'listing'?'active':''}}"><a href="/admin/beneficiary/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Donors</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/admin/donor/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'DonorController'?'collapse in':''}}"><a href="/admin/donor/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Persons</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/person/create">New person</a></li>
-                        <li><a href="/admin/person/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'PersonController'?'collapse in':''}}">
+                        <li class="{{$controller == 'PersonController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/person/create">New person</a></li>
+                        <li class="{{$controller == 'PersonController' && $action == 'create'?'listing':''}}"><a href="/admin/person/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Legal entities</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/legal-entity/create">New entity</a></li>
-                        <li><a href="/admin/legal-entity/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'LegalEntityController'?'collapse in':''}}">
+                        <li class="{{$controller == 'LegalEntityController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/legal-entity/create">New entity</a></li>
+                        <li class="{{$controller == 'LegalEntityController' && $action == 'listing'?'active':''}}"><a href="/admin/legal-entity/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -169,50 +175,49 @@
                     <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">Documents</span> <span
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/document/create">New document</a></li>
-                        <li><a href="/admin/document/listing">List</a></li>
+                        <li class="{{$controller == 'CampaignController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/document/create">New document</a></li>
+                        <li class="{{$controller == 'CampaignController' && $action == 'listing'?'active':''}}"><a href="/admin/document/listing">List</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration</span><span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse in">
                         <li>
                             <a href="#">Banks <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="/admin/bank/listing">List</a>
-                                </li>
-                                <li>
+                            <ul class="nav nav-third-level {{$controller == 'BankController'?'collapse in':''}}">
+                                <li class="{{$controller == 'BankController' && $action == 'create'?'active':''}}">
                                     <a href="/admin/bank/create">New bank</a>
                                 </li>
+                                <li class="{{$controller == 'BankController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/bank/listing">List</a>
+                                </li>
 
                             </ul>
                         </li>
-                        <li><a href="#">Persons <span class="fa arrow"></span></a></li>
                         <li>
                             <a href="#">Organizations <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="/admin/organization/listing">List</a>
-                                </li>
-                                <li>
+                            <ul class="nav nav-third-level {{$controller == 'OrganizationController'?'collapse in':''}}">
+                                <li class="{{$controller == 'OrganizationController' && $action == 'create'?'active':''}}">
                                     <a href="/admin/organization/create">New organization</a>
+                                </li>
+                                <li class="{{$controller == 'OrganizationController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/organization/listing">List</a>
                                 </li>
 
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Admins <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="/admin/administrator/listing">List</a>
+                            <a href="#">Users <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level {{$controller == 'UserController'?'collapse in':''}}">
+                                <li class="{{$controller == 'UserController' && $action == 'create'?'active':''}}">
+                                    <a href="/admin/user/create">New administrator</a>
                                 </li>
-                                <li>
-                                    <a href="/admin/administrator/create">New administrator</a>
+                                <li class="{{$controller == 'UserController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/user/listing">List</a>
                                 </li>
-
                             </ul>
                         </li>
                     </ul>
@@ -350,7 +355,7 @@
         </div>
         @yield('content')
     </div>
-    <div class="modal inmodal fade" id="fileModal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal inmodal fade" id="fileModal" tabindex="-1" role="dialog" aria-hidden="true">
         <script type="text/javascript">
             var modal;
             var dir;
@@ -443,7 +448,8 @@
 <!-- Data picker -->
 <script src="/administrator/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
-<script type="text/javascript" src="/administrator/js/plugins/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
+<script type="text/javascript"
+        src="/administrator/js/plugins/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
 
 <!-- AdminLTE App -->
 <script src="/administrator/js/inspinia.js"></script>

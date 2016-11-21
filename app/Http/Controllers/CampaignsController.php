@@ -23,8 +23,8 @@ class CampaignsController extends Controller
 
         if (isset($category) && trans('routes.campaignTypes.' . $category) != 'all') {
             $campaigns = Campaign::where('category', trans('routes.campaignTypes.' . $category))->paginate(30);
-        }else{dd();
-            Campaign::paginate(30);
+        }else{
+            $campaigns = Campaign::paginate(30);
         }
 
         foreach ($campaigns as $campaign) {

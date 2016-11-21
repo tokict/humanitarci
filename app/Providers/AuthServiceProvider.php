@@ -105,6 +105,11 @@ class AuthServiceProvider extends ServiceProvider
             //if($user->isSuperAdmin()){return true;}
             return true;//$user->id === $contact->user_id;
         });
+        $gate->define('AdminController', function ($user, $controller, $action, $params)  {
+            //Allow all for superadmin
+            //if($user->isSuperAdmin()){return true;}
+            return true;//$user->id === $contact->user_id;
+        });
 
 
         $this->registerPolicies($gate);

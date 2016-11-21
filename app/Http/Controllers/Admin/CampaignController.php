@@ -25,7 +25,7 @@ class CampaignController extends Controller
 
     public function listing()
     {
-        if (!$this->User->isSuperAdmin()) {
+        if (!Auth::User()->isSuperAdmin()) {
             $campaigns = Campaign::where('organization_id', $this->User->organization_id)->paginate(50);
         } else {
             $campaigns = Campaign::paginate(50);
@@ -37,8 +37,8 @@ class CampaignController extends Controller
 
     public function view($request, $id)
     {
-        if (!$this->User->isSuperAdmin()) {
-            $campaign = Campaign::where('organization_id', $this->User->organization_id)
+        if (!Auth::User()->isSuperAdmin()) {
+            $campaign = Campaign::where('organization_id', Auth::User()->organization_id)
                 ->where('campaign_id', $id)->paginate(50);
         } else {
             $campaign = Campaign::whereId($id);

@@ -34,7 +34,8 @@ return array(
         'odjeca-obuca' => 'clothing',
         'knjige' => 'books',
         'ostalo' => 'other',
-        'mjesto' => 'place'
+        'mjesto' => 'place',
+        'sve' => 'all'
     ],
     'pages' => [
         'misija' => 'mission',

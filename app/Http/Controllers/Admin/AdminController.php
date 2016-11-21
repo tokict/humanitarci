@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
+    use \App\Traits\ControllerIndexTrait;
     public function index()
     {
 
