@@ -45,9 +45,6 @@
 
 
                                         <td class="center">
-                                            <a href="/admin/bank/view/{{$bank->id}}"
-                                               target="_blank" class="btn btn-sm btn-default">
-                                                <i class="fa fa-list"></i> Details</a>
                                             <a href="/admin/bank/edit/{{$bank->id}}"
                                                class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>

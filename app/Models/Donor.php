@@ -33,6 +33,11 @@ namespace App\Models;
  * @property string $services_donated
  * List of services donated by this donor = serialized array
  *
+ * @property int $anonymous
+ * Is the donor anonymous
+ *
+ * @property \App\Models\Person $person
+ *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
  * 
@@ -86,6 +91,11 @@ class Donor extends BaseModel
 	public function donations()
 	{
 		return $this->hasMany(\App\Models\Donation::class);
+	}
+
+	public function person()
+	{
+		return $this->belongsTo(\App\Models\Person::class);
 	}
 
 	public function donor_reports()

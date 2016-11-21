@@ -103,7 +103,7 @@
                 <li class="{{$controller == 'AdminController'?'active':''}}">
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Overviews</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level" >
+                    <ul class="nav nav-second-level">
                         <li class="active"><a href="index.html">Campaigns</a></li>
                         <li><a href="dashboard_2.html">Donations</a></li>
                         <li><a href="dashboard_3.html">Donors</a></li>
@@ -137,13 +137,15 @@
                     <ul class="nav nav-second-level {{$controller == 'BeneficiaryController'?'collapse in':''}}">
                         <li class="{{$controller == 'BeneficiaryController' && $action == 'create'?'active':''}}"><a
                                     href="/admin/beneficiary/create">New beneficiary</a></li>
-                        <li class="{{$controller == 'BeneficiaryController' && $action == 'listing'?'active':''}}"><a href="/admin/beneficiary/listing">List</a></li>
+                        <li class="{{$controller == 'BeneficiaryController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/beneficiary/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Donors</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level {{$controller == 'DonorController'?'collapse in':''}}"><a href="/admin/donor/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'DonorController'?'collapse in':''}}"><a
+                                href="/admin/donor/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -152,7 +154,8 @@
                     <ul class="nav nav-second-level {{$controller == 'PersonController'?'collapse in':''}}">
                         <li class="{{$controller == 'PersonController' && $action == 'create'?'active':''}}"><a
                                     href="/admin/person/create">New person</a></li>
-                        <li class="{{$controller == 'PersonController' && $action == 'create'?'listing':''}}"><a href="/admin/person/listing">List</a></li>
+                        <li class="{{$controller == 'PersonController' && $action == 'create'?'listing':''}}"><a
+                                    href="/admin/person/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -161,7 +164,8 @@
                     <ul class="nav nav-second-level {{$controller == 'LegalEntityController'?'collapse in':''}}">
                         <li class="{{$controller == 'LegalEntityController' && $action == 'create'?'active':''}}"><a
                                     href="/admin/legal-entity/create">New entity</a></li>
-                        <li class="{{$controller == 'LegalEntityController' && $action == 'listing'?'active':''}}"><a href="/admin/legal-entity/listing">List</a></li>
+                        <li class="{{$controller == 'LegalEntityController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/legal-entity/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -177,7 +181,8 @@
                     <ul class="nav nav-second-level">
                         <li class="{{$controller == 'CampaignController' && $action == 'create'?'active':''}}"><a
                                     href="/admin/document/create">New document</a></li>
-                        <li class="{{$controller == 'CampaignController' && $action == 'listing'?'active':''}}"><a href="/admin/document/listing">List</a></li>
+                        <li class="{{$controller == 'CampaignController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/document/listing">List</a></li>
                     </ul>
                 </li>
 

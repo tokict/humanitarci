@@ -26,7 +26,7 @@ class CampaignController extends Controller
     public function listing()
     {
         if (!Auth::User()->isSuperAdmin()) {
-            $campaigns = Campaign::where('organization_id', $this->User->organization_id)->paginate(50);
+            $campaigns = Campaign::where('organization_id', Auth::User()->organization_id)->paginate(50);
         } else {
             $campaigns = Campaign::paginate(50);
         }

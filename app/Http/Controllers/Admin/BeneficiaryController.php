@@ -27,13 +27,15 @@ class BeneficiaryController extends Controller
 
     public function view($request, $id)
     {
-        if (!$this->User->isSuperAdmin()) {
-            $beneficiary = Beneficiary::where('creator.organization_id', $this->User->organization_id)
+        if (!Auth::User()->isSuperAdmin()) {
+            $beneficiary = Beneficiary::where('creator.organization_id', Auth::User()->organization_id)
                 ->where('beneficiary_id', $id)->paginate(50);
         } else {
-            $beneficiary = Beneficiary::whereId($id);
+            $beneficiary = Beneficiary::find($id);
         }
 
+        $media_info = Media::whereIn('id', explode(",", $beneficiary->media_info))->get();
+        $beneficiary->beneficiary_media= $media_info;
 
         return view('admin.beneficiary.view', ['beneficiary' => $beneficiary]);
     }
@@ -142,5 +144,6 @@ class BeneficiaryController extends Controller
         return view('admin.beneficiary.edit', ['beneficiary' => $beneficiary]);
 
     }
+
 
 }

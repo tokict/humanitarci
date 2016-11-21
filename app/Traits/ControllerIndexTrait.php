@@ -36,7 +36,7 @@ trait ControllerIndexTrait
             $action = Lang::get('routes.actions.' . $this->action, [], '');
 
         } else {
-            if (Gate::denies($this->controller, [$this->User, $this->controller, $this->action, $this->params])) {
+            if (Gate::denies($this->controller, [Auth::User(), $this->controller, $this->action, $this->params])) {
                 abort(403, 'You do not have permission to access this resource');
             }
         }

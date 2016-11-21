@@ -11,24 +11,24 @@ namespace App\Models;
  * Class Beneficiary
  * This class handles public data that is to be presented to donors. It is a counterpart to donations class. So, donation goes to the beneficiary
  *
- * 
+ *
  * @property int $id
  *
  * @property string $name
- * 	Name MUST NOT be edited after first campaign is created and activated for this beneficiary to prevent manipulations
+ *    Name MUST NOT be edited after first campaign is created and activated for this beneficiary to prevent manipulations
  *
  * @property string $identifier
- * 	Identifier is to be used with bank transfers as reference numbers, track input documents related to specific beneficiary etc.
+ *    Identifier is to be used with bank transfers as reference numbers, track input documents related to specific beneficiary etc.
  *
  * @property int $profile_image_id
- * 	Profile image is the current image set to be associated with beneficiary in all publications (widgets, campaigns, cards)
+ *    Profile image is the current image set to be associated with beneficiary in all publications (widgets, campaigns, cards)
  *
  * @property int $funds_used
- * 	Total amount of funds transferred from this platform to beneficiary. Is updated ONLY by admin and ONLY when he marks the donations as transferred
- * 	This action should be accompanied with signed documents from the benefactor and other actions linked to that activity
+ *    Total amount of funds transferred from this platform to beneficiary. Is updated ONLY by admin and ONLY when he marks the donations as transferred
+ *    This action should be accompanied with signed documents from the benefactor and other actions linked to that activity
  *
  * @property int $donor_number
- * 	The amount of unique people/entities who donated to this beneficiary. Updated ONLY when admin transfers the donations as above
+ *    The amount of unique people/entities who donated to this beneficiary. Updated ONLY when admin transfers the donations as above
  *
  * @property string $status
  * Status of beneficiary in the system
@@ -55,7 +55,7 @@ namespace App\Models;
  * Whether the members of the group are to be available to public
  *
  * @property string $media_info
- *	Photos associated with this beneficiary from media table
+ *    Photos associated with this beneficiary from media table
  *
  * @property int $group_id
  * If this beneficiary is a group of people or entities, this is the group id. This MUST not be edited after first active campaign
@@ -92,88 +92,144 @@ namespace App\Models;
  */
 class Beneficiary extends BaseModel
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $casts = [
-		'profile_image_id' => 'int',
-		'group_id' => 'int',
-		'funds_used' => 'int',
-		'donor_number' => 'int',
-		'person_id' => 'int',
-		'entity_id' => 'int',
-		'created_by_id' => 'int',
-		'members_public' => 'int',
-		'company_id' => 'int'
-	];
+    protected $casts = [
+        'profile_image_id' => 'int',
+        'group_id' => 'int',
+        'funds_used' => 'int',
+        'donor_number' => 'int',
+        'person_id' => 'int',
+        'entity_id' => 'int',
+        'created_by_id' => 'int',
+        'members_public' => 'int',
+        'company_id' => 'int'
+    ];
 
-	protected $dates = [
-		'modified_at',
-		'modified_at',
+    protected $dates = [
+        'modified_at',
+        'modified_at',
 
-	];
+    ];
 
-	protected $fillable = [
-		'name',
-		'identifier',
-		'group_id',
-		'profile_image_id',
-		'funds_used',
-		'donor_number',
-		'status',
-		'person_id',
-		'created_by_id',
-		'entity_id',
-		'contact_phone',
-		'contact_mail',
-		'created_by_id',
-		'description',
-		'members_public',
-		'media_info',
-		'company_id',
-		'created_at'
-	];
+    protected $fillable = [
+        'name',
+        'identifier',
+        'group_id',
+        'profile_image_id',
+        'funds_used',
+        'donor_number',
+        'status',
+        'person_id',
+        'created_by_id',
+        'entity_id',
+        'contact_phone',
+        'contact_mail',
+        'created_by_id',
+        'description',
+        'members_public',
+        'media_info',
+        'company_id',
+        'created_at'
+    ];
 
-	public function legalEntity()
-	{
-		return $this->belongsTo(\App\Models\LegalEntity::class, 'entity_id');
-	}
+    public function legalEntity()
+    {
+        return $this->belongsTo(\App\Models\LegalEntity::class, 'entity_id');
+    }
 
-	public function creator()
-	{
-		return $this->belongsTo(\App\Models\User::class, 'created_by_id');
-	}
+    public function creator()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'created_by_id');
+    }
 
-	public function group()
-	{
-		return $this->belongsTo(\App\Models\Group::class);
-	}
+    public function group()
+    {
+        return $this->belongsTo(\App\Models\Group::class);
+    }
 
-	public function beneficiary_reports()
-	{
-		return $this->hasMany(\App\Models\BeneficiaryReport::class);
-	}
+    public function beneficiary_reports()
+    {
+        return $this->hasMany(\App\Models\BeneficiaryReport::class);
+    }
 
-	public function campaigns()
-	{
-		return $this->hasMany(\App\Models\Campaign::class);
-	}
+    public function campaigns()
+    {
+        return $this->hasMany(\App\Models\Campaign::class);
+    }
 
-	public function person(){
-		return $this->belongsTo(\App\Models\Person::class);
-	}
+    public function person()
+    {
+        return $this->belongsTo(\App\Models\Person::class);
+    }
 
-	public function donations()
-	{
-		return $this->hasMany(\App\Models\Donation::class);
-	}
+    public function donations()
+    {
+        return $this->hasMany(\App\Models\Donation::class);
+    }
 
-	public function media_links()
-	{
-		return $this->hasMany(\App\Models\MediaLink::class);
-	}
+    public function media_links()
+    {
+        return $this->hasMany(\App\Models\MediaLink::class);
+    }
 
     public function profile_image()
     {
         return $this->belongsTo(\App\Models\Media::class);
+    }
+
+    /**
+     * Check if beneficiary has a campaign with status 'active'
+     * @return int
+     */
+    public function hasActiveCampaign()
+    {
+        return count(Campaign::where([['beneficiary_id', $this->getAttribute('id')], ['status', 'active']])->get());
+    }
+
+    /**
+     * Get all campaigns with status 'goal_reached', 'ended', 'goal_failed'
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getSuccessfulCampaigns()
+    {
+        return Campaign::where('beneficiary_id', $this->getAttribute('id'))->whereIn('status', ['goal_reached', 'ended', 'goal_failed'])->get();
+    }
+
+    /**
+     * Get all donors that donated to this beneficiary
+     * @return array
+     */
+    public function getDonors()
+    {
+        $campaigns = Campaign::where('beneficiary_id', $this->getAttribute('id'))->get();
+        $donors = [];
+        foreach ($campaigns as $c) {
+            foreach ($c->donations as $d) {
+                if(!$d->donor->anonymous) {
+                    $donors[] = $d->donor;
+                }
+            }
+        };
+
+        return $donors;
+
+    }
+
+    /**
+     * Get average donation amount for beneficiary
+     * @return int
+     */
+    public function getAverageDonation()
+    {
+        $campaigns = Campaign::where('beneficiary_id', $this->getAttribute('id'))->get();
+        $totalAmount = 0;
+
+        foreach ($campaigns as $c) {
+            foreach ($c->donations as $d)
+                $totalAmount += $d->amount;
+        }
+        return $totalAmount;
+
     }
 }

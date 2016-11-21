@@ -15,7 +15,8 @@ return array(
         'stranice' => 'pages',
         'clanovi' => 'users',
         'trazi' => 'search',
-        'udruge' => 'organizations'
+        'udruge' => 'organizations',
+        'donatori' => 'donors'
     ],
     'actions' => [
         'pregled' => 'view',
