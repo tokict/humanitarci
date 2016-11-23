@@ -155,7 +155,7 @@ class Beneficiary extends BaseModel
 
     public function campaigns()
     {
-        return $this->hasMany(\App\Models\Campaign::class);
+        return $this->hasMany(\App\Models\Campaign::class)->orderBy('starts', 'desc');
     }
 
     public function person()
@@ -188,12 +188,12 @@ class Beneficiary extends BaseModel
     }
 
     /**
-     * Get all campaigns with status 'goal_reached', 'ended', 'goal_failed'
+     * Get all campaigns with status 'reached', 'failed'
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getSuccessfulCampaigns()
     {
-        return Campaign::where('beneficiary_id', $this->getAttribute('id'))->whereIn('status', ['goal_reached', 'ended', 'goal_failed'])->get();
+        return Campaign::where('beneficiary_id', $this->getAttribute('id'))->whereIn('status', ['reached', 'failed'])->get();
     }
 
     /**

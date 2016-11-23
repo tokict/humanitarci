@@ -37,14 +37,11 @@ class CampaignController extends Controller
 
     public function view($request, $id)
     {
-        if (!Auth::User()->isSuperAdmin()) {
-            $campaign = Campaign::where('organization_id', Auth::User()->organization_id)
-                ->where('campaign_id', $id)->paginate(50);
-        } else {
-            $campaign = Campaign::whereId($id);
-        }
 
+        $campaign = Campaign::find($id)->get()->first();
 
+        $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
+        $campaign->campaign_media = $media_info;
         return view('admin.campaign.view', ['campaign' => $campaign]);
     }
 
@@ -225,7 +222,7 @@ class CampaignController extends Controller
         }
 
         $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
-        $campaign->campaign_media= $media_info;
+        $campaign->campaign_media = $media_info;
         return view('admin.campaign.edit', ['campaign' => $campaign]);
 
 

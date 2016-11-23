@@ -11,7 +11,7 @@ function initMap() {
             height: 400,
             width: 600,
             center: center
-        });console.log(map);
+        });
 
         google.maps.event.addListener(map, 'click', function(event) {
             //Get the location that the user clicked.
@@ -35,6 +35,27 @@ function initMap() {
             //Get the marker's location.
             var string = marker.getPosition().lat()+","+marker.getPosition().lng()
             $(value).siblings("input").val(string);
+        });
+
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+    })
+
+    $.each($('.coordinatesShow'), function(index, value){
+        var lat = $(this).data('lat');
+        var lng = $(this).data('lng');
+        var height = $(this).height();
+        var width = $(this).width();
+
+        var center = {lat: lat, lng: 	lng};
+
+        var map = new google.maps.Map(value, {
+            zoom: 6,
+            height: height,
+            width: width,
+            center: center
         });
 
         var marker = new google.maps.Marker({

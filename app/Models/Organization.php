@@ -136,6 +136,62 @@ class Organization extends BaseModel
 
 	public function outgoing_sms()
 	{
-		return $this->hasMany(\App\Models\OutgoingSm::class);
+		return $this->hasMany(\App\Models\OutgoingSms::class);
+	}
+
+
+	/**
+	 * Check if beneficiary has a campaign with status 'active'
+	 * @return int
+	 */
+	public function hasActiveCampaign()
+	{
+		return count(Campaign::where([['organization_id', $this->getAttribute('id')], ['status', 'active']])->get());
+	}
+
+	/**
+	 * Get all campaigns with status 'reached', 'failed'
+	 * @return \Illuminate\Database\Eloquent\Collection
+	 */
+	public function getSuccessfulCampaigns()
+	{
+		return Campaign::where('organization_id', $this->getAttribute('id'))->whereIn('status', ['reached', 'failed'])->get();
+	}
+
+	/**
+	 * Get all donors that donated to this beneficiary
+	 * @return array
+	 */
+	public function getDonors()
+	{
+		$campaigns = Campaign::where('organization_id', $this->getAttribute('id'))->get();
+		$donors = [];
+		foreach ($campaigns as $c) {
+			foreach ($c->donations as $d) {
+				if(!$d->donor->anonymous) {
+					$donors[] = $d->donor;
+				}
+			}
+		};
+
+		return $donors;
+
+	}
+
+	/**
+	 * Get average donation amount for beneficiary
+	 * @return int
+	 */
+	public function getAverageDonation()
+	{
+		$campaigns = Campaign::where('organization_id', $this->getAttribute('id'))->get();
+		$totalAmount = 0;
+
+		foreach ($campaigns as $c) {
+			foreach ($c->donations as $d)
+				$totalAmount += $d->amount;
+		}
+		return $totalAmount;
+
 	}
 }

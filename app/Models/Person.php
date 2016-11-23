@@ -26,9 +26,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $social_accounts
  * @property string $gender
  * @property string $title
- * @property bool $is_donor
- * @property bool $is_beneficiary
- * @property bool $is_admin
+ * @property bool $donor_id
+ * @property bool $beneficiary_id
+ * @property bool $user_id
  * @property int $bank_id
  * @property string $bank_acc
  * @property \Carbon\Carbon $created_at
@@ -37,6 +37,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * 
  * @property \App\Models\Bank $bank
  * @property \App\Models\City $city
+ * @property \App\Models\Donor $donor
+ * @property \App\Models\Beneficiary $beneficiary
+ * @property \App\Models\User $user
  * @property \App\Models\Device $device
  * @property \Illuminate\Database\Eloquent\Collection $users
  * @property \Illuminate\Database\Eloquent\Collection $documents
@@ -80,6 +83,9 @@ class Person extends BaseModel
 		'last_name',
 		'social_id',
 		'city_id',
+		'beneficiary_id',
+		'donor_id',
+		'user_id',
 		'address',
 		'contact_phone',
 		'contact_email',
@@ -94,6 +100,21 @@ class Person extends BaseModel
 		return $this->belongsTo(\App\Models\Bank::class);
 	}
 
+	public function donor()
+	{
+		return $this->belongsTo(\App\Models\Donor::class);
+	}
+
+	public function beneficiary()
+	{
+		return $this->belongsTo(\App\Models\Beneficiary::class);
+	}
+
+	public function user()
+	{
+		return $this->belongsTo(\App\Models\User::class);
+	}
+
 	public function city()
 	{
 		return $this->belongsTo(\App\Models\City::class);
@@ -104,10 +125,7 @@ class Person extends BaseModel
 		return $this->belongsTo(\App\Models\Device::class);
 	}
 
-	public function users()
-	{
-		return $this->hasMany(\App\Models\User::class);
-	}
+
 
 	public function organizations()
 	{

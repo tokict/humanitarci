@@ -19,8 +19,8 @@ namespace App\Models;
  * @property int $representing_person_id
  * @property int $representing_entity_id
  * 
- * @property \App\Models\LegalEntity legalEntity
- * @property \App\Models\Person $person
+ * @property \App\Models\LegalEntity $representingEntity
+ * @property \App\Models\Person $representingPerson
  * @property \Illuminate\Database\Eloquent\Collection $beneficiaries
  * @property \Illuminate\Database\Eloquent\Collection $group_legal_entities
  * @property \Illuminate\Database\Eloquent\Collection $people

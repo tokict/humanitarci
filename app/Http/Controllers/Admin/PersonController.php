@@ -53,6 +53,13 @@ class PersonController extends Controller
         return view('admin.person.create', ['person' => $person]);
     }
 
+    public function view($request, $id)
+    {
+        $person = Person::find($id)->first();
+
+        return view('admin.person.view', ['person' => $person]);
+    }
+
 
 
     public function edit($request, $id)

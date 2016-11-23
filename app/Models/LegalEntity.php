@@ -34,8 +34,11 @@ namespace App\Models;
  * @property string $bank_acc
  * Bank account number
  *
- * @property bool $is_beneficiary
+ * @property bool $beneficiary_id
  * Is the organization a beneficiary
+ *
+ *  * @property bool $donor_id
+ * Is the organization a donor
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
@@ -43,6 +46,8 @@ namespace App\Models;
  * @property \Illuminate\Database\Eloquent\Collection $beneficiaries
  * @property \App\Models\GroupLegalEntity $group_legal_entity
  * @property \App\Models\City $city
+ * @property \App\Models\Donor $donor
+ * @property \App\Models\Beneficiary $beneficiary
  * @property \App\Models\Person $person
  * @property \App\Models\Bank $bank
  * @property \Illuminate\Database\Eloquent\Collection $groups
@@ -72,17 +77,15 @@ class LegalEntity extends BaseModel
 		'address',
 		'bank_id',
 		'bank_acc',
-		'is_beneficiary',
+		'beneficiary_id',
+		'donor_id',
 		'contact_phone',
 		'contact_email',
 		'represented_by',
 		'modified_at'
 	];
 
-	public function beneficiaries()
-	{
-		return $this->hasMany(\App\Models\Beneficiary::class, 'company_id');
-	}
+
 
 	public function group_legal_entity()
 	{
@@ -93,6 +96,17 @@ class LegalEntity extends BaseModel
 	{
 		return $this->belongsTo(\App\Models\City::class);
 	}
+
+	public function donor()
+	{
+		return $this->belongsTo(\App\Models\Donor::class);
+	}
+
+	public function beneficiary()
+	{
+		return $this->belongsTo(\App\Models\Beneficiary::class);
+	}
+
 
 	public function person()
 	{

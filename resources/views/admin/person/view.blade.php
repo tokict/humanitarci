@@ -7,34 +7,35 @@
             <div class="col-md-6">
 
                 <div class="profile-image">
-                    <img src="{{$beneficiary->profile_image->getPath("thumb")}}" class="img-circle circle-border m-b-md"
-                         alt="profile">
+                    @if($person->logo)
+                        <img src="{{$person->logo->getPath("thumb")}}" class="img-circle circle-border m-b-md"
+                             alt="profile">
+                    @endif
                 </div>
                 <div class="profile-info">
                     <div class="">
                         <div>
                             <h2 class="no-margins">
-                                {{$beneficiary->name}}
+                                {{$person->first_name}} {{$person->last_name}}
                             </h2>
-                            <h4>{{isset($beneficiary->person)?"Person":''}}</h4>
-                            <h4>{{isset($beneficiary->group)?"Group":''}}</h4>
-                            <h4>{{isset($beneficiary->legalEntity)?"Legal entity":''}}</h4>
                             <small>
-                                @if(isset($beneficiary->person))
-                                    {{$beneficiary->person->city->name}}, {{$beneficiary->person->city->region->name}}
-                                @elseif(isset($beneficiary->legalEntity))
-                                    {{$beneficiary->legalEntity->city->name}}
-                                    , {{$beneficiary->legalEntity->city->region->name}}
-                                @else
-                                    @if(isset($beneficiary->person))
-                                        {{$beneficiary->group->person->city->name}}
-                                        , {{$beneficiary->group->person->city->region->name}}
-                                    @else
-                                        {{$beneficiary->group->legalEntity->city->name}}
-                                        , {{$beneficiary->group->legalEntity->city->region->name}}
-                                    @endif
-                                @endif
+                                {{$person->city->name}}
+                                , {{$person->city->region->name}}
                             </small>
+                            <br/>
+                            <br/>
+                            Donor:  @if($person->donor_id)
+                                <a href="/admin/donor/view/{{$person->donor_id}}">Yes</a>
+                            @else
+                                No
+                                @endIf
+                            <br/>
+                            Beneficiary:
+                            @if($person->beneficiary_id)
+                                <a href="/admin/beneficiary/view/{{$person->beneficiary_id}}">Yes</a>
+                                @else
+                                No
+                                @endIf
                         </div>
                     </div>
                 </div>
@@ -44,53 +45,40 @@
                     <tbody>
                     <tr>
                         <td>
-                            <strong>{{count($beneficiary->getSuccessfulCampaigns())}}</strong> Successful campaigns
-                        </td>
-                        <td>
-                            <strong>{{$beneficiary->donor_number}}</strong> Donors
+                            Address: <strong>{{$person->address}}</strong>
                         </td>
 
                     </tr>
                     <tr>
                         <td>
-                            <strong>{{count($beneficiary->donations)}}</strong> Donations
+                            City: <strong>{{$person->city->name}}</strong>
                         </td>
                         <td>
-                            <strong>{{$beneficiary->getAverageDonation()}} {{env('CURRENCY')}}</strong> Donation average
+                            Region: <strong>{{$person->city->region->name}}</strong>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>154</strong> Shares
+                            Email: <strong>{{$person->contact_email}}</strong>
                         </td>
                         <td>
-                            <strong>32</strong> Page views
+                            Phone: <strong>{{$person->contact_phone}}</strong>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-3">
-                <small>Donations received so far</small>
-                <h2 class="no-margins">{{$beneficiary->funds_used}}</h2>
-                @if($beneficiary->hasActiveCampaign())
-                    <span><i class="fa fa-circle text-navy"></i> Has active campaign</span>
-                @else
-                    <span><i class="fa fa-circle text-warning"></i> No active campaign</span>
-                @endif
-                <div id="sparkline1"></div>
-            </div>
 
 
         </div>
-        <div class="row">
+        {{--<div class="row">
 
             <div class="col-lg-4">
 
                 <div class="ibox">
                     <div class="ibox-content">
-                        <h3>About {{$beneficiary->name}}</h3>
-                        {{$beneficiary->description}}
+                        <h3>About {{$person->name}}</h3>
+                        {{$person->description}}
 
 
                     </div>
@@ -103,7 +91,7 @@
                             These are the donors that donated the biggest amounts overall
                         </p>
                         <div class="user-friends">
-                            @foreach($beneficiary->getDonors() as $donor)
+                            @foreach($person->getDonors() as $donor)
                                 <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.view')}}/{{$donor->id}}">{{$donor->person->first_name}} {{$donor->person->last_name}}</a>
                             @endforeach
                         </div>
@@ -137,7 +125,7 @@
                 <h4 class="text-center">Campaign history</h4>
                 <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
 
-                    @foreach($beneficiary->campaigns as $c)
+                    @foreach($person->campaigns as $c)
                     <div class="vertical-timeline-block">
                         <div class="vertical-timeline-icon
                         {{$c->status == 'active'?'navy-bg':''}}
@@ -187,6 +175,6 @@
                 </div>
             </div>
 
-        </div>
+        </div>--}}
     </div>
 @endsection

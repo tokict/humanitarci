@@ -26,7 +26,7 @@ class LegalEntityController extends Controller
     public function create($request)
     {
 
-        if(Request::isMethod('post')){
+        if (Request::isMethod('post')) {
             $this->validate($request, [
                 'name' => 'max:100',
                 'tax_id' => 'required|max:30',
@@ -43,24 +43,31 @@ class LegalEntityController extends Controller
 
             $entity = LegalEntity::create(Input::all());
 
-            if($entity){
+            if ($entity) {
                 return redirect('admin/legal-entity/listing');
             }
         }
         $banks = Bank::select('name', 'id')->get()->toArray();
         $bankSrr = [];
-        foreach($banks as $b){
+        foreach ($banks as $b) {
             $bankSrr[$b['id']] = $b['name'];
         }
 
         return view('admin.legal-entity.create', ['banks' => $bankSrr]);
     }
 
+    public function view($request, $id)
+    {
+        $entity = LegalEntity::find($id)->first();
+
+        return view('admin.legal-entity.view', ['entity' => $entity]);
+    }
+
 
     public function edit($request, $id)
     {
         $entity = LegalEntity::find($id);
-        if(Request::isMethod('post')){
+        if (Request::isMethod('post')) {
             $this->validate($request, [
                 'name' => 'max:100',
                 'tax_id' => 'required|max:30',
@@ -77,13 +84,13 @@ class LegalEntityController extends Controller
 
 
             $input = Input::all();
-            if($entity->update($input)){
+            if ($entity->update($input)) {
                 return redirect('admin/legal-entity/listing');
             }
         }
         $banks = Bank::select('name', 'id')->get()->toArray();
         $bankSrr = [];
-        foreach($banks as $b){
+        foreach ($banks as $b) {
             $bankSrr[$b['id']] = $b['name'];
         }
 

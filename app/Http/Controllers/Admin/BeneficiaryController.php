@@ -27,12 +27,8 @@ class BeneficiaryController extends Controller
 
     public function view($request, $id)
     {
-        if (!Auth::User()->isSuperAdmin()) {
-            $beneficiary = Beneficiary::where('creator.organization_id', Auth::User()->organization_id)
-                ->where('beneficiary_id', $id)->paginate(50);
-        } else {
-            $beneficiary = Beneficiary::find($id);
-        }
+
+        $beneficiary = Beneficiary::find($id)->first();
 
         $media_info = Media::whereIn('id', explode(",", $beneficiary->media_info))->get();
         $beneficiary->beneficiary_media= $media_info;

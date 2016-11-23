@@ -59,6 +59,14 @@ class OrganizationController extends Controller
         return view('admin.organization.create', ['organization' => $organization]);
     }
 
+    public function view($request, $id)
+    {
+
+        $organization = Organization::find($id)->first();
+
+        return view('admin.organization.view', ['organization' => $organization]);
+    }
+
     public function edit($request, $id)
     {
         $organization = Organization::find($id);
