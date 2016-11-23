@@ -62,7 +62,7 @@
                                                target="_blank" class="btn btn-sm btn-default">
                                                 <i class="fa fa-eye"></i> Go To</a>
                                             <a href="/admin/campaign/view/{{$campaign->id}}"
-                                               target="_blank" class="btn btn-sm btn-default">
+                                                class="btn btn-sm btn-default">
                                                 <i class="fa fa-list"></i> Details</a>
                                             <a href="/admin/campaign/edit/{{$campaign->id}}"
                                                class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>

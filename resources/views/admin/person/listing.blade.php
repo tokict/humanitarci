@@ -60,7 +60,7 @@
                                         <td class="center">{{ $person->social_accounts }}</td>
                                         <td class="center">
                                             <a href="/admin/person/view/{{$person->id}}"
-                                               target="_blank" class="btn btn-sm btn-default">
+                                                class="btn btn-sm btn-default">
                                                 <i class="fa fa-list"></i> Details</a>
                                             <a href="/admin/person/edit/{{$person->id}}"
                                                class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
