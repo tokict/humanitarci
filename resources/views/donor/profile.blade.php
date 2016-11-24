@@ -261,7 +261,7 @@
 
 
 <!-- Call Action Section -->
-@if(\Illuminate\Support\Facades\Auth::User()->donor == null)
+@if(!isset(\Illuminate\Support\Facades\Auth::User()->donor))
 <section class="small-section bg-dark">
     <div class="container relative">
 
