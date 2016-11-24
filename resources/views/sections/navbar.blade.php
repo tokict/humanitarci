@@ -101,6 +101,9 @@
                     @if(\Illuminate\Support\Facades\Auth::User() == null)
                     <li><a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" style="height: 75px; line-height: 75px;"><span
                                     class="btn btn-mod btn-circle">Želim pomoći</span></a></li>
+                        @else
+                        <li><a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}" style="height: 75px; line-height: 75px;"><span
+                                    class="btn btn-mod btn-circle btn-gray"> Profil</span></a></li>
                     @endif
                     @if(\Illuminate\Support\Facades\Auth::User())
                     <li><a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.logout')}}"style="height: 75px; line-height: 75px;"><span

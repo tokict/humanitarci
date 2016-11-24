@@ -123,11 +123,25 @@ class DonorsController extends Controller
         return view('donor.login');
     }
 
-
-    public function profile($request,$id)
+    public function logout()
     {
-        $id = isset($id)?$id:Auth::User()->donor->id;
-        $donor = Donor::whereId($id)->first();
+        Auth::logout();
+        return redirect("/");
+    }
+
+
+    public function profile($request,$username)
+    {
+        if($username){
+            $user = User::where('username', $username)->get()->first();
+            if($user && $user->donor) {
+                $donor = $user->donor;
+                }
+        }else{
+            $donor = Donor::find(Auth::User()->donor->id);
+        }
+
+
         return view('donor.profile', ['donor' => $donor]);
     }
 }
