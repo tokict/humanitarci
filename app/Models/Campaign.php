@@ -59,7 +59,7 @@ namespace App\Models;
  *
  * @property \App\Models\Media $cover
  *
- * @property int $created_by
+ * @property int $created_by_id
  * Id of admin who created campaign
  *
  * @property \Carbon\Carbon $created_at
@@ -92,7 +92,7 @@ namespace App\Models;
  *
  *
  *
- * @property \App\Models\User $creator
+ * @property \App\User$creator
  * Related admin object
  *
  * @property \App\Models\Beneficiary $beneficiary
@@ -132,7 +132,7 @@ class Campaign extends BaseModel
 		'current_funds' => 'int',
 		'funds_transferred_amount' => 'int',
 		'donors_number' => 'int',
-		'created_by' => 'int',
+		'created_by_id' => 'int',
 		'priority' => 'int'
 	];
 
@@ -156,7 +156,7 @@ class Campaign extends BaseModel
 		'funds_transferred_amount',
 		'donors_number',
 		'type',
-		'created_by',
+		'created_by_id',
 		'modified_at',
 		'priority',
 		'slug',
@@ -172,7 +172,7 @@ class Campaign extends BaseModel
 
 	public function user()
 	{
-		return $this->belongsTo(\App\Models\User::class, 'created_by');
+		return $this->belongsTo(\App\User::class, 'created_by');
 	}
 
 	public function beneficiary()
@@ -230,6 +230,6 @@ class Campaign extends BaseModel
 
 	public function creator()
 	{
-		return $this->belongsTo(\App\Models\User::class, 'created_by');
+		return $this->belongsTo(\App\User::class, 'created_by');
 	}
 }

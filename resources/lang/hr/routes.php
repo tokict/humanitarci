@@ -24,7 +24,8 @@ return array(
         'donate' => 'doniraj',
         'new' => 'nova',
         'listing' => 'lista',
-        'register' => 'registracija',
+        'registration' => 'registracija',
+        'login' => 'prijava'
 
     ],
     'campaignTypes' => [

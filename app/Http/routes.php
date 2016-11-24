@@ -12,21 +12,20 @@
 */
 
 
+
+
+//Free to browse controllers
 Route::get('/', 'HomeController@index');
 Route::get("/login", 'Auth\AuthController@login');
 Route::post("/login", 'Auth\AuthController@login');
-
-//Free to browse controllers
 Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
 Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.campaigns',[], env('LANGUAGE')).'/{action}/{params?}', 'CampaignsController@index');
+Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.users',[], env('LANGUAGE')).'/{action}/{params?}', 'UsersController@index');
 
 
 //Authenticated users of site controllers
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('user/profile', function () {
-        // Uses Auth Middleware
-    });
 });
 
 

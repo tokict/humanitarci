@@ -68,7 +68,7 @@ namespace App\Models;
  *
  * @property \App\Models\Person $person
  *
- * @property \App\Models\User $creator
+ * @property \App\User$creator
  * User object belonging to this beneficiary
  *
  * @property \App\Models\Group $group
@@ -140,7 +140,7 @@ class Beneficiary extends BaseModel
 
     public function creator()
     {
-        return $this->belongsTo(\App\Models\User::class, 'created_by_id');
+        return $this->belongsTo(\App\User::class, 'created_by_id');
     }
 
     public function group()

@@ -28,10 +28,10 @@ namespace App\Models;
  * @property \App\Models\Organization $organization
  * Organization object associated with entry
  *
- * @property \App\Models\User $user
+ * @property \App\User$user
  * Person object associated with entry
  *
- * @property \App\Models\User $creator
+ * @property \App\User$creator
  * Who created it
  *
  * @property \Illuminate\Database\Eloquent\Collection $action_logs
@@ -75,12 +75,12 @@ class Admin extends BaseModel
 
 	public function user()
 	{
-		return $this->belongsTo(\App\Models\User::class, 'user_id');
+		return $this->belongsTo(\App\User::class, 'user_id');
 	}
 
 	public function creator()
 	{
-		return $this->belongsTo(\App\Models\User::class, 'created_by');
+		return $this->belongsTo(\App\User::class, 'created_by');
 	}
 
 	public function action_logs()

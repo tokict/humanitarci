@@ -91,7 +91,7 @@ class Organization extends BaseModel
 
 	public function users()
 	{
-		return $this->hasMany(\App\Models\User::class);
+		return $this->hasMany(\App\User::class);
 	}
 
 	public function campaigns()

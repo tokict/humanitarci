@@ -23,7 +23,7 @@ use League\Flysystem\File;
  *
  * @property int $created_by
  *
- * @property \App\Models\User creator
+ * @property \App\Usercreator
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
@@ -75,7 +75,7 @@ class Media extends BaseModel
 
     public function creator()
     {
-        return $this->belongsTo(\App\Models\User::class, 'uploaded_by');
+        return $this->belongsTo(\App\User::class, 'uploaded_by');
     }
 
     public function saveFile($file, $folder, $permission)

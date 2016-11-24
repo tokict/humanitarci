@@ -24,6 +24,7 @@ return array(
         'nova' => 'new',
         'lista' => 'listing',
         'registracija' => 'registration',
+        'prijava' => 'login'
 
     ],
     'campaignTypes' => [

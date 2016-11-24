@@ -33,7 +33,7 @@ namespace App\Models;
  * @property \App\Models\Donor $donor
  * Donor object associated with entry
  *
- * @property \App\Models\User $user
+ * @property \App\User$user
  * Admin object associated with entry
  *
  * @package App\Models
@@ -61,6 +61,6 @@ class ActionLog extends BaseModel
 
 	public function user()
 	{
-		return $this->belongsTo(\App\Models\User::class, 'id_user');
+		return $this->belongsTo(\App\User::class, 'id_user');
 	}
 }

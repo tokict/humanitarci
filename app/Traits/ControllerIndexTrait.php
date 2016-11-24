@@ -33,10 +33,10 @@ trait ControllerIndexTrait
 
 
         if ($request->getPrefix() != "/admin") {
-            $action = Lang::get('routes.actions.' . $this->action, [], '');
+            $this->action = Lang::get('routes.actions.' . $this->action, [], '');
 
         } else {
-            if (Gate::denies($this->controller, [Auth::User(), $this->controller, $this->action, $this->params])) {
+            if (Gate::denies($this->controller, [$this->params])) {
                 abort(403, 'You do not have permission to access this resource');
             }
         }
@@ -44,14 +44,14 @@ trait ControllerIndexTrait
         View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params]);
     }
 
-    public function index(Request $request, $action, $params = null)
+    public function index(Request $request)
     {
 
 
 
 
-        if (method_exists($this, $action)) {
-            return $this->{$action}($request, $params);
+        if (method_exists($this, $this->action)) {
+            return $this->{$this->action}($request, $this->action, $this->params);
         } else {
             abort(404, 'Page not found.');
         }

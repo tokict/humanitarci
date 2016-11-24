@@ -39,7 +39,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \App\Models\City $city
  * @property \App\Models\Donor $donor
  * @property \App\Models\Beneficiary $beneficiary
- * @property \App\Models\User $user
+ * @property \App\User$user
  * @property \App\Models\Device $device
  * @property \Illuminate\Database\Eloquent\Collection $users
  * @property \Illuminate\Database\Eloquent\Collection $documents
@@ -112,7 +112,7 @@ class Person extends BaseModel
 
 	public function user()
 	{
-		return $this->belongsTo(\App\Models\User::class);
+		return $this->belongsTo(\App\User::class);
 	}
 
 	public function city()

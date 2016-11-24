@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Beneficiary;
+use App\Models\Campaign;
+use App\Models\LegalEntity;
+use App\Models\Organization;
+use App\Models\Person;
+use App\User;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -20,97 +26,164 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any application authentication / authorization services.
      *
-     * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
+     * @param  \Illuminate\Contracts\Auth\Access\Gate $gate
      * @return void
      */
     public function boot(GateContract $gate)
     {
-
-
+        parent::registerPolicies($gate);
+        //ADMIN
 
         //Forbid only top level resources like controllers and actions. All model operations need to be
         //managed on the model itself
-        $gate->define('CampaignController', function ($user, $controller, $action, $params)  {
+        $gate->define('CampaignController', function ($user,  $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+
+            if ($user->isSuperAdmin()) {
+                return true;
+            }else{
+                if($params['action'] == 'edit'){
+                    $campaign = Campaign::find((int) $params['params'])->first();
+                    return $user->id == $campaign->created_by_id;
+                }
+                return true;
+            }
+            return false;
         });
 
-        $gate->define('CampaignsController', function ($user, $controller, $action, $params)  {
+
+        $gate->define('BeneficiaryController', function ($user,  $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+
+            if ($user->isSuperAdmin()) {
+                return true;
+            }else{
+                if($params['action'] == 'edit'){
+                    $beneficiary = Beneficiary::find((int) $params['params'])->first();
+                    return $user->id == $beneficiary->created_by_id;
+                }
+                return true;
+            }
+            return false;
         });
 
-        $gate->define('BeneficiaryController', function ($user, $controller, $action, $params)  {
+        $gate->define('BankController', function ($user,  $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }else{
+
+                return false;
+            }
+            return false;
         });
 
-        $gate->define('BeneficiariesController', function ($user, $controller, $action, $params)  {
+        $gate->define('UserController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }else{
+                return false;
+            }
+
+            //Default security false
+            return false;
+        });
+        $gate->define('AdminController', function ($user, $params) {
+            //Allow all for superadmin
+
+            return true;
         });
 
-        $gate->define('PersonController', function ($user, $controller, $action, $params)  {
+
+        $gate->define('PersonController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
-        });
-        $gate->define('AjaxController', function ($user, $controller, $action, $params)  {
-            //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }else{
+                return false;
+            }
+            return false;
         });
 
-        $gate->define('FileController', function ($user, $controller, $action, $params)  {
+
+        $gate->define('AjaxController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
-        });
-        $gate->define('BanksController', function ($user, $controller, $action, $params)  {
-            //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+            return true;
         });
 
-        $gate->define('LegalEntityController', function ($user, $controller, $action, $params)  {
+
+        $gate->define('LegalEntityController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+
+
+            return false;
         });
 
-        $gate->define('OrganizationController', function ($user, $controller, $action, $params)  {
+        $gate->define('OrganizationController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }else{
+                if($params['action'] == 'edit'){
+                    $organization = Organization::find((int) $params['params'])->first();
+                    return isset($user->organization) && $user->organization->id == $organization->id?true:false;
+                }
+                return true;
+            }
+            return false;
         });
 
-        $gate->define('OrganizationsController', function ($user, $controller, $action, $params)  {
+
+        //FRONTEND
+        $gate->define('FileController', function ($user,  $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+            return true;
+        });
+        $gate->define('BanksController', function ($user, $params) {
+            //Allow all for superadmin
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+            return true;
         });
 
-        $gate->define('BankController', function ($user, $controller, $action, $params)  {
+
+        $gate->define('OrganizationsController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+            return true;
         });
 
-        $gate->define('UserController', function ($user, $controller, $action, $params)  {
+        $gate->define('BeneficiariesController', function ($user, $params) {
             //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
-        });
-        $gate->define('AdminController', function ($user, $controller, $action, $params)  {
-            //Allow all for superadmin
-            //if($user->isSuperAdmin()){return true;}
-            return true;//$user->id === $contact->user_id;
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+            return true;
         });
 
+        $gate->define('CampaignsController', function ($user, $params) {
+            //Allow all for superadmin
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
+            return true;
+        });
 
         $this->registerPolicies($gate);
     }

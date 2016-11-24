@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 use Validator;
