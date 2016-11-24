@@ -11,9 +11,12 @@ class User extends Authenticatable
      * @property string $name
      * @property string $email
      * @property string $password
-     * @property string remember_token
+     * @property string $remember_token
+     * @property string $username
      * @property int $created_by
      * @property int $organization_id
+     * @property int $donor_id
+     * @property int $admin
      * @property int $super_admin
      * @property \Carbon\Carbon $created_at
      * @property \Carbon\Carbon $modified_at
@@ -22,7 +25,7 @@ class User extends Authenticatable
      * Who is this
      * @property \App\Models\Organization $organization
      *
-     * @property \App\User$creator
+     * @property \App\User $creator
      *
      * @property \Illuminate\Database\Eloquent\Collection $users
      *
@@ -47,6 +50,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
         'remember_token',
         'created_by',
         'organization_id'
@@ -73,8 +77,9 @@ class User extends Authenticatable
         return $this->belongsTo(\App\Models\Organization::class);
     }
 
-    public function isSuperAdmin()
-    {
 
+    public function donor()
+    {
+        return $this->hasOne(\App\Models\Donor::class);
     }
 }

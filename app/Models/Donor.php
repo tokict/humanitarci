@@ -37,6 +37,7 @@ namespace App\Models;
  * Is the donor anonymous
  *
  * @property \App\Models\Person $person
+ * @property \App\User $user
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
@@ -98,6 +99,11 @@ class Donor extends BaseModel
 		return $this->belongsTo(\App\Models\Person::class);
 	}
 
+	public function user()
+	{
+		return $this->belongsTo(\App\User::class);
+	}
+
 	public function donor_reports()
 	{
 		return $this->hasMany(\App\Models\DonorReport::class);
@@ -136,5 +142,15 @@ class Donor extends BaseModel
 	public function subscriptions()
 	{
 		return $this->hasMany(\App\Models\Subscription::class);
+	}
+
+	public function getCampaigns()
+	{
+		$campaigns = Campaign::with('Donations')->whereHas('Donations', function($q){
+			$q->where('donor_id', $this->getAttribute('id'));
+		})->get();
+
+		return $campaigns;
+
 	}
 }

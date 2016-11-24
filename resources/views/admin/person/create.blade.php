@@ -103,7 +103,7 @@
                                     <button class="btn btn-primary" type="submit">Save changes</button>
                                 </div>
                             </div>
-                        </form>
+                            {!! Form::close() !!}
                     </div>
                 </div>
             </div>

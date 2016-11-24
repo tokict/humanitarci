@@ -37,12 +37,12 @@ class AuthServiceProvider extends ServiceProvider
         //Forbid only top level resources like controllers and actions. All model operations need to be
         //managed on the model itself
         $gate->define('CampaignController', function ($user,  $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
-                return true;
+
+            if (!$user->super_admin && !$user->admin) {
+                return false;
             }
 
-            if ($user->isSuperAdmin()) {
+            if ($user->super_admin) {
                 return true;
             }else{
                 if($params['action'] == 'edit'){
@@ -56,9 +56,11 @@ class AuthServiceProvider extends ServiceProvider
 
 
         $gate->define('BeneficiaryController', function ($user,  $params) {
-            //Allow all for superadmin
 
-            if ($user->isSuperAdmin()) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }else{
                 if($params['action'] == 'edit'){
@@ -71,8 +73,11 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('BankController', function ($user,  $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }else{
 
@@ -82,8 +87,11 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('UserController', function ($user, $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }else{
                 return false;
@@ -93,15 +101,21 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
         $gate->define('AdminController', function ($user, $params) {
-            //Allow all for superadmin
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+
 
             return true;
         });
 
 
         $gate->define('PersonController', function ($user, $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+
+            if ($user->super_admin) {
                 return true;
             }else{
                 return false;
@@ -112,7 +126,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('AjaxController', function ($user, $params) {
             //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if ($user->super_admin) {
                 return true;
             }
             return true;
@@ -120,8 +134,10 @@ class AuthServiceProvider extends ServiceProvider
 
 
         $gate->define('LegalEntityController', function ($user, $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }
 
@@ -130,8 +146,10 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('OrganizationController', function ($user, $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }else{
                 if($params['action'] == 'edit'){
@@ -146,15 +164,19 @@ class AuthServiceProvider extends ServiceProvider
 
         //FRONTEND
         $gate->define('FileController', function ($user,  $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }
             return true;
         });
         $gate->define('BanksController', function ($user, $params) {
-            //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
                 return true;
             }
             return true;
@@ -163,7 +185,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('OrganizationsController', function ($user, $params) {
             //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if ($user->super_admin) {
                 return true;
             }
             return true;
@@ -171,7 +193,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('BeneficiariesController', function ($user, $params) {
             //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if ($user->super_admin) {
                 return true;
             }
             return true;
@@ -179,7 +201,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('CampaignsController', function ($user, $params) {
             //Allow all for superadmin
-            if ($user->isSuperAdmin()) {
+            if ($user->super_admin) {
                 return true;
             }
             return true;

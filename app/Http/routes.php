@@ -19,8 +19,8 @@ Route::get('/', 'HomeController@index');
 Route::get("/login", 'Auth\AuthController@login');
 Route::post("/login", 'Auth\AuthController@login');
 Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
-Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.campaigns',[], env('LANGUAGE')).'/{action}/{params?}', 'CampaignsController@index');
-Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.users',[], env('LANGUAGE')).'/{action}/{params?}', 'UsersController@index');
+Route::match(array('GET'),'/'.Lang::get('routes.front.campaigns',[], env('LANGUAGE')).'/{action}/{params?}', 'CampaignsController@index');
+Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.donors',[], env('LANGUAGE')).'/{action}/{params?}', 'DonorsController@index');
 
 
 //Authenticated users of site controllers

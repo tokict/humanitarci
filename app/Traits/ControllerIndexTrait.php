@@ -47,11 +47,11 @@ trait ControllerIndexTrait
     public function index(Request $request)
     {
 
-
+        $params = isset($this->params['params'])?$this->params['params']:null;
 
 
         if (method_exists($this, $this->action)) {
-            return $this->{$this->action}($request, $this->params['params']);
+            return $this->{$this->action}($request, $params);
         } else {
             abort(404, 'Page not found.');
         }

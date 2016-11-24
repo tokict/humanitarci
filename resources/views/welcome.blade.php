@@ -218,7 +218,7 @@
         <!-- End Features Grid -->
 
         <div class="align-center">
-            <a href="/{{trans('routes.front.users')}}/{{trans('routes.actions.registration')}}" class="btn btn-mod btn-large btn-circle">Želim pomoći</a>
+            <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" class="btn btn-mod btn-large btn-circle">Želim pomoći</a>
         </div>
 
     </div>

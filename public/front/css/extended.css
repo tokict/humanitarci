@@ -93,3 +93,7 @@ span.donator {
 .accent {
     color: #08c;
 }
+
+.team-item-name a{
+    text-decoration: none;
+}
