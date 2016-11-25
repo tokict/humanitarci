@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
 
 
 class DonorsController extends Controller
@@ -113,7 +114,11 @@ class DonorsController extends Controller
             if ($user) {
                 //Login user
                 if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
-                    return redirect()->intended('/' . Lang::get('routes.front.donors', [], '') . '/' . Lang::get('routes.actions.profile', [], ''));
+                    Auth::login($user);
+                    if(!empty(session('redirectAfterLogin'))){
+                        return redirect(session('redirectAfterLogin'))->withInput();
+                    }
+                    return redirect()->intended('/' . Lang::get('routes.front.donors', [], '') . '/' . Lang::get('routes.actions.profile', [], ''))->withInput();
 
                 }
             }

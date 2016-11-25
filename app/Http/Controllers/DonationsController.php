@@ -78,7 +78,7 @@ class DonationsController extends Controller
         $total = 0;
         $taxes = 0;
         $totalWithTaxes = 0;
-        $cart = session('donations');
+        $cart = !empty(session('donations'))?session('donations'):[];
 
         foreach ($cart as &$item) {
             $item['campaign']= Campaign::where('id', $item['campaign'])->get()->first();
@@ -114,17 +114,19 @@ class DonationsController extends Controller
     public function process($request)
     {
 
-        $this->validate($request, [
-            'gender' => 'required',
-            'first_name' => 'required|max:100',
-            'last_name' => 'required|max:100',
-            'city_id' => 'required',
-        ]);
+        if(session('cartInput')){
+            $input = session('cartInput');
+            session()->forget('cartInput');
+        }else{
+            $input = Input::all();
+        }
 
         //See if user has account. If not, send to registration
         if(!Auth::check()){
-            session('redirectAfterLogin', "/".trans('routes.front.donors')."/".trans('routes.actions.process'));
-            return redirect("/".trans('routes.front.donors')."/".trans('routes.actions.login'));
+            session()->put('redirectAfterLogin', "/".trans('routes.front.donations')."/".trans('routes.actions.process'));
+            session()->put('cartInput', Input::all());
+            return redirect("/".trans('routes.front.donors')."/".trans('routes.actions.login'))->withInput();
+            die;
         }
 
 
