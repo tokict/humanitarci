@@ -83,6 +83,7 @@ class DonorsController extends Controller
                     //Login user
                     Auth::attempt(['email' => $input['email'], 'password' => $input['password']]);
                 }
+
                 $donor = Donor::create(['user_id' => $user->id]);
             }
 

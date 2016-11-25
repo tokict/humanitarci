@@ -23,6 +23,8 @@ namespace App\Models;
  * @property string $amount_donated
  * Total amount this donor has donated
  *
+ * @property int $user_id
+ * Who is the user benind this donor
  *
  * @property string $total_donations
  * Total number of donations by this donor
@@ -72,6 +74,7 @@ class Donor extends BaseModel
 	protected $fillable = [
 		'person_id',
 		'entity_id',
+		'user_id',
 		'amount_donated',
 		'total_donations',
 		'goods_donated',
