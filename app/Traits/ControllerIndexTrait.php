@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -33,7 +33,9 @@ trait ControllerIndexTrait
 
 
         if ($request->getPrefix() != "/admin") {
-            $this->action = Lang::get('routes.actions.' . $this->action, [], '');
+            if(!Request::ajax()) {
+                $this->action = Lang::get('routes.actions.' . $this->action, [], '');
+            }
 
         } else {
             if (Gate::denies($this->controller, [$this->params])) {
@@ -44,7 +46,7 @@ trait ControllerIndexTrait
         View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params]);
     }
 
-    public function index(Request $request)
+    public function index(\Illuminate\Http\Request $request)
     {
 
         $params = isset($this->params['params'])?$this->params['params']:null;

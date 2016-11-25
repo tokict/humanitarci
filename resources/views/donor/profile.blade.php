@@ -7,7 +7,9 @@
 
         <div class="section-text mb-60 mb-sm-40">
             <div class="row">
-
+                @if (session('success'))
+                    <h3 class="text-success text-center">{{ session('success') }}</h3>
+                @endif
                 <div class="col-sm-6 mb-sm-50 mb-xs-30">
 
                     <h4 class="mt-0 font-alt">{{$donor->user->username}}</h4>
@@ -23,7 +25,6 @@
                 </div>
 
                 <div class="col-sm-6 mb-sm-50 mb-xs-30">
-                    <h4>Pregled tipova donacija</h4>
                     <!-- Bar Item -->
                     <div class="progress tpl-progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
@@ -69,7 +70,6 @@
                     <!-- End Bar Item -->
 
                 </div>
-
             </div>
         </div>
 
@@ -77,7 +77,6 @@
         <!-- Counters -->
         <div class="count-wrapper mb-80 mb-sm-60">
             <div class="row">
-
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
@@ -266,7 +265,7 @@
     <div class="container relative">
 
         <div class="align-center">
-            <h3 class="banner-heading font-alt">Postani i ti donor?</h3>
+            <h3 class="banner-heading font-alt">Postani i ti donor!</h3>
             <div>
                 <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" class="btn btn-mod btn-w btn-medium btn-round">Registriraj se</a>
             </div>

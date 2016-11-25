@@ -18,6 +18,9 @@
           href="http://rhythm.bestlooker.pro/images/apple-touch-icon-114x114.png">
 
     <!-- CSS -->
+    {{--Select2--}}
+    <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/front/css/bootstrap.min.css">
     <link rel="stylesheet" href="/front/css/style.css">
     <link rel="stylesheet" href="/front/css/style-responsive.css">
@@ -31,7 +34,9 @@
             color: #08c;
         }
     </style>
-
+    <script type="text/javascript" src="/front/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
+    <script src="/front/js/donations.js" type="text/javascript"></script>
 <body class="appear-animate">
 @include('sections.navbar')
 @yield('content')
@@ -40,14 +45,16 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="/front/js/jquery-1.11.2.min.js"></script>
+
 <script type="text/javascript" src="/front/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="/front/js/SmoothScroll.js"></script>
 <script type="text/javascript" src="/front/js/jquery.scrollTo.min.js"></script>
 <script type="text/javascript" src="/front/js/jquery.localScroll.min.js"></script>
 <script type="text/javascript" src="/front/js/jquery.viewport.mini.js"></script>
 <script type="text/javascript" src="/front/js/jquery.countTo.js"></script>
+<!-- Select2 -->
+<script src="/administrator/js/plugins/select2/select2.full.min.js"></script>
 <script type="text/javascript" src="/front/js/jquery.appear.js"></script>
 <script type="text/javascript" src="/front/js/jquery.sticky.js"></script>
 <script type="text/javascript" src="/front/js/jquery.parallax-1.1.3.js"></script>
@@ -56,8 +63,9 @@
 <script type="text/javascript" src="/front/js/isotope.pkgd.min.js"></script>
 <script type="text/javascript" src="/front/js/imagesloaded.pkgd.min.js"></script>
 <script type="text/javascript" src="/front/js/jquery.magnific-popup.min.js"></script>
-<!-- Replace test API Key "AIzaSyAZsDkJFLS0b59q7cmW0EprwfcfUA8d9dg" with your own one below
-**** You can get API Key here - https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<!-- Clock picker -->
+<script src="/administrator/js/plugins/clockpicker/clockpicker.js"></script>
+
 <script type="text/javascript" src="/front/js/maps.js"></script>
 <script type="text/javascript" src="/front/js/gmap3.min.js"></script>
 <script type="text/javascript" src="/front/js/wow.min.js"></script>
@@ -66,6 +74,7 @@
 <script type="text/javascript" src="/front/js/all.js"></script>
 <script type="text/javascript" src="/front/js/contact-form.js"></script>
 <script type="text/javascript" src="/front/js/jquery.ajaxchimp.min.js"></script>
+<script type="text/javascript" src="/front/js/shared.js"></script>
 <!--[if lt IE 10]>
 <script type="text/javascript" src="/front/js/placeholder.js"></script><![endif]-->
 
@@ -150,6 +159,8 @@
     } catch (e) {
     }</script>
 <script type="text/javascript" src="/front/js/jquery.downCount.js"></script>
+
+
 
 </body>
 </html>

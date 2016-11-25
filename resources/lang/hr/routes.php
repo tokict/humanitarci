@@ -16,18 +16,22 @@ return array(
         'users' => 'clanovi',
         'search' => 'trazi',
         'organizations' => 'udruge',
-        'donors' => 'donatori'
+        'donors' => 'donori',
+
 
     ],
     'actions' => [
         'view' => 'pregled',
         'donate' => 'doniraj',
-        'new' => 'nova',
+        'create' => 'nova',
         'listing' => 'lista',
         'registration' => 'registracija',
         'login' => 'prijava',
         'logout' => 'odjava',
-        'profile' => 'profil'
+        'profile' => 'profil',
+        'kosarica' => 'cart',
+        'ukloni' => 'remove',
+        'process' => 'obrada'
 
     ],
     'campaignTypes' => [
@@ -54,6 +58,7 @@ return array(
         'near_goal' => 'pred_ciljem',
         'all' => 'sve',
         'popular' =>  'popularne'
-    ]
+    ],
+
 
 );

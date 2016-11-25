@@ -4,7 +4,7 @@
 
         <!-- Footer Logo -->
         <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.5s">
-            <a href="#top"><img src="images/logo-footer.png" width="78" height="36" alt="" /></a>
+            <a href="#top"><img src="/front/images/logo.png" width="78" height="36" alt="" /></a>
         </div>
         <!-- End Footer Logo -->
 
@@ -23,12 +23,12 @@
 
             <!-- Copyright -->
             <div class="footer-copy font-alt">
-                <a href="http://themeforest.net/user/theme-guru/portfolio" target="_blank">&copy; Rhythm 2016</a>.
+                <span>&copy; Humanitarci.hr {{date("Y", time())}}</span>.
             </div>
             <!-- End Copyright -->
 
             <div class="footer-made">
-                Made with love for great people.
+                Od srca, za potrebite
             </div>
 
         </div>

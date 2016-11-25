@@ -114,6 +114,9 @@
                                         class="btn btn-mod btn-circle btn-gray"><i
                                             class="fa fa-user"></i> Prijava</span></a></li>
                     @endif
+                    <li><a href="/{{trans('routes.front.donations')}}/{{trans('routes.actions.cart')}}"style="height: 75px; line-height: 75px;"><span
+                                    class="btn btn-mod btn-circle btn-gray"><i
+                                        class="fa fa-heart"></i> Košarica @if(count(session('donations'))) ({{count(session('donations'))}}) @endif</span></a></li>
 
 
                 </ul>

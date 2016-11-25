@@ -21,21 +21,34 @@
                 <p>još nedostaje</p></div>
         </div>
 
-        <a href="/{{trans('routes.front.donation')}}/{{trans('routes.actions.new')}}/50"
-           class="btn btn-mod btn-medium btn-circle mb-10">Doniraj 50 kn</a>
-        <a href="/{{trans('routes.front.donation')}}/{{trans('routes.actions.new')}}/100"
-           class="btn btn-mod btn-medium btn-circle mb-10">Doniraj 100 kn</a>
-        <a href="/{{trans('routes.front.donation')}}/{{trans('routes.actions.new')}}/200"
-           class="btn btn-mod btn-medium btn-circle mb-10">Doniraj 200 kn</a>
-        <a href="/{{trans('routes.front.donation')}}/{{trans('routes.actions.new')}}/500"
-           class="btn btn-mod btn-medium btn-circle mb-10">Doniraj 500 kn</a>
+
+        <div class="row">
+            <div class="col-lg-7 col-lg-offset-1">
+                <br/>
+                <label>Jednokratno</label> <input type="radio" name="donation_type" class="pull-right" value="single" checked>
+                <br/>
+                <label>Mjesečno</label> <input type="radio" name="donation_type" class="pull-right" value="monthly">
+            </div>
+        </div>
+        <span data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"
+           class="btn btn-mod btn-medium btn-circle mb-10 fixedDonation" data-amount="50" data-campaign="{{$campaign->id}}">Doniraj 50 kn</span>
+        <span data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"
+           class="btn btn-mod btn-medium btn-circle mb-10 fixedDonation" data-amount="100" data-campaign="{{$campaign->id}}">Doniraj 100 kn</span>
+        <span data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"
+           class="btn btn-mod btn-medium btn-circle mb-10 fixedDonation" data-amount="200" data-campaign="{{$campaign->id}}">Doniraj 200 kn</span>
+        <span data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"
+           class="btn btn-mod btn-medium btn-circle mb-10 fixedDonation" data-amount="500" data-campaign="{{$campaign->id}}">Doniraj 500 kn</span>
         <form>
             <div class="input-group mt-10 mb-10" style="width: 200px">
                 <input class="form-control input-circle-left" placeholder="Iznos u kn"
-                       aria-describedby="donate-text-btn">
-                <span class="input-group-addon btn-mod btn-circle-right" id="donate-text-btn">Doniraj</span>
+                       aria-describedby="donate-text-btn" id="custom_amount">
+                <span class="input-group-addon btn-mod btn-circle-right" id="custom_donation_btn" data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"
+                      data-campaign="{{$campaign->id}}">Doniraj</span>
             </div>
         </form>
+        @if($errors->any())
+            <h4>{{$errors->first()}}</h4>
+        @endif
     </div>
     <!-- End Widget -->
 

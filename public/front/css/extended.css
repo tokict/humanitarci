@@ -97,3 +97,8 @@ span.donator {
 .team-item-name a{
     text-decoration: none;
 }
+
+.mn-soc-link i {
+    left: 1px;
+    position: relative;
+}

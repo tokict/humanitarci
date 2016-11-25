@@ -73,7 +73,6 @@
                                             Prijava
                                         </button>
                                     </div>
-
                                 </div>
 
                             </div>
@@ -95,7 +94,11 @@
                     </div>
                     <!-- End Login Form -->
                 </div>
-
+                <div class="align-center pt-100">
+                    <button class="btn btn-medium btn-round">
+                        Registracija
+                    </button>
+                </div>
             </div>
 
         </div>

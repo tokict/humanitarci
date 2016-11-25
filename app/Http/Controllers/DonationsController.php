@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 
 class DonationsController extends Controller
@@ -17,19 +22,117 @@ class DonationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function listing()
-    {   $donations = Donation::paginate(30);
-        return view('donations.list', ['donations' => $donations]);
+    {
+        $donations = Donation::paginate(30);
+        return view('donation.list', ['donations' => $donations]);
     }
 
+
     /**
-     * Show a single donation.
+     * Create a single donation.
      *
      * @return \Illuminate\Http\Response
      */
-    public function view($request, $id)
+    public function create($request)
+    {
+        $campaignId = (int)Input::get('campaign');
+        $type = Input::get('type');
+        $amount = (int)Input::get('amount');
+
+        $campaign = Campaign::find($campaignId);
+
+        if ($campaign) {
+            if($campaign->current_funds + $amount > $campaign->target_amount){
+                return Redirect::back()->withErrors(['msg', 'Your donation is higher than needed for the campaign. Please check your amount']);
+            }else{
+                //Add the donation to cart
+
+                $exists = false;
+                if(!empty(session('donations'))) {
+                    foreach (session('donations') as $d) {
+                        //Exists, Add the amount to existing donation
+                        if ($d['campaign'] == $campaignId && $d['type'] == $type) {
+                            $d['amount'] += $amount;
+                            $exists = true;
+                        }
+                    }
+                }
+                //New donation
+                if(!$exists) {
+                    session()->push('donations', ['campaign' => $campaign->id, 'type' => $type, 'amount' => $amount]);
+                }
+
+                return redirect("/".trans('routes.front.donations')."/".trans('routes.actions.cart'));
+            }
+        }
+    }
+
+    /**
+     * Show cart.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cart($request, $id)
     {
 
-        $donation = Donor::whereId($id)->first();
-        return view('donations.view', ['donation' => $donation]);
+        $total = 0;
+        $taxes = 0;
+        $totalWithTaxes = 0;
+        $cart = session('donations');
+
+        foreach ($cart as &$item) {
+            $item['campaign']= Campaign::where('id', $item['campaign'])->get()->first();
+
+            $total += $item['amount'];
+            $tax = 0;
+            $taxes += $tax;
+            $totalWithTaxes +=$item['amount'] + $tax;
+        }
+
+
+        return view('donation.cart', ['donations' => $cart, 'total' => $total, 'taxes' => $taxes, 'totalWithTaxes' => $totalWithTaxes]);
+    }
+
+    /**
+     * Remove item from session with passed index
+     *
+     */
+    public function remove($request, $index)
+    {
+
+        $donations = Session::get('donations');
+        unset($donations[$index]);
+        Session::set('donations', $donations);
+
+        return redirect()->back()->with('success', [trans('Item removed')]);
+    }
+
+    /**
+     * Process tha cart and send user to payment
+     *
+     */
+    public function process($request)
+    {
+
+        $this->validate($request, [
+            'gender' => 'required',
+            'first_name' => 'required|max:100',
+            'last_name' => 'required|max:100',
+            'city_id' => 'required',
+        ]);
+
+        //See if user has account. If not, send to registration
+        if(!Auth::check()){
+            session('redirectAfterLogin', "/".trans('routes.front.donors')."/".trans('routes.actions.process'));
+            return redirect("/".trans('routes.front.donors')."/".trans('routes.actions.login'));
+        }
+
+
+        //User is logged in
+        //Do donation processing
+
+        //Return success
+        return redirect("/".trans('routes.front.donors')."/".trans('routes.actions.profile'))
+            ->with('success', trans('strings.payment.Payment was successful! Your donation should be visible in no later than 24 hours after payment'));
     }
 }

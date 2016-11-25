@@ -138,7 +138,11 @@ class DonorsController extends Controller
                 $donor = $user->donor;
                 }
         }else{
-            $donor = Donor::find(Auth::User()->donor->id);
+            if(isset(Auth::User()->donor)) {
+                $donor = Donor::find(Auth::User()->donor->id);
+            }else{
+                return redirect('/');
+            }
         }
 
 
