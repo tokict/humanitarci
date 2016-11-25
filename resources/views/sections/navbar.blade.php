@@ -73,10 +73,6 @@
                                                                                    title=""
                                                                                    data-original-title="Twitter"><i
                                         class="fa fa-twitter"></i></span></a>
-                        <a href="#" style="height: 75px; line-height: 75px;"><span class="mn-soc-link tooltip-bot"
-                                                                                   title=""
-                                                                                   data-original-title="Pinterest"><i
-                                        class="fa fa-pinterest"></i></span></a>
                     </li>
 
                     <!-- Search -->
