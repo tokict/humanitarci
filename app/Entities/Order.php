@@ -91,6 +91,8 @@ class Order
 
     protected $key;
 
+    protected $provider_id;
+
 
     /**
      * Donations can be only single or monthly. They cannot mix! First we process single in one order
