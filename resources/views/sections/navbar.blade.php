@@ -49,9 +49,10 @@
 
                         <!-- Sub -->
                         <ul class="mn-sub">
-                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}">Misija</a></li>
-                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.team')}}">Tim</a></li>
-                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.history')}}">Dosadašnji rad</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.mission')}}">Misija</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.team')}}">Tim</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.history')}}">Dosadašnji rad</a></li>
+                            <li><a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.media')}}">U medijima</a></li>
                         </ul>
                         <!-- End Sub -->
                     </li>
@@ -61,7 +62,7 @@
                     </li>
 
                     <li>
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.contacts')}}">Kontakt</a>
+                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.contacts')}}">Kontakt</a>
                     </li>
 
                     <li>

@@ -31,7 +31,13 @@ return array(
         'profile' => 'profil',
         'kosarica' => 'cart',
         'ukloni' => 'remove',
-        'process' => 'obrada'
+        'process' => 'obrada',
+        'mission' => 'misija',
+        'team' => 'tim',
+        'history' => 'povijest',
+        'contacts' => 'kontakti',
+        'how_to_donate' => 'kako_donirati',
+        'media' => 'mediji',
 
     ],
     'campaignTypes' => [
@@ -46,13 +52,7 @@ return array(
         'place' => 'mjesto',
         'all' => 'sve'
     ],
-    'pages' => [
-        'mission' => 'misija',
-        'team' => 'tim',
-        'history' => 'povijest',
-        'contacts' => 'kontakti',
-        'how_to_donate' => 'kako_donirati'
-    ],
+
     'parameters' => [
         'new' => 'nove',
         'near_goal' => 'pred_ciljem',

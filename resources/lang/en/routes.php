@@ -16,7 +16,7 @@ return array(
         'clanovi' => 'users',
         'trazi' => 'search',
         'udruge' => 'organizations',
-        'donori' => 'donors',
+        'donori' => 'donors'
     ],
     'actions' => [
         'doniraj' => 'donate',
@@ -29,7 +29,15 @@ return array(
         'profil' => 'profile',
         'cart' => 'kosarica',
         'remove' => 'ukloni',
-        'obrada' => 'process'
+        'obrada' => 'process',
+        'misija' => 'mission',
+        'tim' => 'team',
+        'povijest' => 'history',
+        'kontakti' => 'contacts',
+        'kako_donirati' => 'how_to_donate',
+        'mediji' => 'media',
+
+
 
     ],
     'campaignTypes' => [
@@ -43,13 +51,6 @@ return array(
         'ostalo' => 'other',
         'mjesto' => 'place',
         'sve' => 'all'
-    ],
-    'pages' => [
-        'misija' => 'mission',
-        'tim' => 'team',
-        'povijest' => 'history',
-        'kontakti' => 'contacts',
-        'kako_donirati' => 'how_to_donate'
     ],
     'parameters' => [
         'nove' => 'new',

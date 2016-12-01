@@ -9,18 +9,30 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $campaigns = Campaign::where('status', 'active')
-        ->orderBy('priority', 'desc')
-        ->take(3)
-        ->get();
+    use \App\Traits\ControllerIndexTrait;
 
-        return view('welcome', ['campaigns' => $campaigns]);
+    public function team()
+    {
+        return view('pages.team');
+    }
+
+    public function history()
+    {
+        return view('pages.history');
+    }
+
+    public function mission()
+    {
+        return view('pages.mission');
+    }
+
+    public function media()
+    {
+        return view('pages.media');
+    }
+
+    public function contacts()
+    {
+        return view('pages.contacts');
     }
 }
