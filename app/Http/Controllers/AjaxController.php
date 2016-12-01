@@ -64,4 +64,11 @@ class AjaxController extends Controller
             ->json($result);
     }
 
+
+    public function saveUser(){
+        $input = Input::all();
+        $city = City::find($input['city_id']);
+        return response()->json(['city' => $city->name, 'region' => $city->region->name]);
+    }
+
 }

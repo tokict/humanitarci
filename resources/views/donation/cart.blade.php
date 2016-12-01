@@ -3,7 +3,14 @@
         <!-- Section -->
 <section class="page-section">
     <div class="container">
-
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @if($recurring)
+                <h4 class="text-ceter">For each monthly donation you will need to execute payment separately.<br/>
+                    After you pay the first, you will be returned to this site and given the option to pay for the rest</h4>
+                    @endif
+                </div>
+            </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
@@ -51,21 +58,20 @@
                 <hr class="mb-60"/>
 
                 <div class="row">
-                    {!! Form::open(['url' => '/'.trans('routes.front.donations').'/'.trans('routes.actions.process'), 'class' => 'form-horizontal', 'id' => 'processForm']) !!}
-                    {{Form::token()}}
+                    {!! Form::open(['url' => $order->payment_endpoint, 'class' => 'form-horizontal', 'id' => 'processForm']) !!}
                     <div class="col-sm-6" id="payeeInfo">
 
                         <h3 class="small-title font-alt">Podatci o uplatitelju</h3>
                         <div class="mb-10">
-                            {{Form::select('gender', ["" => 'Spol', 'male' => 'Muško', 'female' => 'Žensko'], null, ['class' => 'input-md form-control'])}}
+                            {{Form::select('title', ["" => 'Titula', 'Mr' => 'Mr.', 'Ms' => 'Ms', 'Mrs' => 'Mrs'], null, ['class' => 'input-md form-control'])}}
                         </div>
                         <div class="mb-10">
-                            <input placeholder="Ime" name="first_name" class="input-md form-control" type="text"
+                            <input placeholder="Ime" name="cardholder_name" class="input-md form-control" type="text"
                                    pattern=".{3,100}"/>
                         </div>
 
                         <div class="mb-10">
-                            <input placeholder="Prezime" name="last_name" class="input-md form-control" type="text"
+                            <input placeholder="Prezime" name="cardholder_surname" class="input-md form-control" type="text"
                                    pattern=".{3,100}"/>
                         </div>
 
@@ -87,18 +93,29 @@
                         </div>
 
                         <div class="lead mt-0 mb-30">
-                            Za platiti: <strong>{{number_format($totalWithTaxes, 2)}} {{env('CURRENCY')}}</strong>
+                            Za donirati: <strong>{{number_format($totalWithTaxes, 2)}} {{env('CURRENCY')}}</strong>
                         </div>
-                        @if(session('donations'))
+                        @if($order)
+                            {{Form::hidden('target', $order->target)}}
+                            {{Form::hidden('cart', $order->cart)}}
+                            {{Form::hidden('mode', $order->mode)}}
+                            {{Form::hidden('store_id', $order->store_id)}}
+                            {{Form::hidden('order_number', "don_nr_".$order->order_number)}}
+                            {{Form::hidden('language', $order->language)}}
+                            {{Form::hidden('currency', $order->currency)}}
+                            {{Form::hidden('amount', $order->amount)}}
+                            {{Form::hidden('hash', $order->hash)}}
+                            {{Form::hidden('require_complete', $order->require_complete)}}
+
                             <div>
-                                <button type="button" class="btn btn-mod btn-round btn-large" id="processFormBtn">
+                                <button type="submit" class="btn btn-mod btn-round btn-large" id="processFormBtn">
                                     Plati
                                 </button>
                             </div>
                             @endif
 
                     </div>
-                    {{Form::close()}}
+
                 </div>
 
 

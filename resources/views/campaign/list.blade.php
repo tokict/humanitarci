@@ -6,7 +6,7 @@
 
         <div class="works-filter font-alt align-center">
             <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.new')}}" class="filter active" >Novo</a>
-            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.popular')}}" class="filter">Najpoznatije</a>
+            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.popular')}}" class="filter">Izdvojene</a>
             <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.near_goal')}}" class="filter">Pred ciljem</a>
             <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.all')}}" class="filter">Vidi sve</a>
         </div>

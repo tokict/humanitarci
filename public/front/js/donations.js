@@ -22,7 +22,8 @@ $(document).ready(function () {
     });
 
 
-    $("#processFormBtn").click(function () {
+    $("#processFormBtn").click(function (event) {
+        event.preventDefault();
         var name = $('[name="first_name"]');
         var last_name = $('[name="last_name"]');
         var city = $('[name="city_id"]');
@@ -62,7 +63,23 @@ $(document).ready(function () {
             return false;
         }
 
-        $('#processForm').submit();
+
+        var data = $('#processForm').serializeObject();
+        $.ajax({
+            url: '/ajax/saveUser',
+            dataType: 'json',
+            method: 'post',
+            data: data
+        }).always(function(response){
+            $('<input />').attr('type', 'hidden')
+                .attr('name', "cardholder_city")
+                .attr('value', response.city)
+                .appendTo('#processForm');
+
+            $('#processForm').submit();
+        })
+
+
     });
 
 

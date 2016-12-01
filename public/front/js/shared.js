@@ -67,6 +67,8 @@ function initMap() {
 }
 $(document).ready(function () {
 
+
+
     /*SELECT 2*/
 
     /**
@@ -102,7 +104,7 @@ $(document).ready(function () {
         escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatCity, // omitted for brevity, see the source of this page
-        templateSelection: formatselectCityion // omitted for brevity, see the source of this page
+        templateSelection: formatselectCity // omitted for brevity, see the source of this page
     });
 
     function formatCity (data) {
@@ -113,7 +115,7 @@ $(document).ready(function () {
 
     }
 
-    function formatselectCityion (data) {;
+    function formatselectCity (data) {
         return data.name || data.text;
     }
 
@@ -214,6 +216,23 @@ $(document).ready(function () {
 
 });
 
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
 
 
 
