@@ -36,6 +36,7 @@ return array(
         'kontakti' => 'contacts',
         'kako_donirati' => 'how_to_donate',
         'mediji' => 'media',
+        'uspjeh' => 'success'
 
 
 

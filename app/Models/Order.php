@@ -59,20 +59,22 @@ class Order extends BaseModel
     public function checkTransaction()
     {
         $store_id = env('STORE_ID');
-        $order_number = $this->getAttribute('id');
+        $order_number = 'don_nr_.'.$this->getAttribute('id');
         $hash = $this->getAttribute('hash');
 
 
         $client = new Client();
         $res = $client->post(env('PAYMENT_PROVIDER_STATUS_ENDPOINT'), [
+            'cert' => ['CorvusCPS_test.key.pem', env('PROVIDER_KEY_PASSWORD')],
             'store_id' => $store_id,
             'order_number' => $order_number,
             'currency_code' => strtoupper(env('CURRENCY')),
-            'timestamp' => time(),
+            'timestamp' => date("yyyyMMddHHmmss"),
             'hash' => $hash
         ]);
 
         $xml = $res->getBody();
+        return $xml;
     }
 
 }

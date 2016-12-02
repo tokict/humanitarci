@@ -82,9 +82,8 @@ class DonationsController extends Controller
         $totalWithTaxes = 0;
         $cart = !empty(session('donations')) ? session('donations') : [];
         $recurring = false;
-        $redirectedFromPaymentOrder = Input::get('order');
-        $redirectedFromPaymentWithSuccess = Input::has('success');
-        $redirectedFromPaymentWithFail = Input::has('fail');
+        $status = !empty(Input::get('status')) ? Input::get('status') : null;
+
 
         foreach ($cart as &$item) {
             $item['campaign'] = Campaign::where('id', $item['campaign'])->get()->first();
@@ -97,8 +96,46 @@ class DonationsController extends Controller
             $totalWithTaxes += $item['amount'] + $tax;
         }
 
-        if ($cart) {
-            $order = $this->process();
+
+        //This means user is back from payment
+        if ($status) {
+            //Return success with unsetting paid donation (all single or first monthly)
+            if ($status == 'success') {
+
+                $donations = Session::get('donations');
+                //Unset all paid donations from session
+                foreach ($donations as $key => $item) {
+                    if ($item['type'] == 'single') {
+
+                        unset($donations[$key]);
+                    }
+                }
+                foreach ($donations as $key => $item) {
+                    if ($item['type'] == 'monthly') {
+
+                        unset($donations[$key]);
+                        break;
+                    }
+                }
+                Session::set('donations', $donations);
+
+                return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'))
+                    ->with('success' ,trans('strings.payment.Payment was successful! Your donation should be visible in no later than 24 hours after payment'));
+            }
+
+            //Return fail
+            if ($status == 'fail') {
+                return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'))
+                    ->withErrors(trans('strings.payment.Payment failed! We are sorry, but your donation was not completed'));
+            }
+        }
+
+
+            if($cart) {
+                $order = $this->process();
+            }else{
+                $order = null;
+            }
 
             return view('donation.cart', [
                 'donations' => $cart,
@@ -108,30 +145,9 @@ class DonationsController extends Controller
                 'recurring' => $recurring,
                 'order' => $order
             ]);
-        } else {
-            //Return success
-            if ($redirectedFromPaymentWithSuccess) {
-                $donations = Session::get('donations');
-                //Unset all paid donations from session
-                foreach ($donations as $key => $item) {
-                    if ($item['order_id'] == $redirectedFromPaymentOrder) {
 
-                        unset($donations[$key]);
 
-                    }
-                }
-                Session::set('donations', $donations);
 
-                return redirect("/" . trans('routes.front.donors') . "/" . trans('routes.actions.profile'))
-                    ->with('success', trans('strings.payment.Payment was successful! Your donation should be visible in no later than 24 hours after payment'));
-            }
-
-            //Return fail
-            if ($redirectedFromPaymentWithFail) {
-                return redirect("/" . trans('routes.front.donors') . "/" . trans('routes.actions.profile'))
-                    ->with('error', trans('strings.payment.Payment failed! We are sorry, but your donation was refused by the payment provider'));
-            }
-        }
     }
 
     /**
@@ -152,8 +168,8 @@ class DonationsController extends Controller
         if (!Auth::check()) {
             session()->put('redirectAfterLogin', "/" . trans('routes.front.donations') . "/" . trans('routes.actions.process'));
             session()->put('cartInput', Input::all());
-            return redirect("/" . trans('routes.front.donors') . "/" . trans('routes.actions.login'))->withInput();
-            die;
+             redirect("/" . trans('routes.front.donors') . "/" . trans('routes.actions.login'))->withInput();
+
         }
 
         //User is logged in
@@ -161,37 +177,39 @@ class DonationsController extends Controller
 
         //Do donation processing
         //Process single in one payment
-        $orderSingle = new \App\Entities\Order(Session::get('donations'));
-        if (!$orderSingle->order_number) {
-            if ($orderSingle) {
-                $donations = Session::get('donations');
-                foreach ($donations as &$donation) {
-                    if ($donation['type'] == 'single') {
+        if(!empty(Session::get('donations'))) {
+            $orderSingle = new \App\Entities\Order(Session::get('donations'));
+            if (!$orderSingle->order_number) {
+                if ($orderSingle) {
+                    $donations = Session::get('donations');
+                    foreach ($donations as &$donation) {
+                        if ($donation['type'] == 'single') {
 
-                        $donation['order_id'] = $orderSingle->save();
+                            $donation['order_id'] = $orderSingle->save();
+
+                        }
+                    }
+                    Session::set('donations', $donations);
+                }
+                return $orderSingle;
+
+            } else {
+                //Process next monthly donation
+                $orderMonthly = new \App\Entities\Order(Session::get('donations'));
+                if ($orderMonthly) {
+                    $donations = Session::get('donations');
+                    foreach ($donations as &$donation) {
+                        if ($donation == 'monthly') {
+                            $donation['order_id'] = $orderMonthly->order_number;
+                            //Break because we do one at a time
+                            break;
+                        }
+
 
                     }
+                    Session::set('donations', $donations);
+                    return $orderMonthly;
                 }
-                Session::set('donations', $donations);
-            }
-            return $orderSingle;
-
-        } else {
-            //Process next monthly donation
-            $orderMonthly = new \App\Entities\Order(Session::get('donations'));
-            if ($orderMonthly) {
-                $donations = Session::get('donations');
-                foreach ($donations as &$donation) {
-                    if ($donation == 'monthly') {
-                        $donation['order_id'] = $orderMonthly->order_number;
-                        //Break because we do one at a time
-                        break;
-                    }
-
-
-                }
-                Session::set('donations', $donations);
-                return $orderMonthly;
             }
         }
     }

@@ -38,6 +38,7 @@ return array(
         'contacts' => 'kontakti',
         'how_to_donate' => 'kako_donirati',
         'media' => 'mediji',
+        'success' => 'uspjeh'
 
     ],
     'campaignTypes' => [

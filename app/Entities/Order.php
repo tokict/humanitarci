@@ -102,8 +102,6 @@ class Order
     {
 
 
-
-
         $this->payment_endpoint = env('PAYMENT_ENDPOINT');
         $this->currency = strtoupper(env("CURRENCY"));
         $this->store_id = (string)env("STORE_ID");
@@ -126,18 +124,24 @@ class Order
         if (count($single)) {
             $this->donations = $single;
             //if the donation has order_id it means it was saved before and this is page reload
-            if(isset($single[0]['order_id'])){
+            if (isset($single[0]['order_id'])) {
                 $order = \App\Models\Order::find($single[0]['order_id']);
-                $this->order_number = $order->id;
-                $this->user_ip = \Illuminate\Support\Facades\Request::ip();
-                $this->updated_at = date("Y-m-d H:i:s");
+                if ($order) {
+                    $this->order_number = $order->id;
+                    $this->hash = $order->hash;
+                    $this->amount = $order->amount;
+                    $this->type = $order->type;
+                    $this->cart = $order->cart;
+                    $this->user_ip = \Illuminate\Support\Facades\Request::ip();
+                    $this->updated_at = date("Y-m-d H:i:s");
+                }
             }
 
             //Process single donations in one order
             foreach ($single as $key => $item) {
                 $campaign = Campaign::where('id', $item['campaign'])->get()->first();
                 $this->amount += $item['amount'];
-                $this->cart .= '|' . $campaign->name . ' - ' . $item['amount'].env('CURRENCY');
+                $this->cart .= '|' . $campaign->name . ' - ' . $item['amount'] . env('CURRENCY');
 
             }
 
@@ -145,11 +149,17 @@ class Order
         } else {
             //There are no single ones, process first monthly
             $this->donations = $monthly;
-            if(isset($monthly[0]['order_id'])){
+            if (isset($monthly[0]['order_id'])) {
                 $order = \App\Models\Order::find($monthly[0]['order_id']);
-                $this->order_number = $order->id;
-                $this->user_ip = \Illuminate\Support\Facades\Request::ip();
-                $this->updated_at = date("Y-m-d H:i:s");
+                if ($order) {
+                    $this->order_number = $order->id;
+                    $this->hash = $order->hash;
+                    $this->amount = $order->amount;
+                    $this->type = $order->type;
+                    $this->cart = $order->cart;
+                    $this->user_ip = \Illuminate\Support\Facades\Request::ip();
+                    $this->updated_at = date("Y-m-d H:i:s");
+                }
             }
         }
         $this->amount = number_format($this->amount, 2, '.', "");
@@ -159,7 +169,7 @@ class Order
     /**
      * @return integer
      * Saves order to DB
-    */
+     */
     public function save()
     {
         $order = new \App\Models\Order;
@@ -172,14 +182,12 @@ class Order
         $order->save();
 
         $this->order_number = $order->id;
+        $this->hash = sha1($this->key . ':' . "don_nr_".$this->order_number . ':' . $this->amount . ':' . $this->currency);
         $order->hash = $this->hash;
-        $this->hash = sha1($this->key.':'.$this->order_number.':'.$this->amount.':'.$this->currency);
         $order->save();
 
         return $this->order_number;
     }
-
-
 
 
 }
