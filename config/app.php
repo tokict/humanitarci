@@ -155,9 +155,6 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Terranet\Administrator\ServiceProvider::class,
-        Terranet\Translatable\TranslatableServiceProvider::class,
-        Terranet\Localizer\ServiceProvider::class,
         \Reliese\Coders\CodersServiceProvider::class,
 
     ],
