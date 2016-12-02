@@ -16,7 +16,6 @@ class CreateLegalEntitiesTable extends Migration
             $table->increments('id');
             $table->string('name', 45)->nullable();
             $table->string('tax_id', 45)->nullable();
-            $table->string('vat_id', 45)->nullable();
             $table->string('city_id', 45)->nullable();
             $table->string('address', 45)->nullable();
             $table->string('bank_id', 45)->nullable();

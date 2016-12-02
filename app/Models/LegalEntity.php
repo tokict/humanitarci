@@ -42,6 +42,9 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property \Illuminate\Database\Eloquent\Collection $beneficiaries
  * @property \App\Models\GroupLegalEntity $group_legal_entity
+ * @property \App\Models\City $city
+ * @property \App\Models\Person $person
+ * @property \App\Models\Bank $bank
  * @property \Illuminate\Database\Eloquent\Collection $groups
  * @property \Illuminate\Database\Eloquent\Collection $organizations
  * @property \Illuminate\Database\Eloquent\Collection $outgoing_mails
@@ -65,12 +68,14 @@ class LegalEntity extends Eloquent
 	protected $fillable = [
 		'name',
 		'tax_id',
-		'vat_id',
 		'city_id',
 		'address',
 		'bank_id',
 		'bank_acc',
 		'is_beneficiary',
+		'contact_phone',
+		'contact_email',
+		'represented_by',
 		'modified_at'
 	];
 
@@ -81,7 +86,22 @@ class LegalEntity extends Eloquent
 
 	public function group_legal_entity()
 	{
-		return $this->hasOne(\App\Models\GroupLegalEntity::class);
+		return $this->belongsTo(\App\Models\GroupLegalEntity::class);
+	}
+
+	public function city()
+	{
+		return $this->belongsTo(\App\Models\City::class);
+	}
+
+	public function person()
+	{
+		return $this->belongsTo(\App\Models\Person::class);
+	}
+
+	public function bank()
+	{
+		return $this->belongsTo(\App\Models\Bank::class);
 	}
 
 	public function groups()
@@ -106,6 +126,6 @@ class LegalEntity extends Eloquent
 
 	public function outgoing_sms()
 	{
-		return $this->hasMany(\App\Models\OutgoingSm::class);
+		return $this->hasMany(\App\Models\OutgoingSms::class);
 	}
 }
