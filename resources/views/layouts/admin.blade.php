@@ -144,8 +144,9 @@
                 <li>
                     <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Donors</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level {{$controller == 'DonorController'?'collapse in':''}}"><a
-                                href="/admin/donor/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'DonorController'?'collapse in':''}}">
+                        <li class="{{$controller == 'DonorController' && $action == 'create'?'listing':''}}"><a
+                                    href="/admin/donor/listing">List</a></li>
                     </ul>
                 </li>
                 <li>

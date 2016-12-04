@@ -80,7 +80,7 @@
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
-                        320000
+                        {{number_format($donor->amount_donated /100, 2)}}
                     </div>
                     <div class="count-descr font-alt">
                         <i class="fa fa-dollar"></i>
@@ -92,7 +92,7 @@
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
-                        150
+                        {{count($donor->getCampaigns())}}
                     </div>
                     <div class="count-descr font-alt">
                         <i class="fa fa-heart"></i>
@@ -100,11 +100,10 @@
                     </div>
                 </div>
                 <!-- End Counter Item -->
-
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
-                        933
+                        {{count($donor->getBeneficiaries())}}
                     </div>
                     <div class="count-descr font-alt">
                         <i class="fa fa-users"></i>
@@ -116,7 +115,7 @@
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
-                        975
+                        {{count($donor->getRecurringDonationsSum())}}
                     </div>
                     <div class="count-descr font-alt">
                         <i class="fa fa-refresh"></i>

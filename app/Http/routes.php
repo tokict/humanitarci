@@ -52,6 +52,12 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
     //Organizations
     Route::match(array('GET', 'POST'),'/organization/{action}/{params?}', 'Admin\OrganizationController@index');
 
+    //Donations
+    Route::match(array('GET', 'POST'),'/donation/{action}/{params?}', 'Admin\DonationController@index');
+
+    //Donors
+    Route::match(array('GET', 'POST'),'/donor/{action}/{params?}', 'Admin\DonorController@index');
+
     //Administrators
     Route::match(array('GET', 'POST'),'/user/{action}/{params?}', 'Admin\UserController@index');
 

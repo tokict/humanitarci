@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Donation;
 use App\Models\MediaLink;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\Http\Controllers\Controller;
-use App\Models\Bank;
-use App\Models\Campaign;
 use App\Models\Media;
-use App\Models\Person;
+
 
 
 use App\Http\Requests;
@@ -18,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 
-class CampaignController extends Controller
+class DonationController extends Controller
 {
     use \App\Traits\ControllerIndexTrait;
 
@@ -26,23 +25,23 @@ class CampaignController extends Controller
     public function listing()
     {
         if (!Auth::User()->is_super_admin) {
-            $campaigns = Campaign::where('organization_id', Auth::User()->organization_id)->paginate(50);
+            $donations = Donation::where('organization_id', Auth::User()->organization_id)->paginate(50);
         } else {
-            $campaigns = Campaign::paginate(50);
+            $donations = Donation::paginate(50);
         }
 
 
-        return view('admin.campaign.listing', ['campaigns' => $campaigns]);
+        return view('admin.donation.listing', ['donations' => $donations]);
     }
 
     public function view($request, $id)
     {
 
-        $campaign = Campaign::find($id)->get()->first();
+        $donation = Donation::find($id)->get()->first();
 
-        $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
-        $campaign->campaign_media = $media_info;
-        return view('admin.campaign.view', ['campaign' => $campaign]);
+
+
+        return view('admin.donation.view', ['donation' => $donation]);
     }
 
     public function create($request)
@@ -72,7 +71,6 @@ class CampaignController extends Controller
 
             $input = Input::all();
             $input['created_by'] = Auth::User()->id;
-            $input['target_amount'] =  $input['target_amount'] * 100;
             $input['starts'] = date("Y-m-d H:i:s", strtotime($input['start_date'] . " " . $input['start_time']));
             $input['ends'] = date("Y-m-d H:i:s", strtotime($input['end_date'] . " " . $input['end_time']));
             $input['action_by_date'] = date("Y-m-d H:i:s",

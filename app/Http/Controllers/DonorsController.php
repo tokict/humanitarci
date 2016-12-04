@@ -27,17 +27,6 @@ class DonorsController extends Controller
         return view('donor.list', ['donors' => $donors]);
     }
 
-    /**
-     * Show a single user.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function view($request, $id)
-    {
-
-        $campaign = Donor::whereId($id)->first();
-        return view('donor.view', ['donor' => $campaign]);
-    }
 
 
     /**

@@ -8,11 +8,10 @@
 namespace App\Models;
 
 
-
 /**
  * Class Campaign
  * Campaign is the main entity to which donors give donations.
- * 
+ *
  * @property int $id
  *
  * @property string $name
@@ -92,7 +91,7 @@ namespace App\Models;
  *
  *
  *
- * @property \App\User$creator
+ * @property \App\User $creator
  * Related admin object
  *
  * @property \App\Models\Beneficiary $beneficiary
@@ -121,115 +120,134 @@ namespace App\Models;
  */
 class Campaign extends BaseModel
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $casts = [
-		'beneficiary_id' => 'int',
-		'target_amount' => 'int',
-		'target_amount_extra' => 'int',
-		'cover_photo_id' => 'int',
-		'organization_id' => 'int',
-		'current_funds' => 'int',
-		'funds_transferred_amount' => 'int',
-		'donors_number' => 'int',
-		'created_by_id' => 'int',
-		'priority' => 'int'
-	];
+    protected $casts = [
+        'beneficiary_id' => 'int',
+        'target_amount' => 'int',
+        'target_amount_extra' => 'int',
+        'cover_photo_id' => 'int',
+        'organization_id' => 'int',
+        'current_funds' => 'int',
+        'funds_transferred_amount' => 'int',
+        'donors_number' => 'int',
+        'created_by_id' => 'int',
+        'priority' => 'int'
+    ];
 
-	protected $dates = [
-		'modified_at',
-		'action_by_date',
-		'ends'
-	];
+    protected $dates = [
+        'modified_at',
+        'action_by_date',
+        'ends'
+    ];
 
-	protected $fillable = [
-		'name',
-		'beneficiary_id',
-		'target_amount',
-		'target_amount_extra',
-		'cover_photo_id',
-		'description_short',
-		'description_full',
-		'organization_id',
-		'current_funds',
-		'status',
-		'funds_transferred_amount',
-		'donors_number',
-		'type',
-		'created_by_id',
-		'modified_at',
-		'priority',
-		'slug',
-		'tags',
-		'action_by_date',
-		'starts',
-		'ends',
-		'reference_id',
-		'end_notes',
-		'media_info',
-		'category'
-	];
+    protected $fillable = [
+        'name',
+        'beneficiary_id',
+        'target_amount',
+        'target_amount_extra',
+        'cover_photo_id',
+        'description_short',
+        'description_full',
+        'organization_id',
+        'current_funds',
+        'status',
+        'funds_transferred_amount',
+        'donors_number',
+        'type',
+        'created_by_id',
+        'modified_at',
+        'priority',
+        'slug',
+        'tags',
+        'action_by_date',
+        'starts',
+        'ends',
+        'reference_id',
+        'end_notes',
+        'media_info',
+        'category'
+    ];
 
-	public function user()
-	{
-		return $this->belongsTo(\App\User::class, 'created_by');
-	}
+    /**
+     * Reclculate donations and donors
+     */
+    public function recalculate()
+    {
+        $donations = Donation::where('campaign_id', $this->getAttribute('id'))->get();
+        $target = $this->getAttribute('target_amount');
 
-	public function beneficiary()
-	{
-		return $this->belongsTo(\App\Models\Beneficiary::class);
-	}
+        $amount = 0;
+        $donors = [];
 
-
-
-	public function organization()
-	{
-		return $this->belongsTo(\App\Models\Organization::class);
-	}
-
-	public function campaign_reports()
-	{
-		return $this->hasMany(\App\Models\CampaignReport::class);
-	}
-
-	public function donations()
-	{
-		return $this->hasMany(\App\Models\Donation::class);
-	}
-
-	public function goods_inputs()
-	{
-		return $this->hasMany(\App\Models\GoodsInput::class);
-	}
-
-	public function media_links()
-	{
-		return $this->hasMany(\App\Models\MediaLink::class);
-	}
-
-	public function monetary_inputs()
-	{
-		return $this->hasMany(\App\Models\MonetaryInput::class);
-	}
-
-	public function subscriptions()
-	{
-		return $this->hasMany(\App\Models\Subscription::class, 'campaing_id');
-	}
-
-	public function transactions()
-	{
-		return $this->hasMany(\App\Models\Transaction::class);
-	}
+        foreach ($donations as $donation) {
+            $amount += $donation->amount;
+            if (!in_array($donation->donor_idm, $donors)) {
+                $donors[] = $donation->donor_id;
+            }
+        }
+        $this->setAttribute('current_funds', $amount);
+        $this->setAttribute('donors_number', count($donors));
+        $this->setAttribute('percent_done', ($amount / $target)*100 );
 
 
-	public function cover()
-	{
-		return $this->belongsTo(\App\Models\Media::class, 'cover_photo_id');
-	}
+    }
 
-	public function creator()
-	{
-		return $this->belongsTo(\App\User::class, 'created_by');
-	}
+
+    public function beneficiary()
+    {
+        return $this->belongsTo(\App\Models\Beneficiary::class);
+    }
+
+
+    public function organization()
+    {
+        return $this->belongsTo(\App\Models\Organization::class);
+    }
+
+    public function campaign_reports()
+    {
+        return $this->hasMany(\App\Models\CampaignReport::class);
+    }
+
+    public function donations()
+    {
+        return $this->hasMany(\App\Models\Donation::class);
+    }
+
+    public function goods_inputs()
+    {
+        return $this->hasMany(\App\Models\GoodsInput::class);
+    }
+
+    public function media_links()
+    {
+        return $this->hasMany(\App\Models\MediaLink::class);
+    }
+
+    public function monetary_inputs()
+    {
+        return $this->hasMany(\App\Models\MonetaryInput::class);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(\App\Models\Subscription::class, 'campaing_id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(\App\Models\Transaction::class);
+    }
+
+
+    public function cover()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'cover_photo_id');
+    }
+
+    public function creator()
+    {
+        return $this->belongsTo(\App\User::class, 'created_by_id');
+    }
 }

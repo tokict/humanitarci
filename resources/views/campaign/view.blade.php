@@ -14,8 +14,8 @@
                 <div class="blog-item">
 
                     <!-- Post Title -->
-                    <h2 class="blog-item-title font-alt"><a
-                                href="blog-single-sidebar-right.html">{{$campaign->beneficiary->name}}</a></h2>
+                    <h2 class="blog-item-title font-alt">{{$campaign->name}}</h2>
+                    <h5>Korisnik: <a href="{{trans('routes.front.beneficiaries')}}/{{trans('routes.actions.view')}}/{{$campaign->beneficiary->id}}">{{$campaign->beneficiary->name}}</a></h5>
 
                     <!-- Author, Categories, Comments -->
                     <div class="blog-item-data">

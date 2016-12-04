@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Beneficiary;
 use App\Models\Campaign;
+use App\Models\Donation;
+use App\Models\Donor;
 use App\Models\LegalEntity;
 use App\Models\Organization;
 use App\Models\Person;
@@ -159,6 +161,27 @@ class AuthServiceProvider extends ServiceProvider
                 return true;
             }
             return false;
+        });
+
+        $gate->define('DonationController', function ($user, $params) {
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
+                return true;
+            }else{
+
+                    $donation = Donation::find((int) $params['params'])->first();
+                    return isset($user->organization) && $user->organization->id == $donation->organization->id?true:false;
+
+                return true;
+            }
+            return false;
+        });
+
+        $gate->define('DonorController', function ($user, $params) {
+
+            return true;
         });
 
 

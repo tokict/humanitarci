@@ -8,11 +8,10 @@
 namespace App\Models;
 
 
-
 /**
  * Class Donor
  * Donor is any person or legal_entity that is registered as a donor on the site
- * 
+ *
  * @property int $id
  * @property int $person_id
  * Id of the person that is the real donor
@@ -24,7 +23,7 @@ namespace App\Models;
  * Total amount this donor has donated
  *
  * @property int $user_id
- * Who is the user benind this donor
+ * Who is the user behind this donor
  *
  * @property string $total_donations
  * Total number of donations by this donor
@@ -32,18 +31,19 @@ namespace App\Models;
  * @property string $goods_donated
  * List of goods and amounts donated by this donor in total -serialized array
  *
- * @property string $services_donated
+ * @property string $services_donations
  * List of services donated by this donor = serialized array
  *
  * @property int $anonymous
  * Is the donor anonymous
  *
  * @property \App\Models\Person $person
+ * @property \App\Models\Person $entity
  * @property \App\User $user
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
- * 
+ *
  * @property \Illuminate\Database\Eloquent\Collection $action_logs
  * @property \Illuminate\Database\Eloquent\Collection $documents
  * @property \Illuminate\Database\Eloquent\Collection $donations
@@ -60,100 +60,142 @@ namespace App\Models;
  */
 class Donor extends BaseModel
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $casts = [
-		'person_id' => 'int',
-		'entity_id' => 'int'
-	];
+    protected $casts = [
+        'person_id' => 'int',
+        'entity_id' => 'int'
+    ];
 
-	protected $dates = [
-		'modified_at'
-	];
+    protected $dates = [
+        'modified_at'
+    ];
 
-	protected $fillable = [
-		'person_id',
-		'entity_id',
-		'user_id',
-		'amount_donated',
-		'total_donations',
-		'goods_donated',
-		'services_donated',
-		'modified_at'
-	];
+    protected $fillable = [
+        'person_id',
+        'entity_id',
+        'user_id',
+        'amount_donated',
+        'total_donations',
+        'goods_donated',
+        'services_donated',
+        'modified_at'
+    ];
 
-	public function action_logs()
-	{
-		return $this->hasMany(\App\Models\ActionLog::class);
-	}
+    public function action_logs()
+    {
+        return $this->hasMany(\App\Models\ActionLog::class);
+    }
 
-	public function documents()
-	{
-		return $this->hasMany(\App\Models\Document::class);
-	}
+    public function documents()
+    {
+        return $this->hasMany(\App\Models\Document::class);
+    }
 
-	public function donations()
-	{
-		return $this->hasMany(\App\Models\Donation::class);
-	}
+    public function donations()
+    {
+        return $this->hasMany(\App\Models\Donation::class);
+    }
 
-	public function person()
-	{
-		return $this->belongsTo(\App\Models\Person::class);
-	}
+    public function person()
+    {
+        return $this->belongsTo(\App\Models\Person::class);
+    }
 
-	public function user()
-	{
-		return $this->belongsTo(\App\User::class);
-	}
+    public function entity()
+    {
+        return $this->belongsTo(\App\Models\LegalEntity::class);
+    }
 
-	public function donor_reports()
-	{
-		return $this->hasMany(\App\Models\DonorReport::class);
-	}
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class);
+    }
 
-	public function goods_inputs()
-	{
-		return $this->hasMany(\App\Models\GoodsInput::class);
-	}
+    public function donor_reports()
+    {
+        return $this->hasMany(\App\Models\DonorReport::class);
+    }
 
-	public function media_links()
-	{
-		return $this->hasMany(\App\Models\MediaLink::class);
-	}
+    public function goods_inputs()
+    {
+        return $this->hasMany(\App\Models\GoodsInput::class);
+    }
 
-	public function monetary_inputs()
-	{
-		return $this->hasMany(\App\Models\MonetaryInput::class);
-	}
+    public function media_links()
+    {
+        return $this->hasMany(\App\Models\MediaLink::class);
+    }
 
-	public function outgoing_mails()
-	{
-		return $this->hasMany(\App\Models\OutgoingMail::class);
-	}
+    public function monetary_inputs()
+    {
+        return $this->hasMany(\App\Models\MonetaryInput::class);
+    }
 
-	public function outgoing_pushes()
-	{
-		return $this->hasMany(\App\Models\OutgoingPush::class);
-	}
+    public function outgoing_mails()
+    {
+        return $this->hasMany(\App\Models\OutgoingMail::class);
+    }
 
-	public function outgoing_sms()
-	{
-		return $this->hasMany(\App\Models\OutgoingSm::class);
-	}
+    public function outgoing_pushes()
+    {
+        return $this->hasMany(\App\Models\OutgoingPush::class);
+    }
 
-	public function subscriptions()
-	{
-		return $this->hasMany(\App\Models\Subscription::class);
-	}
+    public function outgoing_sms()
+    {
+        return $this->hasMany(\App\Models\OutgoingSm::class);
+    }
 
-	public function getCampaigns()
-	{
-		$campaigns = Campaign::with('Donations')->whereHas('Donations', function($q){
-			$q->where('donor_id', $this->getAttribute('id'));
-		})->get();
+    public function subscriptions()
+    {
+        return $this->hasMany(\App\Models\Subscription::class);
+    }
 
-		return $campaigns;
+    public function getLastDonation()
+    {
+        $last = Donation::where('donor_id', $this->getAttribute('id'))->orderBy('created_at', 'desc')->get()->first();
+        if ($last) {
+            return $last;
+        } else {
+            return null;
+        }
+    }
 
-	}
+    public function getCampaigns()
+    {
+        $campaigns = Campaign::with('Donations')->whereHas('Donations', function ($q) {
+            $q->where('donor_id', $this->getAttribute('id'));
+        })->get();
+
+        return $campaigns;
+
+    }
+
+    public function getBeneficiaries()
+    {
+        //ToDo Count all persons and entities that money went to
+        $beneficiaries = Donation::where('donor_id', $this->getAttribute('id'))->distinct('beneficiary_id')->get();
+
+        return $beneficiaries;
+
+    }
+
+
+    public function getRecurringDonationsNr()
+    {
+        $nr = RecurringDonation::where('donor_id', $this->getAttribute('id'))->where('status', 'active')->count();
+
+        return $nr;
+
+    }
+
+    public function getRecurringDonationsSum()
+    {
+        $sum = RecurringDonation::where('donor_id', $this->getAttribute('id'))->where('status',
+            'active')->sum('amount');
+
+        return $sum;
+
+    }
 }

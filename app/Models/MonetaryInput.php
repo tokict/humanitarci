@@ -8,19 +8,17 @@
 namespace App\Models;
 
 
-
 /**
  * Class MonetaryInput
  * Monetary input handles all cash coming into the platform. We make donations from this data
- * 
+ *
  * @property int $id
  * @property int $donor_id
  * @property int $amount
  * @property \Carbon\Carbon $created_at
- * @property int $campaign_id
  * @property int $payment_provider_data_id
  * @property int $bank_transfer_data_id
- * 
+ *
  * @property \App\Models\BankTransfersDatum $bank_transfers_datum
  * @property \App\Models\Campaign $campaign
  * @property \App\Models\Donor $donor
@@ -55,10 +53,6 @@ class MonetaryInput extends BaseModel
 		return $this->belongsTo(\App\Models\BankTransfersDatum::class, 'bank_transfer_data_id');
 	}
 
-	public function campaign()
-	{
-		return $this->belongsTo(\App\Models\Campaign::class);
-	}
 
 	public function donor()
 	{
@@ -67,7 +61,7 @@ class MonetaryInput extends BaseModel
 
 	public function payment_provider_datum()
 	{
-		return $this->belongsTo(\App\Models\PaymentProviderDatum::class, 'payment_provider_data_id');
+		return $this->belongsTo(\App\Models\PaymentProviderDatum::class, 'payment_provider_data_id', 'id');
 	}
 
 	public function donations()

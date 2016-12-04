@@ -4,7 +4,7 @@
 
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-sm-4">
-                <h2>Campaign detail</h2>
+                <h2>Campaign details</h2>
             </div>
         </div>
         <div class="row">
@@ -45,10 +45,12 @@
                                     <dl class="dl-horizontal">
 
                                         <dt>Created by:</dt>
-                                        <dd>{{$campaign->user->person->first_name}} {{$campaign->user->person->last_name}}</dd>
+                                        <dd><a href="/admin/view/admin/{{$campaign->creator->id}}"
+                                               class="text-navy">{{$campaign->creator->person->first_name}} {{$campaign->creator->person->last_name}}</a></dd>
                                         <dt>Beneficiary:</dt>
                                         <dd><a href="/admin/view/beneficiary/{{$campaign->beneficiary->id}}"
-                                               class="text-navy"> {{$campaign->beneficiary->name}}</a></dd>
+                                               class="text-navy"> {{$campaign->beneficiary->name}}</a>
+                                        </dd>
                                         <dt>Donors:</dt>
                                         <dd> {{count($campaign->beneficiary->getDonors())}}</dd>
                                         <dt>Views:</dt>

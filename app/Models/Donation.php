@@ -31,7 +31,7 @@ namespace App\Models;
  * @property string $status
  * What's the internal status of the donation
  *
- * @property \Carbon\Carbon $created_date
+ * @property \Carbon\Carbon $created_at
  *
  *
  * @property string $source
@@ -89,7 +89,7 @@ class Donation extends BaseModel
 	];
 
 	protected $dates = [
-		'created_date'
+		'created_at'
 	];
 
 	protected $fillable = [
@@ -99,7 +99,7 @@ class Donation extends BaseModel
 		'type',
 		'amount',
 		'status',
-		'created_date',
+		'created_at',
 		'payment_reference_used',
 		'source',
 		'goods',

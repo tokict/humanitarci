@@ -63,11 +63,11 @@
         <div class="widget style1 navy-bg">
             <div class="row">
                 <div class="col-xs-4">
-                    <i class="fa fa-dollar fa-5x"></i>
+                    <i class="fa fa-heart fa-5x"></i>
                 </div>
                 <div class="col-xs-8 text-right">
                     <span> Donations </span>
-                    <h2 class="font-bold">0</h2>
+                    <h2 class="font-bold">{{$donations}}</h2>
                 </div>
             </div>
         </div>
@@ -81,6 +81,19 @@
                 <div class="col-xs-8 text-right">
                     <span> Beneficiaries </span>
                     <h2 class="font-bold">{{$beneficiaries}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="widget style1 red-bg">
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="fa fa-dollar fa-5x"></i>
+                </div>
+                <div class="col-xs-8 text-right">
+                    <span> Total raised </span>
+                    <h1 class="font-bold">{{number_format($funds/100, 2)}}</h1>
                 </div>
             </div>
         </div>

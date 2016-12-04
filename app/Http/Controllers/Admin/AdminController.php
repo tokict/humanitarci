@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Beneficiary;
 use App\Models\Campaign;
+use App\Models\Donation;
 use App\Models\Donor;
 use App\Models\LegalEntity;
 use App\Models\Person;
@@ -23,6 +24,8 @@ class AdminController extends Controller
         $campaigns = Campaign::count('created_at', '>=', Carbon::now()->startOfWeek());
         $persons = Person::count('created_at', '>=', Carbon::now()->startOfWeek());
         $donors = Donor::count('created_at', '>=', Carbon::now()->startOfWeek());
+        $donations = Donation::count('created_at', '>=', Carbon::now()->startOfWeek());
+        $funds = Donation::where('created_at', '>=', Carbon::now()->startOfWeek())->sum('amount');
         $beneficiaries = Beneficiary::count('created_at', '>=', Carbon::now()->startOfWeek());
         $legal_entities = LegalEntity::count('created_at', '>=', Carbon::now()->startOfWeek());
 
@@ -30,6 +33,8 @@ class AdminController extends Controller
             'campaigns' => $campaigns,
             'persons' => $persons,
             'donors' => $donors,
+            'funds' => $funds,
+            'donations' => $donations,
             'beneficiaries' => $beneficiaries,
             'legal_entities' => $legal_entities,
 
