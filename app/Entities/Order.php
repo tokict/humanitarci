@@ -128,8 +128,8 @@ class Order
                 $order = \App\Models\Order::find($single[0]['order_id']);
                 if ($order) {
                     $this->order_number = $order->id;
-                    $this->hash = $order->hash;
                     $this->amount = $order->amount;
+                    $this->hash = sha1($this->key . ':' . "don_nr_".$this->order_number . ':' . $this->amount . ':' . $this->currency);
                     $this->type = $order->type;
                     $this->cart = $order->cart;
                     $this->user_ip = \Illuminate\Support\Facades\Request::ip();
@@ -138,12 +138,14 @@ class Order
             }
 
             //Process single donations in one order
+            $amount = 0;
             foreach ($single as $key => $item) {
                 $campaign = Campaign::where('id', $item['campaign'])->get()->first();
-                $this->amount += $item['amount'];
+                $amount += $item['amount'];
                 $this->cart .= '|' . $campaign->name . ' - ' . $item['amount'] . env('CURRENCY');
 
             }
+            $this->amount =$amount;
 
 
         } else {
@@ -153,8 +155,8 @@ class Order
                 $order = \App\Models\Order::find($monthly[0]['order_id']);
                 if ($order) {
                     $this->order_number = $order->id;
-                    $this->hash = $order->hash;
                     $this->amount = $order->amount;
+                    $this->hash = sha1($this->key . ':' . "don_nr_".$this->order_number . ':' . $this->amount . ':' . $this->currency);
                     $this->type = $order->type;
                     $this->cart = $order->cart;
                     $this->user_ip = \Illuminate\Support\Facades\Request::ip();
@@ -173,7 +175,7 @@ class Order
     public function save()
     {
         $order = new \App\Models\Order;
-        $order->user_id = Auth::User()->id;
+        $order->donor_id = Auth::User()->donor->id;
         $order->donations = serialize($this->donations);
         $order->status = 'pending';
         $order->amount = $this->amount;

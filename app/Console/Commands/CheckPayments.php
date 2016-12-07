@@ -48,12 +48,15 @@ class CheckPayments extends Command
      * @return mixed
      */
     public function handle()
-    {   $this->info(count($this->orders)." orders to process");
+    {
+
+
+        $this->info(count($this->orders)." orders to process");
         foreach($this->orders as $order){
             $check = $order->checkTransaction();
             $this->info("Processing order ".$order->id);
             $this->info("Order id ".$order->id." status is: ". $check['status']);
-            if($check['status'] == 'done'){
+            if($check['status'] == 0){
                 $order->status = 'success';
                 $order->save();
 

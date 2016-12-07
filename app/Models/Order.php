@@ -11,16 +11,19 @@ class Order extends BaseModel
      *
      * @property int $id
      * @property int $donor_id
+     * @property int $user_id
      * @property int $campaign_id
      * @property string $status
      * @property string $created_at
      * @property string $updated_at
      * @property int $amount
      * @property string $type
+     * @property string $hash
      * @property string $user_ip
      *
      * @property \App\Models\Donor $donor
      * @property \App\Models\Campaign $campaign
+     * @property \App\User $user
      *
      *
      * @package App\Models
@@ -28,17 +31,20 @@ class Order extends BaseModel
 
 
     protected $casts = [
+        'user_id' => 'int',
         'donor_id' => 'int',
         'campaign_id' => 'int',
         'amount' => 'int',
     ];
 
     protected $fillable = [
+        'user_id',
         'donor_id',
         'campaign_id',
         'updated_at',
         'amount',
         'type',
+        'hash',
         'user_ip',
         'status',
     ];
@@ -54,53 +60,54 @@ class Order extends BaseModel
         return $this->belongsTo(\App\Models\Campaign::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class);
+    }
+
     //Check the status of transaction with the provider
     public function checkTransaction()
     {
-        $store_id = env('STORE_ID');
+        $store_id = (string)env('STORE_ID');
         $order_number = 'don_nr_' . $this->getAttribute('id');
-        $hash = $this->getAttribute('hash');
 
-        /*$client = new Client();
+
+        $timestamp = date("YmdHis");
+        $client = new Client();
         $res = $client->post(env('PAYMENT_PROVIDER_STATUS_ENDPOINT'), [
-            'cert' => ['CorvusCPS_test.key.pem', env('PROVIDER_KEY_PASSWORD')],
-            'store_id' => $store_id,
-            'order_number' => $order_number,
-            'currency_code' => strtoupper(env('CURRENCY')),
-            'timestamp' => date("yyyyMMddHHmmss"),
-            'hash' => $hash
+            'cert' => ['Corvus.pem', env('PROVIDER_KEY_PASSWORD')],
+            'form_params' => [
+                'store_id' => $store_id,
+                'order_number' => $order_number,
+                'currency_code' => env('CURRENCY_CODE'),
+                'timestamp' => $timestamp,
+                'hash' => sha1(env('PAYMENT_PROVIDER_KEY') .$order_number . $store_id . '191'.$timestamp)
+            ]
         ]);
 
-        $xml = $res->getBody();
-        return $xml;*/
-        $data = [
-            'order_number' => $order_number,
-            'order_id' => $this->getAttribute('id'),
-            'transaction_amount' => $this->getAttribute('amount'),
-            'transaction_datetime' => $this->getAttribute('created_at'),
-            'status' => '0',
-            'response_message' => "Success",
-            'response_code' => '0',
-            'currency_code' => "hrk",
-            'card_type' => "visa",
-            'cardholder_name' => "Tino",
-            'cardholder_surname' => "Tokic",
-            'cardholder_address' => "Address sfa",
-            'cardholder_city' => "Solin",
-            'cardholder_zip code' => "21210",
-            'cardholder_email' => "tino@tokic.com.hr    ",
-            'cardholder_phone' => "0877190412",
-            'cardholder_country' => "Bulgaria",
-            'card_details' => "hhstdrth",
-            'rrn' => "65465",
-            'approval_code' => "0"
-        ];
+        $body = $res->getBody();
 
+        $response = simplexml_load_string($body, "SimpleXMLElement", LIBXML_NOCDATA);
+        $json = json_encode($response);
+        $array = json_decode($json,TRUE);
+        $array['order_id'] = $this->getAttribute('id');
 
-        $pData = new PaymentProviderDatum($data);
+        $renamedFieldsArr = [];
+        foreach($array as $key =>  $item){
+            if($key == 'cc-type'){
+                $key = 'card_type';
+            }
+
+            if($key == 'transaction-date-and-time'){
+                $key = 'transaction_datetime';
+            }
+            $renamedFieldsArr[str_replace("-", "_", $key)] = $item;
+        }
+
+        $pData = new PaymentProviderDatum($renamedFieldsArr);
         $pData->save();
 
-        return ['status' => 'done', 'payment_provider_data_id' => $pData->id];
+        return ['status' => $renamedFieldsArr['response_code'], 'payment_provider_data_id' => $pData->id];
     }
 
 

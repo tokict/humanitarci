@@ -27,12 +27,12 @@ namespace App\Models;
  * @property string $cardholder_surname
  * @property string $cardholder_address
  * @property string $cardholder_city
- * @property string $cardholder_zip code
+ * @property string $cardholder_zip_code
  * @property string $cardholder_email
  * @property string $cardholder_phone
  * @property string $cardholder_country
  * @property string $card_details
- * @property string $rrn
+ * @property string $reference_number
  * @property string $approval_code
  * $@property \App\Models\Order $order;
  *
@@ -61,12 +61,12 @@ class PaymentProviderDatum extends BaseModel
         'cardholder_surname',
         'cardholder_address',
         'cardholder_city',
-        'cardholder_zip',
+        'cardholder_zip_code',
         'cardholder_email',
         'cardholder_phone',
         'cardholder_country',
         'card_details',
-        'rrn',
+        'reference_number',
         'approval_code',
     ];
 
