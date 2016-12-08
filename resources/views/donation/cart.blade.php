@@ -16,20 +16,21 @@
             <div class="col-md-8 col-md-offset-2">
                 <?php if(!empty($errors)): ?>
 
-                    <ul>
-                        <?php foreach($errors->all() as $error): ?>
-                        <h4 class="text-danger"><?php echo e($error); ?></h4>
-                        <?php endforeach; ?>
-                    </ul>
+                <ul>
+                    <?php foreach($errors->all() as $error): ?>
+                    <h4 class="text-danger text-center"><?php echo e($error); ?></h4>
+                    <?php endforeach; ?>
+                </ul>
 
                 <?php endif; ?>
                 <?php if(\Illuminate\Support\Facades\Session::has('success')): ?>
 
-                    <ul>
+                <ul>
+                    @foreach(\Illuminate\Support\Facades\Session::get('success') as $m)
+                        <h4 class="text-success text-center">{{$m}}</h4>
+                    @endforeach
 
-                        <h4 class="text-success"><?php echo e(\Illuminate\Support\Facades\Session::get('success')); ?></h4>
-
-                    </ul>
+                </ul>
 
                 <?php endif; ?>
                 @if($order)
