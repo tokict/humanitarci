@@ -121,7 +121,7 @@
                             {{Form::hidden('cart', $order->cart)}}
                             {{Form::hidden('mode', $order->mode)}}
                             {{Form::hidden('store_id', $order->store_id)}}
-                            {{Form::hidden('order_number', "don_nr_".$order->order_number)}}
+                            {{Form::hidden('order_number', env('ORDER_PREFIX').$order->order_number)}}
                             {{Form::hidden('language', $order->language)}}
                             {{Form::hidden('currency', $order->currency)}}
                             {{Form::hidden('amount', $order->amount)}}

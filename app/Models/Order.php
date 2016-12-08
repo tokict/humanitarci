@@ -69,7 +69,7 @@ class Order extends BaseModel
     public function checkTransaction()
     {
         $store_id = (string)env('STORE_ID');
-        $order_number = 'don_nr_' . $this->getAttribute('id');
+        $order_number = env('ORDER_PREFIX') . $this->getAttribute('id');
 
 
         $timestamp = date("YmdHis");

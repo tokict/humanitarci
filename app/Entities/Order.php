@@ -129,7 +129,7 @@ class Order
                 if ($order) {
                     $this->order_number = $order->id;
                     $this->amount = $order->amount;
-                    $this->hash = sha1($this->key . ':' . "don_nr_".$this->order_number . ':' . $this->amount . ':' . $this->currency);
+                    $this->hash = sha1($this->key . ':' . env('ORDER_PREFIX').$this->order_number . ':' . $this->amount . ':' . $this->currency);
                     $this->type = $order->type;
                     $this->cart = $order->cart;
                     $this->user_ip = \Illuminate\Support\Facades\Request::ip();
@@ -156,7 +156,7 @@ class Order
                 if ($order) {
                     $this->order_number = $order->id;
                     $this->amount = $order->amount;
-                    $this->hash = sha1($this->key . ':' . "don_nr_".$this->order_number . ':' . $this->amount . ':' . $this->currency);
+                    $this->hash = sha1($this->key . ':' . env('ORDER_PREFIX').$this->order_number . ':' . $this->amount . ':' . $this->currency);
                     $this->type = $order->type;
                     $this->cart = $order->cart;
                     $this->user_ip = \Illuminate\Support\Facades\Request::ip();
@@ -184,7 +184,7 @@ class Order
         $order->save();
 
         $this->order_number = $order->id;
-        $this->hash = sha1($this->key . ':' . "don_nr_".$this->order_number . ':' . $this->amount . ':' . $this->currency);
+        $this->hash = sha1($this->key . ':' . env('ORDER_PREFIX').$this->order_number . ':' . $this->amount . ':' . $this->currency);
         $order->hash = $this->hash;
         $order->save();
 
