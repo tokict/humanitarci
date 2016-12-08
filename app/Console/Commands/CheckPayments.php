@@ -74,14 +74,12 @@ class CheckPayments extends Command
     {
         $this->info(count($this->orders)." orders to process");
         foreach($this->orders as $order){
-            //Lets give user 1 minute to pay before checking
-            if(time() - strtotime($order->created_at) < 60){
-                continue;
-            }
+
+
             $check = $order->checkTransaction();
             $this->info("Processing order ".$order->id);
             $this->info("Order id ".$order->id." status is: ". $check['status']);
-            if($check['status'] == 0){
+            if($check['status'] === '0'){
                 $order->status = 'success';
                 $order->save();
 
