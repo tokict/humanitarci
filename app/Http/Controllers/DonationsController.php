@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Models\Campaign;
 use App\Models\Donation;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -98,20 +99,23 @@ class DonationsController extends Controller
         if ($status) {
             //Return success with unsetting paid donation (all single or first monthly)
             if ($status == 'success') {
+                Artisan::call('CheckPayments', ['--single' => true]);
 
                 $donations = Session::get('donations');
                 //Unset all paid donations from session
-                foreach ($donations as $key => $item) {
-                    if ($item['type'] == 'single') {
+                if($donations) {
+                    foreach ($donations as $key => $item) {
+                        if ($item['type'] == 'single') {
 
-                        unset($donations[$key]);
+                            unset($donations[$key]);
+                        }
                     }
-                }
-                foreach ($donations as $key => $item) {
-                    if ($item['type'] == 'monthly') {
+                    foreach ($donations as $key => $item) {
+                        if ($item['type'] == 'monthly') {
 
-                        unset($donations[$key]);
-                        break;
+                            unset($donations[$key]);
+                            break;
+                        }
                     }
                 }
                 Session::set('donations', $donations);

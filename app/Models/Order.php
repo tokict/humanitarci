@@ -74,8 +74,9 @@ class Order extends BaseModel
 
         $timestamp = date("YmdHis");
         $client = new Client();
+
         $res = $client->post(env('PAYMENT_PROVIDER_STATUS_ENDPOINT'), [
-            'cert' => ['Corvus.pem', env('PROVIDER_KEY_PASSWORD')],
+            'cert' => [env("PROJECT_DIR").'/Corvus.pem', env('PROVIDER_KEY_PASSWORD')],
             'form_params' => [
                 'store_id' => $store_id,
                 'order_number' => $order_number,

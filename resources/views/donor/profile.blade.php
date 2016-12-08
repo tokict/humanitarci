@@ -80,7 +80,7 @@
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
-                        {{number_format($donor->amount_donated /100, 2)}}
+                        {{$donor->amount_donated /100}}
                     </div>
                     <div class="count-descr font-alt">
                         <i class="fa fa-dollar"></i>

@@ -14,7 +14,7 @@ class CheckPayments extends Command
      *
      * @var string
      */
-    protected $signature = 'CheckPayments';
+    protected $signature = 'CheckPayments {--single : Command is to be run just once}';
 
     /**
      * The console command description.
@@ -30,6 +30,7 @@ class CheckPayments extends Command
      */
     protected $orders;
 
+
     /**
      * Create a new command instance.
      *
@@ -39,7 +40,7 @@ class CheckPayments extends Command
     {
         parent::__construct();
 
-        $this->orders = Order::where('status', 'pending')->where('type', 'single')->where('created_at', '>', Carbon::now()->subWeek())->get();
+        $this->orders = Order::where('status', 'pending')->where('type', 'single')->where('created_at', '>', Carbon::now()->subMinutes(15)->toDateTimeString())->get();
     }
 
     /**
@@ -49,10 +50,34 @@ class CheckPayments extends Command
      */
     public function handle()
     {
+        $single = $this->option('single');
+        if($single){
+            $this->doAction();
+            return;
+        }
+        $start = microtime(true);
+        set_time_limit(60);
+        for ($i = 0; $i < 59; ++$i) {
+            if($i % 30 != 0){
+                continue;
+            }
+            $this->doAction();
+
+            //Sleep
+            time_sleep_until($start + $i + 1);
+        }
 
 
+    }
+
+    public function doAction()
+    {
         $this->info(count($this->orders)." orders to process");
         foreach($this->orders as $order){
+            //Lets give user 1 minute to pay before checking
+            if(time() - strtotime($order->created_at) < 60){
+                continue;
+            }
             $check = $order->checkTransaction();
             $this->info("Processing order ".$order->id);
             $this->info("Order id ".$order->id." status is: ". $check['status']);
@@ -73,7 +98,7 @@ class CheckPayments extends Command
                 }else{
                     $this->info("Payment CANNOT be entered into the system");
                 }
-                $this->info("");
+                $this->info("\n --------------------------------------------------------- \n");
 
             }
         }
