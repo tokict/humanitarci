@@ -26,9 +26,9 @@
                 <?php if(\Illuminate\Support\Facades\Session::has('success')): ?>
 
                 <ul>
-                    @foreach(\Illuminate\Support\Facades\Session::get('success') as $m)
-                        <h4 class="text-success text-center">{{$m}}</h4>
-                    @endforeach
+
+                        <h4 class="text-success text-center">{{\Illuminate\Support\Facades\Session::get('success')}}</h4>
+
 
                 </ul>
 
