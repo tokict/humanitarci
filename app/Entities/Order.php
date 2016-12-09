@@ -142,8 +142,8 @@ class Order
                 if ($order) {
                     //In case order was made with unregistered user, update donor info if the user is registered now
                     if (!$order->donor_id && Auth::check()) {
-                        Auth::User()->donor_id;
-                        $order->donor_id = Auth::User()->donor_id;
+                        Auth::User()->donor->id;
+                        $order->donor_id = Auth::User()->donor->id;
                         $order->save();
                     }
 
@@ -183,7 +183,7 @@ class Order
             }else{
                 //Create new donation in the db
                 $order = new \App\Models\Order;
-                $order->donor_id = isset(Auth::User()->donor_id)?Auth::User()->donor_id:null;
+                $order->donor_id = Auth::check()?Auth::User()->donor->id:null;
                 $order->donations = serialize(Session::get('donations'));
                 $order->amount = $amount;
                 $order->type = 'single';
@@ -210,7 +210,7 @@ class Order
                 $order = \App\Models\Order::find($monthly[0]['order_id']);
                 if ($order) {
                     if (!$order->donor_id && Auth::check()) {
-                        $order->donor_id = Auth::User()->donor_id;
+                        $order->donor_id = Auth::User()->donor->id;
                         $order->save();
                     }
                     $this->order_number = env('ORDER_PREFIX') . $order->id;
@@ -235,7 +235,7 @@ class Order
     {
         $order = new \App\Models\Order;
         if (Auth::check()) {
-            $order->donor_id = Auth::User()->donor_id;
+            $order->donor_id = Auth::User()->donor->id;
         }
         $order->donations = serialize($this->donations);
         $order->status = 'pending';
