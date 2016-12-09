@@ -12,6 +12,8 @@ namespace App\Entities;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class Order
 {
@@ -123,21 +125,7 @@ class Order
         }
         if (count($single)) {
             $this->donations = $single;
-            //if the donation has order_id it means it was saved before and this is page reload
-            if (isset($single[0]['order_id'])) {
-                $order = \App\Models\Order::find($single[0]['order_id']);
-                if ($order) {
-                    $this->order_number = $order->id;
-                    $this->amount = $order->amount;
-                    $this->hash = sha1($this->key . ':' . env('ORDER_PREFIX').$this->order_number . ':' . $this->amount . ':' . $this->currency);
-                    $this->type = $order->type;
-                    $this->cart = $order->cart;
-                    $this->user_ip = \Illuminate\Support\Facades\Request::ip();
-                    $this->updated_at = date("Y-m-d H:i:s");
-                }
-            }
-
-            //Process single donations in one order
+            //Create data for update of existing order
             $amount = 0;
             foreach ($single as $key => $item) {
                 $campaign = Campaign::where('id', $item['campaign'])->get()->first();
@@ -145,18 +133,89 @@ class Order
                 $this->cart .= '|' . $campaign->name . ' - ' . $item['amount'] . env('CURRENCY');
 
             }
-            $this->amount =$amount;
+            $this->amount = $amount;
 
+            //if the donation has order_id it means it was saved before and this is page reload or addition of new items
+            if (isset($single[0]['order_id'])) {
+                $order = \App\Models\Order::find($single[0]['order_id']);
 
+                if ($order) {
+                    //In case order was made with unregistered user, update donor info if the user is registered now
+                    if (!$order->donor_id && Auth::check()) {
+                        Auth::User()->donor_id;
+                        $order->donor_id = Auth::User()->donor_id;
+                        $order->save();
+                    }
+
+                    //If the order was sent to PP and the amount now is different, create new order
+                    if (isset($_COOKIE['wentToCheckout']) && $order->amount != $amount) {
+                        unset($_COOKIE['wentToCheckout']);
+                        $orderOld = $order;
+                        $orderOld->status = 'changed_after_checkout';
+                        $orderOld->save();
+
+                        $order = $order->replicate();
+                        $order->amount = $amount;
+                        $order->updated_at = date("Y-m-d H:i:s");
+                        $order->save();
+
+                        $donations = Session::get('donations');
+                        foreach ($donations as &$donation) {
+                            $donation['order_id'] = $order->id;
+
+                        }
+                        Session::set('donations', $donations);
+                    }
+
+                    //In case the order contents changed, update the order
+                    if($order->amount != $amount){
+                        $order->amount = $amount;
+                        $order->save();
+                    }
+
+                    $this->order_number = env('ORDER_PREFIX') . $order->id;
+                    $this->amount = $order->amount;
+                    $this->hash = sha1($this->key . ':' . $this->order_number . ':' . number_format($this->amount, 2) . ':' . $this->currency);
+                    $this->type = $order->type;
+                    $this->user_ip = \Illuminate\Support\Facades\Request::ip();
+                    $this->updated_at = date("Y-m-d H:i:s");
+                }
+            }else{
+                //Create new donation in the db
+                $order = new \App\Models\Order;
+                $order->donor_id = isset(Auth::User()->donor_id)?Auth::User()->donor_id:null;
+                $order->donations = serialize(Session::get('donations'));
+                $order->amount = $amount;
+                $order->type = 'single';
+                $order->user_ip = \Illuminate\Support\Facades\Request::ip();
+                $order->save();
+                $donations = Session::get('donations');
+                foreach ($donations as &$donation) {
+                    $donation['order_id'] = $order->id;
+
+                }
+                Session::set('donations', $donations);
+
+                $this->order_number = env('ORDER_PREFIX') . $order->id;
+                $this->amount = $order->amount;
+                $this->hash = sha1($this->key . ':' . $this->order_number . ':' . number_format($this->amount, 2) . ':' . $this->currency);
+                $this->type = $order->type;
+                $this->user_ip = \Illuminate\Support\Facades\Request::ip();
+                $this->updated_at = date("Y-m-d H:i:s");
+            }
         } else {
             //There are no single ones, process first monthly
             $this->donations = $monthly;
             if (isset($monthly[0]['order_id'])) {
                 $order = \App\Models\Order::find($monthly[0]['order_id']);
                 if ($order) {
-                    $this->order_number = $order->id;
+                    if (!$order->donor_id && Auth::check()) {
+                        $order->donor_id = Auth::User()->donor_id;
+                        $order->save();
+                    }
+                    $this->order_number = env('ORDER_PREFIX') . $order->id;
                     $this->amount = $order->amount;
-                    $this->hash = sha1($this->key . ':' . env('ORDER_PREFIX').$this->order_number . ':' . $this->amount . ':' . $this->currency);
+                    $this->hash = sha1($this->key . ':' . $this->order_number . ':' . $this->amount . ':' . $this->currency);
                     $this->type = $order->type;
                     $this->cart = $order->cart;
                     $this->user_ip = \Illuminate\Support\Facades\Request::ip();
@@ -175,7 +234,9 @@ class Order
     public function save()
     {
         $order = new \App\Models\Order;
-        $order->donor_id = Auth::User()->donor->id;
+        if (Auth::check()) {
+            $order->donor_id = Auth::User()->donor_id;
+        }
         $order->donations = serialize($this->donations);
         $order->status = 'pending';
         $order->amount = $this->amount;
@@ -184,7 +245,7 @@ class Order
         $order->save();
 
         $this->order_number = $order->id;
-        $this->hash = sha1($this->key . ':' . env('ORDER_PREFIX').$this->order_number . ':' . $this->amount . ':' . $this->currency);
+        $this->hash = sha1($this->key . ':' . $this->order_number . ':' . $this->amount . ':' . $this->currency);
         $order->hash = $this->hash;
         $order->save();
 

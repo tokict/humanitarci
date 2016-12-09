@@ -105,8 +105,8 @@ class DonorsController extends Controller
                 //Login user
                 if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
                     Auth::login($user);
-                    if(!empty(session('redirectAfterLogin'))){
-                        return redirect(session('redirectAfterLogin'))->withInput();
+                    if(!empty(session::has('redirectToCart'))){
+                        return redirect('/'.trans('routes.front.donations').'/'.trans('routes.actions.cart'))->withInput();
                     }
                     return redirect()->intended('/' . Lang::get('routes.front.donors', [], '') . '/' . Lang::get('routes.actions.profile', [], ''))->withInput();
 
@@ -114,7 +114,9 @@ class DonorsController extends Controller
             }
 
         }
-
+            if(Input::get('fromCart')){
+                session()->put('redirectToCart', true);
+            }
         return view('donor.login');
     }
 

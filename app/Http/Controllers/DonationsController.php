@@ -46,20 +46,23 @@ class DonationsController extends Controller
                 return Redirect::back()->withErrors(['msg', 'Your donation is higher than needed for the campaign. Please check your amount']);
             } else {
                 //Add the donation to cart
-
+                $donations = session('donations');
                 $exists = false;
-                if (!empty(session('donations'))) {
-                    foreach (session('donations') as $d) {
+                if (!empty($donations)) {
+                    foreach ($donations as &$d) {
                         //Exists, Add the amount to existing donation
                         if ($d['campaign'] == $campaignId && $d['type'] == $type) {
-                            $d['amount'] += $amount;
+                            $d['amount'] =$d['amount'] += $amount;
                             $exists = true;
+
                         }
                     }
                 }
                 //New donation
                 if (!$exists) {
                     session()->push('donations', ['campaign' => $campaign->id, 'type' => $type, 'amount' => $amount]);
+                }else{
+                    session()->put('donations', $donations);
                 }
 
                 return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'));
@@ -83,6 +86,7 @@ class DonationsController extends Controller
         $status = !empty(Input::get('status')) ? Input::get('status') : null;
 
 
+        //Setup cart display data
         foreach ($cart as &$item) {
             $item['campaign'] = Campaign::where('id', $item['campaign'])->get()->first();
             if ($item['type'] == 'monthly') {
@@ -147,8 +151,6 @@ class DonationsController extends Controller
                 'order' => $order
             ]);
 
-
-
     }
 
     /**
@@ -157,58 +159,22 @@ class DonationsController extends Controller
      */
     public function process()
     {
-        //Saved data if user was redirected to login
-        if (session('cartInput')) {
-            $input = session('cartInput');
-            session()->forget('cartInput');
-        } else {
-            $input = Input::all();
-        }
-
-        //See if user has account. If not, send to registration
-        if (!Auth::check()) {
-            session()->put('redirectAfterLogin', "/" . trans('routes.front.donations') . "/" . trans('routes.actions.process'));
-            session()->put('cartInput', Input::all());
-             redirect("/" . trans('routes.front.donors') . "/" . trans('routes.actions.login'))->withInput();
-
-        }
 
         //User is logged in
 
 
         //Do donation processing
-        //Process single in one payment
+        //Process single in one payment, recurring when singles are done
         if(!empty(Session::get('donations'))) {
             $orderSingle = new \App\Entities\Order(Session::get('donations'));
-            if (!$orderSingle->order_number) {
-                if ($orderSingle) {
-                    $donations = Session::get('donations');
-                    foreach ($donations as &$donation) {
-                        if ($donation['type'] == 'single') {
+            if ($orderSingle) {
 
-                            $donation['order_id'] = $orderSingle->save();
-
-                        }
-                    }
-                    Session::set('donations', $donations);
-                }
                 return $orderSingle;
 
             } else {
                 //Process next monthly donation
                 $orderMonthly = new \App\Entities\Order(Session::get('donations'));
                 if ($orderMonthly) {
-                    $donations = Session::get('donations');
-                    foreach ($donations as &$donation) {
-                        if ($donation == 'monthly') {
-                            $donation['order_id'] = $orderMonthly->order_number;
-                            //Break because we do one at a time
-                            break;
-                        }
-
-
-                    }
-                    Session::set('donations', $donations);
                     return $orderMonthly;
                 }
             }
@@ -228,4 +194,5 @@ class DonationsController extends Controller
 
         return redirect()->back()->with('success', [trans('Item removed')]);
     }
+
 }

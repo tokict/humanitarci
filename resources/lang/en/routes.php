@@ -27,8 +27,8 @@ return array(
         'odjava' => 'logout',
         'pregled' => 'view',
         'profil' => 'profile',
-        'cart' => 'kosarica',
-        'remove' => 'ukloni',
+        'kosarica' => 'cart',
+        'ukloni' => 'remove',
         'obrada' => 'process',
         'misija' => 'mission',
         'tim' => 'team',
@@ -36,8 +36,8 @@ return array(
         'kontakti' => 'contacts',
         'kako_donirati' => 'how_to_donate',
         'mediji' => 'media',
-        'uspjeh' => 'success'
-
+        'uspjeh' => 'success',
+        'kupnja' => 'checkout'
 
 
     ],

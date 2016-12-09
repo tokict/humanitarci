@@ -52,13 +52,14 @@
 
                             </th>
                         </tr>
+
                         @foreach($donations as $key =>$d)
                             <tr>
                                 <td class="hidden-xs" style="max-width: 50px;">
-                                    <a href=""><img src="{{$d['campaign']->cover->getPath('thumb')}}" alt=""/></a>
+                                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d['campaign']->id}}"><img src="{{$d['campaign']->cover->getPath('thumb')}}" alt=""/></a>
                                 </td>
                                 <td>
-                                    <a href="#" title="">{{$d['campaign']->name}}</a>
+                                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d['campaign']->id}}" title="">{{$d['campaign']->name}}</a>
                                 </td>
                                 <td>
                                     {{$d['amount']}} {{env('CURRENCY')}}
@@ -78,7 +79,12 @@
                     <hr class="mb-60"/>
 
                     <div class="row">
-                        {!! Form::open(['url' => $order->payment_endpoint, 'class' => 'form-horizontal', 'id' => 'processForm']) !!}
+                        @if(!\Illuminate\Support\Facades\Auth::check())
+                        {!! Form::open(['class' => 'form-horizontal', 'id' => 'processForm' , 'data-login' => true, 'data-loginUrl' => '/'.trans("routes.front.donors").'/'.trans("routes.actions.login").'?fromCart=true']) !!}
+                        @else
+                            {!! Form::open(['url' => env('PAYMENT_ENDPOINT'), 'class' => 'form-horizontal', 'id' => 'processForm' , 'data-login' => false]) !!}
+                        @endif
+                        @if(Auth::check())
                         <div class="col-sm-6" id="payeeInfo">
 
                             <h3 class="small-title font-alt">Podatci o uplatitelju</h3>
@@ -103,6 +109,7 @@
 
 
                         </div>
+                            @endif
                         <div class="col-sm-6 text align-right pt-10">
 
 
@@ -122,7 +129,7 @@
                             {{Form::hidden('cart', $order->cart)}}
                             {{Form::hidden('mode', $order->mode)}}
                             {{Form::hidden('store_id', $order->store_id)}}
-                            {{Form::hidden('order_number', env('ORDER_PREFIX').$order->order_number)}}
+                            {{Form::hidden('order_number', $order->order_number)}}
                             {{Form::hidden('language', $order->language)}}
                             {{Form::hidden('currency', $order->currency)}}
                             {{Form::hidden('amount', $order->amount)}}
@@ -130,9 +137,16 @@
                             {{Form::hidden('require_complete', $order->require_complete)}}
 
                             <div>
-                                <button type="submit" class="btn btn-mod btn-round btn-large" id="processFormBtn">
-                                    Plati
-                                </button>
+                                @if(!\Illuminate\Support\Facades\Auth::check())
+                                    <button type="submit" class="btn btn-mod btn-round btn-large" id="processFormBtn">
+                                        Registriraj se i plati
+                                    </button>
+                                @else
+                                    <button type="submit" class="btn btn-mod btn-round btn-large" id="processFormBtn">
+                                        Plati
+                                    </button>
+                                @endif
+
                             </div>
 
 

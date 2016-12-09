@@ -29,8 +29,8 @@ return array(
         'login' => 'prijava',
         'logout' => 'odjava',
         'profile' => 'profil',
-        'kosarica' => 'cart',
-        'ukloni' => 'remove',
+        'cart' => 'kosarica',
+        'remove' => 'ukloni',
         'process' => 'obrada',
         'mission' => 'misija',
         'team' => 'tim',
@@ -38,7 +38,8 @@ return array(
         'contacts' => 'kontakti',
         'how_to_donate' => 'kako_donirati',
         'media' => 'mediji',
-        'success' => 'uspjeh'
+        'success' => 'uspjeh',
+        'checkout' => 'kupnja',
 
     ],
     'campaignTypes' => [

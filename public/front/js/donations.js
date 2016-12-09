@@ -24,44 +24,52 @@ $(document).ready(function () {
 
     $("#processFormBtn").click(function (event) {
         event.preventDefault();
-        var name = $('[name="first_name"]');
-        var last_name = $('[name="last_name"]');
-        var city = $('[name="city_id"]');
-        var gender = $('[name="gender"]').find(":selected");
-        var missing;
 
+        if($(this).closest("form").data("login") == 1) {
+            var url = $('#processForm').data("loginurl");
 
-        if (name.val() == "") {
-            name.css({border: '1px solid red'});
-            missing = 1;
-        }else{
-            name.css({border: '1px solid #ccc'});
+            window.location.href = url;
+            return;
         }
+            var name = $('[name="first_name"]');
+            var last_name = $('[name="last_name"]');
+            var city = $('[name="city_id"]');
+            var gender = $('[name="gender"]').find(":selected");
+            var missing;
 
-        if (last_name.val() == "") {
-            last_name.css({border: '1px solid red'});
-            missing = 1;
-        }else{
-            last_name.css({border: '1px solid #ccc'});
-        }
 
-        if (city.val() == "") {
-            city.parent().css({border: '1px solid red'});
-            missing = 1;
-        }else{
-            city.parent().css({border: '1px solid #ccc'});
-        }
+            if (name.val() == "") {
+                name.css({border: '1px solid red'});
+                missing = 1;
+            } else {
+                name.css({border: '1px solid #ccc'});
+            }
 
-        if (gender.val() == "") {
-            gender.parent().css({border: '1px solid red'});
-            missing = 1;
-        }else{
-            gender.parent().css({border: '1px solid #ccc'});
-        }
+            if (last_name.val() == "") {
+                last_name.css({border: '1px solid red'});
+                missing = 1;
+            } else {
+                last_name.css({border: '1px solid #ccc'});
+            }
 
-        if(missing){
-            return false;
-        }
+            if (city.val() == "") {
+                city.parent().css({border: '1px solid red'});
+                missing = 1;
+            } else {
+                city.parent().css({border: '1px solid #ccc'});
+            }
+
+            if (gender.val() == "") {
+                gender.parent().css({border: '1px solid red'});
+                missing = 1;
+            } else {
+                gender.parent().css({border: '1px solid #ccc'});
+            }
+
+            if (missing) {
+                return false;
+            }
+
 
 
         var data = $('#processForm').serializeObject();
@@ -75,7 +83,7 @@ $(document).ready(function () {
                 .attr('name', "cardholder_city")
                 .attr('value', response.city)
                 .appendTo('#processForm');
-
+            createCookie('wentToCheckout', true, 1);
             $('#processForm').submit();
         })
 

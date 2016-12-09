@@ -18,7 +18,6 @@ class Order extends BaseModel
      * @property string $updated_at
      * @property int $amount
      * @property string $type
-     * @property string $hash
      * @property string $user_ip
      *
      * @property \App\Models\Donor $donor
@@ -44,7 +43,6 @@ class Order extends BaseModel
         'updated_at',
         'amount',
         'type',
-        'hash',
         'user_ip',
         'status',
     ];
