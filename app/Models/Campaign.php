@@ -212,7 +212,7 @@ class Campaign extends BaseModel
 
     public function donations()
     {
-        return $this->hasMany(\App\Models\Donation::class, 'campaign_id')->orderBy('created_at');
+        return $this->hasMany(\App\Models\Donation::class, 'campaign_id')->orderBy('created_at', 'desc');
     }
 
     public function goods_inputs()
@@ -254,7 +254,7 @@ class Campaign extends BaseModel
     public function getReceivedDonations()
     {
 
-        $donations = Donation::where('status', 'received')->where('campaign_id' , $this->getAttribute('id'))->orderBy('created_at')->get();
+        $donations = Donation::where('status', 'received')->where('campaign_id' , $this->getAttribute('id'))->orderBy('created_at', 'desc')->get();
 
         return $donations;
 
