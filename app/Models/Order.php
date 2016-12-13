@@ -91,6 +91,10 @@ class Order extends BaseModel
         $array = json_decode($json,TRUE);
         $array['order_id'] = $this->getAttribute('id');
 
+        if(!isset($array['response-code'])){
+            return false;
+        }
+
         $renamedFieldsArr = [];
         foreach($array as $key =>  $item){
             if($key == 'cc-type'){

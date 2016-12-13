@@ -17,7 +17,7 @@ namespace App\Models;
  * Id of the beneficiary
  *
  * @property int $campaign_id
- * campaing for which donation has been made
+ * Campaign for which donation has been made
  *
  * @property int $donor_id
  * Who donated it

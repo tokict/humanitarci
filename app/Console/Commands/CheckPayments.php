@@ -77,6 +77,9 @@ class CheckPayments extends Command
 
 
             $check = $order->checkTransaction();
+            if(!$check){
+                $this->info("Order ".$order->id.' has an error in checking');
+            }
             $this->info("Processing order ".$order->id);
             $this->info("Order id ".$order->id." status is: ". $check['status']);
             if($check['status'] === '0'){

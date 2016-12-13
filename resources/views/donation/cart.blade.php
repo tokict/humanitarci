@@ -17,7 +17,7 @@
                 <?php if(!empty($errors)): ?>
 
                 <ul>
-                    <?php foreach($errors->all() as $error): ?>
+                    <?php foreach($errors->all() as $error):?>
                     <h4 class="text-danger text-center"><?php echo e($error); ?></h4>
                     <?php endforeach; ?>
                 </ul>
@@ -26,8 +26,11 @@
                 <?php if(\Illuminate\Support\Facades\Session::has('success')): ?>
 
                 <ul>
-
+                        @if(is_array(\Illuminate\Support\Facades\Session::get('success')))
+                        <h4 class="text-success text-center">{{\Illuminate\Support\Facades\Session::get('success')[0]}}</h4>
+                            @else()
                         <h4 class="text-success text-center">{{\Illuminate\Support\Facades\Session::get('success')}}</h4>
+                            @endif
 
 
                 </ul>

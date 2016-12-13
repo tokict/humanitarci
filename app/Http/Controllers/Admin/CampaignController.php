@@ -38,7 +38,7 @@ class CampaignController extends Controller
     public function view($request, $id)
     {
 
-        $campaign = Campaign::find($id)->get()->first();
+        $campaign = Campaign::whereId($id)->get()->first();
 
         $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
         $campaign->campaign_media = $media_info;
@@ -127,7 +127,7 @@ class CampaignController extends Controller
 
     public function edit($request, $id)
     {
-        $campaign = Campaign::find($id);
+        $campaign = Campaign::whereId($id);
         $old_cover_id = $campaign->cover_photo_id;
         $old_media_info = $campaign->media_info;
 

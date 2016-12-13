@@ -212,7 +212,7 @@ class Campaign extends BaseModel
 
     public function donations()
     {
-        return $this->hasMany(\App\Models\Donation::class);
+        return $this->hasMany(\App\Models\Donation::class, 'campaign_id');
     }
 
     public function goods_inputs()
@@ -232,7 +232,7 @@ class Campaign extends BaseModel
 
     public function subscriptions()
     {
-        return $this->hasMany(\App\Models\Subscription::class, 'campaing_id');
+        return $this->hasMany(\App\Models\Subscription::class, 'campaign_id');
     }
 
     public function transactions()
@@ -249,5 +249,14 @@ class Campaign extends BaseModel
     public function creator()
     {
         return $this->belongsTo(\App\User::class, 'created_by_id');
+    }
+
+    public function getReceivedDonations()
+    {
+
+        $donations = Donation::where('status', 'received')->where('campaign_id' , $this->getAttribute('id'))->get();
+
+        return $donations;
+
     }
 }
