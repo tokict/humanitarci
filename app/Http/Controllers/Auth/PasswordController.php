@@ -34,7 +34,6 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
         $this->redirectTo =  trans('routes.front.donors').'/'.trans('routes.actions.profile');
     }
 }

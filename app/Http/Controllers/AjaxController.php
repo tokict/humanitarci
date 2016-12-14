@@ -133,7 +133,7 @@ class AjaxController extends Controller
             $reset->save();
             Mail::queue('emails.pay_registration', ['user' => $user, 'reset' => $reset->toArray()], function ($m) use ($user, $reset) {
 
-                $m->to($user->email, $user->first_name)->subject('Set up your Humanitarci password');
+                $m->to($user->email, $user->first_name)->subject('Postavi svoju Humanitarci.hr lozinku');
             });
 
             $donor = Donor::create(['user_id' => $user->id, 'person_id' => $person->id]);
