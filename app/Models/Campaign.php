@@ -321,6 +321,7 @@ class Campaign extends BaseModel
         foreach($hours as $key => $hour){
             $formatData[] = [$key, $hour];
         }
+        $formatData = array_reverse($formatData);
         return json_encode($formatData);
 
     }
@@ -353,6 +354,8 @@ class Campaign extends BaseModel
         foreach($donationsDays as $key => $day){
             $formatData[] = [$key, $day];
         }
+
+        $formatData = array_reverse($formatData);
         return json_encode($formatData);
     }
 }
