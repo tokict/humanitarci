@@ -113,7 +113,48 @@
                                         <div class="panel-body">
 
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="tab-1">Put graphics and widgets here
+                                                <div class="tab-pane active" id="tab-1">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="ibox float-e-margins">
+                                                                <div class="ibox-title">
+                                                                    <h5>Breakdown of amounts donated</h5>
+                                                                </div>
+                                                                <div class="ibox-content">
+                                                                    <div class="flot-chart">
+                                                                        <div class="flot-chart-content" id="donations-amounts-chart"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="ibox float-e-margins">
+                                                                <div class="ibox-title">
+                                                                    <h5>Donations in last 24hr</h5>
+                                                                </div>
+                                                                <div class="ibox-content">
+                                                                    <div class="flot-chart">
+                                                                        <div class="flot-chart-content" id="donations-today-chart"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="ibox float-e-margins">
+                                                                <div class="ibox-title">
+                                                                    <h5>Total donations </h5>
+                                                                </div>
+                                                                <div class="ibox-content">
+
+                                                                    <div class="flot-chart">
+                                                                        <div class="flot-chart-content" id="donations-total-chart"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                 </div>
                                                 <div class="tab-pane" id="tab-2">
@@ -179,5 +220,145 @@
         </div>
     </div>
 
-@endsection
 
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var amountOptions = {
+            series: {
+                bars: {
+                    show: true,
+                    barWidth: 0.6,
+                    fill: true,
+                    fillColor: {
+                        colors: [{
+                            opacity: 0.8
+                        }, {
+                            opacity: 0.8
+                        }]
+                    }
+                }
+            },
+            xaxis: {
+                tickDecimals: 1,
+                mode: "categories",
+            },
+            colors: ["#1ab394"],
+            grid: {
+                color: "#999999",
+                hoverable: true,
+                clickable: true,
+                tickColor: "#D4D4D4",
+                borderWidth:0
+            },
+            legend: {
+                show: false
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: function(label, xval, yval) {
+                    return  xval+' : '+yval;
+
+                },
+            }
+        };
+        var amountData = {
+            label: "bar",
+            data: {!!$campaign->getGraphAmountsData()!!}
+
+        };
+        $.plot($("#donations-amounts-chart"), [amountData], amountOptions);
+
+        var donationsTodayOptions = {
+            series: {
+                lines: {
+                    show: true,
+                    lineWidth: 2,
+                    fill: true,
+                    fillColor: {
+                        colors: [{
+                            opacity: 0.0
+                        }, {
+                            opacity: 0.0
+                        }]
+                    }
+                }
+            },
+            xaxis: {
+                tickDecimals: 0,
+                mode: "categories",
+            },
+            colors: ["#1ab394"],
+            grid: {
+                color: "#999999",
+                hoverable: true,
+                clickable: true,
+                tickColor: "#D4D4D4",
+                borderWidth:0
+            },
+            legend: {
+                show: false
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: function(label, xval, yval) {
+                    return  xval+'h : '+yval;
+
+                },
+            }
+        };
+        var donationsTodayData = {
+
+            data: {!!$campaign->getGraphDonationsTodayData()!!}
+        };
+        $.plot($("#donations-today-chart"), [donationsTodayData], donationsTodayOptions);
+
+
+        var donationsTotalOptions = {
+            series: {
+                lines: {
+                    show: true,
+                    lineWidth: 2,
+                    fill: true,
+                    fillColor: {
+                        colors: [{
+                            opacity: 0.0
+                        }, {
+                            opacity: 0.0
+                        }]
+                    }
+                }
+            },
+            xaxis: {
+                tickDecimals: 0,
+                mode: "categories",
+            },
+            colors: ["#1ab394"],
+            grid: {
+                color: "#999999",
+                hoverable: true,
+                clickable: true,
+                tickColor: "#D4D4D4",
+                borderWidth:0
+            },
+            legend: {
+                show: false
+            },
+            tooltip: true,
+            tooltipOpts: {
+                content: function(label, xval, yval) {
+                    return  xval+' : '+yval;
+
+                },
+            }
+        };
+        var donationsTotalData = {
+
+            data: {!!$campaign->getGraphDonationsTotalData()!!}
+        };
+        $.plot($("#donations-total-chart"), [donationsTotalData], donationsTotalOptions);
+    })
+
+</script>
+
+@endsection

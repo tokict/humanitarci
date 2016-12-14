@@ -95,9 +95,9 @@
                     <!-- End Login Form -->
                 </div>
                 <div class="align-center pt-100">
-                    <button class="btn btn-medium btn-round">
-                        Registracija
-                    </button>
+                    <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" >
+                       <button class="btn btn-medium btn-round"> Registracija</button>
+                    </a>
                 </div>
             </div>
 

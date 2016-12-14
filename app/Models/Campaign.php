@@ -6,6 +6,7 @@
  */
 
 namespace App\Models;
+use Carbon\Carbon;
 
 
 /**
@@ -258,5 +259,100 @@ class Campaign extends BaseModel
 
         return $donations;
 
+    }
+
+    public function getGraphAmountsData()
+    {
+
+        $amounts = [
+            '0-50' => 0,
+            '50-100' => 0,
+            '100-200' => 0,
+            '200-400' => 0,
+            '400-600' => 0,
+            '600-800' => 0,
+            '1000-1500' => 0,
+            '1500-15000' => 0
+        ];
+
+
+        foreach ($this->getReceivedDonations() as $receivedDonation) {
+            foreach($amounts as $key => $amount){
+                $x = explode("-", $key);
+                $from = $x[0];
+                $to = $x[1];
+
+                if($receivedDonation->amount/100 > $from && $receivedDonation->amount/100 <= $to){
+                    $amounts[$key] +=1;
+                    continue 2;
+                }
+
+            }
+        }
+
+        $formatData = [];
+
+        foreach($amounts as $key => $amount){
+            $formatData[] = [$key, $amount];
+        }
+
+        return json_encode($formatData);
+    }
+
+    public function getGraphDonationsTodayData()
+    {
+
+       $hours = [];
+
+        for($i = 0; $i < 23; $i++){
+            $carbon = new Carbon();
+            $hour = $carbon->subHours($i);
+
+            $hours[$hour->hour] = 0;
+        }
+
+        foreach ($this->getReceivedDonations() as $receivedDonation) {
+            $hourAdded = $receivedDonation->created_at->hour;
+            $hours[$hourAdded] += 1;
+        }
+
+        $formatData = [];
+
+        foreach($hours as $key => $hour){
+            $formatData[] = [$key, $hour];
+        }
+        return json_encode($formatData);
+
+    }
+
+    public function getGraphDonationsTotalData()
+    {
+        $donationsDays = [];
+        $carbon = new Carbon();
+        $carbon2 = new Carbon($this->getAttribute('created_at'));
+        $diff = $carbon->diffInDays($carbon2);
+
+        for($i = 0; $i < $diff; $i++){
+            $carb = new Carbon();
+            $day = $carb->subDays($i);
+
+            $donationsDays[$day->day."-".$day->month] = 0;
+        }
+
+
+        foreach ($this->getReceivedDonations() as $receivedDonation) {
+            if(isset($donationsDays[$receivedDonation->created_at->format('d-m')])) {
+                $donationsDays[$receivedDonation->created_at->format('d-m')] += 1;
+            }else{
+                $donationsDays[$receivedDonation->created_at->format('d-m')] = 1;
+            }
+        }
+
+        $formatData = [];
+
+        foreach($donationsDays as $key => $day){
+            $formatData[] = [$key, $day];
+        }
+        return json_encode($formatData);
     }
 }

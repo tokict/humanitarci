@@ -70,6 +70,8 @@
             display: none !important;
         }
     </style>
+    <!-- jQuery 2.1.4 -->
+    <script src="/administrator/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -384,14 +386,14 @@
 </div>
 
 
-<!-- jQuery 2.1.4 -->
-<script src="/administrator/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+
 <!-- Bootstrap 3.3.5 -->
 <script src="/administrator/bootstrap/js/bootstrap.min.js"></script>
 {{--Datatables --}}
 <script src="/administrator/js/plugins/dataTables/datatables.min.js" type="text/javascript"></script>
 <!-- Flot -->
 <script src="/administrator/js/plugins/flot/jquery.flot.js"></script>
+<script src="/administrator/js/plugins/flot/jquery.flot.categories.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.spline.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.resize.js"></script>
