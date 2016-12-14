@@ -21,6 +21,13 @@ class PasswordController extends Controller
     use ResetsPasswords;
 
     /**
+     * Where to redirect users after password reset.
+     *
+     * @var string
+     */
+    protected $redirectTo;
+
+    /**
      * Create a new password controller instance.
      *
      * @return void
@@ -28,5 +35,6 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->redirectTo =  trans('routes.front.donors').'/'.trans('routes.actions.profile');
     }
 }

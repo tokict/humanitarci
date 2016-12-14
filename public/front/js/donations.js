@@ -25,64 +25,100 @@ $(document).ready(function () {
     $("#processFormBtn").click(function (event) {
         event.preventDefault();
 
-        if($(this).closest("form").data("login") == 1) {
-            var url = $('#processForm').data("loginurl");
 
-            window.location.href = url;
-            return;
+        var name = $('[name="cardholder_name"]');
+        var last_name = $('[name="cardholder_surname"]');
+        var city = $('[name="cardholder_city"]');
+        var gender = $('[name="gender"]').find(":selected");
+        var zip = $('[name="cardholder_zip_code"]');
+        var address = $('[name="cardholder_address"]');
+        var country = $('[name="cardholder_country"]');
+        var email = $('[name="cardholder_email"]');
+
+
+        var missing;
+
+
+        if (name.val() == "") {
+            name.css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            name.css({border: '1px solid #ccc'});
         }
-            var name = $('[name="first_name"]');
-            var last_name = $('[name="last_name"]');
-            var city = $('[name="city_id"]');
-            var gender = $('[name="gender"]').find(":selected");
-            var missing;
+
+        if (last_name.val() == "") {
+            last_name.css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            last_name.css({border: '1px solid #ccc'});
+        }
+
+        if (city.val() == "") {
+            city.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            city.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (gender.val() == "") {
+            gender.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            gender.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (zip.val() == "") {
+            zip.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            zip.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (address.val() == "") {
+            address.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            address.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (country.val() == "") {
+            country.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            country.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (email.val() == "") {
+            email.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            email.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (missing) {
+            return false;
+        }
 
 
-            if (name.val() == "") {
-                name.css({border: '1px solid red'});
-                missing = 1;
-            } else {
-                name.css({border: '1px solid #ccc'});
-            }
+        //save person in db and create donor
 
-            if (last_name.val() == "") {
-                last_name.css({border: '1px solid red'});
-                missing = 1;
-            } else {
-                last_name.css({border: '1px solid #ccc'});
-            }
-
-            if (city.val() == "") {
-                city.parent().css({border: '1px solid red'});
-                missing = 1;
-            } else {
-                city.parent().css({border: '1px solid #ccc'});
-            }
-
-            if (gender.val() == "") {
-                gender.parent().css({border: '1px solid red'});
-                missing = 1;
-            } else {
-                gender.parent().css({border: '1px solid #ccc'});
-            }
-
-            if (missing) {
-                return false;
-            }
+        var data = {
+            'contact_email' : email.val(),
+            'first_name': name.val(),
+            'last_name' : last_name.val(),
+            'city' : city.val(),
+            'zip' : zip.val(),
+            'address' : address.val(),
+            'country' : country.val(),
+        };
 
 
-
-        var data = $('#processForm').serializeObject();
         $.ajax({
-            url: '/ajax/saveUser',
+            url: '/ajax/registration',
             dataType: 'json',
             method: 'post',
             data: data
-        }).always(function(response){
-            $('<input />').attr('type', 'hidden')
-                .attr('name', "cardholder_city")
-                .attr('value', response.city)
-                .appendTo('#processForm');
+        }).then(function (response) {console.log(4535);
             createCookie('wentToCheckout', true, 1);
             $('#processForm').submit();
         })

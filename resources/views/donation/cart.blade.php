@@ -26,11 +26,11 @@
                 <?php if(\Illuminate\Support\Facades\Session::has('success')): ?>
 
                 <ul>
-                        @if(is_array(\Illuminate\Support\Facades\Session::get('success')))
+                    @if(is_array(\Illuminate\Support\Facades\Session::get('success')))
                         <h4 class="text-success text-center">{{\Illuminate\Support\Facades\Session::get('success')[0]}}</h4>
-                            @else()
+                    @else()
                         <h4 class="text-success text-center">{{\Illuminate\Support\Facades\Session::get('success')}}</h4>
-                            @endif
+                    @endif
 
 
                 </ul>
@@ -59,10 +59,12 @@
                         @foreach($donations as $key =>$d)
                             <tr>
                                 <td class="hidden-xs" style="max-width: 50px;">
-                                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d['campaign']->id}}"><img src="{{$d['campaign']->cover->getPath('thumb')}}" alt=""/></a>
+                                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d['campaign']->id}}"><img
+                                                src="{{$d['campaign']->cover->getPath('thumb')}}" alt=""/></a>
                                 </td>
                                 <td>
-                                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d['campaign']->id}}" title="">{{$d['campaign']->name}}</a>
+                                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d['campaign']->id}}"
+                                       title="">{{$d['campaign']->name}}</a>
                                 </td>
                                 <td>
                                     {{$d['amount']}} {{env('CURRENCY')}}
@@ -82,37 +84,57 @@
                     <hr class="mb-60"/>
 
                     <div class="row">
-                        @if(!\Illuminate\Support\Facades\Auth::check())
-                        {!! Form::open(['class' => 'form-horizontal', 'id' => 'processForm' , 'data-login' => true, 'data-loginUrl' => '/'.trans("routes.front.donors").'/'.trans("routes.actions.login").'?fromCart=true']) !!}
-                        @else
+
                             {!! Form::open(['url' => env('PAYMENT_ENDPOINT'), 'class' => 'form-horizontal', 'id' => 'processForm' , 'data-login' => false]) !!}
-                        @endif
-                        @if(Auth::check())
+
                         <div class="col-sm-6" id="payeeInfo">
+                            @if(!Auth::check())
+                                <h3 class="small-title font-alt">Podatci o uplatitelju</h3>
+                                <div class="mb-10">
+                                    {{Form::select('title', ["" => 'Titula', 'Mr' => 'Mr.', 'Ms' => 'Ms', 'Mrs' => 'Mrs'], null, ['class' => 'input-md form-control'])}}
+                                </div>
+                                <div class="mb-10">
+                                    <input placeholder="Ime" name="cardholder_name" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
 
-                            <h3 class="small-title font-alt">Podatci o uplatitelju</h3>
-                            <div class="mb-10">
-                                {{Form::select('title', ["" => 'Titula', 'Mr' => 'Mr.', 'Ms' => 'Ms', 'Mrs' => 'Mrs'], null, ['class' => 'input-md form-control'])}}
-                            </div>
-                            <div class="mb-10">
-                                <input placeholder="Ime" name="cardholder_name" class="input-md form-control"
-                                       type="text"
-                                       pattern=".{3,100}"/>
-                            </div>
+                                <div class="mb-10">
+                                    <input placeholder="Prezime" name="cardholder_surname" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
 
-                            <div class="mb-10">
-                                <input placeholder="Prezime" name="cardholder_surname" class="input-md form-control"
-                                       type="text"
-                                       pattern=".{3,100}"/>
-                            </div>
+                                <div class="mb-10">
+                                    <input placeholder="Grad" name="cardholder_city" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
+                                <div class="mb-10">
+                                    <input placeholder="Država" name="cardholder_country" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
+                                <div class="mb-10">
+                                    <input placeholder="Poštanski broj" name="cardholder_zip_code"
+                                           class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
+                                <div class="mb-10">
+                                    <input placeholder="Email" name="cardholder_email" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
+                                <div class="mb-10">
+                                    <input placeholder="Adresa" name="cardholder_address" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
 
-                            <div class="mb-10">
-                                {{Form::select('city_id', ["" => 'Grad'], null, ['class' => 'input-md form-control selectCity'])}}
-                            </div>
-
-
-                        </div>
                             @endif
+                        </div>
+
                         <div class="col-sm-6 text align-right pt-10">
 
 
@@ -138,23 +160,15 @@
                             {{Form::hidden('amount', $order->amount)}}
                             {{Form::hidden('hash', $order->hash)}}
                             {{Form::hidden('require_complete', $order->require_complete)}}
-
                             <div>
-                                @if(!\Illuminate\Support\Facades\Auth::check())
-                                    <button type="submit" class="btn btn-mod btn-round btn-large" id="processFormBtn">
-                                        Registriraj se i plati
-                                    </button>
-                                @else
-                                    <button type="submit" class="btn btn-mod btn-round btn-large" id="processFormBtn">
-                                        Plati
-                                    </button>
-                                @endif
-
+                                <button type="button" class="btn btn-mod btn-round btn-large" id="processFormBtn">
+                                    Plati
+                                </button>
                             </div>
 
 
                         </div>
-
+                    {{Form::close()}}
                     </div>
                 @else
 

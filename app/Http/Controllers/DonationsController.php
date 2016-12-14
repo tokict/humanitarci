@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Models\Campaign;
 use App\Models\Donation;
+use App\Models\Person;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -197,5 +198,7 @@ class DonationsController extends Controller
 
         return redirect()->back()->with('success', [trans('Item removed')]);
     }
+
+
 
 }
