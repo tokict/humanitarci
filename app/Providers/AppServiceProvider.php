@@ -8,6 +8,8 @@ use App\Models\MonetaryInput;
 use App\Observers\MonetaryInputObserver;
 use App\Observers\GoodsInputObserver;
 use App\Observers\DonationObserver;
+use App\Observers\UserObserver;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
@@ -31,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         MonetaryInput::observe(MonetaryInputObserver::class);
         GoodsInput::observe(GoodsInputObserver::class);
         Donation::observe(DonationObserver::class);
+        User::observe(UserObserver::class);
 
 
     }

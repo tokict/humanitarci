@@ -19,13 +19,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $middle_name
  * @property string $last_name
  * @property string $social_id
- * @property int $city_id
+ * @property int $city
  * @property string $address
  * @property string $contact_phone
  * @property string $contact_email
  * @property string $social_accounts
  * @property string $gender
  * @property string $title
+ * @property string $country
+ * @property string $zip
  * @property bool $donor_id
  * @property bool $beneficiary_id
  * @property bool $user_id
@@ -36,7 +38,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $device_id
  * 
  * @property \App\Models\Bank $bank
- * @property \App\Models\City $city
  * @property \App\Models\Donor $donor
  * @property \App\Models\Beneficiary $beneficiary
  * @property \App\User$user
@@ -65,7 +66,6 @@ class Person extends BaseModel
 	public $timestamps = false;
 
 	protected $casts = [
-		'city_id' => 'int',
 		'is_donor' => 'bool',
 		'is_beneficiary' => 'bool',
 		'is_admin' => 'bool',
@@ -82,7 +82,7 @@ class Person extends BaseModel
 		'middle_name',
 		'last_name',
 		'social_id',
-		'city_id',
+		'city',
 		'beneficiary_id',
 		'donor_id',
 		'user_id',
@@ -93,6 +93,9 @@ class Person extends BaseModel
 		'title',
 		'bank_id',
 		'bank_acc',
+		'country',
+		'zip'
+
 	];
 
 	public function bank()
@@ -115,10 +118,6 @@ class Person extends BaseModel
 		return $this->belongsTo(\App\User::class);
 	}
 
-	public function city()
-	{
-		return $this->belongsTo(\App\Models\City::class);
-	}
 
 	public function device()
 	{

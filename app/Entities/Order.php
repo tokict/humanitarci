@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 class Order
 {
@@ -94,6 +95,8 @@ class Order
     protected $key;
 
     protected $provider_id;
+
+    public $order_token;
 
 
     /**
@@ -181,11 +184,12 @@ class Order
                     $this->updated_at = date("Y-m-d H:i:s");
                 }
             }else{
-                //Create new donation in the db
+                //Create new order in the db
                 $order = new \App\Models\Order;
                 $order->donor_id = Auth::check()?Auth::User()->donor->id:null;
                 $order->donations = serialize(Session::get('donations'));
                 $order->amount = $amount;
+                $order->order_token  = Str::random(60);
                 $order->type = 'single';
                 $order->user_ip = \Illuminate\Support\Facades\Request::ip();
                 $order->save();
@@ -200,6 +204,7 @@ class Order
                 $this->amount = $order->amount;
                 $this->hash = sha1($this->key . ':' . $this->order_number . ':' . number_format($this->amount, 2) . ':' . $this->currency);
                 $this->type = $order->type;
+                $this->order_token = $order->order_token;
                 $this->user_ip = \Illuminate\Support\Facades\Request::ip();
                 $this->updated_at = date("Y-m-d H:i:s");
             }

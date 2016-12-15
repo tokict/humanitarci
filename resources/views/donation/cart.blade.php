@@ -1,6 +1,9 @@
 @extends('layouts.full')
 @section('content')
         <!-- Section -->
+<script>
+    var auth = {{\Illuminate\Support\Facades\Auth::check()}};
+</script>
 <section class="page-section">
     <div class="container">
         <div class="row">
@@ -85,7 +88,7 @@
 
                     <div class="row">
 
-                            {!! Form::open(['url' => env('PAYMENT_ENDPOINT'), 'class' => 'form-horizontal', 'id' => 'processForm' , 'data-login' => false]) !!}
+                        {!! Form::open(['url' => env('PAYMENT_ENDPOINT'), 'class' => 'form-horizontal', 'id' => 'processForm' , 'method' => 'post']) !!}
 
                         <div class="col-sm-6" id="payeeInfo">
                             @if(!Auth::check())
@@ -131,6 +134,12 @@
                                            type="text"
                                            pattern=".{3,100}"/>
                                 </div>
+                                <div class="mb-10">
+                                    <input placeholder="Kontakt telefon" name="cardholder_phone" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
+                                {{Form::hidden('order_token', $order->order_token)}}
 
                             @endif
                         </div>
@@ -159,6 +168,16 @@
                             {{Form::hidden('currency', $order->currency)}}
                             {{Form::hidden('amount', $order->amount)}}
                             {{Form::hidden('hash', $order->hash)}}
+                            @if(isset( \Illuminate\Support\Facades\Auth::User()->person))
+                                {{Form::hidden('cardholder_name', \Illuminate\Support\Facades\Auth::User()->person->first_name)}}
+                                {{Form::hidden('cardholder_surname', \Illuminate\Support\Facades\Auth::User()->person->last_name)}}
+                                {{Form::hidden('cardholder_city', \Illuminate\Support\Facades\Auth::User()->person->city)}}
+                                {{Form::hidden('cardholder_country', \Illuminate\Support\Facades\Auth::User()->person->country)}}
+                                {{Form::hidden('cardholder_zip_code', \Illuminate\Support\Facades\Auth::User()->person->zip)}}
+                                {{Form::hidden('cardholder_email', \Illuminate\Support\Facades\Auth::User()->person->contact_email)}}
+                                {{Form::hidden('cardholder_address', \Illuminate\Support\Facades\Auth::User()->person->address)}}
+                                {{Form::hidden('cardholder_phone', \Illuminate\Support\Facades\Auth::User()->person->contact_phone)}}
+                            @endif
                             {{Form::hidden('require_complete', $order->require_complete)}}
                             <div>
                                 <button type="button" class="btn btn-mod btn-round btn-large" id="processFormBtn">
@@ -168,7 +187,7 @@
 
 
                         </div>
-                    {{Form::close()}}
+                        {{Form::close()}}
                     </div>
                 @else
 

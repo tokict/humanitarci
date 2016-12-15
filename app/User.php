@@ -16,6 +16,7 @@ class User extends Authenticatable
      * @property int $created_by
      * @property int $organization_id
      * @property int $donor_id
+     * @property int $person_id
      * @property int $admin
      * @property int $super_admin
      * @property \Carbon\Carbon $created_at
@@ -40,6 +41,8 @@ class User extends Authenticatable
         'id' => 'int',
         'created_by' => 'int',
         'organization_id' => 'int',
+        'person_id'=> 'int',
+        'donor_id' => 'int'
     ];
 
     protected $dates = [
@@ -53,7 +56,9 @@ class User extends Authenticatable
         'username',
         'remember_token',
         'created_by',
-        'organization_id'
+        'organization_id',
+        'person_id',
+        'donor_id'
     ];
 
 

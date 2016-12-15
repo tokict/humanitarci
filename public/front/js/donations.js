@@ -27,6 +27,7 @@ $(document).ready(function () {
 
 
         var name = $('[name="cardholder_name"]');
+        var title = $('[name="title"]');
         var last_name = $('[name="cardholder_surname"]');
         var city = $('[name="cardholder_city"]');
         var gender = $('[name="gender"]').find(":selected");
@@ -34,11 +35,17 @@ $(document).ready(function () {
         var address = $('[name="cardholder_address"]');
         var country = $('[name="cardholder_country"]');
         var email = $('[name="cardholder_email"]');
+        var phone = $('[name="cardholder_phone"]');
 
 
         var missing;
 
-
+        if (title.val() == "") {
+            title.css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            name.css({border: '1px solid #ccc'});
+        }
         if (name.val() == "") {
             name.css({border: '1px solid red'});
             missing = 1;
@@ -95,7 +102,15 @@ $(document).ready(function () {
             email.parent().css({border: '1px solid #ccc'});
         }
 
-        if (missing) {
+        if (phone.val() == "") {
+            phone.parent().css({border: '1px solid red'});
+            missing = 1;
+        } else {
+            phone.parent().css({border: '1px solid #ccc'});
+        }
+
+        if (missing && !auth) {
+            console.log('Missing data');
             return false;
         }
 
@@ -108,8 +123,12 @@ $(document).ready(function () {
             'last_name' : last_name.val(),
             'city' : city.val(),
             'zip' : zip.val(),
+            'title' : title.val(),
+            'gender' : (title.val() == 'Mr')?'male':'female',
             'address' : address.val(),
             'country' : country.val(),
+            'order_token' : $('[name="order_token"]').val(),
+            'phone' : phone.val()
         };
 
 
@@ -118,7 +137,7 @@ $(document).ready(function () {
             dataType: 'json',
             method: 'post',
             data: data
-        }).then(function (response) {console.log(4535);
+        }).then(function (response) {console.log(response);
             createCookie('wentToCheckout', true, 1);
             $('#processForm').submit();
         })

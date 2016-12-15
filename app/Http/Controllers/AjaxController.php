@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Beneficiary;
 use App\Models\City;
 use App\Models\Donor;
+use App\Models\Order;
 use App\Models\Organization;
 use App\Models\PasswordReset;
 use App\Models\Person;
@@ -94,11 +95,10 @@ class AjaxController extends Controller
             if (!$user->donor) {
                 $donor = new Donor;
                 $donor->user_id = $user->id;
+                $donor->person_id = $user->person_id;
                 $donor->save();
-                if (isset($input['username'])) {
-                    $user->username = $input['username'];
-                    $user->save();
-                }
+                $user->donor_id = $donor->id;
+                $user->save();
             }
         } else {
 
@@ -106,7 +106,7 @@ class AjaxController extends Controller
             $existingUser = User::whereEmail($input['contact_email'])->get()->first();
             if ($existingUser) {
                 return response()
-                    ->json(['success' => true]);
+                    ->json(['success' => true, 'message' => 'User exists']);
             }
 
 
@@ -119,25 +119,33 @@ class AjaxController extends Controller
             if ($existingPerson) {
                 $uData['person_id'] = $existingPerson->id;
             } else {
-                $person = new Person($input);
-                $person->save();
+                $person = Person::create($input);
+
                 $uData['person_id'] = $person->id;
             }
 
-            //Create user and send pass reset mail
+            //Create user
 
-            $user = \App\User::create($uData);
+            $user = new User($uData);
+            $user->save();
 
-            //Send reset link
-            $reset = new PasswordReset(['email' => $input['contact_email'], 'token' => Str::random(60)]);
-            $reset->save();
-            Mail::queue('emails.pay_registration', ['user' => $user, 'reset' => $reset->toArray()], function ($m) use ($user, $reset) {
-
-                $m->to($user->email, $user->first_name)->subject('Postavi svoju Humanitarci.hr lozinku');
-            });
 
             $donor = Donor::create(['user_id' => $user->id, 'person_id' => $person->id]);
+
+            $user->donor_id = $donor->id;
+            $user->save();
+
+
+
         }
+        //Update order with new donor id
+        $order = Order::whereOrderToken($input['order_token'])->get()->first();
+
+        $order->donor_id = $user->donor->id;
+        $order->save();
+
+        return response()
+            ->json(['success' => true, 'message' => 'New user']);
 
 
     }

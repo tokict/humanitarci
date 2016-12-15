@@ -102,9 +102,6 @@ class DonationsController extends Controller
 
         //This means user is back from payment
         if ($status) {
-            if(!Auth::check()){
-                return redirect("/");
-            }
             //Return success with unsetting paid donation (all single or first monthly)
             if ($status == 'success') {
                 Artisan::call('CheckPayments', ['--single' => true]);

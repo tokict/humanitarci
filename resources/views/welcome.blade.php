@@ -124,10 +124,10 @@
 
 
                     <div class="post-prev-info font-alt">
-                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city_id
-                        ?$campaign->beneficiary->person->city_id:$campaign->beneficiary->entity->city_id}}"><i
-                                    class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city->name}}
-                            , {{$campaign->beneficiary->person->city->region->name}}</a> <span>/</span>
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city
+                        ?$campaign->beneficiary->person->city:$campaign->beneficiary->entity->city_id}}"><i
+                                    class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
+                            </a> <span>/</span>
                         <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
                     </div>
 

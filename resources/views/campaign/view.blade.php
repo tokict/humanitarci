@@ -22,10 +22,10 @@
                         <a href="#"><i class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}}
                             .</a>
                         <span class="separator">&nbsp;</span>
-                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city_id
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city
                         ?$campaign->beneficiary->person->city_id:$campaign->beneficiary->entity->city_id}}"><i
-                                    class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city->name}}
-                            , {{$campaign->beneficiary->person->city->region->name}}</a>
+                                    class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
+                           </a>
                         <span class="separator">&nbsp;</span>
                         <i class="fa fa-folder-open"></i>
                         <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/
