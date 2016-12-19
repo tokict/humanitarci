@@ -191,6 +191,6 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-
+<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 </body>
 </html>

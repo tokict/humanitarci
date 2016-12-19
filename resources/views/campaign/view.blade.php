@@ -52,7 +52,7 @@
 
                         <p>
                             <btn class="btn-mod btn-circle bg-facebook fbShare" data-link="{{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><i class="fa fa-facebook"></i> Share</btn>
-                            <btn class="btn-mod btn-circle"><i class="fa fa-twitter"></i> Tweet</btn>
+                            <a class="btn-mod btn-circle" href="https://twitter.com/intent/tweet?text={{env('APP_URL')}}"><i class="fa fa-twitter"></i> Tweet</a>
                         </p>
 
                         {!! $campaign->description_full!!}
