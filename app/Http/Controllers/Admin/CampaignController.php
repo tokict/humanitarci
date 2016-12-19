@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\MediaLink;
 use App\Models\MonetaryOutput;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -328,24 +327,6 @@ class CampaignController extends Controller
                 die;
             }
 
-            foreach($input['receipt_ids'] as $id){
-                $doc = Media::whereId($id)->get();
-                if(!$doc){
-                    session()->flash('error', 'Referenced media ID does not exist in the DB!');
-                }
-
-                $link = new MediaLink(
-                    [
-                        'campaign_id' => $campaign->id,
-                        'media_id' => $id,
-                        'organization_id' => Auth::User()->organization_id,
-                        'user_id' => Auth::User()->id
-
-                    ]
-                );
-                $link->save();
-            }
-
 
             //We calculate all without floating point
             $input['amount'] = $input['amount']*100;
@@ -389,36 +370,37 @@ class CampaignController extends Controller
             $this->validate($request, [
                 'campaign_id' => 'required',
                 'end_notes' => 'required',
-                'beneficiary_receipt_doc' => 'required',
+                'beneficiary_receipt_doc_id' => 'required',
                 'action_date' => 'required',
                 'action_time' => 'required'
             ]);
             $input = Input::all();
 
-            if($input['amount'] > $campaign->current_funds){
-                //User is not able to submit amount higher than current amount so its ok to die
-                die;
+            if(isset($input['end_media_info'])) {
+                foreach (explode(',', $input['end_media_info']) as $id) {
+                    $doc = Media::whereId($id)->get();
+                    if (!$doc) {
+                        session()->flash('error', 'Referenced media ID does not exist in the DB!');
+                    }
+
+                    $link = new MediaLink(
+                        [
+                            'campaign_id' => $campaign->id,
+                            'media_id' => $id,
+                            'organization_id' => Auth::User()->organization_id,
+                            'user_id' => Auth::User()->id
+
+                        ]
+                    );
+                    $link->save();
+                }
             }
+            $campaign->end_notes = $input['end_notes'];
+            $campaign->end_media_info = $input['end_media_info'];
+            $campaign->finalized_at = date("Y-m-d H:i:s", strtotime($input['action_date'] . " " . $input['action_time']));
+            $campaign->status = 'finalized';
+            $campaign->update();
 
-
-            //We calculate all without floating point
-            $input['amount'] = $input['amount']*100;
-            $input['action_time'] = date("Y-m-d H:i:s",
-                strtotime($input['action_date'] . " " . $input['action_time']));
-
-            $output = new MonetaryOutput($input);
-            if (!$output->save()) {
-                Log::error('Could not save monetary output!',
-                    [
-                        'campaign ID' => $campaign->id,
-                        'amount' => $input['amount'],
-                        'remaining amount' => $campaign->current_funds,
-                        'user' => Auth::User()->id,
-                    ]
-                );
-            }else{
-                session()->flash('success', 'Amount succesfully taken!');
-            }
         }
 
 

@@ -29,7 +29,12 @@ var fileUploadSetup = {
     },
     done: function (e, data) {
         $.ajax({
-            url: '/admin/file/open/' + dir
+            url: '/admin/file/open/' + dir,
+            statusCode: {
+                401: function () {
+                   window.location.reload();
+                }
+            }
         }).success(function (response) {
             modal.find('.modal-body').html(response);
             //Rebind events
@@ -47,7 +52,12 @@ var filemanager = {
     openFolder: function (folder) {
         dir = folder;
         $.ajax({
-            url: '/admin/file/open/' + folder
+            url: '/admin/file/open/' + folder,
+            statusCode: {
+                401: function () {
+                    window.location.reload();
+                }
+            }
         }).success(function (response) {
             //Opening of modal
             $('#fileModal').find('.modal-body').html(response);
@@ -86,7 +96,7 @@ var filemanager = {
             $('.file a').click(function () {
                 var id = $(this).parent().attr('id').split("_")[1];
 
-                //Is it single file select or multiple
+
                 if($(invoker).data('single') == true){
                     selectedFiles = [];
                 }
@@ -143,7 +153,12 @@ var filemanager = {
     deleteImage: function (id) {
 
         $.ajax({
-            url: '/admin/file/delete/' + id
+            url: '/admin/file/delete/' + id,
+            statusCode: {
+                401: function () {
+                    window.location.reload();
+                }
+            }
         }).success(function (response) {
             if (response.success) {
                 $("#img_" + id).parent().remove();
@@ -189,6 +204,11 @@ var filemanager = {
             data: {
                 title: title,
                 description: description
+            },
+            statusCode: {
+                401: function () {
+                    window.location.reload();
+                }
             }
         }).success(function (response) {
             if (response.success) {
@@ -265,7 +285,12 @@ var filemanager = {
          $.ajax({
                 url: url,
                 data: params,
-                dataType: 'json'
+                dataType: 'json',
+             statusCode: {
+                 401: function () {
+                     window.location.reload();
+                 }
+             }
 
             }
         ).always(function (response) {

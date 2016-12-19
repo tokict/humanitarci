@@ -10,6 +10,19 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+
+    {{--Social tags--}}
+    <meta name="description" content="<?= htmlentities($page->description) ?>">
+    <meta name="title" content="Humanitarci.hr">
+    <meta property="fb:app_id" content="1022391537889674">
+    <meta property="og:title" content="<?= $page->title ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:site_name" content="Humanitarci.hr"/>
+    <meta property="og:image" content="<?= $page->image ?>"/>
+    <meta property="og:url" content="<?= $page->url ?>"/>
+    <meta property="og:description" content="<?= htmlentities($page->description) ?>"/>
+
     <!-- Favicons -->
     <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
     <link rel="apple-touch-icon" href="http://rhythm.bestlooker.pro/images/apple-touch-icon.png">
@@ -160,7 +173,24 @@
     }</script>
 <script type="text/javascript" src="/front/js/jquery.downCount.js"></script>
 
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1022391537889674',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
 
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 </body>
 </html>

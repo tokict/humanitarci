@@ -21,6 +21,7 @@ trait ControllerIndexTrait
     protected $controller;
     protected $action;
     protected $params;
+    protected $page;
 
     public function __construct()
     {
@@ -43,7 +44,13 @@ trait ControllerIndexTrait
             }
         }
 
-        View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params]);
+        $this->page = new \stdClass();
+        $this->page->description = env('PROJECT_DESCRIPTION');
+        $this->page->title = env('PROJECT_TITLE');
+        $this->page->url = env('APP_URL');
+        $this->page->image = env('PROJECT_LOGO');
+
+        View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params, 'page' => $this->page]);
     }
 
     public function index(\Illuminate\Http\Request $request)

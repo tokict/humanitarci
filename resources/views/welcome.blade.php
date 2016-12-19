@@ -373,5 +373,4 @@
 </section>
 <!-- End Logotypes -->
 
-
 @endsection

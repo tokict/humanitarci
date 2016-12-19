@@ -48,6 +48,9 @@ use Carbon\Carbon;
  * @property string $status
  * Status of campaign
  *
+ * @property string $finalized_at
+ * Date the campaign was finalized
+ *
  * @property int $funds_transferred_amount
  *
  *
@@ -180,7 +183,8 @@ class Campaign extends BaseModel
     protected $dates = [
         'modified_at',
         'action_by_date',
-        'ends'
+        'ends',
+        'finalized_at'
     ];
 
     protected $fillable = [
@@ -217,7 +221,8 @@ class Campaign extends BaseModel
         'media_info',
         'category',
         'beneficiary_receipt_doc',
-        'end_media_info'
+        'end_media_info',
+        'finalized_at'
     ];
 
     /**

@@ -212,7 +212,18 @@ $(document).ready(function () {
         return data.name || data.text;
     }
 
-
+    $('.fbShare').click(function(){
+        var link = $(this).data('link');
+        if(!link){
+            console.log('Dev forgot to put link on fb share button');
+        }
+        FB.ui({
+            method: 'feed',
+            display: 'popup',
+            link: link,
+        }, function (response) {
+        });
+    });
 
 });
 
@@ -260,3 +271,4 @@ function readCookie(name) {
 function eraseCookie(name) {
     createCookie(name,"",-1);
 }
+

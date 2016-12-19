@@ -29,8 +29,8 @@
                                             @if($campaign->status == 'blocked')
                                                 <span class="label label-danger">Blocked</span>
                                             @endif
-                                            @if($campaign->status == 'reached')
-                                                <span class="label label-success">Active</span>
+                                            @if($campaign->status == 'finalized')
+                                                <span class="label label-success">Finalized</span>
                                             @endif
                                             @if($campaign->status == 'failed')
                                                 <span class="label label-info">Active</span>
@@ -95,13 +95,18 @@
                                                 <div style="width: {{$campaign->percent_done - ($campaign->getTakenFunds()/$campaign->current_funds*100)}}%;"
                                                      class="progress-bar progress-bar-success"></div>
                                             </div>
-                                            <strong>{{number_format(($campaign->current_funds - $campaign->getTakenFunds())/100)}} {{env('CURRENCY')}}</strong>.
+                                            <strong>{{number_format(($campaign->current_funds - $campaign->getTakenFunds())/100)}} {{env('CURRENCY')}}
+                                                @if($campaign->status == 'finalized' && $campaign->current_funds > 0)
+                                                    <small>(Funds reserved and awaiting transfer)</small>
+                                                @endif
+                                            </strong>.
 
                                         </dd>
                                     </dl>
                                 </div>
                             </div>
                             <div class="row m-t-sm">
+                                @if($campaign->status == 'active' || $campaign->status == 'failed')
                                 <div class="col-lg-12">
                                     @if(is_array(\Illuminate\Support\Facades\Session::get('success')))
                                         <h4 class="text-success text-center">{{\Illuminate\Support\Facades\Session::get('success')[0]}}</h4>
@@ -123,7 +128,7 @@
                                     {{Form::hidden('campaign_id', $campaign->id,['class' =>'form-control' ] )}}
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group">
-                                        <div class="col-sm-12"><label class="control-label">Amount</label>
+                                        <div class="col-sm-12"><label class="control-label">Campaign end notes</label>
                                             {{Form::textarea('end_notes', null,['class' =>'form-control summernote' ] )}}
                                         </div>
                                     </div>
@@ -149,7 +154,7 @@
                                             <label class="control-label">Beneficiary receipt</label><br/>
                                             {{Form::hidden('beneficiary_receipt_doc_id')}}
                                             <button type="button" class=" btn btn-default fileSelect"
-                                                    data-toggle="modal" data-target="#fileModal">Select
+                                                    data-toggle="modal" data-target="#fileModal" data-single="true">Select
                                             </button>
                                         </div>
                                         <div class="col-sm-6">
@@ -160,9 +165,10 @@
                                             </button>
                                         </div>
                                     </div>
-                                    {{Form::submit('Take', ['class' => 'btn btn-primary btn-lg'])}}
+                                    {{Form::submit('Finalize', ['class' => 'btn btn-primary btn-lg'])}}
                                     {{Form::close()}}
                                 </div>
+                                    @endif
                             </div>
                         </div>
                     </div>
@@ -200,6 +206,10 @@
                                             class="fa fa-file"></i> Distribution plan</a></li>
                             <li><a href="{{$campaign->beneficiary_request_doc->getPath('large')}}" target="_blank"><i
                                             class="fa fa-file"></i> Beneficiary request</a></li>
+                            @if($campaign->status == 'finalized')
+                                <li><a href="{{$campaign->beneficiary_receipt_doc->getPath('large')}}" target="_blank"><i
+                                                class="fa fa-file"></i> Beneficiary receipt</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

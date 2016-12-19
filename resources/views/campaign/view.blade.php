@@ -51,7 +51,7 @@
                     <div class="blog-item-body">
 
                         <p>
-                            <btn class="btn-mod btn-circle bg-facebook"><i class="fa fa-facebook"></i> Share</btn>
+                            <btn class="btn-mod btn-circle bg-facebook fbShare" data-link="{{env('APP_URL')}}/campaigns/{{$campaign->id}}"><i class="fa fa-facebook"></i> Share</btn>
                             <btn class="btn-mod btn-circle"><i class="fa fa-twitter"></i> Tweet</btn>
                         </p>
 
@@ -62,49 +62,80 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <img alt="image" class="img-responsive" src="/front/images/campaigns/types/stalni.png" style="width: 150px;">
+                        <img alt="image" class="img-responsive" src="/front/images/campaigns/types/stalni.png"
+                             style="width: 150px;">
                     </div>
                     <div class="col-md-4">
-                        <img alt="image" class="img-responsive" src="/front/images/campaigns/types/{{$campaign->classification_code}}.png" style="width: 150px;">
+                        <img alt="image" class="img-responsive"
+                             src="/front/images/campaigns/types/{{$campaign->classification_code}}.png"
+                             style="width: 150px;">
                     </div>
                     <div class="col-md-4">
-                        <img alt="image" class="img-responsive" src="{{$campaign->organization->logo->getPath('small')}}" style="width: 150px;">
+                        <img alt="image" class="img-responsive"
+                             src="{{$campaign->organization->logo->getPath('small')}}" style="width: 150px;">
                     </div>
 
                 </div>
                 <hr/>
                 <div class="row">
-                <div class="col-md-2">
-                    <h5 class="text-center">Zahtjev</h5>
-                    <div class="col-md-10 col-md-offset-1">
-                    <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"> <img alt="image" class="img-responsive" src="{{$campaign->registration_request_doc->getPath('thumb')}}" style="width: 70px;margin:auto;"></a>
+                    <div class="col-md-2">
+                        <h5 class="text-center">Zahtjev</h5>
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"> <img
+                                        alt="image" class="img-responsive"
+                                        src="{{$campaign->registration_request_doc->getPath('thumb')}}"
+                                        style="width: 70px;margin:auto;"></a>
+                        </div>
                     </div>
+                    <div class="col-md-2">
+                        <h5 class="text-center">Registracija</h5>
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img
+                                        alt="image" class="img-responsive"
+                                        src="{{$campaign->registration_doc->getPath('thumb')}}"
+                                        style="width: 70px;margin:auto;"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-center">Plan akcije</h5>
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img
+                                        alt="image" class="img-responsive"
+                                        src="{{$campaign->action_plan_doc->getPath('thumb')}}"
+                                        style="width: 70px;margin:auto;"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-center">Plan distribucije</h5>
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img
+                                        alt="image" class="img-responsive"
+                                        src="{{$campaign->distribution_plan_doc->getPath('thumb')}}"
+                                        style="width: 70px;margin:auto;"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-center">Zahtjev korisnika</h5>
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img
+                                        alt="image" class="img-responsive"
+                                        src="{{$campaign->beneficiary_request_doc->getPath('thumb')}}"
+                                        style="width: 70px;margin:auto;"></a>
+                        </div>
+                    </div>
+
+                    @if($campaign->status == 'finalized')
+                        <div class="col-md-2">
+                            <h5 class="text-center">Potvrda primljene donacije</h5>
+                            <div class="col-md-10 col-md-offset-1"><a
+                                        href="{{$campaign->beneficiary_receipt_doc->getPath('large')}}" target="_blank">
+                                    <img    alt="image" class="img-responsive"
+                                            src="{{$campaign->beneficiary_receipt_doc->getPath('thumb')}}"
+                                            style="width: 70px;margin:auto;"></a></div>
+                        </div>
+                    @endif
+
                 </div>
-                <div class="col-md-2">
-                    <h5 class="text-center">Registracija</h5>
-                    <div class="col-md-10 col-md-offset-1">
-                        <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img alt="image" class="img-responsive" src="{{$campaign->registration_doc->getPath('thumb')}}" style="width: 70px;margin:auto;"></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h5 class="text-center">Plan akcije</h5>
-                    <div class="col-md-10 col-md-offset-1">
-                        <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img alt="image" class="img-responsive" src="{{$campaign->action_plan_doc->getPath('thumb')}}" style="width: 70px;margin:auto;"></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h5 class="text-center">Plan distribucije</h5>
-                    <div class="col-md-10 col-md-offset-1">
-                        <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img alt="image" class="img-responsive" src="{{$campaign->distribution_plan_doc->getPath('thumb')}}" style="width: 70px;margin:auto;"></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h5 class="text-center">Zahtjev korisnika</h5>
-                    <div class="col-md-10 col-md-offset-1">
-                        <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><img alt="image" class="img-responsive" src="{{$campaign->beneficiary_request_doc->getPath('thumb')}}" style="width: 70px;margin:auto;"></a>
-                    </div>
-                </div>
-                    </div>
                 <!-- End Content -->
 
 
