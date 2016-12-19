@@ -15,7 +15,7 @@
 
 
 //Free to browse controllers
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@home');
 Route::get("/login", 'Auth\AuthController@login');
 Route::post("/login", 'Auth\AuthController@login');
 Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
