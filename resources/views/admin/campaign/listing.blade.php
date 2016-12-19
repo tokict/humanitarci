@@ -33,7 +33,7 @@
                                     <th>Name</th>
                                     <th>Beneficiary</th>
                                     <th>Organization</th>
-                                    <th>Money</th>
+                                    <th>Progress</th>
                                     <th>Status</th>
                                     <th>Priority</th>
                                     <th>Cover image</th>
@@ -49,7 +49,13 @@
                                         <td>{{ $campaign->name }}</td>
                                         <td class="center">{{ $campaign->beneficiary->name }}</td>
                                         <td>{{ $campaign->organization->name }}</td>
-                                        <td>{{ number_format($campaign->current_funds/100) }}/{{ number_format($campaign->target_amount/100) }} ({{ $campaign->percent_done }}%)</td>
+                                        <td>
+                                            <div class="progress progress-striped active m-b-sm">
+                                                <div style="width: {{$campaign->percent_done}}%;"
+                                                     class="progress-bar"></div>
+                                            </div>
+                                            <strong>{{$campaign->current_funds/100}} / {{ number_format($campaign->target_amount/100) }}  {{env('CURRENCY')}}</strong>
+
                                         <td>{{ $campaign->status }}</td>
                                         <td>{{ $campaign->priority }}</td>
                                         <td><img src="{{ $campaign->cover->getPath("small") }}"></td>

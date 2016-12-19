@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
 
     <title>Add title
     </title>
@@ -39,6 +40,10 @@
     <link href="/administrator/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
     <link href="/administrator/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href="/administrator/css/plugins/footable/footable.core.css" rel="stylesheet">
+
 
 
     <!-- Theme style -->
@@ -80,12 +85,15 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
+                        <span>
+                            <img alt="image" class="img-responsive" src="/front/images/humanitarci-logo-small.png" />
+                             </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                         <span class="clear">
                                             <span class="block m-t-xs">
-                                                <strong class="font-bold">Tino</strong>
+                                                <strong class="font-bold">{{\Illuminate\Support\Facades\Auth::User()->username}}</strong>
                                              </span>
-                                            <span class="text-muted text-xs block">Art Director
+                                            <span class="text-muted text-xs block">{{\Illuminate\Support\Facades\Auth::User()->super_admin?'Super Admin':'Admin'}}
                                                 <b class="caret"></b>
                                             </span>
                                         </span>
@@ -103,14 +111,15 @@
                     </div>
                 </li>
                 <li class="{{$controller == 'AdminController'?'active':''}}">
-                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Overviews</span> <span
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Weekly overviews</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="index.html">Campaigns</a></li>
-                        <li><a href="dashboard_2.html">Donations</a></li>
-                        <li><a href="dashboard_3.html">Donors</a></li>
-                        <li><a href="dashboard_4_1.html">Distribution</a></li>
-                        <li><a href="dashboard_5.html">Incomes </a></li>
+                    <ul class="nav nav-second-level {{$controller == 'AdminController'?'collapse in':''}}">
+                        <li class="{{$controller == 'AdminController' && $action == 'campaigns'?'active':''}}"><a href="/admin/overview/campaigns">Campaigns</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'donations'?'active':''}}"><a href="/admin/overview/donations">Donations</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'donors'?'active':''}}"><a href="/admin/overview/donors">Donors</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'distributions'?'active':''}}"><a href="/admin/overview/distributions">Distribution</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'incomes'?'active':''}}"><a href="/admin/overview/incomes">Incomes </a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'transactions'?'active':''}}"><a href="/admin/overview/incomes">Internal transactions </a></li>
                     </ul>
                 </li>
                 <li>
@@ -127,8 +136,6 @@
                     <a href="#"><i class="fa fa-dollar"></i> <span class="nav-label">Donations</span> <span
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level {{$controller == 'DonationController'?'collapse in':''}}">
-                        <li class="{{$controller == 'DonationController' && $action == 'create'?'active':''}}"><a
-                                    href="/admin/donation/create">New donation</a></li>
                         <li class="{{$controller == 'DonationController' && $action == 'listing'?'active':''}}"><a
                                     href="/admin/donation/listing">List</a></li>
                     </ul>
@@ -188,7 +195,7 @@
                                     href="/admin/document/listing">List</a></li>
                     </ul>
                 </li>
-
+                @if(Auth::User()->admin)
                 <li>
                     <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration</span><span
                                 class="fa arrow"></span></a>
@@ -230,6 +237,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
             </ul>
 
         </div>
@@ -458,6 +466,10 @@
 
 <script type="text/javascript"
         src="/administrator/js/plugins/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
+
+<!-- FooTable -->
+<script src="/administrator/js/plugins/footable/footable.all.min.js"></script>
+
 
 <!-- AdminLTE App -->
 <script src="/administrator/js/inspinia.js"></script>

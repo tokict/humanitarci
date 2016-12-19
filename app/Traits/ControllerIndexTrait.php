@@ -51,6 +51,9 @@ trait ControllerIndexTrait
 
         $params = isset($this->params['params'])?$this->params['params']:null;
 
+        if (method_exists($this, 'initialize')) {
+            $this->{'initialize'}($request, $params);
+        }
 
         if (method_exists($this, $this->action)) {
             return $this->{$this->action}($request, $params);

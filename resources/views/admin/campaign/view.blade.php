@@ -46,7 +46,8 @@
 
                                         <dt>Created by:</dt>
                                         <dd><a href="/admin/view/admin/{{$campaign->creator->id}}"
-                                               class="text-navy">{{$campaign->creator->person->first_name}} {{$campaign->creator->person->last_name}}</a></dd>
+                                               class="text-navy">{{$campaign->creator->person->first_name}} {{$campaign->creator->person->last_name}}</a>
+                                        </dd>
                                         <dt>Beneficiary:</dt>
                                         <dd><a href="/admin/view/beneficiary/{{$campaign->beneficiary->id}}"
                                                class="text-navy"> {{$campaign->beneficiary->name}}</a>
@@ -78,6 +79,10 @@
 
                                             </dd>
                                         @endif
+                                        <dt>Classification:</dt>
+                                        <dd>{{strtoupper($campaign->classification_code)}}</dd>
+                                        <dt>Registration code:</dt>
+                                        <dd>{{$campaign->registration_code}}</dd>
                                     </dl>
                                 </div>
                             </div>
@@ -90,7 +95,7 @@
                                                 <div style="width: {{$campaign->percent_done}}%;"
                                                      class="progress-bar"></div>
                                             </div>
-                                            <strong>{{$campaign->current_funds}} {{env('CURRENCY')}}</strong>.
+                                            <strong>{{number_format($campaign->current_funds/100)}} {{env('CURRENCY')}}</strong>.
 
                                         </dd>
                                     </dl>
@@ -106,6 +111,8 @@
                                                             overview</a></li>
                                                     <li class=""><a href="#tab-2" data-toggle="tab">Last activity</a>
                                                     </li>
+                                                    <li class=""><a href="#tab-3" data-toggle="tab">Actions</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -113,7 +120,7 @@
                                         <div class="panel-body">
 
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="tab-1">
+                                                <div class="tab-pane" id="tab-1">
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="ibox float-e-margins">
@@ -122,7 +129,8 @@
                                                                 </div>
                                                                 <div class="ibox-content">
                                                                     <div class="flot-chart">
-                                                                        <div class="flot-chart-content" id="donations-amounts-chart"></div>
+                                                                        <div class="flot-chart-content"
+                                                                             id="donations-amounts-chart"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -134,7 +142,8 @@
                                                                 </div>
                                                                 <div class="ibox-content">
                                                                     <div class="flot-chart">
-                                                                        <div class="flot-chart-content" id="donations-today-chart"></div>
+                                                                        <div class="flot-chart-content"
+                                                                             id="donations-today-chart"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -149,7 +158,8 @@
                                                                 <div class="ibox-content">
 
                                                                     <div class="flot-chart">
-                                                                        <div class="flot-chart-content" id="donations-total-chart"></div>
+                                                                        <div class="flot-chart-content"
+                                                                             id="donations-total-chart"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -160,21 +170,39 @@
                                                 <div class="tab-pane" id="tab-2">
                                                     <div class="feed-activity-list">
                                                         @foreach($campaign->getReceivedDonations() as $d)
-                                                        <div class="feed-element">
+                                                            <div class="feed-element">
 
-                                                            <div class="media-body ">
-                                                                <small class="pull-right">{{$d->created_at->diffForHumans()}}</small>
-                                                                <a href="/admin/donor/view/{{$d->donor->id}}"><strong>{{$d->donor->user->username}}</strong></a> donated
-                                                                <a href="/admin/donation/view/{{$d->id}}"> <strong> {{number_format($d->amount/100)}} {{env('CURRENCY')}}</strong></a>
-                                                                <br>
-                                                                <small class="text-muted">{{$d->created_at}}
-                                                                </small>
+                                                                <div class="media-body ">
+                                                                    <small class="pull-right">{{$d->created_at->diffForHumans()}}</small>
+                                                                    <a href="/admin/donor/view/{{$d->donor->id}}"><strong>{{$d->donor->user->username}}</strong></a>
+                                                                    donated
+                                                                    <a href="/admin/donation/view/{{$d->id}}">
+                                                                        <strong> {{number_format($d->amount/100)}} {{env('CURRENCY')}}</strong></a>
+                                                                    <br>
+                                                                    <small class="text-muted">{{$d->created_at}}
+                                                                    </small>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                            @endforeach
+                                                        @endforeach
                                                     </div>
-
-
+                                                </div>
+                                                <div class="tab-pane active" id="tab-3">
+                                                    <div class="feed-activity-list">
+                                                        <div class="col-lg-3">
+                                                            <label>Use collected funds</label>
+                                                            <a href="/admin/campaign/take/{{$campaign->id}}" class="btn btn-primary btn-block">Take</a>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                            <label> Finalize campaign</label>
+                                                            <a href="/admin/campaign/finalize/{{$campaign->id}}" class="btn btn-warning btn-block">Finalize
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <label> Move available funds to next campaign</label>
+                                                            <button class="btn btn-primary btn-block disabled">Move (3 days remaining)
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -192,7 +220,7 @@
                     <h4>Campaign description</h4>
                     <img src="{{$campaign->cover->getPath('small')}}" class="img-responsive">
                     <p class="small">
-                        {{$campaign->description_short}}
+                        {!!$campaign->description_short!!}
                     </p>
                     <p class="small font-bold">
                         <span><i class="fa fa-circle text-warning"></i> Priority {{$campaign->priority}}</span>
@@ -209,10 +237,11 @@
                     <div class="row">
                         <h5>Campaign files</h5>
                         <ul class="list-unstyled project-files">
-                            <li><a href=""><i class="fa fa-file"></i> Project_document.docx</a></li>
-                            <li><a href=""><i class="fa fa-file-picture-o"></i> Logo_zender_company.jpg</a></li>
-                            <li><a href=""><i class="fa fa-stack-exchange"></i> Email_from_Alex.mln</a></li>
-                            <li><a href=""><i class="fa fa-file"></i> Contract_20_11_2014.docx</a></li>
+                            <li><a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Registration request</a></li>
+                            <li><a href="{{$campaign->registration_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Registration approval</a></li>
+                            <li><a href="{{$campaign->action_plan_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Action plan</a></li>
+                            <li><a href="{{$campaign->distribution_plan_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Distribution plan</a></li>
+                            <li><a href="{{$campaign->beneficiary_request_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Beneficiary request</a></li>
                         </ul>
                     </div>
                 </div>
@@ -222,143 +251,143 @@
 
 
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        var amountOptions = {
-            series: {
-                bars: {
-                    show: true,
-                    barWidth: 0.6,
-                    fill: true,
-                    fillColor: {
-                        colors: [{
-                            opacity: 0.8
-                        }, {
-                            opacity: 0.8
-                        }]
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var amountOptions = {
+                series: {
+                    bars: {
+                        show: true,
+                        barWidth: 0.6,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.8
+                            }, {
+                                opacity: 0.8
+                            }]
+                        }
                     }
-                }
-            },
-            xaxis: {
-                tickDecimals: 1,
-                mode: "categories",
-            },
-            colors: ["#1ab394"],
-            grid: {
-                color: "#999999",
-                hoverable: true,
-                clickable: true,
-                tickColor: "#D4D4D4",
-                borderWidth:0
-            },
-            legend: {
-                show: false
-            },
-            tooltip: true,
-            tooltipOpts: {
-                content: function(label, xval, yval) {
-                    return  xval+' : '+yval;
-
                 },
-            }
-        };
-        var amountData = {
-            label: "bar",
-            data: {!!$campaign->getGraphAmountsData()!!}
+                xaxis: {
+                    tickDecimals: 1,
+                    mode: "categories",
+                },
+                colors: ["#1ab394"],
+                grid: {
+                    color: "#999999",
+                    hoverable: true,
+                    clickable: true,
+                    tickColor: "#D4D4D4",
+                    borderWidth: 0
+                },
+                legend: {
+                    show: false
+                },
+                tooltip: true,
+                tooltipOpts: {
+                    content: function (label, xval, yval) {
+                        return xval + ' : ' + yval;
 
-        };
-        $.plot($("#donations-amounts-chart"), [amountData], amountOptions);
+                    },
+                }
+            };
+            var amountData = {
+                label: "bar",
+                data: {!!$campaign->getGraphAmountsData()!!}
 
-        var donationsTodayOptions = {
-            series: {
-                lines: {
-                    show: true,
-                    lineWidth: 2,
-                    fill: true,
-                    fillColor: {
-                        colors: [{
-                            opacity: 0.0
-                        }, {
-                            opacity: 0.0
-                        }]
+            };
+            $.plot($("#donations-amounts-chart"), [amountData], amountOptions);
+
+            var donationsTodayOptions = {
+                series: {
+                    lines: {
+                        show: true,
+                        lineWidth: 2,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.0
+                            }, {
+                                opacity: 0.0
+                            }]
+                        }
                     }
-                }
-            },
-            xaxis: {
-                tickDecimals: 0,
-                mode: "categories",
-            },
-            colors: ["#1ab394"],
-            grid: {
-                color: "#999999",
-                hoverable: true,
-                clickable: true,
-                tickColor: "#D4D4D4",
-                borderWidth:0
-            },
-            legend: {
-                show: false
-            },
-            tooltip: true,
-            tooltipOpts: {
-                content: function(label, xval, yval) {
-                    return  xval+'h : '+yval;
-
                 },
-            }
-        };
-        var donationsTodayData = {
+                xaxis: {
+                    tickDecimals: 0,
+                    mode: "categories",
+                },
+                colors: ["#1ab394"],
+                grid: {
+                    color: "#999999",
+                    hoverable: true,
+                    clickable: true,
+                    tickColor: "#D4D4D4",
+                    borderWidth: 0
+                },
+                legend: {
+                    show: false
+                },
+                tooltip: true,
+                tooltipOpts: {
+                    content: function (label, xval, yval) {
+                        return xval + 'h : ' + yval;
 
-            data: {!!$campaign->getGraphDonationsTodayData()!!}
-        };
-        $.plot($("#donations-today-chart"), [donationsTodayData], donationsTodayOptions);
+                    },
+                }
+            };
+            var donationsTodayData = {
+
+                data: {!!$campaign->getGraphDonationsTodayData()!!}
+            };
+            $.plot($("#donations-today-chart"), [donationsTodayData], donationsTodayOptions);
 
 
-        var donationsTotalOptions = {
-            series: {
-                lines: {
-                    show: true,
-                    lineWidth: 2,
-                    fill: true,
-                    fillColor: {
-                        colors: [{
-                            opacity: 0.0
-                        }, {
-                            opacity: 0.0
-                        }]
+            var donationsTotalOptions = {
+                series: {
+                    lines: {
+                        show: true,
+                        lineWidth: 2,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.0
+                            }, {
+                                opacity: 0.0
+                            }]
+                        }
                     }
-                }
-            },
-            xaxis: {
-                tickDecimals: 0,
-                mode: "categories",
-            },
-            colors: ["#1ab394"],
-            grid: {
-                color: "#999999",
-                hoverable: true,
-                clickable: true,
-                tickColor: "#D4D4D4",
-                borderWidth:0
-            },
-            legend: {
-                show: false
-            },
-            tooltip: true,
-            tooltipOpts: {
-                content: function(label, xval, yval) {
-                    return  xval+' : '+yval;
-
                 },
-            }
-        };
-        var donationsTotalData = {
+                xaxis: {
+                    tickDecimals: 0,
+                    mode: "categories",
+                },
+                colors: ["#1ab394"],
+                grid: {
+                    color: "#999999",
+                    hoverable: true,
+                    clickable: true,
+                    tickColor: "#D4D4D4",
+                    borderWidth: 0
+                },
+                legend: {
+                    show: false
+                },
+                tooltip: true,
+                tooltipOpts: {
+                    content: function (label, xval, yval) {
+                        return xval + ' : ' + yval;
 
-            data: {!!$campaign->getGraphDonationsTotalData()!!}
-        };
-        $.plot($("#donations-total-chart"), [donationsTotalData], donationsTotalOptions);
-    })
+                    },
+                }
+            };
+            var donationsTotalData = {
 
-</script>
+                data: {!!$campaign->getGraphDonationsTotalData()!!}
+            };
+            $.plot($("#donations-total-chart"), [donationsTotalData], donationsTotalOptions);
+        })
+
+    </script>
 
 @endsection

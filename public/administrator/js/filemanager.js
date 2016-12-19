@@ -67,6 +67,7 @@ var filemanager = {
             $('#selectDoneButton').removeClass('hidden');
             $('#selectDoneButton').click(function () {
                 filemanager.selectImages();
+                $(invoker).addClass('text-navy');
 
                 //For editing where input field is populated
                 if(input.val() != ""){
@@ -84,6 +85,11 @@ var filemanager = {
 
             $('.file a').click(function () {
                 var id = $(this).parent().attr('id').split("_")[1];
+
+                //Is it single file select or multiple
+                if($(invoker).data('single') == true){
+                    selectedFiles = [];
+                }
 
                 if (selectedFiles.indexOf(id) == -1) {
                     selectedFiles.push(id);

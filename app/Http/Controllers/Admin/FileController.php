@@ -26,7 +26,7 @@ class FileController extends Controller
 
     protected $s3;
 
-    public function __construct()
+    public function initialize()
     {
         $this->s3 = $s3 = \Storage::disk('s3');
     }

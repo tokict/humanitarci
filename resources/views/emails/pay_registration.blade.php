@@ -1,2 +1,2 @@
 Kako bi mogli pratiti i pregledavati svoje donacije, molimo vas da si postavite lozinku na profil, klikajući na poveynicu ispod<br/><br/>
-<a href="{{env('APP_URL')}}/password/reset/{{$reset['token']}}?email={{urlencode($reset['email'])}}"/>Postavi lozinku</a>
+<a href="{{env('APP_URL')}}/password/reset/{{$reset['token']}}?email={{urlencode($reset['email'])}}&new=true"/>Postavi lozinku</a>

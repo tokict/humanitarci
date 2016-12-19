@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="col-sm-4 col-md-3 col-md-offset-1 sidebar pull-right">
+<div class="col-sm-4 col-md-3 sidebar pull-right">
 
     <!-- Widget -->
     <div class="widget">

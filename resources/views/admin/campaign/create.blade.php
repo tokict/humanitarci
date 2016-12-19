@@ -51,7 +51,16 @@
 
                                 <div class="col-sm-3">
                                     <label class="control-label">Organization</label>
-                                    {{Form::select('organization_id', ["" => 'Select'], null, ['class' => 'form-control organization_id'])}}
+                                    {{Form::select('organization_id', ["" => 'Select'], null, ['class' => 'form-control selectOrganization'])}}
+                                </div>
+                                </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-2"><label class="control-label">Classification</label>
+                                    {{Form::select('classification_code', $campaign->getEnumValues('classification_code'), null, ['class' =>'form-control' ] )}}
+                                </div>
+                                <div class="col-sm-2"><label class="control-label">Registration code</label>
+                                    {{Form::text('registration_code', null,['class' =>'form-control' ] )}}
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -129,15 +138,46 @@
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <label class="control-label">Cover photo</label>
                                     {{Form::hidden('cover_photo_id')}}
-                                    <button type="button" class=" btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
+                                    <button type="button" class=" btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal" data-single="true">Select</button>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <label class="control-label">Campaign photos</label>
                                     {{Form::hidden('media_info')}}
                                     <button type="button" class="btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal">Select</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Registration request</label>
+                                    {{Form::hidden('registration_request_doc_id')}}
+                                    <button type="button" class=" btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal" data-single="true">Select</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Registration approval</label>
+                                    {{Form::hidden('registration_doc_id')}}
+                                    <button type="button" class="btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal" data-single="true">Select</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Action plan</label>
+                                    {{Form::hidden('action_plan_doc_id')}}
+                                    <button type="button" class="btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal" data-single="true">Select</button>
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Distribution plan</label>
+                                    {{Form::hidden('distribution_plan_doc_id')}}
+                                    <button type="button" class=" btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal" data-single="true">Select</button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Beneficiary request</label>
+                                    {{Form::hidden('beneficiary_request_doc_id')}}
+                                    <button type="button" class="btn btn-default fileSelect" data-toggle="modal" data-target="#fileModal" data-single="true">Select</button>
                                 </div>
                             </div>
 

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+    @if($super)
     <h3>Weekly overview</h3>
     <div class="col-lg-2">
         <div class="widget style1 navy-bg">
@@ -98,6 +99,63 @@
             </div>
         </div>
     </div>
+        @else
+        <h3>Overview</h3>
+        <div class="col-lg-2">
+            <div class="widget style1 navy-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-dollar fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Stanje računa </span>
+                        <h2 class="font-bold">{{number_format($funds/100, 2)}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            <div class="widget style1 navy-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-bank fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Iznos za distribuciju </span>
+                        <h2 class="font-bold">{{$legal_entities}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="widget style1 red-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-exclamation fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Dokumenata za unos </span>
+                        <h2 class="font-bold">{{$legal_entities}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="widget style1 red-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-exclamation-triangle fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Zakašnjele distribucije </span>
+                        <h2 class="font-bold">{{$legal_entities}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 @endsection
 
 

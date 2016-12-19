@@ -3,9 +3,9 @@
  */
 function initMap() {
 
-    $.each($('.coordinatesPicker'), function(index, value){
+    $.each($('.coordinatesPicker'), function (index, value) {
 
-        var center = {lat: 45.815399, lng: 	15.966568};
+        var center = {lat: 45.815399, lng: 15.966568};
         var map = new google.maps.Map(value, {
             zoom: 6,
             height: 400,
@@ -13,11 +13,11 @@ function initMap() {
             center: center
         });
 
-        google.maps.event.addListener(map, 'click', function(event) {
+        google.maps.event.addListener(map, 'click', function (event) {
             //Get the location that the user clicked.
             var clickedLocation = event.latLng;
             //If the marker hasn't been added.
-            if(marker === false){
+            if (marker === false) {
                 //Create the marker.
                 marker = new google.maps.Marker({
                     position: clickedLocation,
@@ -25,15 +25,15 @@ function initMap() {
                     draggable: true //make it draggable
                 });
                 //Listen for drag events!
-                google.maps.event.addListener(marker, 'dragend', function(event){
+                google.maps.event.addListener(marker, 'dragend', function (event) {
                     markerLocation();
                 });
-            } else{
+            } else {
                 //Marker has already been added, so just change its location.
                 marker.setPosition(clickedLocation);
             }
             //Get the marker's location.
-            var string = marker.getPosition().lat()+","+marker.getPosition().lng()
+            var string = marker.getPosition().lat() + "," + marker.getPosition().lng()
             $(value).siblings("input").val(string);
         });
 
@@ -43,13 +43,13 @@ function initMap() {
         });
     })
 
-    $.each($('.coordinatesShow'), function(index, value){
+    $.each($('.coordinatesShow'), function (index, value) {
         var lat = $(this).data('lat');
         var lng = $(this).data('lng');
         var height = $(this).height();
         var width = $(this).width();
 
-        var center = {lat: lat, lng: 	lng};
+        var center = {lat: lat, lng: lng};
 
         var map = new google.maps.Map(value, {
             zoom: 6,
@@ -71,7 +71,10 @@ $(document).ready(function () {
         radioClass: 'iradio_square-green',
     });
 
-    $('.summernote').summernote();
+    $('.summernote').summernote({
+        height: 300,
+
+    });
     //GOOGLE MAP COORDINATES PICKING
 
 
@@ -109,11 +112,11 @@ $(document).ready(function () {
             fromLabel: 'From',
             toLabel: 'To',
             customRangeLabel: 'Custom',
-            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
             monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             firstDay: 1
         }
-    }, function(start, end, label) {
+    }, function (start, end, label) {
         console.log(start.toISOString(), end.toISOString(), label);
         $('.date-range span').html(start.format('YYYY MMMM, D') + ' - ' + end.format('YYYY MMMM, D'));
     });
@@ -161,24 +164,26 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatCity, // omitted for brevity, see the source of this page
         templateSelection: formatselectCityion // omitted for brevity, see the source of this page
     });
 
-    function formatCity (data) {
+    function formatCity(data) {
         if (data.loading) return data.name;
 
         return "<div class='select2-result-repository clearfix'>" +
-            "<div class='select2-result-repository__title'>" + data.name + " <small>(" +data.city_zip_code+", "+ data.region.name + ")</small></div>";
+            "<div class='select2-result-repository__title'>" + data.name + " <small>(" + data.city_zip_code + ", " + data.region.name + ")</small></div>";
 
     }
 
-    function formatselectCityion (data) {;
+    function formatselectCityion(data) {
+        ;
         return data.name || data.text;
     }
-
 
 
     $(".selectPerson").select2({
@@ -208,22 +213,24 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatPerson, // omitted for brevity, see the source of this page
         templateSelection: formatSelectPersonion // omitted for brevity, see the source of this page
     });
 
-    function formatPerson (data) {
-        if (data.loading) return data.first_name+' '+data.last_name;
+    function formatPerson(data) {
+        if (data.loading) return data.first_name + ' ' + data.last_name;
 
         return "<div class='select2-result-repository clearfix'>" +
-            "<div class='select2-result-repository__title'>" + data.first_name +" "+ data.last_name + " <small>(" +data.city.name+", "+ data.social_id + ")</small></div>";
+            "<div class='select2-result-repository__title'>" + data.first_name + " " + data.last_name + " <small>(" + data.city.name + ", " + data.social_id + ")</small></div>";
 
     }
 
-    function formatSelectPersonion (data) {
-        return data.first_name?data.first_name+' '+data.last_name: data.text;
+    function formatSelectPersonion(data) {
+        return data.first_name ? data.first_name + ' ' + data.last_name : data.text;
     }
 
     $(".selectEntity").select2({
@@ -253,13 +260,15 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatEntity, // omitted for brevity, see the source of this page
         templateSelection: formatSelectEntityion // omitted for brevity, see the source of this page
     });
 
-    function formatEntity (data) {
+    function formatEntity(data) {
         if (data.loading) return "";
 
         return "<div class='select2-result-repository clearfix'>" +
@@ -267,7 +276,7 @@ $(document).ready(function () {
 
     }
 
-    function formatSelectEntityion (data) {
+    function formatSelectEntityion(data) {
         return data.name || data.text;
     }
 
@@ -299,13 +308,15 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatOrganization, // omitted for brevity, see the source of this page
         templateSelection: formatSelectOrganization // omitted for brevity, see the source of this page
     });
 
-    function formatOrganization (data) {
+    function formatOrganization(data) {
         if (data.loading) return "";
 
         return "<div class='select2-result-repository clearfix'>" +
@@ -313,7 +324,7 @@ $(document).ready(function () {
 
     }
 
-    function formatSelectOrganization (data) {
+    function formatSelectOrganization(data) {
         return data.name || data.text;
     }
 
@@ -345,13 +356,15 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatUser, // omitted for brevity, see the source of this page
         templateSelection: formatSelectUser // omitted for brevity, see the source of this page
     });
 
-    function formatUser (data) {
+    function formatUser(data) {
         if (data.loading) return "";
 
         return "<div class='select2-result-repository clearfix'>" +
@@ -359,7 +372,7 @@ $(document).ready(function () {
 
     }
 
-    function formatSelectUser (data) {
+    function formatSelectUser(data) {
         return data.name || data.text;
     }
 
@@ -391,13 +404,15 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatGroup, // omitted for brevity, see the source of this page
         templateSelection: formatSelectGroup // omitted for brevity, see the source of this page
     });
 
-    function formatGroup (data) {
+    function formatGroup(data) {
         if (data.loading) return "";
 
         return "<div class='select2-result-repository clearfix'>" +
@@ -405,10 +420,9 @@ $(document).ready(function () {
 
     }
 
-    function formatSelectGroup (data) {
+    function formatSelectGroup(data) {
         return data.name || data.text;
     }
-
 
 
     $(".selectBeneficiary").select2({
@@ -438,13 +452,15 @@ $(document).ready(function () {
             },
             cache: true
         },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        escapeMarkup: function (markup) {
+            return markup;
+        }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatBeneficiary, // omitted for brevity, see the source of this page
         templateSelection: formatSelectBeneficiary // omitted for brevity, see the source of this page
     });
 
-    function formatBeneficiary (data) {
+    function formatBeneficiary(data) {
         if (data.loading) return "";
 
         return "<div class='select2-result-repository clearfix'>" +
@@ -452,11 +468,11 @@ $(document).ready(function () {
 
     }
 
-    function formatSelectBeneficiary (data) {
+    function formatSelectBeneficiary(data) {
         return data.name || data.text;
     }
 
-
+    $('.footable').footable();
 
 });
 

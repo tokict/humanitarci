@@ -26,6 +26,21 @@
                                 @endif
                             </div>
                         </div>
+                        @if(isset($_GET['new']))
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Korisničko ime</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control" name="username">
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        @endif
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Lozinka</label>

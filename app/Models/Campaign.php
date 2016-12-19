@@ -6,6 +6,7 @@
  */
 
 namespace App\Models;
+
 use Carbon\Carbon;
 
 
@@ -62,6 +63,25 @@ use Carbon\Carbon;
  * @property int $created_by_id
  * Id of admin who created campaign
  *
+ *
+ * @property int $registration_code
+ * The code received from goverment on registration of the campaign
+ *
+ * @property int $classification_code
+ * Code used to classify the campaign
+ *
+ * @property int $registration_doc_id
+ *
+ * @property int $action_plan_doc_id
+ *
+ * @property int $distribution_plan_doc_id
+ *
+ * @property int $registration_request_doc_id
+ *
+ * @property int $beneficiary_request_doc_id
+ *
+ * @property int $beneficiary_receipt_doc_id
+ *
  * @property \Carbon\Carbon $created_at
  *
  * @property \Carbon\Carbon $modified_at
@@ -90,6 +110,8 @@ use Carbon\Carbon;
  * @property string $media_info
  * Media used with this campaign. For creating cards, sharing, etc
  *
+ * @property $end_media_info
+ * Media related to campaign end and delivery
  *
  *
  * @property \App\User $creator
@@ -101,6 +123,19 @@ use Carbon\Carbon;
  *
  * @property \App\Models\Organization $organization
  * Related organization object
+ *
+ * @property Media $registration_request_doc
+ *
+ * @property Media $registration_doc
+ *
+ * @property Media$action_plan_doc
+ *
+ * @property Media $distribution_plan_doc
+ *
+ * @property Media $beneficiary_request_doc
+ *
+ * @property Media $beneficiary_receipt_doc
+ *
  *
  * @property \Illuminate\Database\Eloquent\Collection $campaign_reports
  *
@@ -128,12 +163,18 @@ class Campaign extends BaseModel
         'target_amount' => 'int',
         'target_amount_extra' => 'int',
         'cover_photo_id' => 'int',
+        'action_plan_doc_id' => 'int',
+        'registration_doc_id' => 'int',
+        'distribution_plan_doc_id' => 'int',
+        'beneficiary_request_doc_id' => 'int',
+        'registration_request_doc_id' => 'int',
         'organization_id' => 'int',
         'current_funds' => 'int',
         'funds_transferred_amount' => 'int',
         'donors_number' => 'int',
         'created_by_id' => 'int',
-        'priority' => 'int'
+        'priority' => 'int',
+        'beneficiary_receipt_doc' => 'int'
     ];
 
     protected $dates = [
@@ -153,6 +194,13 @@ class Campaign extends BaseModel
         'organization_id',
         'current_funds',
         'status',
+        'action_plan_doc_id',
+        'registration_doc_id',
+        'distribution_plan_doc_id',
+        'beneficiary_request_doc_id',
+        'registration_request_doc_id',
+        'registration_code',
+        'classification_code',
         'funds_transferred_amount',
         'donors_number',
         'type',
@@ -167,7 +215,9 @@ class Campaign extends BaseModel
         'reference_id',
         'end_notes',
         'media_info',
-        'category'
+        'category',
+        'beneficiary_receipt_doc',
+        'end_media_info'
     ];
 
     /**
@@ -189,7 +239,7 @@ class Campaign extends BaseModel
         }
         $this->setAttribute('current_funds', $amount);
         $this->setAttribute('donors_number', count($donors));
-        $this->setAttribute('percent_done', ($amount / $target)*100 );
+        $this->setAttribute('percent_done', ($amount / $target) * 100);
 
 
     }
@@ -247,18 +297,39 @@ class Campaign extends BaseModel
         return $this->belongsTo(\App\Models\Media::class, 'cover_photo_id');
     }
 
+    public function registration_doc()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'registration_doc_id');
+    }
+
+    public function action_plan_doc()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'action_plan_doc_id');
+    }
+
+    public function distribution_plan_doc()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'distribution_plan_doc_id');
+    }
+
+    public function registration_request_doc()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'registration_request_doc_id');
+    }
+
+    public function beneficiary_request_doc()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'beneficiary_request_doc_id');
+    }
+
+    public function beneficiary_receipt_doc()
+    {
+        return $this->belongsTo(\App\Models\Media::class, 'beneficiary_receipt_doc_id');
+    }
+
     public function creator()
     {
         return $this->belongsTo(\App\User::class, 'created_by_id');
-    }
-
-    public function getReceivedDonations()
-    {
-
-        $donations = Donation::where('status', 'received')->where('campaign_id' , $this->getAttribute('id'))->orderBy('created_at', 'desc')->get();
-
-        return $donations;
-
     }
 
     public function getGraphAmountsData()
@@ -277,13 +348,13 @@ class Campaign extends BaseModel
 
 
         foreach ($this->getReceivedDonations() as $receivedDonation) {
-            foreach($amounts as $key => $amount){
+            foreach ($amounts as $key => $amount) {
                 $x = explode("-", $key);
                 $from = $x[0];
                 $to = $x[1];
 
-                if($receivedDonation->amount/100 > $from && $receivedDonation->amount/100 <= $to){
-                    $amounts[$key] +=1;
+                if ($receivedDonation->amount / 100 > $from && $receivedDonation->amount / 100 <= $to) {
+                    $amounts[$key] += 1;
                     continue 2;
                 }
 
@@ -292,19 +363,28 @@ class Campaign extends BaseModel
 
         $formatData = [];
 
-        foreach($amounts as $key => $amount){
+        foreach ($amounts as $key => $amount) {
             $formatData[] = [$key, $amount];
         }
 
         return json_encode($formatData);
     }
 
+    public function getReceivedDonations()
+    {
+
+        $donations = Donation::where('status', 'received')->where('campaign_id', $this->getAttribute('id'))->orderBy('created_at', 'desc')->get();
+
+        return $donations;
+
+    }
+
     public function getGraphDonationsTodayData()
     {
 
-       $hours = [];
+        $hours = [];
 
-        for($i = 0; $i < 23; $i++){
+        for ($i = 0; $i < 23; $i++) {
             $carbon = new Carbon();
             $hour = $carbon->subHours($i);
 
@@ -318,7 +398,7 @@ class Campaign extends BaseModel
 
         $formatData = [];
 
-        foreach($hours as $key => $hour){
+        foreach ($hours as $key => $hour) {
             $formatData[] = [$key, $hour];
         }
         $formatData = array_reverse($formatData);
@@ -333,29 +413,37 @@ class Campaign extends BaseModel
         $carbon2 = new Carbon($this->getAttribute('created_at'));
         $diff = $carbon->diffInDays($carbon2);
 
-        for($i = 0; $i < $diff; $i++){
+        for ($i = 0; $i < $diff; $i++) {
             $carb = new Carbon();
             $day = $carb->subDays($i);
 
-            $donationsDays[$day->day."-".$day->month] = 0;
+            $donationsDays[$day->day . "-" . $day->month] = 0;
         }
 
 
         foreach ($this->getReceivedDonations() as $receivedDonation) {
-            if(isset($donationsDays[$receivedDonation->created_at->format('d-m')])) {
+            if (isset($donationsDays[$receivedDonation->created_at->format('d-m')])) {
                 $donationsDays[$receivedDonation->created_at->format('d-m')] += 1;
-            }else{
+            } else {
                 $donationsDays[$receivedDonation->created_at->format('d-m')] = 1;
             }
         }
 
         $formatData = [];
 
-        foreach($donationsDays as $key => $day){
+        foreach ($donationsDays as $key => $day) {
             $formatData[] = [$key, $day];
         }
 
         $formatData = array_reverse($formatData);
         return json_encode($formatData);
+    }
+
+
+    public function getTakenFunds()
+    {
+        $taken = MonetaryOutput::whereCampaignId($this->getAtt('id'))->get()->sum('amount');
+
+        return $taken ? $taken : 0;
     }
 }
