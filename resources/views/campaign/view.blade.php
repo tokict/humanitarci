@@ -51,7 +51,7 @@
                     <div class="blog-item-body">
 
                         <p>
-                            <btn class="btn-mod btn-circle bg-facebook fbShare" data-link="{{env('APP_URL')}}/campaigns/{{$campaign->id}}"><i class="fa fa-facebook"></i> Share</btn>
+                            <btn class="btn-mod btn-circle bg-facebook fbShare" data-link="{{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><i class="fa fa-facebook"></i> Share</btn>
                             <btn class="btn-mod btn-circle"><i class="fa fa-twitter"></i> Tweet</btn>
                         </p>
 

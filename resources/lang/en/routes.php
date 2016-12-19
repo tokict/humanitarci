@@ -59,6 +59,10 @@ return array(
         'sve' => 'all',
         'popularne' => 'popular',
     ],
+    'pages' => [
+        'kako_donirati' => 'how_to_donate',
+        'misija' => 'mission'
+    ]
 
 
 );
