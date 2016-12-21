@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\ActionLog;
 use App\Models\GoodsInput;
 
 
@@ -16,7 +17,7 @@ class GoodsInputObserver
      */
     public function created(GoodsInput $goodsInput)
     {
-        dd('Fire created event');
+        ActionLog::log(ActionLog::TYPE_GOODS_INPUT_CREATE, $goodsInput->toArray());
     }
 
     /**
@@ -25,9 +26,9 @@ class GoodsInputObserver
      * @param  GoodsInput  $user
      * @return void
      */
-    public function deleting(GoodsInput $goodsInput)
+    public function updated(GoodsInput $goodsInput)
     {
-        //
+        ActionLog::log(ActionLog::TYPE_GOODS_INPUT_UPDATE, $goodsInput->toArray());
     }
 
 

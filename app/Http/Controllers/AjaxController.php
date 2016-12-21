@@ -136,13 +136,13 @@ class AjaxController extends Controller
             $user->save();
 
 
+            //Update order with new donor id
+            $order = Order::whereOrderToken($input['order_token'])->get()->first();
 
+            $order->donor_id = $user->donor->id;
+            $order->save();
         }
-        //Update order with new donor id
-        $order = Order::whereOrderToken($input['order_token'])->get()->first();
 
-        $order->donor_id = $user->donor->id;
-        $order->save();
 
         return response()
             ->json(['success' => true, 'message' => 'New user']);

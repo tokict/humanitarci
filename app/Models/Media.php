@@ -131,7 +131,7 @@ class Media extends BaseModel
 
     public function getPath($size)
     {
-        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/".$this->creator->organization_id."/" . $size . "_" . $this->getAtt('reference');
+        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/".$this->creator->admin->organization_id."/" . $size . "_" . $this->getAtt('reference');
     }
 
 

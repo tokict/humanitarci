@@ -87,7 +87,7 @@ class FileController extends Controller
         foreach ($request->file('files') as $file) {
             $media = new Media([]);
 
-            $save = $media->saveFile($file, $category . "/" . Auth::User()->organization_id, 'public');
+            $save = $media->saveFile($file, $category . "/" . Auth::User()->admin->organization_id, 'public');
             $type = "document";
 
             if (in_array($file->getClientOriginalExtension(), ['jpg', 'JPG', 'jpeg', 'png', 'PNG'])) {

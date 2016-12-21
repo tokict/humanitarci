@@ -22,16 +22,14 @@ namespace App\Models;
  * @property int $organization_id
  * If the admin is an organization, this is the organization id
  *
- * @property string $password
- * Encrypted password used for login
  * 
  * @property \App\Models\Organization $organization
  * Organization object associated with entry
  *
- * @property \App\User$user
- * Person object associated with entry
+ * @property \App\User $user
+ * User associated with entry
  *
- * @property \App\User$creator
+ * @property \App\User $creator
  * Who created it
  *
  * @property \Illuminate\Database\Eloquent\Collection $action_logs
@@ -62,7 +60,6 @@ class Admin extends BaseModel
 	protected $fillable = [
 		'user_id',
 		'organization_id',
-		'password',
 		'user_id',
 		'created_by'
 

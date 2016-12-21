@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\MediaLink;
 use Illuminate\Support\Facades\Storage;
@@ -24,8 +25,8 @@ class DonationController extends Controller
 
     public function listing()
     {
-        if (!Auth::User()->is_super_admin) {
-            $donations = Donation::where('organization_id', Auth::User()->organization_id)->paginate(50);
+        if (!Auth::User()->super_admin) {
+            $donations = Donation::where('organization_id', Auth::User()->admin->organization_id)->paginate(50);
         } else {
             $donations = Donation::paginate(50);
         }
@@ -37,7 +38,7 @@ class DonationController extends Controller
     public function view($request, $id)
     {
 
-        $donation = Donation::find($id)->get()->first();
+        $donation = Donation::whereId($id)->get()->first();
 
 
 
@@ -85,7 +86,7 @@ class DonationController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['cover_photo_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -100,7 +101,7 @@ class DonationController extends Controller
                                 [
                                     'campaign_id' => $campaign->id,
                                     'media_id' => $id,
-                                    'organization_id' => Auth::User()->organization_id,
+                                    'organization_id' => Auth::User()->admin->organization_id,
                                     'user_id' => Auth::User()->id
                                 ]
                             );
@@ -176,7 +177,7 @@ class DonationController extends Controller
                         [
                             'campaign_id' => $campaign->id,
                             'media_id' => $input['cover_photo_id'],
-                            'organization_id' => Auth::User()->organization_id,
+                            'organization_id' => Auth::User()->admin->organization_id,
                             'user_id' => Auth::User()->id
 
                         ]
@@ -198,7 +199,7 @@ class DonationController extends Controller
                                     [
                                         'campaign_id' => $campaign->id,
                                         'media_id' => $id,
-                                        'organization_id' => Auth::User()->organization_id,
+                                        'organization_id' => Auth::User()->admin->organization_id,
                                         'user_id' => Auth::User()->id
                                     ]
                                 );

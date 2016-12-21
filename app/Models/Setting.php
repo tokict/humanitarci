@@ -11,8 +11,7 @@ namespace App\Models;
 
 /**
  * Class Setting
- * 
- * @property int $id
+ *
  * @property string $key
  * @property string $value
  * @property \Carbon\Carbon $created_at
@@ -23,6 +22,8 @@ namespace App\Models;
 class Setting extends BaseModel
 {
 	public $timestamps = false;
+	protected $primaryKey = 'key';
+	public $incrementing = false;
 
 	protected $dates = [
 		'modified_at'
@@ -33,4 +34,10 @@ class Setting extends BaseModel
 		'value',
 		'modified_at'
 	];
+
+
+	public static function getSetting($key)
+	{
+		return self::whereKey($key)->get()->first();
+	}
 }

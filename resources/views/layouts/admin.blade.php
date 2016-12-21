@@ -103,7 +103,7 @@
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="/auth/logout">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -133,7 +133,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-dollar"></i> <span class="nav-label">Donations</span> <span
+                    <a href="#"><i class="fa fa-heart"></i> <span class="nav-label">Donations</span> <span
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level {{$controller == 'DonationController'?'collapse in':''}}">
                         <li class="{{$controller == 'DonationController' && $action == 'listing'?'active':''}}"><a
@@ -185,17 +185,7 @@
 
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">Documents</span> <span
-                                class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="{{$controller == 'CampaignController' && $action == 'create'?'active':''}}"><a
-                                    href="/admin/document/create">New document</a></li>
-                        <li class="{{$controller == 'CampaignController' && $action == 'listing'?'active':''}}"><a
-                                    href="/admin/document/listing">List</a></li>
-                    </ul>
-                </li>
-                @if(Auth::User()->admin)
+                @if(Auth::User()->super_admin)
                 <li>
                     <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration</span><span
                                 class="fa arrow"></span></a>
@@ -235,7 +225,19 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#">Logs <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level {{$controller == 'LogController'?'collapse in':''}}">
+                                <li class="{{$controller == 'LogController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/log/listing">List</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+                    <li>
+                        <a href="/admin/settings/all">Settings </a>
+
+                    </li>
                 </li>
                 @endif
             </ul>
@@ -257,7 +259,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">Welcome to Humanitarci.hr</span>
+                        <span class="m-r-sm text-muted welcome-message">{{Auth::User()->admin->organization->name}}</span>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -356,7 +358,7 @@
 
 
                     <li>
-                        <a href="login.html">
+                        <a href="{{ url('logout') }}">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>

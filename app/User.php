@@ -14,10 +14,9 @@ class User extends Authenticatable
      * @property string $remember_token
      * @property string $username
      * @property int $created_by
-     * @property int $organization_id
      * @property int $donor_id
      * @property int $person_id
-     * @property int $admin
+     * @property int $admin_id
      * @property int $super_admin
      * @property \Carbon\Carbon $created_at
      * @property \Carbon\Carbon $modified_at
@@ -26,7 +25,10 @@ class User extends Authenticatable
      * Who is this
      * @property \App\Models\Organization $organization
      *
+     * @property \App\Models\Donor $donor
+     *
      * @property \App\User $creator
+     * @property \App\Models\Admin $admin
      *
      * @property \Illuminate\Database\Eloquent\Collection $users
      *
@@ -42,7 +44,8 @@ class User extends Authenticatable
         'created_by' => 'int',
         'organization_id' => 'int',
         'person_id'=> 'int',
-        'donor_id' => 'int'
+        'donor_id' => 'int',
+        'admin_id' => 'int'
     ];
 
     protected $dates = [
@@ -56,9 +59,9 @@ class User extends Authenticatable
         'username',
         'remember_token',
         'created_by',
-        'organization_id',
         'person_id',
-        'donor_id'
+        'donor_id',
+        'admin_id'
     ];
 
 
@@ -72,6 +75,11 @@ class User extends Authenticatable
         return $this->belongsTo(\App\Models\Person::class);
     }
 
+    public function admin()
+    {
+        return $this->belongsTo(\App\Models\Admin::class);
+    }
+
     public function creator()
     {
         return $this->belongsTo(\App\User::class);
@@ -79,7 +87,7 @@ class User extends Authenticatable
 
     public function organization()
     {
-        return $this->belongsTo(\App\Models\Organization::class);
+        return $this->belongsTo(\App\Models\Organization::class, 'organization_id', 'id');
     }
 
 

@@ -34,6 +34,13 @@
                                 </ul>
                             </div>
                         @endif
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
+                            </div>
+                        @endif
                         {!! Form::open(['url' => '/admin/legal-entity/edit/'.$entity->id, 'class' => 'form-horizontal']) !!}
                         {{Form::model($entity)}}
                         {{Form::token()}}
@@ -112,7 +119,7 @@
                                 <button class="btn btn-primary" type="submit">Save changes</button>
                             </div>
                         </div>
-                            {!! Form::close() !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

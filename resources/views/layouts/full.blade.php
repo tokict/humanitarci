@@ -171,7 +171,8 @@
         }, false)
     } catch (e) {
     }</script>
-<script type="text/javascript" src="/front/js/jquery.downCount.js"></script>
+
+
 
 <script>
     window.fbAsyncInit = function() {

@@ -27,8 +27,8 @@ class CampaignController extends Controller
 
     public function listing()
     {
-        if (!Auth::User()->is_super_admin) {
-            $campaigns = Campaign::where('organization_id', Auth::User()->organization_id)->paginate(50);
+        if (!Auth::User()->super_admin) {
+            $campaigns = Campaign::where('organization_id', Auth::User()->admin->organization_id)->paginate(50);
         } else {
             $campaigns = Campaign::paginate(50);
         }
@@ -55,7 +55,7 @@ class CampaignController extends Controller
 
                 'name' => 'required|max:100',
                 'beneficiary_id' => 'required|numeric',
-                'organization_id' => 'required|max:3|numeric',
+                'organization_id' => 'required|numeric',
                 'starts_time' => 'required_with:starts_date',
                 'ends_time' => 'required_with:ends_date',
                 'starts_date' => 'required_with:starts_time',
@@ -96,7 +96,7 @@ class CampaignController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['cover_photo_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -108,7 +108,7 @@ class CampaignController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['registration_doc_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -119,7 +119,7 @@ class CampaignController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['action_plan_doc_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -130,7 +130,7 @@ class CampaignController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['distribution_plan_doc_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -141,7 +141,7 @@ class CampaignController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['registration_request_doc_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -152,7 +152,7 @@ class CampaignController extends Controller
                     [
                         'campaign_id' => $campaign->id,
                         'media_id' => $input['beneficiary_request_doc_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->id
 
                     ]
@@ -168,7 +168,7 @@ class CampaignController extends Controller
                                 [
                                     'campaign_id' => $campaign->id,
                                     'media_id' => $id,
-                                    'organization_id' => Auth::User()->organization_id,
+                                    'organization_id' => Auth::User()->admin->organization_id,
                                     'user_id' => Auth::User()->id
                                 ]
                             );
@@ -193,7 +193,7 @@ class CampaignController extends Controller
 
     public function edit($request, $id)
     {
-        $campaign = Campaign::whereId($id)->get()->first();
+        $campaign = Campaign::find($id);
         $old_cover_id = $campaign->cover_photo_id;
         $old_media_info = $campaign->media_info;
 
@@ -207,7 +207,7 @@ class CampaignController extends Controller
 
                 'name' => 'required|max:100',
                 'beneficiary_id' => 'required|numeric',
-                'organization_id' => 'required|max:3|numeric',
+                'organization_id' => 'required|numeric',
                 'starts_time' => 'required_with:starts_date',
                 'ends_time' => 'required_with:ends_date',
                 'starts_date' => 'required_with:starts_time',
@@ -244,7 +244,7 @@ class CampaignController extends Controller
                         [
                             'campaign_id' => $campaign->id,
                             'media_id' => $input['cover_photo_id'],
-                            'organization_id' => Auth::User()->organization_id,
+                            'organization_id' => Auth::User()->admin->organization_id,
                             'user_id' => Auth::User()->id
 
                         ]
@@ -266,7 +266,7 @@ class CampaignController extends Controller
                                     [
                                         'campaign_id' => $campaign->id,
                                         'media_id' => $id,
-                                        'organization_id' => Auth::User()->organization_id,
+                                        'organization_id' => Auth::User()->admin->organization_id,
                                         'user_id' => Auth::User()->id
                                     ]
                                 );
@@ -323,7 +323,7 @@ class CampaignController extends Controller
             $input = Input::all();
 
             if($input['amount'] > $campaign->current_funds){
-                //User is not able to sumbit amount higher than current amount so its ok to die
+                //User is not able to submit amount higher than current amount so its ok to die
                 die;
             }
 
@@ -344,7 +344,7 @@ class CampaignController extends Controller
                     ]
                 );
             }else{
-                session()->flash('success', 'Amount succesfully taken!');
+                session()->flash('success', 'Amount successfully taken!');
             }
         }
 
@@ -387,7 +387,7 @@ class CampaignController extends Controller
                         [
                             'campaign_id' => $campaign->id,
                             'media_id' => $id,
-                            'organization_id' => Auth::User()->organization_id,
+                            'organization_id' => Auth::User()->admin->organization_id,
                             'user_id' => Auth::User()->id
 
                         ]

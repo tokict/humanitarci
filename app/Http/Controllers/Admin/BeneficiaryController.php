@@ -62,7 +62,7 @@ class BeneficiaryController extends Controller
                     [
                         'beneficiary_id' => $beneficiary->id,
                         'media_id' => $input['profile_photo_id'],
-                        'organization_id' => Auth::User()->organization_id,
+                        'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->user_id
 
                     ]
@@ -77,7 +77,7 @@ class BeneficiaryController extends Controller
                                 [
                                     'beneficiary_id' => $beneficiary->id,
                                     'media_id' => $id,
-                                    'organization_id' => Auth::User()->organization_id,
+                                    'organization_id' => Auth::User()->admin->organization_id,
                                     'user_id' => Auth::User()->id
                                 ]
                             );
@@ -121,7 +121,7 @@ class BeneficiaryController extends Controller
                         [
                             'beneficiary_id' => $beneficiary->id,
                             'media_id' => $beneficiary->prodile_image->id,
-                            'organization_id' => Auth::User()->organization_id,
+                            'organization_id' => Auth::User()->admin->organization_id,
                             'user_id' => Auth::User()->user_id
 
                         ]

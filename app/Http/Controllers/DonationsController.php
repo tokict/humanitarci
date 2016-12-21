@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Person;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -53,7 +54,7 @@ class DonationsController extends Controller
                     foreach ($donations as &$d) {
                         //Exists, Add the amount to existing donation
                         if ($d['campaign'] == $campaignId && $d['type'] == $type) {
-                            $d['amount'] =$d['amount'] += $amount;
+                            $d['amount'] = $d['amount'] += $amount;
                             $exists = true;
 
                         }
@@ -62,7 +63,7 @@ class DonationsController extends Controller
                 //New donation
                 if (!$exists) {
                     session()->push('donations', ['campaign' => $campaign->id, 'type' => $type, 'amount' => $amount]);
-                }else{
+                } else {
                     session()->put('donations', $donations);
                 }
 
@@ -78,9 +79,13 @@ class DonationsController extends Controller
      */
     public function cart($request, $id)
     {
+        $provider_tax = Setting::getSetting('payment_provider_tax')->value;
+        $platform_tax = Setting::getSetting('payment_platform_tax')->value;
+        $bank_tax = Setting::getSetting('payment_bank_tax')->value;
 
         $total = 0;
         $taxes = 0;
+        $totalTaxes = $bank_tax+$platform_tax+$provider_tax;
         $totalWithTaxes = 0;
         $cart = !empty(session('donations')) ? session('donations') : [];
         $recurring = false;
@@ -96,7 +101,7 @@ class DonationsController extends Controller
             $total += $item['amount'];
             $tax = 0;
             $taxes += $tax;
-            $totalWithTaxes += $item['amount'] + $tax;
+            $totalWithTaxes += $item['amount'];
         }
 
 
@@ -108,7 +113,7 @@ class DonationsController extends Controller
 
                 $donations = Session::get('donations');
                 //Unset all paid donations from session
-                if($donations) {
+                if ($donations) {
                     foreach ($donations as $key => $item) {
                         if ($item['type'] == 'single') {
 
@@ -126,7 +131,7 @@ class DonationsController extends Controller
                 Session::set('donations', $donations);
 
                 return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'))
-                    ->with('success' ,trans('strings.payment.Payment was successful! Your donation should be visible in no later than 24 hours after payment'));
+                    ->with('success', trans('strings.payment.Payment was successful! Your donation should be visible in no later than 24 hours after payment'));
             }
 
             //Return fail
@@ -137,20 +142,20 @@ class DonationsController extends Controller
         }
 
 
-            if($cart) {
-                $order = $this->process();
-            }else{
-                $order = null;
-            }
+        if ($cart) {
+            $order = $this->process();
+        } else {
+            $order = null;
+        }
 
-            return view('donation.cart', [
-                'donations' => $cart,
-                'total' => $total,
-                'taxes' => $taxes,
-                'totalWithTaxes' => $totalWithTaxes,
-                'recurring' => $recurring,
-                'order' => $order
-            ]);
+        return view('donation.cart', [
+            'donations' => $cart,
+            'total' => $total,
+            'taxes' => ['bank_tax' => $bank_tax, 'credit_card_processor_tax' => $provider_tax, 'platform_tax' => $platform_tax],
+            'total_tax' => $totalTaxes,
+            'recurring' => $recurring,
+            'order' => $order
+        ]);
 
     }
 
@@ -166,7 +171,7 @@ class DonationsController extends Controller
 
         //Do donation processing
         //Process single in one payment, recurring when singles are done
-        if(!empty(Session::get('donations'))) {
+        if (!empty(Session::get('donations'))) {
             $orderSingle = new \App\Entities\Order(Session::get('donations'));
             if ($orderSingle) {
 
@@ -195,7 +200,6 @@ class DonationsController extends Controller
 
         return redirect()->back()->with('success', [trans('Item removed')]);
     }
-
 
 
 }

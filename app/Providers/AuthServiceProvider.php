@@ -47,10 +47,12 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->super_admin) {
                 return true;
             }else{
-                if($params['action'] == 'edit'){
-                    $campaign = Campaign::find((int) $params['params'])->first();
-                    return $user->id == $campaign->created_by_id;
-                }
+                if($params['action'] == 'edit') {
+                $campaign = Campaign::whereId((int)$params['params'])->get()->first();
+                return isset($user->admin->organization) && $user->admin->organization->id == $campaign->organization->id;
+            }
+
+
                 return true;
             }
             return false;
@@ -66,13 +68,14 @@ class AuthServiceProvider extends ServiceProvider
                 return true;
             }else{
                 if($params['action'] == 'edit'){
-                    $beneficiary = Beneficiary::find((int) $params['params'])->first();
-                    return $user->id == $beneficiary->created_by_id;
+                    $beneficiary = Beneficiary::whereId((int) $params['params'])->get()->first();;
+                    return isset($user->admin->organization) && $user->admin->organization->id == $beneficiary->creator->admin->organization->id ;
                 }
                 return true;
             }
             return false;
         });
+
 
         $gate->define('BankController', function ($user,  $params) {
 
@@ -103,6 +106,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
         $gate->define('AdminController', function ($user, $params) {
+
             if (!$user->super_admin && !$user->admin) {
                 return false;
             }
@@ -113,9 +117,28 @@ class AuthServiceProvider extends ServiceProvider
 
 
         $gate->define('PersonController', function ($user, $params) {
-            if (!$user->super_admin && !$user->admin) {
+
+            if ($user->super_admin) {
+                return true;
+            }else{
                 return false;
             }
+            return false;
+        });
+
+        $gate->define('SettingsController', function ($user, $params) {
+
+            if ($user->super_admin) {
+                return true;
+            }else{
+                return false;
+            }
+            return false;
+        });
+
+
+        $gate->define('LogController', function ($user, $params) {
+
 
             if ($user->super_admin) {
                 return true;
@@ -156,7 +179,7 @@ class AuthServiceProvider extends ServiceProvider
             }else{
                 if($params['action'] == 'edit'){
                     $organization = Organization::find((int) $params['params'])->first();
-                    return isset($user->organization) && $user->organization->id == $organization->id?true:false;
+                    return isset($user->admin->organization) && $user->admin->organization->id == $organization->id?true:false;
                 }
                 return true;
             }
@@ -170,9 +193,10 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->super_admin) {
                 return true;
             }else{
-
-                    $donation = Donation::find((int) $params['params'])->first();
-                    return isset($user->organization) && $user->organization->id == $donation->organization->id?true:false;
+                    if(isset($params['params'])) {
+                        $donation = Donation::whereId((int)$params['params'])->get()->first();
+                        return isset($user->admin->organization) && $user->admin->organization->id == $donation->organization->id ? true : false;
+                    }
 
                 return true;
             }

@@ -16,8 +16,8 @@
 
 //Free to browse controllers
 Route::get('/', 'HomeController@home');
-Route::get("/login", 'Auth\AuthController@login');
-Route::post("/login", 'Auth\AuthController@login');
+
+Route::match(array('GET', 'POST'), "/login", 'Auth\AuthController@login');
 Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsController@newsletterSignup');
 Route::match(array('GET'),'/'.Lang::get('routes.front.campaigns',[], env('LANGUAGE')).'/{action}/{params?}', 'CampaignsController@index');
 Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.donors',[], env('LANGUAGE')).'/{action}/{params?}', 'DonorsController@index');
@@ -72,6 +72,12 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'], function () {
 
     //Filemanager
     Route::match(array('GET', 'POST', 'FILES'),'/file/{action}/{params?}', 'Admin\FileController@index');
+
+    //Logs
+    Route::match(array('GET', 'POST'),'/log/{action}/{params?}', 'Admin\LogController@index');
+
+    //Settings
+    Route::match(array('GET', 'POST'),'/settings/{action}/{params?}', 'Admin\SettingsController@index');
 
 
 });

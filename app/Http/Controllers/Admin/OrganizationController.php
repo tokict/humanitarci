@@ -80,7 +80,7 @@ class OrganizationController extends Controller
                 'contact_email' => 'max:100',
                 'contact_phone' => 'max:100',
                 'represented_by' => 'required',
-                'status' => 'required|numeric',
+                'status' => 'required',
                 'city_id' => 'required|numeric',
 
 

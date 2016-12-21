@@ -66,4 +66,9 @@ class BaseModel extends Eloquent
 	}
 
 
+	public function getTableColumns() {
+		return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
+	}
+
+
 }

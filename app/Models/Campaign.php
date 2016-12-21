@@ -151,6 +151,8 @@ use Carbon\Carbon;
  *
  * @property \Illuminate\Database\Eloquent\Collection $monetary_inputs
  *
+ * @property \Illuminate\Database\Eloquent\Collection $monetary_outputs
+ *
  * @property \Illuminate\Database\Eloquent\Collection $subscriptions
  *
  * @property \Illuminate\Database\Eloquent\Collection $transactions
@@ -284,6 +286,11 @@ class Campaign extends BaseModel
     public function monetary_inputs()
     {
         return $this->hasMany(\App\Models\MonetaryInput::class);
+    }
+
+    public function monetary_outputs()
+    {
+        return $this->hasMany(\App\Models\MonetaryOutput::class);
     }
 
     public function subscriptions()
@@ -445,6 +452,9 @@ class Campaign extends BaseModel
     }
 
 
+    /**
+     * @return int Amount taken
+     */
     public function getTakenFunds()
     {
         $taken = MonetaryOutput::whereCampaignId($this->getAtt('id'))->get()->sum('amount');

@@ -34,6 +34,13 @@
                                 </ul>
                             </div>
                         @endif
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
+                            </div>
+                        @endif
                         {!! Form::open(['url' => '/admin/beneficiary/create', 'class' => 'form-horizontal']) !!}
                         {{Form::token()}}
                         <div class="hr-line-dashed"></div>
@@ -120,7 +127,7 @@
                                 <button class="btn btn-primary" type="submit">Save changes</button>
                             </div>
                         </div>
-                            {!! Form::close() !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

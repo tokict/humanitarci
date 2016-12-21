@@ -102,3 +102,7 @@ span.donator {
     left: 1px;
     position: relative;
 }
+
+.blog-item-body {
+    min-height: 500px;
+}

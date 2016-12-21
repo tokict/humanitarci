@@ -89,7 +89,7 @@
                     <div class="row">
 
                         {!! Form::open(['url' => env('PAYMENT_ENDPOINT'), 'class' => 'form-horizontal', 'id' => 'processForm' , 'method' => 'post']) !!}
-
+                        {{Form::model($order)}}
                         <div class="col-sm-6" id="payeeInfo">
                             @if(!Auth::check())
                                 <h3 class="small-title font-alt">Podatci o uplatitelju</h3>
@@ -135,11 +135,12 @@
                                            pattern=".{3,100}"/>
                                 </div>
                                 <div class="mb-10">
-                                    <input placeholder="Kontakt telefon" name="cardholder_phone" class="input-md form-control"
+                                    <input placeholder="Kontakt telefon" name="cardholder_phone"
+                                           class="input-md form-control"
                                            type="text"
                                            pattern=".{3,100}"/>
                                 </div>
-                                {{Form::hidden('order_token', $order->order_token)}}
+                                {{Form::text('order_token', $order->order_token)}}
 
                             @endif
                         </div>
@@ -148,26 +149,33 @@
 
 
                             <div>
-                                Ukupna donacija: <strong>{{number_format($total, 2)}} {{env('CURRENCY')}}</strong>
+                                Ukupna donacija:
+                                <strong>{{number_format($total-$total_tax, 2)}} {{env('CURRENCY')}}</strong>
                             </div>
 
                             <div class="mb-10">
-                                Naknade: <strong>{{number_format($taxes, 2)}} {{env('CURRENCY')}}</strong>
+                                Naknade: <strong>{{number_format($total_tax, 2)}} {{env('CURRENCY')}}</strong>
+                                <div>
+                                    @foreach($taxes as $key => $value)
+                                        <small>{{ucfirst(trans('strings.misc.'.$key))}}: {{$total/100*$value}} {{env('CURRENCY')}}</small><br/>
+                                    @endforeach
+                                </div>
+
                             </div>
 
                             <div class="lead mt-0 mb-30">
-                                Za donirati: <strong>{{number_format($totalWithTaxes, 2)}} {{env('CURRENCY')}}</strong>
+                                Za donirati: <strong>{{number_format($total, 2)}} {{env('CURRENCY')}}</strong>
                             </div>
 
-                            {{Form::hidden('target', $order->target)}}
-                            {{Form::hidden('cart', $order->cart)}}
-                            {{Form::hidden('mode', $order->mode)}}
-                            {{Form::hidden('store_id', $order->store_id)}}
-                            {{Form::hidden('order_number', $order->order_number)}}
-                            {{Form::hidden('language', $order->language)}}
-                            {{Form::hidden('currency', $order->currency)}}
-                            {{Form::hidden('amount', $order->amount)}}
-                            {{Form::hidden('hash', $order->hash)}}
+                            {{Form::hidden('target')}}
+                            {{Form::hidden('cart')}}
+                            {{Form::hidden('mode')}}
+                            {{Form::hidden('store_id')}}
+                            {{Form::hidden('order_number')}}
+                            {{Form::hidden('language')}}
+                            {{Form::hidden('currency')}}
+                            {{Form::hidden('amount')}}
+                            {{Form::hidden('hash')}}
                             @if(isset( \Illuminate\Support\Facades\Auth::User()->person))
                                 {{Form::hidden('cardholder_name', \Illuminate\Support\Facades\Auth::User()->person->first_name)}}
                                 {{Form::hidden('cardholder_surname', \Illuminate\Support\Facades\Auth::User()->person->last_name)}}
@@ -178,10 +186,10 @@
                                 {{Form::hidden('cardholder_address', \Illuminate\Support\Facades\Auth::User()->person->address)}}
                                 {{Form::hidden('cardholder_phone', \Illuminate\Support\Facades\Auth::User()->person->contact_phone)}}
                             @endif
-                            {{Form::hidden('require_complete', $order->require_complete)}}
+                            {{Form::hidden('require_complete')}}
                             <div>
                                 <button type="button" class="btn btn-mod btn-round btn-large" id="processFormBtn">
-                                    Plati
+                                    <i class="fa fa-2x fa-heart"></i> Doniraj
                                 </button>
                             </div>
 

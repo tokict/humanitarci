@@ -68,7 +68,7 @@ namespace App\Models;
  *
  * @property \App\Models\Person $person
  *
- * @property \App\User$creator
+ * @property \App\User $creator
  * User object belonging to this beneficiary
  *
  * @property \App\Models\Group $group

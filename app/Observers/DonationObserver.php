@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -29,6 +30,7 @@ class DonationObserver
         $campaign = Campaign::find($donation->campaign_id);
         $campaign->recalculate();
         $campaign->save();
+
 
         Mail::queue('emails.donation_thankyou', ['user' => $donor->user, 'donation' => $donation, 'campaign' => $campaign], function ($m) use ($donor) {
 

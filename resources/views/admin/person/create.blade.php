@@ -34,76 +34,83 @@
                                 </ul>
                             </div>
                         @endif
-                            {!! Form::open(['url' => '/admin/person/create', 'class' => 'form-horizontal']) !!}
-                            {{Form::token()}}
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-1">
-                                    <label class="control-label">Title</label>
-                                    {{Form::text('title', null,['class' =>'form-control' ] )}}
-                                    <span class="help-block m-b-none">(Mr. Ms. , etc..)</span>
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">First name</label>
-                                    {{Form::text('first_name', null,['class' =>'form-control' ] )}}
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">Middle name</label>
-                                    {{Form::text('middle_name', null,['class' =>'form-control' ] )}}
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">Last name</label>
-                                    {{Form::text('last_name', null,['class' =>'form-control' ] )}}
-                                </div>
-                                <div class="col-sm-2"><label class="control-label">Gender</label>
-                                    {{Form::select('gender', $person->getEnumValues('gender'), null, ['class' => 'form-control'])}}
-                                </div>
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
                             </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Social ID</label>
-                                <div class="col-sm-3">
-                                    {{Form::text('social_id', null,['class' =>'form-control' ] )}}
-                                    <span class="help-block m-b-none">ID that government uses to identify this person (Social security or tax number i.e)</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
-                                <div class="col-sm-5">
-                                    {{Form::select('city_id', ["" => 'Select'], null, ['class' => 'form-control selectCity'])}}
-                                    <span class="help-block m-b-none">City of residence</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Address</label>
-                                <div class="col-sm-4">
-                                    {{Form::text('address', null,['class' =>'form-control' ] )}}
-                                    <span class="help-block m-b-none">Current address</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Phone</label>
-                                <div class="col-sm-2">
-                                    {{Form::text('contact_phone', null,['class' =>'form-control' ] )}}
-                                    <span class="help-block m-b-none">Contact phone</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-3">
-                                    {{Form::email('contact_email', null,['class' =>'form-control' ] )}}
-                                    <span class="help-block m-b-none">Contact email</span>
-                                </div>
+                        @endif
+                        {!! Form::open(['url' => '/admin/person/create', 'class' => 'form-horizontal']) !!}
+                        {{Form::token()}}
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-1">
+                                <label class="control-label">Title</label>
+                                {{Form::text('title', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">(Mr. Ms. , etc..)</span>
                             </div>
 
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <a class="btn btn-white" href="/admin/person/listing">Cancel</a>
-                                    <button class="btn btn-primary" type="submit">Save changes</button>
-                                </div>
+                            <div class="col-sm-2"><label class="control-label">First name</label>
+                                {{Form::text('first_name', null,['class' =>'form-control' ] )}}
                             </div>
-                            {!! Form::close() !!}
+
+                            <div class="col-sm-2"><label class="control-label">Middle name</label>
+                                {{Form::text('middle_name', null,['class' =>'form-control' ] )}}
+                            </div>
+
+                            <div class="col-sm-2"><label class="control-label">Last name</label>
+                                {{Form::text('last_name', null,['class' =>'form-control' ] )}}
+                            </div>
+                            <div class="col-sm-2"><label class="control-label">Gender</label>
+                                {{Form::select('gender', $person->getEnumValues('gender'), null, ['class' => 'form-control'])}}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Social ID</label>
+                            <div class="col-sm-3">
+                                {{Form::text('social_id', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">ID that government uses to identify this person (Social security or tax number i.e)</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
+                            <div class="col-sm-5">
+                                {{Form::select('city_id', ["" => 'Select'], null, ['class' => 'form-control selectCity'])}}
+                                <span class="help-block m-b-none">City of residence</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-4">
+                                {{Form::text('address', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Current address</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Phone</label>
+                            <div class="col-sm-2">
+                                {{Form::text('contact_phone', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Contact phone</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-3">
+                                {{Form::email('contact_email', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Contact email</span>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <a class="btn btn-white" href="/admin/person/listing">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Save changes</button>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

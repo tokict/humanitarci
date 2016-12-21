@@ -34,6 +34,13 @@
                                 </ul>
                             </div>
                         @endif
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
+                            </div>
+                        @endif
                         {!! Form::open(['url' => '/admin/beneficiary/edit/'.$beneficiary->id, 'class' => 'form-horizontal']) !!}
                         {{Form::model($beneficiary)}}
                         {{Form::token()}}
@@ -64,7 +71,8 @@
                                 </button>
                                 <div class="row">
                                     <div class="col-md-3 p-b-5">
-                                        <img src="{{$beneficiary->profile_image->getPath('thumb')}}" class="img-responsive">
+                                        <img src="{{$beneficiary->profile_image->getPath('thumb')}}"
+                                             class="img-responsive">
                                     </div>
 
                                 </div>
@@ -147,7 +155,7 @@
                                 <button class="btn btn-primary" type="submit">Save changes</button>
                             </div>
                         </div>
-                            {!! Form::close() !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

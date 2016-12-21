@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\MonetaryInput;
 use App\Models\Order;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -73,6 +74,11 @@ class CheckPayments extends Command
     public function doAction()
     {
         $this->info(count($this->orders)." orders to process");
+        $provider_tax = Setting::getSetting('payment_provider_tax')->value;
+        $platform_tax = Setting::getSetting('payment_platform_tax')->value;
+        $bank_tax = Setting::getSetting('payment_bank_tax')->value;
+        $tax = $bank_tax+$platform_tax+$provider_tax;
+
         foreach($this->orders as $order){
 
 
@@ -93,8 +99,8 @@ class CheckPayments extends Command
                     'payment_provider_data_id' => $check['payment_provider_data_id']
                 ];
 
-                $input = new MonetaryInput($inputData);
-                if($input->save()){
+
+                if(MonetaryInput::create($inputData)){
                     $this->info("Payment entered into the system");
                 }else{
                     $this->info("Payment CANNOT be entered into the system");
