@@ -19,7 +19,45 @@ class LegalEntityController extends Controller
 
     public function listing()
     {
-        $entities = LegalEntity::paginate(15);
+        if (!Input::get('search')) {
+            $order = Input::get('order');
+            if ($order) {
+                $sort = Input::get('dir');
+
+                $entities = LegalEntity::orderBy($order, $sort)->paginate(20);
+
+            } else {
+
+                $entities = LegalEntity::paginate(20);
+
+            }
+        } else {
+            $q = Input::get('search');
+            $entities = LegalEntity::with('City')
+                ->with('Bank')
+                ->with('Beneficiary')
+                ->with('Organization')
+                ->with('Person')
+                ->with('Donor')
+                ->where('name', 'like', '%' . $q . '%')
+                ->orWhere('tax_id', 'like', '%' . $q . '%')
+                ->orWhere('address', 'like', '%' . $q . '%')
+                ->orWhere('bank_acc', 'like', '%' . $q . '%')
+                ->orWhere('contact_phone', 'like', '%' . $q . '%')
+                ->orWhere('contact_email', 'like', '%' . $q . '%')
+                ->orWhereHas('Organization', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Bank', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Beneficiary', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Person', function ($x) use ($q) {
+                    $x->where('first_name', 'like', '%' . $q . '%')->orWhere('last_name', 'like', '%' . $q . '%');
+                })->paginate(20);
+        }
         return view('admin.legal-entity.listing', ['legalEntities' => $entities]);
     }
 

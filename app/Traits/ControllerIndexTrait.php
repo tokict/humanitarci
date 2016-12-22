@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use Illuminate\Support\Facades\Input;
 use Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -22,16 +23,21 @@ trait ControllerIndexTrait
     protected $action;
     protected $params;
     protected $page;
+    protected $input;
 
     public function __construct()
     {
+
+
         $request = Route::current();
         $routeArray = $request->getAction();
         $this->action = !empty(Route::current()->parameters()['action'])?Route::current()->parameters()['action']:null;
         $controllerAction = class_basename($routeArray['controller']);
         $this->controller = explode('@', $controllerAction)[0];
         $this->params = $request->parameters();
-
+        if(Request::isMethod('get')) {
+            $this->input = Input::all();
+        }
 
         if ($request->getPrefix() != "/admin") {
             if(!Request::ajax()) {
@@ -50,7 +56,7 @@ trait ControllerIndexTrait
         $this->page->url = env('APP_URL');
         $this->page->image = env('PROJECT_LOGO');
 
-        View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params, 'page' => $this->page]);
+        View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params, 'page' => $this->page, 'input' => $this->input]);
     }
 
     public function index(\Illuminate\Http\Request $request)

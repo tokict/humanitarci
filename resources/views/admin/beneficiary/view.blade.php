@@ -21,14 +21,14 @@
                             <h4>{{isset($beneficiary->legalEntity)?"Legal entity":''}}</h4>
                             <small>
                                 @if(isset($beneficiary->person))
-                                    {{$beneficiary->person->city->name}}, {{$beneficiary->person->city->region->name}}
+                                    {{$beneficiary->person->city}}, {{$beneficiary->person->city}}
                                 @elseif(isset($beneficiary->legalEntity))
-                                    {{$beneficiary->legalEntity->city->name}}
+                                    {{$beneficiary->legalEntity->city}}
                                     , {{$beneficiary->legalEntity->city->region->name}}
                                 @else
                                     @if(isset($beneficiary->person))
-                                        {{$beneficiary->group->person->city->name}}
-                                        , {{$beneficiary->group->person->city->region->name}}
+                                        {{$beneficiary->group->person->city}}
+                                        , {{$beneficiary->group->person->city}}
                                     @else
                                         {{$beneficiary->group->legalEntity->city->name}}
                                         , {{$beneficiary->group->legalEntity->city->region->name}}

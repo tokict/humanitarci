@@ -27,15 +27,51 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
+                            <div class="col-md-12 text-center">
+                                {{$donors->appends($input)->links()}}
+                            </div>
                             <table class="table table-striped table-bordered table-hover campaigns-table">
                                 <thead>
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Person / Entity</th>
-                                    <th>Amount donated</th>
-                                    <th>Total donations</th>
-                                    <th>Registered at</th>
+                                    <th>@if(\Illuminate\Support\Facades\Input::get('order')=='amount_donated')
+                                            @if(\Illuminate\Support\Facades\Input::get('dir')=='desc')
+                                                <a href="?order=amount_donated&dir=asc">Amount donated <i
+                                                            class="fa fa-sort-amount-desc"></i></a>
+                                            @else
+                                                <a href="?order=amount_donated&dir=desc">Amount donated <i
+                                                            class="fa fa-sort-amount-asc"></i></a>
+                                            @endif
+                                        @else()
+                                            <a href="?order=amount_donated&dir=asc">Amount donated <i
+                                                        class="fa fa-sort-amount-desc"></i></a>
+                                        @endif</th>
+                                    <th>@if(\Illuminate\Support\Facades\Input::get('order')=='total_donations')
+                                            @if(\Illuminate\Support\Facades\Input::get('dir')=='desc')
+                                                <a href="?order=total_donations&dir=asc">Total donations <i
+                                                            class="fa fa-sort-amount-desc"></i></a>
+                                            @else
+                                                <a href="?order=total_donations&dir=desc">Total donations  <i
+                                                            class="fa fa-sort-amount-asc"></i></a>
+                                            @endif
+                                        @else()
+                                            <a href="?order=total_donations&dir=asc">Total donations  <i
+                                                        class="fa fa-sort-amount-desc"></i></a>
+                                        @endif</th>
+                                    <th>@if(\Illuminate\Support\Facades\Input::get('order')=='created_at')
+                                            @if(\Illuminate\Support\Facades\Input::get('dir')=='desc')
+                                                <a href="?order=created_at&dir=asc">Registered at<i
+                                                            class="fa fa-sort-amount-desc"></i></a>
+                                            @else
+                                                <a href="?order=created_at&dir=desc">Registered at  <i
+                                                            class="fa fa-sort-amount-asc"></i></a>
+                                            @endif
+                                        @else()
+                                            <a href="?order=created_at&dir=asc">Registered at  <i
+                                                        class="fa fa-sort-amount-desc"></i></a>
+                                        @endif</th>
                                     <th>Last donation</th>
                                     <th>Actions</th>
                                 </tr>
@@ -88,6 +124,9 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="col-md-12 text-center">
+                                {{$donors->appends($input)->links()}}
+                            </div>
                         </div>
 
                     </div>

@@ -27,10 +27,39 @@ class CampaignController extends Controller
 
     public function listing()
     {
-        if (!Auth::User()->super_admin) {
-            $campaigns = Campaign::where('organization_id', Auth::User()->admin->organization_id)->paginate(50);
+        if (!Input::get('search')) {
+            $order = Input::get('order');
+            if ($order) {
+                $sort = Input::get('dir');
+                if (!Auth::User()->super_admin) {
+                    $campaigns = Campaign::where('organization_id', Auth::User()->admin->organization_id)->orderBy($order, $sort)->paginate(50);
+                } else {
+                    $campaigns = Campaign::orderBy($order, $sort)->paginate(20);
+                }
+            } else {
+
+                if (!Auth::User()->super_admin) {
+                    $campaigns = Campaign::where('organization_id', Auth::User()->admin->organization_id)->paginate(50);
+                } else {
+                    $campaigns = Campaign::paginate(20);
+                }
+            }
         } else {
-            $campaigns = Campaign::paginate(50);
+            $q = Input::get('search');
+            $campaigns = Campaign::with('Beneficiary')->with('Organization')
+                ->where('name', 'like', '%' . $q . '%')
+                ->orWhere('description_short', 'like', '%' . $q . '%')
+                ->orWhere('description_full', 'like', '%' . $q . '%')
+                ->orWhere('slug', 'like', '%' . $q . '%')
+                ->orWhere('reference_id', 'like', '%' . $q . '%')
+                ->orWhere('end_notes', 'like', '%' . $q . '%')
+                ->orWhere('registration_code', 'like', '%' . $q . '%')
+                ->orWhereHas('Organization', function($x) use ($q){
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Beneficiary', function($x) use ($q){
+                    $x->where('name', 'like', '%' . $q . '%');
+                })->paginate(20);
         }
 
 
@@ -322,14 +351,14 @@ class CampaignController extends Controller
             ]);
             $input = Input::all();
 
-            if($input['amount'] > $campaign->current_funds){
+            if ($input['amount'] > $campaign->current_funds) {
                 //User is not able to submit amount higher than current amount so its ok to die
                 die;
             }
 
 
             //We calculate all without floating point
-            $input['amount'] = $input['amount']*100;
+            $input['amount'] = $input['amount'] * 100;
             $input['action_time'] = date("Y-m-d H:i:s",
                 strtotime($input['action_date'] . " " . $input['action_time']));
 
@@ -343,7 +372,7 @@ class CampaignController extends Controller
                         'user' => Auth::User()->id,
                     ]
                 );
-            }else{
+            } else {
                 session()->flash('success', 'Amount successfully taken!');
             }
         }
@@ -376,7 +405,7 @@ class CampaignController extends Controller
             ]);
             $input = Input::all();
 
-            if(isset($input['end_media_info'])) {
+            if (isset($input['end_media_info'])) {
                 foreach (explode(',', $input['end_media_info']) as $id) {
                     $doc = Media::whereId($id)->get();
                     if (!$doc) {

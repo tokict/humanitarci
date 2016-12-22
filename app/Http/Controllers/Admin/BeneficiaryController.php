@@ -21,7 +21,33 @@ class BeneficiaryController extends Controller
 
     public function listing()
     {
-        $beneficiaries = Beneficiary::paginate(15);
+
+        if (!Input::get('search')) {
+            $order = Input::get('order');
+            if ($order) {
+                $sort = Input::get('dir');
+                $beneficiaries = Beneficiary::orderBy($order, $sort)->paginate(20);
+
+            } else {
+
+                $beneficiaries = Beneficiary::paginate(20);
+
+            }
+        } else {
+            $q = Input::get('search');
+            $beneficiaries = Beneficiary::with('Group')->with('Person')->with('LegalEntity')
+                ->where('name', 'like', '%' . $q . '%')
+                ->orWhereHas('Group', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('LegalEntity', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Person', function ($x) use ($q) {
+                    $x->where('first_name', 'like', '%' . $q . '%')->orWhere('last_name', 'like', '%' . $q . '%');
+                })->paginate(20);
+        }
+
         return view('admin.beneficiary.listing', ['beneficiaries' => $beneficiaries]);
     }
 
@@ -31,7 +57,7 @@ class BeneficiaryController extends Controller
         $beneficiary = Beneficiary::find($id)->first();
 
         $media_info = Media::whereIn('id', explode(",", $beneficiary->media_info))->get();
-        $beneficiary->beneficiary_media= $media_info;
+        $beneficiary->beneficiary_media = $media_info;
 
         return view('admin.beneficiary.view', ['beneficiary' => $beneficiary]);
     }
@@ -136,7 +162,7 @@ class BeneficiaryController extends Controller
             }
         }
         $media_info = Media::whereIn('id', explode(",", $beneficiary->media_info))->get();
-        $beneficiary->beneficiary_media= $media_info;
+        $beneficiary->beneficiary_media = $media_info;
         return view('admin.beneficiary.edit', ['beneficiary' => $beneficiary]);
 
     }

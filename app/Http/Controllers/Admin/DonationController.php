@@ -12,7 +12,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Media;
 
 
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -25,10 +24,40 @@ class DonationController extends Controller
 
     public function listing()
     {
-        if (!Auth::User()->super_admin) {
-            $donations = Donation::where('organization_id', Auth::User()->admin->organization_id)->paginate(50);
+        if (!Input::get('search')) {
+            $order = Input::get('order');
+            if ($order) {
+                $sort = Input::get('dir');
+                if (!Auth::User()->super_admin) {
+                    $donations = Donation::where('organization_id', Auth::User()->admin->organization_id)->orderBy($order, $sort)->paginate(50);
+                } else {
+                    $donations = Donation::orderBy($order, $sort)->paginate(20);
+                }
+            } else {
+
+                if (!Auth::User()->super_admin) {
+                    $donations = Donation::where('organization_id', Auth::User()->admin->organization_id)->paginate(50);
+                } else {
+                    $donations = Donation::paginate(20);
+                }
+            }
         } else {
-            $donations = Donation::paginate(50);
+            $q = Input::get('search');
+            $donations = Donation::with('Beneficiary')->with('Campaign')->with('Donor')->with('Organization')
+                ->whereHas('Beneficiary', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Organization', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Donor', function ($x) use ($q) {
+                    $x->with('User')->whereHas('User',function ($x) use ($q) {
+                        $x->where('username', 'like', '%' . $q . '%');
+                    });
+                })
+                ->orWhereHas('Campaign', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })->paginate(20);
         }
 
 
@@ -39,7 +68,6 @@ class DonationController extends Controller
     {
 
         $donation = Donation::whereId($id)->get()->first();
-
 
 
         return view('admin.donation.view', ['donation' => $donation]);

@@ -250,10 +250,10 @@
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
 
-                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                    <form role="search" method="GET" class="navbar-form-custom" action="listing">
                         <div class="form-group">
                             <input type="text" placeholder="Search for something..." class="form-control"
-                                   name="top-search" id="top-search">
+                                   name="search" id="top-search">
                         </div>
                     </form>
                 </div>

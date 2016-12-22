@@ -25,6 +25,10 @@ namespace App\Models;
  * @property string $city_id
  * City id of conpany registration
  *
+ *
+ * @property string $organization_id
+ *
+ *
  * @property string $address
  * Company headquarters address
  *
@@ -49,6 +53,7 @@ namespace App\Models;
  * @property \App\Models\Donor $donor
  * @property \App\Models\Beneficiary $beneficiary
  * @property \App\Models\Person $person
+ * @property \App\Models\Organization $organization
  * @property \App\Models\Bank $bank
  * @property \Illuminate\Database\Eloquent\Collection $groups
  * @property \Illuminate\Database\Eloquent\Collection $organizations
@@ -116,6 +121,11 @@ class LegalEntity extends BaseModel
 	public function bank()
 	{
 		return $this->belongsTo(\App\Models\Bank::class);
+	}
+
+	public function organization()
+	{
+		return $this->belongsTo(\App\Models\Organization::class);
 	}
 
 	public function groups()

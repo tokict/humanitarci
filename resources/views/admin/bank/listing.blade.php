@@ -27,6 +27,9 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
+                            <div class="col-md-12 text-center">
+                                {{$banks->links()}}
+                            </div>
                             <table class="table table-striped table-bordered table-hover banks-table" >
                                 <thead>
                                 <tr>
@@ -65,6 +68,9 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="col-md-12 text-center">
+                                {{$banks->links()}}
+                            </div>
                         </div>
 
                     </div>

@@ -27,6 +27,9 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
+                            <div class="col-md-12 text-center">
+                                {{$legalEntities->appends($input)->links()}}
+                            </div>
                             <table class="table table-striped table-bordered table-hover legal-entities-table" >
                                 <thead>
                                 <tr>
@@ -86,6 +89,9 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="col-md-12 text-center">
+                                {{$legalEntities->appends($input)->links()}}
+                            </div>
                         </div>
 
                     </div>

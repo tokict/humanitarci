@@ -29,7 +29,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $country
  * @property string $zip
  * @property bool $donor_id
- * @property bool $beneficiary_id
  * @property bool $user_id
  * @property int $bank_id
  * @property string $bank_acc
@@ -66,9 +65,6 @@ class Person extends BaseModel
 	public $timestamps = false;
 
 	protected $casts = [
-		'is_donor' => 'bool',
-		'is_beneficiary' => 'bool',
-		'is_admin' => 'bool',
 		'bank_id' => 'int',
 		'device_id' => 'int'
 	];
@@ -83,7 +79,6 @@ class Person extends BaseModel
 		'last_name',
 		'social_id',
 		'city',
-		'beneficiary_id',
 		'donor_id',
 		'user_id',
 		'address',
@@ -103,10 +98,6 @@ class Person extends BaseModel
 		return $this->belongsTo(\App\Models\Bank::class);
 	}
 
-	public function donor()
-	{
-		return $this->belongsTo(\App\Models\Donor::class);
-	}
 
 	public function beneficiary()
 	{

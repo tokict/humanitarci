@@ -17,7 +17,31 @@ class DonorController extends Controller
 
     public function listing()
     {
-        $donors = Donor::paginate(50);
+        if (!Input::get('search')) {
+            $order = Input::get('order');
+            if ($order) {
+                $sort = Input::get('dir');
+
+                $donors = Donor::orderBy($order, $sort)->paginate(20);
+
+            } else {
+                $donors = Donor::paginate(20);
+
+            }
+        } else {
+            $q = Input::get('search');
+            $donors = Donor::with('Person')->with('Entity')->with('User')
+                ->whereHas('Person', function ($x) use ($q) {
+                    $x->where('first_name', 'like', '%' . $q . '%')->orWhere('last_name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('Entity', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('User', function ($x) use ($q) {
+                    $x->where('username', 'like', '%' . $q . '%');
+                })->paginate(20);
+        }
+
         return view('admin.donor.listing', ['donors' => $donors]);
     }
 
@@ -25,7 +49,6 @@ class DonorController extends Controller
     {
 
         $donor = Donor::find($id)->get()->first();
-
 
 
         return view('admin.donor.view', ['donor' => $donor]);
