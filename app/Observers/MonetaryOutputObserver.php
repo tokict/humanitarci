@@ -33,6 +33,10 @@ class MonetaryOutputObserver
 
     }
 
+    /**
+     * Create resources to track where did we take money from for this expense
+     * @param MonetaryOutput $monetaryOutput
+     */
     public function distributeAmount(MonetaryOutput $monetaryOutput)
     {
         $donations = $monetaryOutput->campaign->donations()->orderBy('created_at', 'asc')->get();

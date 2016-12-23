@@ -461,4 +461,9 @@ class Campaign extends BaseModel
 
         return $taken ? $taken : 0;
     }
+
+    public function getTotalDonationsFromDonor($id)
+    {
+        return Donation::where('donor_id', $id)->where('campaign_id', $this->getAtt('id'))->sum('amount');
+    }
 }

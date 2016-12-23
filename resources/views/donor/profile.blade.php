@@ -173,7 +173,9 @@
                         </div>
 
                         <div class="team-item-role">
-                            Put total donated amount for this campaign
+                            Donated:
+                            <br/>
+                            {{number_format($c->getTotalDonationsFromDonor($donor->id)/100)}} {{env('CURRENCY')}}
                         </div>
 
                     </div>

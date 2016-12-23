@@ -8,10 +8,9 @@
 namespace App\Models;
 
 
-
 /**
  * Class LegalEntity
- * 
+ *
  * @property int $id
  * @property string $name
  * Name of the legal entity
@@ -41,16 +40,19 @@ namespace App\Models;
  * @property bool $beneficiary_id
  * Is the organization a beneficiary
  *
+ * @property int $created_by
+ *
  *  * @property bool $donor_id
  * Is the organization a donor
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
- * 
+ *
  * @property \Illuminate\Database\Eloquent\Collection $beneficiaries
  * @property \App\Models\GroupLegalEntity $group_legal_entity
  * @property \App\Models\City $city
  * @property \App\Models\Donor $donor
+ * @property \App\Models\Admin $creator
  * @property \App\Models\Beneficiary $beneficiary
  * @property \App\Models\Person $person
  * @property \App\Models\Organization $organization
@@ -65,91 +67,97 @@ namespace App\Models;
  */
 class LegalEntity extends BaseModel
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $casts = [
-		'is_beneficiary' => 'bool'
-	];
+    protected $casts = [
+        'is_beneficiary' => 'bool',
+        'created_by' => 'int'
+    ];
 
-	protected $dates = [
-		'modified_at'
-	];
+    protected $dates = [
+        'modified_at'
+    ];
 
-	protected $fillable = [
-		'name',
-		'tax_id',
-		'city_id',
-		'address',
-		'bank_id',
-		'bank_acc',
-		'beneficiary_id',
-		'donor_id',
-		'contact_phone',
-		'contact_email',
-		'represented_by',
-		'modified_at'
-	];
-
-
-
-	public function group_legal_entity()
-	{
-		return $this->belongsTo(\App\Models\GroupLegalEntity::class);
-	}
-
-	public function city()
-	{
-		return $this->belongsTo(\App\Models\City::class);
-	}
-
-	public function donor()
-	{
-		return $this->belongsTo(\App\Models\Donor::class);
-	}
-
-	public function beneficiary()
-	{
-		return $this->belongsTo(\App\Models\Beneficiary::class);
-	}
+    protected $fillable = [
+        'name',
+        'tax_id',
+        'city_id',
+        'address',
+        'bank_id',
+        'bank_acc',
+        'beneficiary_id',
+        'donor_id',
+        'contact_phone',
+        'contact_email',
+        'represented_by',
+        'modified_at',
+        'created_by'
+    ];
 
 
-	public function person()
-	{
-		return $this->belongsTo(\App\Models\Person::class, 'represented_by');
-	}
+    public function group_legal_entity()
+    {
+        return $this->belongsTo(\App\Models\GroupLegalEntity::class);
+    }
 
-	public function bank()
-	{
-		return $this->belongsTo(\App\Models\Bank::class);
-	}
+    public function city()
+    {
+        return $this->belongsTo(\App\Models\City::class);
+    }
 
-	public function organization()
-	{
-		return $this->belongsTo(\App\Models\Organization::class);
-	}
+    public function donor()
+    {
+        return $this->belongsTo(\App\Models\Donor::class);
+    }
 
-	public function groups()
-	{
-		return $this->hasMany(\App\Models\Group::class, 'representing_entity_id');
-	}
+    public function creator()
+    {
+        return $this->belongsTo(\App\Models\Admin::class);
+    }
 
-	public function organizations()
-	{
-		return $this->hasMany(\App\Models\Organization::class);
-	}
+    public function beneficiary()
+    {
+        return $this->belongsTo(\App\Models\Beneficiary::class);
+    }
 
-	public function outgoing_mails()
-	{
-		return $this->hasMany(\App\Models\OutgoingMail::class);
-	}
 
-	public function outgoing_pushes()
-	{
-		return $this->hasMany(\App\Models\OutgoingPush::class);
-	}
+    public function person()
+    {
+        return $this->belongsTo(\App\Models\Person::class, 'represented_by');
+    }
 
-	public function outgoing_sms()
-	{
-		return $this->hasMany(\App\Models\OutgoingSms::class);
-	}
+    public function bank()
+    {
+        return $this->belongsTo(\App\Models\Bank::class);
+    }
+
+    public function organization()
+    {
+        return $this->belongsTo(\App\Models\Organization::class);
+    }
+
+    public function groups()
+    {
+        return $this->hasMany(\App\Models\Group::class, 'representing_entity_id');
+    }
+
+    public function organizations()
+    {
+        return $this->hasMany(\App\Models\Organization::class);
+    }
+
+    public function outgoing_mails()
+    {
+        return $this->hasMany(\App\Models\OutgoingMail::class);
+    }
+
+    public function outgoing_pushes()
+    {
+        return $this->hasMany(\App\Models\OutgoingPush::class);
+    }
+
+    public function outgoing_sms()
+    {
+        return $this->hasMany(\App\Models\OutgoingSms::class);
+    }
 }

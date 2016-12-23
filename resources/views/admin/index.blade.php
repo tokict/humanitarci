@@ -123,7 +123,7 @@
                     </div>
                     <div class="col-xs-8 text-right">
                         <span> Iznos za distribuciju </span>
-                        <h2 class="font-bold">{{$legal_entities}}</h2>
+                        <h2 class="font-bold">{{$amount_to_distribute}}</h2>
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="col-xs-8 text-right">
                         <span> Dokumenata za unos </span>
-                        <h2 class="font-bold">{{$legal_entities}}</h2>
+                        <h2 class="font-bold">{{$documents_to_upload}}</h2>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
                     </div>
                     <div class="col-xs-8 text-right">
                         <span> Zakašnjele distribucije </span>
-                        <h2 class="font-bold">{{$legal_entities}}</h2>
+                        <h2 class="font-bold">{{$late_distributions}}</h2>
                     </div>
                 </div>
             </div>
