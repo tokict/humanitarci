@@ -41,7 +41,7 @@ namespace App\Models;
  * Serialized array of goods this donation has (From goods table)
  *
  * @property int $payment_id
- * Id of payment if cash
+ * Id of monetary_input
  *
  * @property int $transaction_id
  * Id of transaction in case this donation was made by transfering goods or cash from other donations
@@ -154,5 +154,15 @@ class Donation extends BaseModel
 	public function transactions()
 	{
 		return $this->hasMany(\App\Models\Transaction::class, 'from_donation_id');
+	}
+
+	public function getUtilizedAmount()
+	{
+		return MonetaryOutputSource::whereDonationId($this->getAtt('id'))->sum('amount');
+	}
+
+	public function getFreeAmount()
+	{
+		return $this->getAtt('amount') - MonetaryOutputSource::whereDonationId($this->getAtt('id'))->sum('amount');
 	}
 }

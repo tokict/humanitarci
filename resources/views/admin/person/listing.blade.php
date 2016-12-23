@@ -27,7 +27,10 @@
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover persons-table" >
+                            <div class="col-md-12 text-center">
+                                {{$persons->appends($input)->links()}}
+                            </div>
+                            <table class="table table-striped table-bordered table-hover" >
                                 <thead>
                                 <tr>
                                     <th>Title</th>
@@ -90,6 +93,9 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="col-md-12 text-center">
+                                {{$persons->appends($input)->links()}}
+                            </div>
                         </div>
 
                     </div>

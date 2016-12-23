@@ -131,7 +131,15 @@
 
         <!-- Team -->
         <div class="row multi-columns-row">
-
+            <div class="col-md-4">
+                <h5>{{trans('donations_distribution')}}</h5>
+                @foreach($distributedFunds as $d)
+                    {{$d->donation->campaign->name}}:  <span class="pull-right">{{number_format($d->amount/100)}} {{env('CURRENCY')}}</span><br/>
+                    <small>({{$d->monetary_output->description}})</small>
+                    <hr>
+                    @endforeach
+            </div>
+        <div class="col-md-8">
             @foreach($donor->getCampaigns() as $c)
                     <!-- Team Item -->
             <div class="col-sm-6 col-md-3 col-lg-3 mb-sm-30 wow fadeInUp">
@@ -174,6 +182,7 @@
             </div>
             <!-- End Team Item -->
             @endforeach
+        </div>
 
 
         </div>
