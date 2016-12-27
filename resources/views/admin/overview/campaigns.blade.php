@@ -5,9 +5,7 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h5>Aktivne kampanje</h5>
-                    <h1 class="no-margins">3</h1>
-                    <div class="stat-percent font-bold text-navy">98% <i class="fa fa-bolt"></i></div>
-                    <small>Total income</small>
+                    <h1 class="no-margins">{{$data['campaigns_active']}}</h1>
                 </div>
             </div>
         </div>
@@ -15,9 +13,7 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h5>Na čekanju</h5>
-                    <h1 class="no-margins">2</h1>
-                    <div class="stat-percent font-bold text-navy">98% <i class="fa fa-bolt"></i></div>
-                    <small>Total income</small>
+                    <h1 class="no-margins">{{$data['campaigns_pending']}}</h1>
                 </div>
             </div>
         </div>
@@ -25,9 +21,9 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h5>Ukupna tražena suma</h5>
-                    <h1 class="no-margins">200,000</h1>
-                    <div class="stat-percent font-bold text-danger">24% <i class="fa fa-level-down"></i></div>
-                    <small>Total income</small>
+                    <h1 class="no-margins">{{ number_format($data['campaigns_amounts']['total']/100)}}</h1>
+                    <div class="stat-percent font-bold text-danger">- {{number_format(($data['campaigns_amounts']['total'] - $data['campaigns_amounts']['received'])/100)}}</div>
+                    <small>Nedostaje</small>
                 </div>
             </div>
         </div>
@@ -36,9 +32,7 @@
             <div class="ibox">
                 <div class="ibox-content">
                     <h5>Uspješne</h5>
-                    <h1 class="no-margins">14</h1>
-                    <div class="stat-percent font-bold text-danger">24% <i class="fa fa-level-down"></i></div>
-                    <small>Total income</small>
+                    <h1 class="no-margins">{{$data['campaigns_succeeded']}}</h1>
                 </div>
             </div>
         </div>
@@ -50,30 +44,16 @@
                 <h5>Najpopularnije</h5>
                 <table class="table table-stripped small m-t-md">
                     <tbody>
+                    @foreach($data['campaigns_popular'] as $c)
                     <tr>
                         <td class="no-borders">
                             <i class="fa fa-circle text-danger"></i>
                         </td>
                         <td class="no-borders">
-                            Example element 1
+                            {{$c->name}} -- {{$c->donations->count()}} donacija
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-circle text-danger"></i>
-                        </td>
-                        <td>
-                            Example element 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fa fa-circle text-danger"></i>
-                        </td>
-                        <td>
-                            Example element 3
-                        </td>
-                    </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -30,7 +30,7 @@ namespace App\Models;
  * @property \App\Models\Campaign $campaign
  * @property \App\Models\LegalEntity $receiving_entity
  * @property \App\Models\Person $receiving_person
- * @property \App\User $creator
+ * @property \App\User $admin
  *
  * @package App\Models
  */
@@ -72,13 +72,13 @@ class MonetaryOutput extends BaseModel
         return $this->belongsTo(\App\Models\LegalEntity::class, 'receiving_entity_id');
     }
 
-    public function receiving_eperson()
+    public function receiving_person()
     {
         return $this->belongsTo(\App\Models\Person::class, 'receiving_person_id');
     }
 
-    public function creator()
+    public function admin()
     {
-        return $this->belongsTo(\App\User::class, 'created_by_id');
+        return $this->belongsTo(\App\Models\Admin::class, 'created_by_id');
     }
 }

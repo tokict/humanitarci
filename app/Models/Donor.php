@@ -152,6 +152,10 @@ class Donor extends BaseModel
         return $this->hasMany(\App\Models\Subscription::class);
     }
 
+    /**
+     * Get the donors last donation
+     * @return null
+     */
     public function getLastDonation()
     {
         $last = Donation::where('donor_id', $this->getAttribute('id'))->orderBy('created_at', 'desc')->get()->first();
@@ -162,6 +166,10 @@ class Donor extends BaseModel
         }
     }
 
+    /**
+     * Get all campaigns that this donor donated to
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
+     */
     public function getCampaigns()
     {
         $campaigns = Campaign::with('Donations')->whereHas('Donations', function ($q) {
@@ -172,16 +180,25 @@ class Donor extends BaseModel
 
     }
 
+    /**
+     * Get all the beneficiaries that got money from this donor
+     * @return array|static[]
+     */
     public function getBeneficiaries()
     {
-        //ToDo Count all persons and entities that money went to
-        $beneficiaries = Donation::where('donor_id', $this->getAttribute('id'))->distinct('beneficiary_id')->get();
+        $beneficiaries = Beneficiary::with('Donation')->whereHas('Donation', function($q){
+            $q->where('donor_id', $this->getAtt('id'));
+        })->get();
 
         return $beneficiaries;
 
     }
 
 
+    /**
+     * Get amount of active recurring donations
+     * @return int
+     */
     public function getRecurringDonationsNr()
     {
         $nr = RecurringDonation::where('donor_id', $this->getAttribute('id'))->where('status', 'active')->count();
@@ -190,10 +207,43 @@ class Donor extends BaseModel
 
     }
 
+    /**
+     * Get sum of all curently active recurring donations
+     * @return mixed
+     */
     public function getRecurringDonationsSum()
     {
         $sum = RecurringDonation::where('donor_id', $this->getAttribute('id'))->where('status',
             'active')->sum('amount');
+
+        return $sum;
+
+    }
+
+
+    /**
+     * Get sum of all donations for one campaign by the donor
+     * @param $id
+     * @return mixed
+     */
+    public function getDonationsSumForCampaign($id)
+    {
+        $sum = Donation::where('donor_id', $this->getAttribute('id'))->where('campaign_id',
+            $id)->sum('amount');
+
+        return $sum;
+
+    }
+
+
+    /**
+     * Get sum of all donor donations
+     * @param $id
+     * @return mixed
+     */
+    public function getTotalDonationsSum()
+    {
+        $sum = Donation::where('donor_id', $this->getAttribute('id'))->sum('amount');
 
         return $sum;
 

@@ -51,6 +51,10 @@ use Carbon\Carbon;
  * @property string $finalized_at
  * Date the campaign was finalized
  *
+ *
+ * @property string $succeeded_at
+ * Date the campaign collected all the funds
+ *
  * @property int $funds_transferred_amount
  *
  *

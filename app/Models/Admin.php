@@ -6,7 +6,7 @@
  */
 
 namespace App\Models;
-
+use Carbon\Carbon;
 
 
 /**
@@ -15,7 +15,7 @@ namespace App\Models;
  * 
  * @property int $id
  * @property int $user_id
- * @property string $created_at
+ * @property Carbon $created_at
  * @property int $created_by
  * If the admin is and individual, this is his person id
  *
