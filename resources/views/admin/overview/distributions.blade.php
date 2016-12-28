@@ -30,13 +30,13 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Simple FooTable with pagination, sorting and filter</h5>
+                    <h5>List of all outputs from organization pool</h5>
                 </div>
                 <div class="ibox-content">
-                    <input type="text" class="form-control input-sm m-b-xs" id="filter"
-                           placeholder="Search in table">
-
-                    <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
+                    <table class="table table-stripped">
+                        <div class="col-md-12 text-center">
+                            {{$outs->appends($input)->links()}}
+                        </div>
                         <thead>
                         <tr>
                             <th>Campaign</th>
@@ -59,7 +59,10 @@
                                 <td>{{number_format($o->amount/100)}}</td>
                                 <td class="center">{{$o->receiving_entity->name}}</td>
                                 <td>{{$o->to_beneficiary?"Yes":"No"}}</td>
-                                <td class="center">{{$o->receipt_ids}}</td>
+                                <td class="center">
+                                    @foreach($o->receipts as $key =>  $r )
+                                    <a href="{{$r->getPath('small')}}"><img src="{{$r->getPath('thumb')}}" style="width:20px; margin-right: 5px;"></a> </td>
+                                @endforeach
                                 <td>{{$o->action_time}}</td>
                                 <td>{{$o->admin->user->username}}
                                 </td>
@@ -71,12 +74,15 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="10">
                                 <ul class="pagination pull-right"></ul>
                             </td>
                         </tr>
                         </tfoot>
                     </table>
+                    <div class="col-md-12 text-center">
+                        {{$outs->appends($input)->links()}}
+                    </div>
                 </div>
             </div>
         </div>

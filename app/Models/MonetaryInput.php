@@ -22,6 +22,7 @@ namespace App\Models;
  * @property \App\Models\BankTransfersDatum $bank_transfers_datum
  * @property \App\Models\Campaign $campaign
  * @property \App\Models\Donor $donor
+ * @property \App\Models\Donor $order
  * @property \App\Models\PaymentProviderDatum $payment_provider_datum
  * @property \Illuminate\Database\Eloquent\Collection $donations
  *
@@ -57,6 +58,11 @@ class MonetaryInput extends BaseModel
 	public function donor()
 	{
 		return $this->belongsTo(\App\Models\Donor::class);
+	}
+
+	public function order()
+	{
+		return $this->belongsTo(\App\Models\Order::class);
 	}
 
 	public function payment_provider_datum()

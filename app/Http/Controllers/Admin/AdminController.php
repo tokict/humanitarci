@@ -8,8 +8,11 @@ use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
 use App\Models\LegalEntity;
+use App\Models\Media;
+use App\Models\MonetaryInput;
 use App\Models\MonetaryOutput;
 use App\Models\Person;
+use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -140,7 +143,12 @@ class AdminController extends Controller
 
         $outs = MonetaryOutput::with('Admin')->whereHas('Admin', function($q){
             $q->where('organization_id', Auth::User()->admin->organization_id);
-        })->whereBetween('created_at', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->get();
+        })->whereBetween('created_at', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->paginate(20);
+
+        foreach($outs as $o){
+            $media_info = Media::whereIn('id', explode(",", $o->receipt_ids))->get();
+            $o->receipts = $media_info;
+        }
 
         $data = [
             'starting_amount' => $starting_amount,
@@ -248,11 +256,70 @@ class AdminController extends Controller
 
     public function incomes()
     {
-        return view('admin.overview.incomes');
+        $starting_amount = '';
+        $total_in = MonetaryInput::with('Donations')->whereHas('Donations', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('created_at', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->sum('amount');
+
+        $total_nr_in = MonetaryInput::with('Donations')->whereHas('Donations', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('created_at', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->count();
+
+        $ins = MonetaryInput::with('Donations')->whereHas('Donations', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('created_at', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->paginate(20);
+
+        foreach($ins as $o){
+            $media_info = Media::whereIn('id', explode(",", $o->receipt_ids))->get();
+            $o->receipts = $media_info;
+        }
+
+        $data = [
+            'starting_amount' => $starting_amount,
+            'total_in' => (int) $total_in,
+            'total_nr_in' => $total_nr_in,
+            'ins' => $ins
+        ];
+
+
+        return view('admin.overview.incomes', $data);
     }
 
     public function transactions()
     {
-        return view('admin.overview.transactions');
+
+        $total = Transaction::with('from_donation')->whereHas('from_donation', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('time', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->sum('amount');
+
+        $total_nr = Transaction::with('from_donation')->whereHas('from_donation', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('time', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->count();
+
+        $total_campaigns_qry = Transaction::with('from_campaign')->whereHas('from_campaign', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('time', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->get();
+
+        $campaigns = [];
+        foreach($total_campaigns_qry as $t){
+            if(!in_array($t->from_campaign_id, $campaigns)){
+                $campaigns[] = $t->from_campaign_id;
+            }
+        }
+
+        $transactions = Transaction::with('from_donation')->whereHas('from_donation', function($q){
+            $q->where('organization_id', Auth::User()->admin->organization_id);
+        })->whereBetween('time', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->paginate(20);
+
+
+        $data = [
+            'total' => (int) $total,
+            'total_nr' => $total_nr,
+            'total_campaigns' => count($campaigns),
+            'transactions' => $transactions
+        ];
+
+
+        return view('admin.overview.transactions', $data);
     }
 }

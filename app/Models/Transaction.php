@@ -35,12 +35,15 @@ namespace App\Models;
  * @property string $description
  * Description for reason of transfer
  *
- * @property int $campaign_id
+ * @property int $from_campaign_id
  * The donation was meant for this campaign
+ *
+ * @property int $to_campaign_id
+ * Money was transferred from this campaign
  * 
  * @property \App\Models\Campaign $campaign
- * @property \App\Models\Donation $donation
- * @property \Illuminate\Database\Eloquent\Collection $donations
+ * @property \App\Models\Donation $from_donation
+ * @property \App\Models\Donation $to_donation
  *
  * @package App\Models
  */
@@ -50,9 +53,10 @@ class Transaction extends BaseModel
 
 	protected $casts = [
 		'from_donation_id' => 'int',
-		'donation_id' => 'int',
+		'to_donation_id' => 'int',
 		'amount' => 'int',
-		'campaign_id' => 'int'
+		'from_campaign_id' => 'int',
+		'to_campaign_id' => 'int'
 	];
 
 	protected $dates = [
@@ -61,27 +65,34 @@ class Transaction extends BaseModel
 
 	protected $fillable = [
 		'from_donation_id',
-		'donation_id',
+		'to_donation_id',
 		'amount',
 		'goods',
 		'time',
 		'type',
 		'description',
-		'campaign_id'
+		'from_campaign_id',
+		'to_campaign_id'
 	];
 
-	public function campaign()
+	public function from_campaign()
 	{
 		return $this->belongsTo(\App\Models\Campaign::class);
 	}
 
-	public function donation()
+	public function to_campaign()
+	{
+		return $this->belongsTo(\App\Models\Campaign::class);
+	}
+
+	public function from_donation()
 	{
 		return $this->belongsTo(\App\Models\Donation::class, 'from_donation_id');
 	}
 
-	public function donations()
+	public function to_donation()
 	{
-		return $this->hasMany(\App\Models\Donation::class);
+		return $this->belongsTo(\App\Models\Donation::class, 'to_donation_id');
 	}
+
 }

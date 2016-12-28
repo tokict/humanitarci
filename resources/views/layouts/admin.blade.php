@@ -119,7 +119,7 @@
                         <li class="{{$controller == 'AdminController' && $action == 'donors'?'active':''}}"><a href="/admin/overview/donors">Donors</a></li>
                         <li class="{{$controller == 'AdminController' && $action == 'distributions'?'active':''}}"><a href="/admin/overview/distributions">Distribution</a></li>
                         <li class="{{$controller == 'AdminController' && $action == 'incomes'?'active':''}}"><a href="/admin/overview/incomes">Incomes </a></li>
-                        <li class="{{$controller == 'AdminController' && $action == 'transactions'?'active':''}}"><a href="/admin/overview/incomes">Internal transactions </a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'transactions'?'active':''}}"><a href="/admin/overview/transactions">Internal transactions </a></li>
                     </ul>
                 </li>
                 <li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Donation;
 use App\Models\Donor;
 use App\Models\MonetaryOutputSource;
 use App\User;
@@ -89,10 +90,12 @@ class DonorsController extends Controller
             }
         }
 
-        $distributedFunds = MonetaryOutputSource::with(['Donation' => function($q) use ($donor){
+        $distributedFunds = MonetaryOutputSource::with('Donation')->whereHas('Donation', function($q) use ($donor){
             $q->where('donor_id', $donor->id);
-        }])->get();
+        })->get();
 
-        return view('donor.profile', ['donor' => $donor, 'distributedFunds' => $distributedFunds]);
+        $donationTransfers= Donation::where('donor_id', Auth::User()->donor->id)->whereNotNull('transaction_id')->get();
+
+        return view('donor.profile', ['donor' => $donor, 'distributedFunds' => $distributedFunds, 'donationTransfers' => $donationTransfers]);
     }
 }

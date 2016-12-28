@@ -144,7 +144,7 @@ class Donor extends BaseModel
 
     public function outgoing_sms()
     {
-        return $this->hasMany(\App\Models\OutgoingSm::class);
+        return $this->hasMany(\App\Models\OutgoingSms::class);
     }
 
     public function subscriptions()
@@ -186,7 +186,7 @@ class Donor extends BaseModel
      */
     public function getBeneficiaries()
     {
-        $beneficiaries = Beneficiary::with('Donation')->whereHas('Donation', function($q){
+        $beneficiaries = Beneficiary::with('Donations')->whereHas('Donations', function($q){
             $q->where('donor_id', $this->getAtt('id'));
         })->get();
 

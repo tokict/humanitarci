@@ -64,7 +64,7 @@
                              aria-valuemax="100">
                             Heroji dana <span>75</span>
                             </br>
-                             <small>(Donacije koje su bile potrebne za zatvaranje akcija)</small>
+                            <small>(Donacije koje su bile potrebne za zatvaranje akcija)</small>
                         </div>
                     </div>
                     <!-- End Bar Item -->
@@ -134,57 +134,73 @@
             <div class="col-md-4">
                 <h5>{{trans('donations_distribution')}}</h5>
                 @foreach($distributedFunds as $d)
-                    {{$d->donation->campaign->name}}:  <span class="pull-right">{{number_format($d->amount/100)}} {{env('CURRENCY')}}</span><br/>
+                    @if($d->transaction)
+                        {{$d->transaction->from_campaign->name}} &nbsp;>>&nbsp;
+                    @endif
+                    {{$d->donation->campaign->name}}:  <span
+                            class="pull-right">{{number_format($d->amount/100)}} {{env('CURRENCY')}}</span><br/>
                     <small>({{$d->monetary_output->description}})</small>
                     <hr>
-                    @endforeach
+                @endforeach
             </div>
-        <div class="col-md-8">
-            @foreach($donor->getCampaigns() as $c)
-                    <!-- Team Item -->
-            <div class="col-sm-6 col-md-3 col-lg-3 mb-sm-30 wow fadeInUp">
-                <div class="team-item">
+            <div class="col-md-4">
+                <h5>{{trans('donations_transfers')}}</h5>
+                @foreach($donationTransfers as $d)
+                    {{$d->transaction->from_campaign->name}}
+                    &nbsp;>>&nbsp;
+                    {{$d->transaction->to_campaign->name}}
+                    <span class="pull-right">{{number_format($d->transaction->amount/100)}} {{env('CURRENCY')}}</span>
+                    <br/>
+                    <small>({{$d->transaction->description}})</small>
+                    <hr>
+                @endforeach
+            </div>
+            <div class="col-md-8">
+                @foreach($donor->getCampaigns() as $c)
+                        <!-- Team Item -->
+                <div class="col-sm-6 col-md-3 col-lg-3 mb-sm-30 wow fadeInUp">
+                    <div class="team-item">
 
-                    <div class="team-item-image">
+                        <div class="team-item-image">
 
-                        <img src="{{$c->cover->getPath('small')}}" alt=""/>
+                            <img src="{{$c->cover->getPath('small')}}" alt=""/>
 
-                        <div class="team-item-detail">
+                            <div class="team-item-detail">
 
-                            <h4 class="font-alt normal">{{$c->beneficiary->name}}</h4>
+                                <h4 class="font-alt normal">{{$c->beneficiary->name}}</h4>
 
-                            <p>
-                                {{$c->description_short}}
-                            </p>
+                                <p>
+                                    {{$c->description_short}}
+                                </p>
 
-                            <div class="team-social-links">
-                                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                <div class="team-social-links">
+                                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="team-item-descr font-alt">
+
+                            <div class="team-item-name">
+                                <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}">{{$c->name}}</a>
+                            </div>
+
+                            <div class="team-item-role">
+                                Donated:
+                                <br/>
+                                {{number_format($c->getTotalDonationsFromDonor($donor->id)/100)}} {{env('CURRENCY')}}
                             </div>
 
                         </div>
-                    </div>
-
-                    <div class="team-item-descr font-alt">
-
-                        <div class="team-item-name">
-                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}">{{$c->name}}</a>
-                        </div>
-
-                        <div class="team-item-role">
-                            Donated:
-                            <br/>
-                            {{number_format($c->getTotalDonationsFromDonor($donor->id)/100)}} {{env('CURRENCY')}}
-                        </div>
 
                     </div>
-
                 </div>
+                <!-- End Team Item -->
+                @endforeach
             </div>
-            <!-- End Team Item -->
-            @endforeach
-        </div>
 
 
         </div>
@@ -271,18 +287,19 @@
 
 <!-- Call Action Section -->
 @if(!isset(\Illuminate\Support\Facades\Auth::User()->donor))
-<section class="small-section bg-dark">
-    <div class="container relative">
+    <section class="small-section bg-dark">
+        <div class="container relative">
 
-        <div class="align-center">
-            <h3 class="banner-heading font-alt">Postani i ti donor!</h3>
-            <div>
-                <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" class="btn btn-mod btn-w btn-medium btn-round">Registriraj se</a>
+            <div class="align-center">
+                <h3 class="banner-heading font-alt">Postani i ti donor!</h3>
+                <div>
+                    <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}"
+                       class="btn btn-mod btn-w btn-medium btn-round">Registriraj se</a>
+                </div>
             </div>
-        </div>
 
-    </div>
-</section>
-@endif
-<!-- End Call Action Section -->
-@endsection
+        </div>
+    </section>
+    @endif
+            <!-- End Call Action Section -->
+    @endsection
