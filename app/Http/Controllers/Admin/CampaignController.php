@@ -338,6 +338,7 @@ class CampaignController extends Controller
             abort(404);
         }
 
+
         if (Request::isMethod('post')) {
             $this->validate($request, [
                 'campaign_id' => 'required',
@@ -356,6 +357,9 @@ class CampaignController extends Controller
                 die;
             }
 
+            if($campaign->status != 'succeeded'){
+                abort(500, 'Cannot take funds from non-succeeded campaign');
+            }
 
             //We calculate all without floating point
             $input['amount'] = $input['amount'] * 100;

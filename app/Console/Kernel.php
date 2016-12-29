@@ -13,18 +13,21 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-         Commands\CheckPayments::class,
+        Commands\CheckPayments::class,
+        Commands\CheckTransactions::class,
     ];
 
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('CheckPayments')->sendOutputTo(env('PROJECT_DIR')."/storage/logs/paymentChecker.log")
-                  ->cron('* * * * *');
+        $schedule->command('CheckPayments')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/paymentChecker.log")
+            ->cron('* * * * *');
+        $schedule->command('CheckTransactions')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/paymentChecker.log")
+            ->cron('0 * * * *');
     }
 }

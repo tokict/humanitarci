@@ -141,11 +141,12 @@ class CampaignObserver
         }
 
         //No updates to campaign are allowed after finalization
-        if (in_array($campaign->getOriginal()['status'], ['failed', 'finalized', 'blocked'])) {
+        if (in_array($campaign->getOriginal()['status'], ['failed', 'succeeded','finalized', 'blocked'])) {
             Log::alert('User: ' . $user . ': Campaign ' . $campaign->id . ' cannot be edited cannot be edited after campaign end!');
             session()->flash('error', 'Campaign cannot be edited cannot be edited after campaign end!');
             return false;
         }
+
     }
 
 

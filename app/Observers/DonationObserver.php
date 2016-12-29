@@ -19,23 +19,31 @@ class DonationObserver
      */
     public function created(Donation $donation)
     {
-        error_log('Donation input created');
-        $donor = Donor::find($donation->donor_id);
-
-        $donor->total_donations += 1;
-        $donor->amount_donated += $donation->amount;
-        $donor->save();
-
 
         $campaign = Campaign::find($donation->campaign_id);
         $campaign->recalculate();
         $campaign->save();
 
 
-        Mail::queue('emails.donation_thankyou', ['user' => $donor->user, 'donation' => $donation, 'campaign' => $campaign], function ($m) use ($donor) {
+        error_log('Donation input created');
+        if(!$donation->transaction_id) {
+            $donor = Donor::find($donation->donor_id);
 
-            $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-        });
+            $donor->total_donations += 1;
+            $donor->amount_donated += $donation->amount;
+            $donor->save();
+
+            Mail::queue('emails.donation_thankyou', ['user' => $donor->user, 'donation' => $donation, 'campaign' => $campaign], function ($m) use ($donor) {
+
+                $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+            });
+        }
+
+
+
+
+
+
 
 
     }
