@@ -132,11 +132,13 @@ class CampaignObserver
         unset($tableCols['beneficiary_receipt_doc_id'], $tableCols['modified_at']);
 
         //If the status is succeeded then we can only add beneficiary_receipt_id and modified_at
-        foreach ($campaign->getOriginal() as $key => $value) {
-            if (in_array($key, $tableCols)) {
-                Log::alert('User: ' . $user . ': If campaign ' . $campaign->id . ' has succeeded, you can only add beneficiary report. No changes otherwise !');
-                session()->flash('error', 'Campaign cannot be edited after campaign end except for adding beneficiary receipt!');
-                return false;
+        if (in_array($campaign->getOriginal()['status'], ['succeeded'])) {
+            foreach ($campaign->getOriginal() as $key => $value) {
+                if (in_array($key, $tableCols)) {
+                    Log::alert('User: ' . $user . ': If campaign ' . $campaign->id . ' has succeeded, you can only add beneficiary report. No changes otherwise !');
+                    session()->flash('error', 'Campaign cannot be edited after campaign end except for adding beneficiary receipt!');
+                    return false;
+                }
             }
         }
 

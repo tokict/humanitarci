@@ -93,9 +93,9 @@ class AdminController extends Controller
             'beneficiaries' => $beneficiaries,
             'legal_entities' => $legal_entities,
             'super' => Auth::User()->super_admin && !$id,
-            'late_distributions' => $late_distributions ? $late_distributions : null,
-            'documents_to_upload' => $documents_to_upload ? $documents_to_upload : null,
-            'amount_to_distribute' => $amount_to_distribute ? $amount_to_distribute : null
+            'late_distributions' => isset($late_distributions) ? $late_distributions : null,
+            'documents_to_upload' => isset($documents_to_upload) ? $documents_to_upload : null,
+            'amount_to_distribute' => isset($amount_to_distribute) ? $amount_to_distribute : null
         ]);
     }
 
@@ -167,7 +167,7 @@ class AdminController extends Controller
         $campaigns_active = Campaign::where('organization_id', Auth::User()->admin->organization_id)
             ->where('status', 'active')
             ->count();
-
+        //ToDo: Get inactive that start this week or all actives
         $campaigns_pending = Campaign::where('organization_id', Auth::User()->admin->organization_id)
             ->where('status', 'inactive')
             ->where('starts', '<', Carbon::parse('this week')->addDays(7)->toDateString())->count();
@@ -176,11 +176,11 @@ class AdminController extends Controller
             ->whereIn('status', ['inactive', 'active'])
             ->whereBetween('starts', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->get();
 
-        $campaigns_amount_remaining['total'] = 0;
-        $campaigns_amount_remaining['received'] = 0;
+        $campaigns_amount['total'] = 0;
+        $campaigns_amount['received'] = 0; dd($amountcamps);
         foreach ($amountcamps as $c) {
-            $campaigns_amount_remaining['total'] += $c->target_amount;
-            $campaigns_amount_remaining['received'] += $c->current_funds;
+            $campaigns_amount['total'] += $c->target_amount;
+            $campaigns_amount['received'] += $c->current_funds;
         }
 
         $campaigns_succeeded = Campaign::where('organization_id', Auth::User()->admin->organization_id)
@@ -196,7 +196,7 @@ class AdminController extends Controller
         $return = [
             'campaigns_active' => $campaigns_active,
             'campaigns_pending' => $campaigns_pending,
-            'campaigns_amounts' => $campaigns_amount_remaining,
+            'campaigns_amounts' => $campaigns_amount,
             'campaigns_popular' => $campaigns_popular,
             'campaigns_succeeded' => $campaigns_succeeded
         ];

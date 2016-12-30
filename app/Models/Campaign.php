@@ -135,7 +135,7 @@ use Carbon\Carbon;
  *
  * @property Media $registration_doc
  *
- * @property Media$action_plan_doc
+ * @property Media $action_plan_doc
  *
  * @property Media $distribution_plan_doc
  *
@@ -469,5 +469,25 @@ class Campaign extends BaseModel
     public function getTotalDonationsFromDonor($id)
     {
         return Donation::where('donor_id', $id)->where('campaign_id', $this->getAtt('id'))->sum('amount');
+    }
+
+
+    public function getReport($type, $time = null, $period = null)
+    {
+        //ToDo: Check for saved reports and return when found. If not create new report and return
+
+        return $this->createReport($type, $time, $period);
+
+
+    }
+
+    public function createReport($type, $time = null, $period = null)
+    {
+        return [
+
+            'funds' => 1,
+            'donations' => 1
+
+        ];
     }
 }

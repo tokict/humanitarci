@@ -25,7 +25,7 @@ class DonationObserver
         $campaign->save();
 
 
-        error_log('Donation input created');
+        error_log('Donation entered');
         if(!$donation->transaction_id) {
             $donor = Donor::find($donation->donor_id);
 
