@@ -119,7 +119,7 @@
                             <span>{{$campaign->percent_done}}%</span>
                         </div>
                         <br/>
-                        {{$campaign->target_amount}} {{env('CURRENCY')}}
+                        {{number_format($campaign->target_amount/100)}} {{env('CURRENCY')}}
                     </div>
 
 

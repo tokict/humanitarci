@@ -20,14 +20,11 @@
         <div class="col-lg-3">
             <div class="ibox">
                 <div class="ibox-content">
-                    <h5>Ukupna tražena suma</h5>
-                    <h1 class="no-margins">{{ number_format($campaigns_amounts['total']/100)}}</h1>
-                    <div class="stat-percent font-bold text-danger">- {{number_format(($campaigns_amounts['total'] - $campaigns_amounts['received'])/100)}}</div>
-                    <small>Nedostaje</small>
+                    <h5>Završene</h5>
+                    <h1 class="no-margins">{{$campaigns_ended}}</h1>
                 </div>
             </div>
         </div>
-
         <div class="col-lg-3">
             <div class="ibox">
                 <div class="ibox-content">

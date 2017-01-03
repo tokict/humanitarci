@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\CheckPayments::class,
         Commands\CheckTransactions::class,
+        Commands\CheckCampaigns::class,
+        Commands\Reset::class,
     ];
 
     /**
@@ -27,7 +29,9 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('CheckPayments')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/paymentChecker.log")
             ->cron('* * * * *');
-        $schedule->command('CheckTransactions')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/paymentChecker.log")
+        $schedule->command('CheckCampaigns')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/campaignChecker.log")
+            ->cron('* * * * *');
+        $schedule->command('CheckTransactions')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/transactionChecker.log")
             ->cron('0 * * * *');
     }
 }

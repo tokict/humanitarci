@@ -354,11 +354,11 @@ class CampaignController extends Controller
 
             if ($input['amount'] > $campaign->current_funds) {
                 //User is not able to submit amount higher than current amount so its ok to die
-                die;
+                abort(500, 'Cannot take more money than donated');
             }
 
-            if($campaign->status != 'succeeded'){
-                abort(500, 'Cannot take funds from non-succeeded campaign');
+            if(!in_array($campaign->status, ['succeeded', 'failed'])){
+                abort(500, 'Cannot take funds from unfinished campaign');
             }
 
             //We calculate all without floating point

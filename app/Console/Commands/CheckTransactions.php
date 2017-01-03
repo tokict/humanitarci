@@ -45,7 +45,7 @@ class CheckTransactions extends Command
     {
         parent::__construct();
 
-        $this->campaigns = Campaign::where('status', 'failed')->where('created_at', '>', Carbon::now()->subDays(7)->toDateTimeString())->get();
+        $this->campaigns = Campaign::where('status', 'blocked')->where('current_funds', '>', 0)->get();
     }
 
     /**

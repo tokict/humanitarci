@@ -5,24 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Persons listing</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
+                        <h5>Beneficiaries listing</h5>
                     </div>
                     <div class="ibox-content">
 
@@ -68,14 +51,18 @@
                                                     src="{{ $beneficiary->profile_image->getPath('small') }}"></td>
                                         <td>{{ $beneficiary->donor_number }}</td>
                                         <td>{{ $beneficiary->funds_used }}</td>
-                                        <td class="center">{{ isset($beneficiary->person)?$beneficiary->person->first_name:"" }}
-                                            {{ isset($beneficiary->person)?$beneficiary->person->last_name:""}}</td>
+                                        <td class="center">
+                                            @if(isset($beneficiary->person))
+                                                <a href="/admin/person/view/{{$beneficiary->person->id}}"> {{ isset($beneficiary->person)?$beneficiary->person->first_name:"" }}
+                                                {{ $beneficiary->person->last_name}}</a></td>
+                                        @endif
                                         <td class="center">{{ isset($beneficiary->group)?$beneficiary->group->name:"" }}</td>
                                         <td class="center">{{ isset($beneficiary->entity)?$beneficiary->entity->name:"" }}</td>
                                         <td class="center">{{ $beneficiary->contact_phone }}</td>
                                         <td class="center">{{ $beneficiary->contact_email }}</td>
-                                        <td class="center">{{ $beneficiary->creator->person->first_name }}
-                                            {{ $beneficiary->creator->person->last_name }}</td>
+                                        <td class="center"><a
+                                                    href="/admin/admins/view/{{ $beneficiary->creator->admin->id }}">
+                                                {{ $beneficiary->creator->username }}</a></td>
                                         <td class="center">{{ isset($beneficiary->members_public)?"Yes":"No" }}</td>
                                         <td class="center">
                                             <a href="/{{trans('routes.front.beneficiary')}}/{{trans('routes.actions.view')}}/{{$beneficiary->id}}"

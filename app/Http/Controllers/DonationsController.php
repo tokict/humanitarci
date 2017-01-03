@@ -44,9 +44,7 @@ class DonationsController extends Controller
         $campaign = Campaign::find($campaignId);
 
         if ($campaign) {
-            if ($campaign->current_funds + $amount > $campaign->target_amount) {
-                return Redirect::back()->withErrors(['msg', 'Your donation is higher than needed for the campaign. Please check your amount']);
-            } else {
+
                 //Add the donation to cart
                 $donations = session('donations');
                 $exists = false;
@@ -68,7 +66,7 @@ class DonationsController extends Controller
                 }
 
                 return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'));
-            }
+
         }
     }
 

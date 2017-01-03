@@ -37,6 +37,18 @@ namespace App\Models;
  * @property int $anonymous
  * Is the donor anonymous
  *
+ * @property int $diversity_score
+ * How diverse are the donations
+ *
+ * @property int $recurring_score
+ * Recurring donations score (active and successful subscriptions in the last year incrementor = 100/12  regardless of number of subscriptions)
+ *
+ * @property int $critical_score
+ * Donations for urgent campaigns
+ *
+ * @property int $closer_score
+ * Donoations that closed the required amount
+ *
  * @property \App\Models\Person $person
  * @property \App\Models\Person $entity
  * @property \App\User $user
@@ -186,7 +198,7 @@ class Donor extends BaseModel
      */
     public function getBeneficiaries()
     {
-        $beneficiaries = Beneficiary::with('Donations')->whereHas('Donations', function($q){
+        $beneficiaries = Beneficiary::with('Donations')->whereHas('Donations', function ($q) {
             $q->where('donor_id', $this->getAtt('id'));
         })->get();
 
@@ -246,6 +258,37 @@ class Donor extends BaseModel
         $sum = Donation::where('donor_id', $this->getAttribute('id'))->sum('amount');
 
         return $sum;
+
+    }
+
+
+    /**
+     * Recalculate diversity socore and edit attribute on model
+     *
+     */
+    public function recalculateDiversityScore()
+    {
+        $donations = Donation::where('donor_id', $this->getAtt('id'))->get();
+        $camps = Campaign::all()->distinct('classification_code');
+        $types = [];
+        foreach ($camps as $camp) {
+            $types[$camp->classification_code] = 0;
+        }
+
+        foreach ($donations as $donation) {
+            $types[$donation->campaign->classification_code] += 1;
+
+        }
+
+        $score = 0;
+        $incrementer = 100 / count($types);
+        foreach ($types as $class => $value) {
+            if ($value >= 2) {
+                $score += $incrementer;
+            }
+        }
+
+        $this->setAttribute('diversity_score', $score);
 
     }
 }

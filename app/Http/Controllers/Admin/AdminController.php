@@ -35,18 +35,18 @@ class AdminController extends Controller
             $beneficiaries = Beneficiary::count('created_at', '>=', Carbon::now()->startOfWeek());
             $legal_entities = LegalEntity::count('created_at', '>=', Carbon::now()->startOfWeek());
         } else {
-            $campaigns = Campaign::where('created_at', '>=', Carbon::now()->startOfWeek())->where('organization_id', Auth::User()->organization_id)->count();
+            $campaigns = Campaign::where('created_at', '>=', Carbon::now()->startOfWeek())->where('organization_id', Auth::User()->admin->organization_id)->count();
             $persons = Person::where('created_at', '>=', Carbon::now()->startOfWeek())->with(['Admin' => function ($q) {
-                $q->where('organization_id', Auth::User()->organization_id);
+                $q->where('organization_id', Auth::User()->admin->organization_id);
             }])->count();
             $donors = null;
-            $donations = Donation::where('created_at', '>=', Carbon::now()->startOfWeek())->where('organization_id', Auth::User()->organization_id)->count();
-            $funds = Donation::where('created_at', '>=', Carbon::now()->startOfWeek())->where('organization_id', Auth::User()->organization_id)->sum('amount');
+            $donations = Donation::where('created_at', '>=', Carbon::now()->startOfWeek())->where('organization_id', Auth::User()->admin->organization_id)->count();
+            $funds = Donation::where('created_at', '>=', Carbon::now()->startOfWeek())->where('organization_id', Auth::User()->admin->organization_id)->sum('amount');
             $beneficiaries = Beneficiary::where('created_at', '>=', Carbon::now()->startOfWeek())->with(['Admin' => function ($q) {
-                $q->where('organization_id', Auth::User()->organization_id);
+                $q->where('organization_id', Auth::User()->admin->organization_id);
             }])->count();
             $legal_entities = LegalEntity::where('created_at', '>=', Carbon::now()->startOfWeek())->with(['Admin' => function ($q) {
-                $q->where('organization_id', Auth::User()->organization_id);
+                $q->where('organization_id', Auth::User()->admin->organization_id);
             }])->count();
 
             //Amount in the campaigns left for distribution (ended campaigns -> amount - distributed amount)
@@ -121,13 +121,13 @@ class AdminController extends Controller
             ->get();
 
         $data = [
-            'total_nr_donations' => $donation_nr,
+            'total_nr_donations' => isset($donation_nr)?$donation_nr:0,
             'total_donations_amount' => $total_amount,
             'donations_average' => $donations_average,
             'biggest_donors' => $biggest_donors
         ];
 
-        return view('admin.overview.donations', ['data' => $data]);
+        return view('admin.overview.donations', $data);
     }
 
     public function distributions()
@@ -163,25 +163,20 @@ class AdminController extends Controller
 
     public function campaigns()
     {
-
+        //Campaigns that are active
         $campaigns_active = Campaign::where('organization_id', Auth::User()->admin->organization_id)
             ->where('status', 'active')
             ->count();
-        //ToDo: Get inactive that start this week or all actives
+
+        //Campaigns to start this week
         $campaigns_pending = Campaign::where('organization_id', Auth::User()->admin->organization_id)
             ->where('status', 'inactive')
-            ->where('starts', '<', Carbon::parse('this week')->addDays(7)->toDateString())->count();
+            ->whereBetween('starts',  [date("Y-m-d H:i:s"), Carbon::parse('this week')->addDays(7)->toDateString()])->count();
 
-        $amountcamps = Campaign::where('organization_id', Auth::User()->admin->organization_id)
-            ->whereIn('status', ['inactive', 'active'])
-            ->whereBetween('starts', [Carbon::parse('this week')->toDateString(), Carbon::parse('this week')->addDays(7)->toDateString()])->get();
-
-        $campaigns_amount['total'] = 0;
-        $campaigns_amount['received'] = 0; dd($amountcamps);
-        foreach ($amountcamps as $c) {
-            $campaigns_amount['total'] += $c->target_amount;
-            $campaigns_amount['received'] += $c->current_funds;
-        }
+        //Campaigns ended this week
+        $campaigns_ended = Campaign::where('organization_id', Auth::User()->admin->organization_id)
+            ->where('status', 'inactive')
+            ->whereBetween('ends',  [Carbon::parse('this week')->toDateString(), date("Y-m-d H:i:s")])->count();
 
         $campaigns_succeeded = Campaign::where('organization_id', Auth::User()->admin->organization_id)
             ->where('status', 'succeeded')
@@ -196,7 +191,7 @@ class AdminController extends Controller
         $return = [
             'campaigns_active' => $campaigns_active,
             'campaigns_pending' => $campaigns_pending,
-            'campaigns_amounts' => $campaigns_amount,
+            'campaigns_ended' => $campaigns_ended,
             'campaigns_popular' => $campaigns_popular,
             'campaigns_succeeded' => $campaigns_succeeded
         ];
