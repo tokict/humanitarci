@@ -12,52 +12,53 @@
 
 
     {{--Social tags--}}
-    <meta name="description" content="<?= htmlentities($page->description) ?>">
-    <meta name="title" content="Humanitarci.hr">
-    <meta property="fb:app_id" content="1022391537889674">
-    <meta property="og:title" content="<?= $page->title ?>"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:locale" content="en_US"/>
-    <meta property="og:site_name" content="Humanitarci.hr"/>
-    <meta property="og:image" content="<?= $page->image ?>"/>
-    <meta property="og:url" content="<?= $page->url ?>"/>
-    <meta property="og:description" content="<?= htmlentities($page->description) ?>"/>
+    @if(isset($page))
+        <meta name="description" content="<?= htmlentities($page->description) ?>">
+        <meta name="title" content="Humanitarci.hr">
+        <meta property="fb:app_id" content="1022391537889674">
+        <meta property="og:title" content="<?= $page->title ?>"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:locale" content="en_US"/>
+        <meta property="og:site_name" content="Humanitarci.hr"/>
+        <meta property="og:image" content="<?= $page->image ?>"/>
+        <meta property="og:url" content="<?= $page->url ?>"/>
+        <meta property="og:description" content="<?= htmlentities($page->description) ?>"/>
+        @endif
+                <!-- Favicons -->
+        <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
+        <link rel="apple-touch-icon" href="http://rhythm.bestlooker.pro/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72"
+              href="http://rhythm.bestlooker.pro/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+              href="http://rhythm.bestlooker.pro/images/apple-touch-icon-114x114.png">
 
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
-    <link rel="apple-touch-icon" href="http://rhythm.bestlooker.pro/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="http://rhythm.bestlooker.pro/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114"
-          href="http://rhythm.bestlooker.pro/images/apple-touch-icon-114x114.png">
+        <!-- CSS -->
+        {{--Select2--}}
+        <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
 
-    <!-- CSS -->
-    {{--Select2--}}
-    <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="/front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/front/css/style.css">
-    <link rel="stylesheet" href="/front/css/style-responsive.css">
-    <link rel="stylesheet" href="/front/css/animate.min.css">
-    <link rel="stylesheet" href="/front/css/vertical-rhythm.min.css">
-    <link rel="stylesheet" href="/front/css/owl.carousel.css">
-    <link rel="stylesheet" href="/front/css/magnific-popup.css">
-    <link rel="stylesheet" href="/front/css/extended.css">
-    <style type="text/css">
-        .accent {
-            color: #08c;
-        }
-    </style>
-    <script type="text/javascript" src="/front/js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
-    <script src="/front/js/donations.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/front/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/front/css/style.css">
+        <link rel="stylesheet" href="/front/css/style-responsive.css">
+        <link rel="stylesheet" href="/front/css/animate.min.css">
+        <link rel="stylesheet" href="/front/css/vertical-rhythm.min.css">
+        <link rel="stylesheet" href="/front/css/owl.carousel.css">
+        <link rel="stylesheet" href="/front/css/magnific-popup.css">
+        <link rel="stylesheet" href="/front/css/extended.css">
+        <style type="text/css">
+            .accent {
+                color: #08c;
+            }
+        </style>
+        <script type="text/javascript" src="/front/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
+        <script src="/front/js/donations.js" type="text/javascript"></script>
 <body class="appear-animate">
 @include('sections.navbar')
 @yield('content')
 @include('sections.footer')
 
 
-
-<!-- JS -->
+        <!-- JS -->
 
 <script type="text/javascript" src="/front/js/jquery.easing.1.3.js"></script>
 
@@ -173,21 +174,23 @@
     }</script>
 
 
-
 <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
         FB.init({
-            appId      : '1022391537889674',
-            xfbml      : true,
-            version    : 'v2.8'
+            appId: '1022391537889674',
+            xfbml: true,
+            version: 'v2.8'
         });
         FB.AppEvents.logPageView();
     };
 
-    (function(d, s, id){
+    (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));

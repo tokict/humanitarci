@@ -17,7 +17,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Adresa</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" readonly>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -31,7 +31,7 @@
                             <label for="email" class="col-md-4 control-label">Korisničko ime</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username">
+                                <input id="username" type="text" class="form-control" name="username" value="{{$username or old('username')}}" {{isset($username)?'readonly':''}}>
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">

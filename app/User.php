@@ -8,7 +8,6 @@ class User extends Authenticatable
 {
     /**
      * @property int $id
-     * @property string $name
      * @property string $email
      * @property string $password
      * @property string $remember_token
@@ -27,7 +26,7 @@ class User extends Authenticatable
      *
      * @property \App\Models\Donor $donor
      *
-     * @property \App\User $creator
+     * @property \App\Models\Admin $creator
      * @property \App\Models\Admin $admin
      *
      * @property \Illuminate\Database\Eloquent\Collection $users
@@ -53,7 +52,6 @@ class User extends Authenticatable
     ];
 
     protected $fillable = [
-        'name',
         'email',
         'password',
         'username',
@@ -82,7 +80,7 @@ class User extends Authenticatable
 
     public function creator()
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(\App\Models\Admin::class, 'created_by');
     }
 
     public function organization()

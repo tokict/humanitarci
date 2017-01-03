@@ -215,7 +215,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Users <span class="fa arrow"></span></a>
+                            <a href="#">Users & Admins <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level {{$controller == 'UserController'?'collapse in':''}}">
                                 <li class="{{$controller == 'UserController' && $action == 'create'?'active':''}}">
                                     <a href="/admin/user/create">New administrator</a>

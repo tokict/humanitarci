@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Password;
+use Illuminate\View\View;
 
 class PasswordController extends Controller
 {
@@ -37,7 +39,15 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
-        $this->redirectTo =  trans('routes.front.donors').'/'.trans('routes.actions.profile');
+        $user = User::where('email', Input::get('email'))->get()->first();
+        if(isset($user->admin)){
+            \Illuminate\Support\Facades\View::share('username', $user->username);
+            $this->redirectTo =  '/admin';
+        }else {
+            $this->redirectTo =  trans('routes.front.donors').'/'.trans('routes.actions.profile');
+        }
+
+
     }
 
 
@@ -49,6 +59,7 @@ class PasswordController extends Controller
      */
     public function reset(Request $request)
     {
+
         $this->validate(
             $request,
             $this->getResetValidationRules(),
