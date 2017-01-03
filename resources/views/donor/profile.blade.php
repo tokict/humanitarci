@@ -26,45 +26,41 @@
 
                 <div class="col-sm-6 mb-sm-50 mb-xs-30">
                     <!-- Bar Item -->
+                    <span>Raznovrsnost</span>
                     <div class="progress tpl-progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$donor->diversity_score}}" aria-valuemin="0"
                              aria-valuemax="100">
-                            Raznovrsnost <span>90</span>
-                            <br/>
-                            <small>(Donacije namjenjene raznim tipovima akcija)</small>
+                             <span>{{$donor->diversity_score}}%</span>
                         </div>
                     </div>
                     <!-- End Bar Item -->
 
                     <!-- Bar Item -->
+                    <span>Ustrajnost</span>
                     <div class="progress tpl-progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$donor->recurring_score}}" aria-valuemin="0"
                              aria-valuemax="100">
-                            Ustrajnost <span>80</span>
-                            </br>
-                            <small>(Automatske mjesečne donacije)</small>
+                             <span>{{$donor->recurring_score}}%</span>
                         </div>
                     </div>
                     <!-- End Bar Item -->
 
                     <!-- Bar Item -->
+                    <span>Pravovremenost</span>
                     <div class="progress tpl-progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$donor->critical_score}}" aria-valuemin="0"
                              aria-valuemax="100">
-                            Pravovremenost <span>85</span>
-                            <br/>
-                            <small>(Donacije hitnim kampanjama)</small>
+                            <span>{{$donor->critical_score}}%</span>
                         </div>
                     </div>
                     <!-- End Bar Item -->
 
                     <!-- Bar Item -->
+                   <span>Heroj dana</span>
                     <div class="progress tpl-progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{$donor->closer_score}}" aria-valuemin="0"
                              aria-valuemax="100">
-                            Heroji dana <span>75</span>
-                            </br>
-                            <small>(Donacije koje su bile potrebne za zatvaranje akcija)</small>
+                             <span>{{$donor->closer_score}}%</span>
                         </div>
                     </div>
                     <!-- End Bar Item -->
