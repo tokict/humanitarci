@@ -63,7 +63,7 @@ class PersonController extends Controller
                 'address' => 'required|max:150',
                 'contact_phone' => 'numeric',
                 'contact_email' => 'unique:persons|max:100',
-                'gender' => 'required|max:1|numeric',
+                'gender' => 'required',
                 'bank_id' => 'max:2|numeric',
                 'bank_acc' => 'required_with:bank_id|unique:persons|max:50'
             ]);

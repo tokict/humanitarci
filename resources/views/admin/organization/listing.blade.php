@@ -30,7 +30,7 @@
                                         <td>{{ $org->donations_address }}</td>
                                         <td>{{ $org->contact_email }}</td>
                                         <td>{{ $org->contact_phone }}</td>
-                                        <td>{{ $org->person->first_name }} {{$org->person->last_name}}</td>
+                                        <td> <a href="/admin/persons/view/{{ $org->person->id }}"> {{ $org->person->first_name }} {{$org->person->last_name}}</a></td>
                                         <td class="center">{{ $org->status }}</td>
                                         <td class="center">
                                             <a href="/{{trans('routes.front.organizations')}}/{{trans('routes.actions.view')}}/{{$org->id}}"
