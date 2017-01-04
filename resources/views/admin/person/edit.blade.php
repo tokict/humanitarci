@@ -78,7 +78,7 @@
                         <div class="hr-line-dashed"></div>
                         <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
                             <div class="col-sm-5">
-                                {{Form::select('city_id', [$person->city->id => $person->city->name], $person->city->name, ['class' => 'form-control selectCity'])}}
+                                {{Form::text('city', null,['class' =>'form-control' ] )}}
                                 <span class="help-block m-b-none">City of residence</span>
                             </div>
                         </div>

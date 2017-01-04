@@ -218,18 +218,18 @@ $(document).ready(function () {
         }, // let our custom formatter work
         minimumInputLength: 1,
         templateResult: formatPerson, // omitted for brevity, see the source of this page
-        templateSelection: formatSelectPersonion // omitted for brevity, see the source of this page
+        templateSelection: formatSelectPerson// omitted for brevity, see the source of this page
     });
 
-    function formatPerson(data) {
+    function formatPerson(data) { console.log(data);
         if (data.loading) return data.first_name + ' ' + data.last_name;
 
         return "<div class='select2-result-repository clearfix'>" +
-            "<div class='select2-result-repository__title'>" + data.first_name + " " + data.last_name + " <small>(" + data.city.name + ", " + data.social_id + ")</small></div>";
+            "<div class='select2-result-repository__title'>" + data.first_name + " " + data.last_name + " <small>(" + data.city + ", " + data.social_id + ")</small></div>";
 
     }
 
-    function formatSelectPersonion(data) {
+    function formatSelectPerson(data) {
         return data.first_name ? data.first_name + ' ' + data.last_name : data.text;
     }
 
