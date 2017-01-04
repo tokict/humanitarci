@@ -26,7 +26,7 @@
                                     <tr class="gradeX">
                                         <td>{{ $org->name }}</td>
                                         <td class="center">{{ $org->legalEntity->name }}</td>
-                                        <td>{{ $org->city->name }}</td>
+                                        <td>{{ $org->legalEntity->city->name }}</td>
                                         <td>{{ $org->donations_address }}</td>
                                         <td>{{ $org->contact_email }}</td>
                                         <td>{{ $org->contact_phone }}</td>

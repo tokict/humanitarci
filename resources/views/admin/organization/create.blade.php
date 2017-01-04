@@ -57,14 +57,6 @@
                                 {{Form::select('legal_entity_id', ["" => 'Select'], null, ['class' => 'form-control selectEntity'])}}
                                 <span class="help-block m-b-none">Legal entity that operates it</span>
                             </div>
-
-
-                            <div class="col-sm-3">
-                                <label class="control-label">City</label>
-                                {{Form::select('city_id', ["" => 'Select'], null, ['class' => 'form-control selectCity'])}}
-                                <span class="help-block m-b-none">City of operations</span>
-                            </div>
-
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">

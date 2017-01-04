@@ -22,12 +22,10 @@ namespace App\Models;
  * @property int $description
  * @property int $logo_id
  * @property int $represented_by
- * @property int $city_id
  * @property int $status
  *
  * @property \App\Models\Person $person
  * @property \App\Models\LegalEntity $legalEntity
- * @property \App\Models\City $city
  * @property \App\Models\Media $logo
  *
  * @property \Illuminate\Database\Eloquent\Collection $users
@@ -50,7 +48,6 @@ class Organization extends BaseModel
 	protected $casts = [
 		'legal_entity_id' => 'int',
         'logo_id' => 'int',
-        'city_id' => 'int',
         'represented_by' => 'int'
 	];
 
@@ -64,7 +61,6 @@ class Organization extends BaseModel
 		'description',
 		'logo_id',
 		'represented_by',
-		'city_id',
 		'status',
 	];
 
@@ -73,10 +69,7 @@ class Organization extends BaseModel
 		return $this->belongsTo(\App\Models\LegalEntity::class);
 	}
 
-    public function city()
-    {
-        return $this->belongsTo(\App\Models\City::class);
-    }
+
 
     public function person()
     {
