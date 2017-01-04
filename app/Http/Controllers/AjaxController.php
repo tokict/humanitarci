@@ -39,7 +39,7 @@ class AjaxController extends Controller
             $r->region = $r->region;
         }
         return response()
-            ->json($result);
+            ->json($result, 200, ['Content-type'=> 'application/json; charset=utf-8']);
     }
 
 
@@ -54,7 +54,7 @@ class AjaxController extends Controller
         }
 
         return response()
-            ->json($result);
+            ->json($result, 200, ['Content-type'=> 'application/json; charset=utf-8']);
     }
 
 
@@ -66,7 +66,7 @@ class AjaxController extends Controller
         $result = Beneficiary::where('name', 'LIKE', '%' . $input . '%')->get();
 
         return response()
-            ->json($result);
+            ->json($result, 200, ['Content-type'=> 'application/json; charset=utf-8']);
     }
 
 
