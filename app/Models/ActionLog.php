@@ -111,24 +111,33 @@ class ActionLog extends BaseModel
         self::create($params);
     }
 
-    public static function findOldData($type = null, $id = null, $all = null)
+    public static function findOldData($current, $type = null, $id = null, $all = null)
     {
         if (!$all) {
             //we are returning not the latest but one before because the latest is the one we are looking at now
             if ($type) {
-                return self::where('item_id', $id)
+                $res =  self::where('item_id', $id)
                     ->where('type', $type)
-                    ->orderBy('created_at', 'desc')->get()[1];
+                    ->where('created_at', '>=',  $current->created_at)
+                    ->orderBy('created_at', 'desc')->get();
+
+                return isset($res[1])?$res[1]:null;
             } else {
-                return self::where('item_id', $id)
-                    ->orderBy('created_at', 'desc')->get()[1];
+                $res =  self::where('item_id', $id)
+                    ->where('created_at', '>=',  $current->created_at)
+                    ->orderBy('created_at', 'desc')->get();
+
+                return isset($res[1])?$res[1]:null;
             }
         } else {
             if ($type) {
-                return self::where('item_id', $id)->where('type', $type)->get();
+                $res =  self::where('item_id', $id)->where('type', $type)->get();
+                return isset($res)?$res:null;
             }else{
-                return self::where('item_id', $id)
+                $res =  self::where('item_id', $id)
+                    ->where('created_at', '>=',  $current->created_at)
                     ->orderBy('created_at', 'desc')->get();
+                return isset($res)?$res:null;
             }
         }
 

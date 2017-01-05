@@ -19,6 +19,7 @@
                             </small>
                             <br/>
                             <br/>
+                            Item: {{$log->item_id}} <br/>
                             Donor: @if($donor)
                                 <a href="/admin/donor/view/{{$donor->_id}}">Yes</a>
                             @else
@@ -41,29 +42,26 @@
                         <table class="table small m-b-xs">
                             <tbody>
                             <tr>
-                                <th>Item</th>
                                 <th>Param name</th>
+                                <th>New value</th>
                                 <th>Old value</th>
-                                <th>new value</th>
                             </tr>
                             <tr>
-                                <td>
-                                    <strong>{{$log->item_id}}</strong>
-                                </td>
-                                @foreach($differences as $key =>  $values)
+                            @foreach($differences as $key =>  $values)
+                                <tr>
                                     <td>
-                                        <strong>{{$key}}</strong>
+                                        <span>{{$key}}</span>
                                     </td>
                                     <td>
-                                        <strong>{{$values['old']}}</strong>
+                                        <span>{{$values['old']}}</span>
                                     </td>
                                     <td>
-                                        <strong>{{$values['new']}}</strong>
+                                        <span>{{$values['new']}}</span>
                                     </td>
-
+                                </tr>
                                 @endforeach
 
-                            </tr>
+                                </tr>
                             </tbody>
                         </table>
                     @else

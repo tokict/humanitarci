@@ -27,7 +27,8 @@ class LogController extends Controller
 
     public function listing()
     {
-        if (!Auth::User()->super_admin) {
+        $logs = [];
+        if (Auth::User()->super_admin) {
             $logs = ActionLog::paginate(50);
         }
 
@@ -45,13 +46,13 @@ class LogController extends Controller
 
         //Get old data for certain types
         if (strpos($log->type, '_update') !== false) {
-            $old_data = ActionLog::findOldData($log->item_id)->data;
-            $newData = unserialize($log->data);
+            $old_data = ActionLog::findOldData($log, null, $log->item_id)->data;
+            $newerData = unserialize($log->data);
             //Group differences
             $differences = [];
             foreach(unserialize($old_data) as $key => $value){
-                if($newData[$key] !== $value && $key != 'modified_at' && $key != 'updated_at'){
-                    $differences[$key] = ['old' => $value, 'new' => $newData[$key]];
+                if(isset($newerData[$key]) && $newData[$key] !== $value && $key != 'modified_at' && $key != 'updated_at'){
+                    $differences[$key] = ['old' => $value, 'new' => $newerData[$key]];
                 }
             }
 
