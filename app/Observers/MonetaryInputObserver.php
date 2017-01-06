@@ -4,9 +4,11 @@ namespace App\Observers;
 
 use App\Models\Campaign;
 use App\Models\Donation;
+use App\Models\Donor;
 use App\Models\MonetaryInput;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 
 class MonetaryInputObserver
@@ -44,7 +46,37 @@ class MonetaryInputObserver
                 $donation->save();
 
             }
+
+            $donor = Donor::find($donation->donor_id);
+            $donor->recalculateDiversityScore();
+
+            $donor->total_donations += 1;
+            $donor->amount_donated += $donation->amount;
+
+            if($campaign->priority >= 4){
+                $donor->critical_score = $donor->critical_score + 10;
+            }
+
+            if($campaign->status == 'succeeded'){
+                $donor->closer_score = $donor->closer_score + 10;
+
+                Mail::queue('emails.donation_thankyou_closing', ['user' => $donor->user, 'donations' => $donationInfo], function ($m) use ($donor) {
+
+                    $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+                });
+            }
+            else {
+                Mail::queue('emails.donation_thankyou', ['user' => $donor->user, 'donations' => $donationInfo], function ($m) use ($donor) {
+
+                    $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+                });
+            }
+            $donor->save();
         }
+
+
+
+
 
 
     }
