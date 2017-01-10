@@ -95,7 +95,9 @@ class CheckBankEmailReports extends Command
 
                         Mail::raw('Failed to import attachment from daily reports for
                         organization '.$organization->name.' mail: '.$message->getSubject().', file: '.$attachment->getFilename(), function ($message) {
-                            //
+                            $message->from(env('MAIL_FROM_ADDRESS'), 'Mailer');
+
+                            $message->to(env('WEBMASTER_MAIL'), 'Webmaster')->subject('Problem processing bank report');
                         });
                         continue;
                     }
