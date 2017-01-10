@@ -80,8 +80,7 @@
                                     @endif
                                     @if(isset($donation->donor->person->city))
                                         ,
-                                        {{$donation->donor->person->city->name}}
-                                        -  {{$donation->donor->person->city->region->name}}
+                                        {{$donation->donor->person->city}}
                             @endif
                         </span>
                     </li>

@@ -14,15 +14,22 @@ namespace App\Models;
  * 
  * @property int $id
  * @property int $legal_entity_id
- * @property int $name
- * @property int $contact_email
- * @property int $contact_phone
- * @property int $donations_address
- * @property int $donations_coordinates
- * @property int $description
+ * @property string $name
+ * @property string $contact_email
+ * @property string $contact_phone
+ * @property string $donations_address
+ * @property string $donations_coordinates
+ * @property string $description
  * @property int $logo_id
  * @property int $represented_by
- * @property int $status
+ * @property string $status
+ * @property string $mail_report_address
+ * @property string $mail_report_username
+ * @property string $mail_report_password
+ * @property string $mail_report_from
+ * @property string $mail_report_file_format
+ * @property string $mail_report_server
+ * @property string $mail_report_port
  *
  * @property \App\Models\Person $person
  * @property \App\Models\LegalEntity $legalEntity
@@ -62,6 +69,13 @@ class Organization extends BaseModel
 		'logo_id',
 		'represented_by',
 		'status',
+		'mail_report_address',
+		'mail_report_username',
+		'mail_report_password',
+		'mail_report_from',
+		'mail_report_file_format',
+		'mail_report_server',
+		'mail_report_port'
 	];
 
 	public function legalEntity()
