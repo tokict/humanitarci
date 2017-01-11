@@ -83,7 +83,7 @@
                         <div align="center">
                             <!-- Timer -->
                             <ul class="countdown dark clearlist clearfix mb-80 mb-xs-20"
-                                data-finish-date="1/02/2017 12:00:00" data-UTC="2"
+                                data-finish-date="4/01/2017 12:00:00" data-UTC="2"
                                 data-finish-message="We have already started!">
                                 <li>
                                     <span class="countdown-number"><span class="days font-alt">00</span><b
@@ -378,4 +378,4 @@
 
 </body>
 </html>
->>>>>>> 4c0e224192203728f58fb9f11d6b0c8e0c1a55c7
+
