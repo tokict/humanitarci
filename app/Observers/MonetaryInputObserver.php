@@ -21,20 +21,46 @@ class MonetaryInputObserver
      */
     public function created(MonetaryInput $monetaryInput)
     {
-        //New input, create donations if we have info
-        #Todo Check if total paid amount is enough to cover all selected donations. See what to do with non matching amount
+        #New input, create donations if we have info
+
         $amount = $monetaryInput->amount;
         $provider_tax = Setting::getSetting('payment_provider_tax')->value;
         $platform_tax = Setting::getSetting('payment_platform_tax')->value;
         $bank_tax = Setting::getSetting('payment_bank_tax')->value;
+        $remaining = $amount;
         $tax = $bank_tax + $platform_tax + $provider_tax;
-        $donationInfo = isset($monetaryInput->payment_provider_datum) ? $monetaryInput->payment_provider_datum->order->donations :
+        $donationInfo = isset($monetaryInput->payment_provider_datum)
+            ? $monetaryInput->payment_provider_datum->order->donations :
             $monetaryInput->bank_transfers_datum->order->donations;
-        Log::info('Monetary input created from input ' . $monetaryInput->id . ' with amount of ' . $monetaryInput->amount . ' to campaign ' . $monetaryInput->campaign_id);
+        Log::info('Monetary input created from input ' . $monetaryInput->id
+            . ' with amount of ' . $monetaryInput->amount . ' to campaign ' . $monetaryInput->campaign_id);
 
         $donations = [];
         if (isset($donationInfo)) {
-            foreach (unserialize($donationInfo) as $item) {
+            $don = unserialize($donationInfo);
+            foreach ($don as $key => $item) {
+                #Make it same format
+                $item['amount'] = $item['amount'] *100;
+
+                #If there is no more cash, just skip all
+                if($remaining == 0){
+                    continue;
+                }
+
+                #If the amount remaining is less than donation, assign it all to this donation
+                #Donation can have less than in order
+                if($item['amount'] <= $remaining){
+                    $item['amount'] = $remaining;
+                }
+
+                #If its the last donation, assign everything left to it. All extra paid goes to last and
+                # last can get less money than in order
+                if (count($don) == $key - 1) {
+                        $item['amount'] = $remaining;
+                }
+
+                #If there is enough cash, just proceed below
+
 
                 $campaign = Campaign::find($item['campaign']);
                 $donation = new Donation;
@@ -44,10 +70,13 @@ class MonetaryInputObserver
                 $donation->type = 'money';
                 $donation->status = 'received';
                 $donation->source = 'site';
-                $donation->amount = $item['amount'] * 100 - (($item['amount'] * 100) / 100 * $tax);
+                #Applying tax here because we cannot put all in donation, only whats left after tax
+                $donation->amount = $item['amount'] - (($item['amount']) / 100 * $tax);
                 $donation->payment_id = $monetaryInput->id;
                 $donation->organization_id = $campaign->organization_id;
                 $donation->save();
+                $remaining -= $donation->amount;
+
                 $donations[] = $donation;
 
                 $donor = Donor::find($donation->donor_id);
@@ -73,7 +102,6 @@ class MonetaryInputObserver
             });
 
 
-
         }
 
 
@@ -91,10 +119,12 @@ class MonetaryInputObserver
             + Setting::getSetting('payment_platform_tax')->value
             + Setting::getSetting('payment_bank_tax')->value;
 
-        if(isset($monetaryInput->bank_transfer_data_id)){
-            $monetaryInput->amount = number_format($monetaryInput->amount - (($monetaryInput->amount) / 100 * $total_tax), 0, '.', '');
-        }else{
-            $monetaryInput->amount = number_format($monetaryInput->amount * 100 - (($monetaryInput->amount * 100) / 100 * $total_tax), 0, '.', '');
+        if (isset($monetaryInput->bank_transfer_data_id)) {
+            $monetaryInput->amount = number_format($monetaryInput->amount
+                - (($monetaryInput->amount) / 100 * $total_tax), 0, '.', '');
+        } else {
+            $monetaryInput->amount = number_format($monetaryInput->amount * 100
+                - (($monetaryInput->amount * 100) / 100 * $total_tax), 0, '.', '');
         }
 
     }
