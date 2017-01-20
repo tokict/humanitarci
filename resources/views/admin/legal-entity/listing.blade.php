@@ -13,7 +13,7 @@
                             <div class="col-md-12 text-center">
                                 {{$legalEntities->appends($input)->links()}}
                             </div>
-                            <table class="table table-striped table-bordered table-hover legal-entities-table" >
+                            <table class="table table-striped table-bordered table-hover legal-entities-table">
                                 <thead>
                                 <tr>
                                     <th>Name</th>
@@ -41,12 +41,13 @@
                                         <td>{{ isset( $entity->bank)?$entity->bank->name:"" }}</td>
                                         <td class="center">{{ $entity->bank_acc }}</td>
                                         <td>{{ $entity->roles }}</td>
-                                        <td>{{ $entity->person->first_name }} {{$entity->person->last_name}}</td>
-
+                                        @if(isset($entity->person))
+                                            <td>{{ $entity->person->first_name }} {{$entity->person->last_name}}</td>
+                                        @endif
 
                                         <td class="center">
                                             <a href="/admin/legal-entity/view/{{$entity->id}}"
-                                                class="btn btn-sm btn-default">
+                                               class="btn btn-sm btn-default">
                                                 <i class="fa fa-list"></i> Details</a>
                                             <a href="/admin/legal-entity/edit/{{$entity->id}}"
                                                class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>

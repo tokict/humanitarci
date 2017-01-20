@@ -98,6 +98,8 @@ class Order
 
     public $order_token;
 
+    public $payment_method;
+
 
     /**
      * Donations can be only single or monthly. They cannot mix! First we process single in one order

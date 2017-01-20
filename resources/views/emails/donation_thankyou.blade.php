@@ -210,11 +210,11 @@
                                                                         <td align="center"
                                                                             style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;width: 100%;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px">
                                                                             <div align="center" style="font-size:12px">
-                                                                                <a href="https://beefree.io"
+                                                                                <a href="https://humanitarci.hr"
                                                                                    target="_blank">
                                                                                     <img class="center" align="center"
                                                                                          border="0"
-                                                                                         src="images/humanitarci-logo-small.png"
+                                                                                         src="https://www.humanitarci.hr/front/images/humanitarci-logo-small.png"
                                                                                          alt="Image" title="Image"
                                                                                          style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block;border: none;height: auto;line-height: 100%;margin: 0 auto;float: none;width: 100% !important;max-width: 100px"
                                                                                          width="100">
@@ -298,7 +298,7 @@
                                                                             <div style="color:#555555;line-height:150%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
                                                                                 <div style="font-size:12px;line-height:18px;color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
                                                                                     <p style="margin: 0;font-size: 14px;line-height: 21px">
-                                                                                        <span style="font-size: 20px; line-height: 30px;">Vaša donacija od {{number_format($donation->amount/100, 2)}} {{env('CURRENCY')}}
+                                                                                        <span style="font-size: 20px; line-height: 30px;">Vaša donacija od {{number_format($amount/100, 2)}} {{env('CURRENCY')}}
                                                                                             je uspješno pristigla na našu platformu.</span>
                                                                                     </p>
                                                                                     <p style="margin: 0;font-size: 14px;line-height: 21px">
@@ -624,7 +624,9 @@
                                                                                 <div style="color:#aaaaaa;line-height:120%;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;">
                                                                                     <div style="font-size:14px;line-height:17px;color:#aaaaaa;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
                                                                                         <p style="margin: 0;font-size: 14px;line-height: 17px">
-                                                                                            {{number_format($donation->amount/100)}}{{env('CURRENCY')}}
+                                                                                            {{number_format($donation->amount/100)}} {{env('CURRENCY')}}
+                                                                                            <br/>
+                                                                                            <br/>
                                                                                             {{$donation->campaign->description_short}}</p>
                                                                                     </div>
                                                                                 </div>

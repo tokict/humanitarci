@@ -111,7 +111,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'daily'),
+    'log' => env('APP_LOG', 'errorlog'),
     'log_max_files' => 60,
     'log_level' => env('APP_LOG_LEVEL', 'error'),
 
@@ -162,7 +162,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         \Reliese\Coders\CodersServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 

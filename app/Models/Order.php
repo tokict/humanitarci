@@ -20,6 +20,8 @@ class Order extends BaseModel
      * @property string $type
      * @property string $user_ip
      * @property string $order_token
+     * @property string $payment_method
+     * @property string $reference
      *
      * @property \App\Models\Donor $donor
      * @property \App\Models\Campaign $campaign
@@ -46,7 +48,9 @@ class Order extends BaseModel
         'type',
         'user_ip',
         'status',
-        'order_token'
+        'order_token',
+        'payment_method',
+        'reference'
     ];
 
 

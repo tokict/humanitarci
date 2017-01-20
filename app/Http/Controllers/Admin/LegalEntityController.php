@@ -71,7 +71,7 @@ class LegalEntityController extends Controller
                 'city_id' => 'required|max:5',
                 'address' => 'required|unique:persons|max:100',
                 'bank' => 'numeric',
-                'bank_acc' => 'required|max:150',
+                'bank_acc' => 'max:150',
                 'contact_email' => 'unique:legal_entities|max:100',
                 'contact_phone' => 'max:100',
                 'representing_person' => 'numeric',

@@ -269,10 +269,12 @@ class Donor extends BaseModel
     public function recalculateDiversityScore()
     {
         $donations = Donation::where('donor_id', $this->getAtt('id'))->get();
-        $camps = Campaign::all()->distinct('classification_code');
+        $camps = Campaign::all()->groupBy('classification_code');
         $types = [];
         foreach ($camps as $camp) {
-            $types[$camp->classification_code] = 0;
+            foreach ($camp as $item) {
+                $types[$item->classification_code] = 0;
+            }
         }
 
         foreach ($donations as $donation) {

@@ -20,7 +20,10 @@
     "sergeymakinen/laravel-phpstorm-stubs": "^1.0",
     "guzzlehttp/guzzle": "~6.0",
     "league/flysystem-aws-s3-v3": "~1.0",
-    "ddeboer/imap": "^0.5.2"
+    "ddeboer/imap": "^0.5.2",
+    "maatwebsite/excel": "~2.1.0",
+    "barryvdh/laravel-ide-helper": "~2.2",
+    "smalot/pdfparser" : "*"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*",

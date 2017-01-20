@@ -22,13 +22,17 @@ class MonetaryInputObserver
     public function created(MonetaryInput $monetaryInput)
     {
         //New input, create donations if we have info
+        #Todo Check if total paid amount is enough to cover all selected donations. See what to do with non matching amount
+        $amount = $monetaryInput->amount;
         $provider_tax = Setting::getSetting('payment_provider_tax')->value;
         $platform_tax = Setting::getSetting('payment_platform_tax')->value;
         $bank_tax = Setting::getSetting('payment_bank_tax')->value;
         $tax = $bank_tax + $platform_tax + $provider_tax;
-        $donationInfo = $monetaryInput->payment_provider_datum->order->donations;
+        $donationInfo = isset($monetaryInput->payment_provider_datum) ? $monetaryInput->payment_provider_datum->order->donations :
+            $monetaryInput->bank_transfers_datum->order->donations;
         Log::info('Monetary input created from input ' . $monetaryInput->id . ' with amount of ' . $monetaryInput->amount . ' to campaign ' . $monetaryInput->campaign_id);
 
+        $donations = [];
         if (isset($donationInfo)) {
             foreach (unserialize($donationInfo) as $item) {
 
@@ -44,39 +48,33 @@ class MonetaryInputObserver
                 $donation->payment_id = $monetaryInput->id;
                 $donation->organization_id = $campaign->organization_id;
                 $donation->save();
+                $donations[] = $donation;
 
+                $donor = Donor::find($donation->donor_id);
+                $donor->recalculateDiversityScore();
+
+                if ($campaign->priority >= 4) {
+                    $donor->critical_score = $donor->critical_score + 10;
+                }
+
+                $donor->total_donations += 1;
+                $donor->amount_donated += $donation->amount;
+                $donor->save();
             }
 
-            $donor = Donor::find($donation->donor_id);
-            $donor->recalculateDiversityScore();
+            Mail::queue('emails.donation_thankyou', [
+                'user' => $donor->user,
+                'donations' => $donations,
+                'donation' => $donation,
+                'amount' => $amount
+            ], function ($m) use ($donor) {
 
-            $donor->total_donations += 1;
-            $donor->amount_donated += $donation->amount;
+                $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+            });
 
-            if($campaign->priority >= 4){
-                $donor->critical_score = $donor->critical_score + 10;
-            }
 
-            if($campaign->status == 'succeeded'){
-                $donor->closer_score = $donor->closer_score + 10;
 
-                Mail::queue('emails.donation_thankyou_closing', ['user' => $donor->user, 'donations' => $donationInfo], function ($m) use ($donor) {
-
-                    $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-                });
-            }
-            else {
-                Mail::queue('emails.donation_thankyou', ['user' => $donor->user, 'donations' => $donationInfo], function ($m) use ($donor) {
-
-                    $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-                });
-            }
-            $donor->save();
         }
-
-
-
-
 
 
     }
@@ -93,7 +91,12 @@ class MonetaryInputObserver
             + Setting::getSetting('payment_platform_tax')->value
             + Setting::getSetting('payment_bank_tax')->value;
 
-        $monetaryInput->amount = $monetaryInput->amount * 100 - (($monetaryInput->amount * 100) / 100 * $total_tax);
+        if(isset($monetaryInput->bank_transfer_data_id)){
+            $monetaryInput->amount = number_format($monetaryInput->amount - (($monetaryInput->amount) / 100 * $total_tax), 0, '.', '');
+        }else{
+            $monetaryInput->amount = number_format($monetaryInput->amount * 100 - (($monetaryInput->amount * 100) / 100 * $total_tax), 0, '.', '');
+        }
+
     }
 
 

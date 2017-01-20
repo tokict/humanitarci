@@ -67,7 +67,6 @@ class OrganizationController extends Controller
                 'contact_phone' => 'max:100',
                 'represented_by' => 'required',
                 'status' => 'required|numeric',
-                'city_id' => 'required|numeric',
 
 
             ]);
@@ -109,7 +108,6 @@ class OrganizationController extends Controller
                 'contact_phone' => 'max:100',
                 'represented_by' => 'required',
                 'status' => 'required',
-                'city_id' => 'required|numeric',
 
 
             ]);
