@@ -25,15 +25,15 @@ class RZBHHR2X
                     continue;
                 }
 
-                $this->data[] = [
+               /* $this->data[] = [
                     'date' => $r[2],
                     'description' => $r[4],
                     'payee' => $r[5],
                     'amount' => $r[6],
-                ];
+                ];*/
             }
         });
-        dd($this->data);
+
     }
 
     public function getData()

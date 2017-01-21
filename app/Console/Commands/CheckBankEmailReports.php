@@ -66,101 +66,147 @@ class CheckBankEmailReports extends Command
     {
         $this->info("Checking mail reports from banks");
         $received = [];
+        if (!count($this->organizations)) {
+            $this->info("No active campaigns");
+        }
         foreach ($this->organizations as $organization) {
+            if (!$organization->mail_report_username) {
+                continue;
+            }
+            $this->info("#################################################################################");
+            $this->info('Processing mails from "' . $organization->name . '"');
             $server = new Server($organization->mail_report_server, $organization->mail_report_port);
-            $connection = $server->authenticate($organization->mail_report_username, $organization->mail_report_password);
 
-            $mailbox = $connection->getMailbox('INBOX');
-            $search = new SearchExpression();
-            $search->addCondition(new FromAddress($organization->mail_report_from));
-            $messages = $mailbox->getMessages($search);
-
-            foreach ($messages as $key =>  $message) {
-                if($key == 0){
-                    continue;
-                }
-                // $message is instance of \Ddeboer\Imap\Message
-                $attachments = $message->getAttachments();
-
-                foreach ($attachments as $attachment) {
-                    // $attachment is instance of \Ddeboer\Imap\Message\Attachment
-                    // getDecodedContent() decodes the attachment’s contents automatically:
-
-                    file_put_contents('storage/app/temp/' . $attachment->getFilename(), $attachment->getDecodedContent());
-
-                    //Parses doc and returns array of payments to account in form
-                    $classname = 'App\Libraries\BankReportParsers\\' . $organization->legalEntity->bank->swift_code;
-                    $inputs = new $classname('storage/app/temp/' . $attachment->getFilename());
-                    $received = array_merge($received, $inputs->getData());
+            try {
+                $connection = $server->authenticate($organization->mail_report_username,
+                    $organization->mail_report_password);
+                $this->info('Connection successful');
 
 
-                    /*$media = new Media([]);
-                    $s3 = \Storage::cloud('s3');
-                    $name = time() . rand(1, 9999) . "." . $organization->mail_report_file_format;
-                    if ($s3->put('bank_daily_reports/' . $organization->id . '/' . $name, $attachment->getDecodedContent(), 'public')
-                    ) {
+                $mailbox = $connection->getMailbox('INBOX');
+                $search = new SearchExpression();
+                $search->addCondition(new FromAddress($organization->mail_report_from));
+                $messages = $mailbox->getMessages($search);
+                $this->info('We have ' . count($messages) . ' messages to process');
 
-                        $media->setAtt('reference', $name);
-                        $media->setAtt('type', 'document');
-                        $media->setAtt('directory', 'bank_daily_reports');
-                        $media->save();
-                    } else {
+                foreach ($messages as $key => $message) {
+                    $this->info("************************************************");
 
-                        Mail::raw('Failed to import attachment from daily reports for
-                        organization ' . $organization->name . ' mail: ' . $message->getSubject() . ', file: ' . $attachment->getFilename(), function ($message) {
-                            $message->from(env('MAIL_FROM_ADDRESS'), 'Mailer');
+                    // $message is instance of \Ddeboer\Imap\Message
+                    $attachments = $message->getAttachments();
+                    $this->info('Message ' . ($key + 1) . ' has ' . count($attachments) . ' attachments');
+                    foreach ($attachments as $key => $attachment) {
+                        $this->info("!!!!!!!!!!!");
+                        $this->info('Processing attachment nr ' . ($key + 1) . '(' . $attachment->getFilename() . ') using class ' . $organization->legalEntity->bank->swift_code);
+                        // $attachment is instance of \Ddeboer\Imap\Message\Attachment
+                        // getDecodedContent() decodes the attachment’s contents automatically:
 
-                            $message->to(env('WEBMASTER_MAIL'), 'Webmaster')->subject('Problem processing bank report');
-                        });
-                        continue;
-                    }*/
+                        file_put_contents('storage/app/temp/' . $attachment->getFilename(),
+                            $attachment->getDecodedContent());
 
-                    //Search for references and assign order_number to each item
-                    foreach ($received as $key => $item) {
-                        $order = Order::where('reference' ,  trim($item['description']))->orderBy('created_at', 'desc')->get()->first();
-                        if($order){
-                            $donation = unserialize($order->donations);
-                            //Replace amount with real received amount
-                            $order->amount = (int) str_replace([".", ","], "", $item['amount']);
+                        //Parses doc and returns array of payments to account in form
+                        $classname = 'App\Libraries\BankReportParsers\\' . $organization->legalEntity->bank->swift_code;
+                        try {
+                            $inputs = new $classname('storage/app/temp/' . $attachment->getFilename());
+                            foreach ($inputs->getData() as $item) {
+                                $received[] = $item;
+                           };
 
-
-                            //Create bank transfer record
-                            $paymentData = [
-                                "bank_id" => $organization->legalEntity->bank_id,
-                                "payee_name" => $item['name'],
-                                "payee_account" => $item['iban'],
-                                "donor_id" => $order->donor_id,
-                                'order_id' => $order->id,
-                                "time" => date('Y-m-d H:i:s',strtotime($item['date'])),
-                                "amount" => $order->amount,
-                                "reference" => $item['description']
-                            ];
-
-
-                            $input = BankTransfersDatum::create($paymentData);
-
-                            //Create monetary input
-                            $inputData = [
-                                'donor_id' => $order->donor_id,
-                                'amount' => $order->amount,
-                                'order_id' => $order->id,
-                                'bank_transfer_data_id' => $input['id']
-                            ];
-
-                            if(MonetaryInput::create($inputData)){
-                                $this->info("Payment entered into the system");
-                            }else{
-                                $this->info("Payment CANNOT be entered into the system");
-                            }
-
+                        } catch (\Exception $e) {
+                            $this->info('Processing of attachment nr ' . ($key + 1) . ' failed with message: ' . $e->getMessage());
+                            $received = [];
                         }
 
+                        $this->info("Attachment has " . count($received) . ' payments');
 
+
+                        /*$media = new Media([]);
+                        $s3 = \Storage::cloud('s3');
+                        $name = time() . rand(1, 9999) . "." . $organization->mail_report_file_format;
+                        if ($s3->put('bank_daily_reports/' . $organization->id . '/' . $name, $attachment->getDecodedContent(), 'public')
+                        ) {
+
+                            $media->setAtt('reference', $name);
+                            $media->setAtt('type', 'document');
+                            $media->setAtt('directory', 'bank_daily_reports');
+                            $media->save();
+                        } else {
+
+                            Mail::raw('Failed to import attachment from daily reports for
+                            organization ' . $organization->name . ' mail: ' . $message->getSubject() . ', file: ' . $attachment->getFilename(), function ($message) {
+                                $message->from(env('MAIL_FROM_ADDRESS'), 'Mailer');
+
+                                $message->to(env('WEBMASTER_MAIL'), 'Webmaster')->subject('Problem processing bank report');
+                            });
+                            continue;
+                        }*/
+                        $this->info("!!!!!!!!!!!");
                     }
+                    $this->info("************************************************");
+                }
+            } catch (\Exception $e) {
+                $this->info($e->getMessage());
+            }
+            $this->info("#################################################################################");
+        }
+        //Search for references and assign order_number to each item
+        if (count($received)) {
+            $this->info('Processing received payments');
+
+        }
+        foreach ($received as $key => $item) {
+            $this->info("//////");
+            $this->info('Processing payment nr ' . ($key + 1) . ' of ' . $item['amount'] . ' and date ' . $item['date']);
+
+            $order = Order::where('reference', trim($item['description']))->orderBy('created_at',
+                'desc')->get()->first();
+            if ($order) {
+                $this->info('Order for payment ' . ($key + 1) . ' found');
+                $donation = unserialize($order->donations);
+                //Replace amount with real received amount
+                $order->amount = (int)str_replace([".", ","], "", $item['amount']);
+
+                $this->info('Amount is ' . $order->amount);
+                //Create bank transfer record
+                $paymentData = [
+                    "bank_id" => $organization->legalEntity->bank_id,
+                    "payee_name" => $item['name'],
+                    "payee_account" => $item['iban'],
+                    "donor_id" => $order->donor_id,
+                    'order_id' => $order->id,
+                    "time" => date('Y-m-d H:i:s', strtotime($item['date'])),
+                    "amount" => $order->amount,
+                    "reference" => $item['description']
+                ];
+
+                try {
+                    $input = BankTransfersDatum::create($paymentData);
+                } catch (\Exception $e) {
+                    $this->info('Creating bank transfer entry failed with message: ' . $e->getMessage());
+                    continue;
                 }
 
+                //Create monetary input
+                $inputData = [
+                    'donor_id' => $order->donor_id,
+                    'amount' => $order->amount,
+                    'order_id' => $order->id,
+                    'bank_transfer_data_id' => $input['id']
+                ];
+
+                if (MonetaryInput::create($inputData)) {
+                    $this->info("Payment entered into the system");
+                } else {
+                    $this->info("Payment CANNOT be entered into the system");
+                }
+
+            } else {
+                $this->info("No order found for payment! Skipping!");
             }
+            $this->info("//////");
+
         }
+
 
         $this->info("\n --------------------------------------------------------- \n");
 
