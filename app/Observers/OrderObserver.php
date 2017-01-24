@@ -35,16 +35,6 @@ class OrderObserver
         ActionLog::log(ActionLog::TYPE_ENTITY_UPDATE, $order->toArray());
     }
 
-    /**
-     * Listen to the LegalEntity creating event.
-     *
-     * @param  LegalEntity  $entity
-     * @return void
-     */
-    public function creating(Order $order)
-    {
-
-    }
 
 
 

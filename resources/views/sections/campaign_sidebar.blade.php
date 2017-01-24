@@ -28,7 +28,7 @@
                 <label>Jednokratno</label> <input type="radio" name="donation_type" class="pull-right" value="single"
                                                   checked>
                 <br/>
-                <label>Mjesečno</label> <input type="radio" name="donation_type" class="pull-right" value="monthly">
+                {{--<label>Mjesečno</label> <input type="radio" name="donation_type" class="pull-right" value="monthly">--}}
             </div>
         </div>
         <span data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"

@@ -50,7 +50,6 @@ class Order extends BaseModel
         'status',
         'order_token',
         'payment_method',
-        'reference'
     ];
 
 

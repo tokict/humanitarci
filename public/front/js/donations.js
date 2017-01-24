@@ -109,7 +109,7 @@ $(document).ready(function () {
             phone.parent().css({border: '1px solid #ccc'});
         }
 
-        if (missing && !auth) {
+        if (missing && typeof auth == 'undefined') {
             console.log('Missing data');
             return false;
         }
@@ -139,11 +139,26 @@ $(document).ready(function () {
             data: data
         }).then(function (response) {console.log(response);
             createCookie('wentToCheckout', true, 1);
-            $('#processForm').submit();
+            var form = $('#processForm');
+            if($('[name="payment_type"]').find(":selected").val() == 'bank'){
+
+                form.attr('action', bankTransfer)
+            }
+            form.submit();
         })
 
 
     });
 
+    $('[name="payment_type"]').change(function(){
+        $.ajax({
+            url: '/ajax/changePaymentType',
+            dataType: 'json',
+            method: 'post',
+            data: {type:$('[name="payment_type"]').find(":selected").val() }
+        }).then(function (response) {console.log(response);
+            window.location.reload();
+        })
 
+    });
 });

@@ -101,6 +101,8 @@ class Order
     public $payment_method;
 
 
+
+
     /**
      * Donations can be only single or monthly. They cannot mix! First we process single in one order
      * and then what is left of monthly one by one
@@ -160,6 +162,7 @@ class Order
                         $orderOld->save();
 
                         $order = $order->replicate();
+                        $order->reference = strtoupper(str_random(4).'-'.str_random(4));
                         $order->amount = $amount;
                         $order->updated_at = date("Y-m-d H:i:s");
                         $order->save();
@@ -193,6 +196,7 @@ class Order
                 $order->amount = $amount;
                 $order->order_token  = Str::random(60);
                 $order->type = 'single';
+                $order->reference = strtoupper(str_random(4).'-'.str_random(4));
                 $order->user_ip = \Illuminate\Support\Facades\Request::ip();
                 $order->save();
                 $donations = Session::get('donations');
@@ -250,6 +254,8 @@ class Order
         $order->type = 'single';
         $order->user_ip = \Request::ip();
         $order->save();
+
+
 
         $this->order_number = $order->id;
         $this->hash = sha1($this->key . ':' . $this->order_number . ':' . $this->amount . ':' . $this->currency);

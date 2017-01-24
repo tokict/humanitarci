@@ -150,4 +150,28 @@ class AjaxController extends Controller
 
     }
 
+
+    public function changePaymentType()
+    {
+        $input = Input::all();
+        $type = $input['type'];
+
+        $type = ($type == 'bank')?'bank_transfer':'credit_card';
+
+        $orderId = \Session::get('donations')[0]['order_id'];
+
+        $order = Order::find($orderId);
+
+        $order->payment_method = $type;
+        if($order->update()){
+            return response()
+                ->json(['success' => true]);
+        }else{
+            return response()
+                ->json(['success' => false]);
+        }
+
+
+    }
+
 }

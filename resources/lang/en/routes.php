@@ -37,7 +37,8 @@ return array(
         'kako_donirati' => 'how_to_donate',
         'mediji' => 'media',
         'uspjeh' => 'success',
-        'kupnja' => 'checkout'
+        'kupnja' => 'checkout',
+        'banka' => 'bank'
 
 
     ],

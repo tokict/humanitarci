@@ -2,7 +2,14 @@
 @section('content')
         <!-- Section -->
 <script>
-    var auth = {{\Illuminate\Support\Facades\Auth::check()}};
+            @if(\Illuminate\Support\Facades\Auth::check())
+                var auth = true;
+            @else
+                var auth = false;
+            @endif
+                    @if(isset($donations[0]))
+    var bankTransfer = '/{{trans('routes.front.donations')}}/{{trans('routes.actions.bank')}}/{{$donations[0]['order_id']}}';
+    @endif
 </script>
 <section class="page-section">
     <div class="container">
@@ -49,7 +56,7 @@
                                 Akcija
                             </th>
                             <th>
-                                Ukupno
+                                Iznos
                             </th>
                             <th>
                                 Tip
@@ -85,6 +92,11 @@
                     </table>
 
                     <hr class="mb-60"/>
+                    <div class="row mb-20">
+                        <div class="col-md-4 col-md-offset-8">
+                            {{Form::select('payment_type', ["" => 'Odaberi način plaćanja', 'card' => 'Kartica', 'bank' => 'Uplatnica'], $orderModel->payment_method == 'credit_card'?'card':'bank', ['class' => 'input-md form-control'])}}
+                        </div>
+                    </div>
 
                     <div class="row">
 
@@ -140,7 +152,7 @@
                                            type="text"
                                            pattern=".{3,100}"/>
                                 </div>
-                                {{Form::text('order_token', $order->order_token)}}
+                                {{Form::text('order_token', $order->order_token, ['class' => 'hidden'])}}
 
                             @endif
                         </div>
@@ -150,14 +162,20 @@
 
                             <div>
                                 Ukupna donacija:
-                                <strong>{{number_format($total-$total_tax, 2)}} {{env('CURRENCY')}}</strong>
+                                <strong><span id="donation_amount">{{number_format($total-$total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}</strong>
                             </div>
 
                             <div class="mb-10">
-                                Naknade: <strong>{{number_format($total_tax, 2)}} {{env('CURRENCY')}}</strong>
+                                Naknade: <strong><span id="donation_fees">{{number_format($total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}</strong>
                                 <div>
                                     @foreach($taxes as $key => $value)
-                                        <small>{{ucfirst(trans('strings.misc.'.$key))}}: {{$total/100*$value}} {{env('CURRENCY')}}</small><br/>
+                                        @if(($key == 'credit_card_processor_tax'
+                                         || $key == 'bank_tax') && $orderModel->payment_method == 'bank_transfer')
+                                            @else
+                                            <small id="{{$key}}">{{ucfirst(trans('strings.misc.'.$key))}}
+                                                : {{$total/100*$value}} {{env('CURRENCY')}}</small><br/>
+                                        @endif
+
                                     @endforeach
                                 </div>
 

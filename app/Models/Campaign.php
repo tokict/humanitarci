@@ -93,6 +93,8 @@ use Carbon\Carbon;
  *
  * @property \Carbon\Carbon $modified_at
  *
+ * @property string $iban
+ *
  * @property int $priority
  * Optional priority of campaign to push it up in the queue to get more donations
  *
@@ -228,7 +230,8 @@ class Campaign extends BaseModel
         'category',
         'beneficiary_receipt_doc',
         'end_media_info',
-        'finalized_at'
+        'finalized_at',
+        'iban'
     ];
 
     /**

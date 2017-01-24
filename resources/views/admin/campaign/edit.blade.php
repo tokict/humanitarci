@@ -75,6 +75,10 @@
                                 <label class="control-label">Type</label>
                                 {{Form::select('type', $campaign->getEnumValues('type'), null, ['class' => 'form-control'])}}
                             </div>
+                            <div class="col-sm-4">
+                                <label class="control-label">Iban</label>
+                                {{Form::text('iban', null,['class' =>'form-control' ] )}}
+                            </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">

@@ -83,6 +83,8 @@
                                         <dd>{{strtoupper($campaign->classification_code)}}</dd>
                                         <dt>Registration code:</dt>
                                         <dd>{{$campaign->registration_code}}</dd>
+                                        <dt>Iban:</dt>
+                                        <dd>{{$campaign->iban}}</dd>
                                     </dl>
                                 </div>
                             </div>

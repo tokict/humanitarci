@@ -116,7 +116,7 @@ class CampaignController extends Controller
             $input['action_by_date'] = date("Y-m-d H:i:s",
                 strtotime($input['action_by_date'] . " " . $input['action_by_time']));
 
-            //Lets save cover_image if present
+            //Lets save cover_image if presentc
 
             $campaign = Campaign::create($input);
             if ($campaign) {

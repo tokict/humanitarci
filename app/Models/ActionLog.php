@@ -89,7 +89,7 @@ class ActionLog extends BaseModel
     {
         $params['data'] = is_array($data) ? serialize($data) : $data;
         $params['type'] = $type;
-        $params['item_id'] = $data['id'];
+        $params['item_id'] = isset($data['id'])?$data['id']:null;
 
         //If user has donor property it means its not admin so lets use that info to see what role is the user
         if (!empty(Auth::User()->donor)) {

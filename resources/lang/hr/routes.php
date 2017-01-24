@@ -40,6 +40,7 @@ return array(
         'media' => 'mediji',
         'success' => 'uspjeh',
         'checkout' => 'kupnja',
+        'bank' => 'banka'
 
     ],
     'campaignTypes' => [

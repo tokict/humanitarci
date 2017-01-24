@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Models\Campaign;
 use App\Models\Donation;
+use App\Models\Order;
 use App\Models\Person;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Artisan;
@@ -77,17 +78,29 @@ class DonationsController extends Controller
      */
     public function cart($request, $id)
     {
-        $provider_tax = Setting::getSetting('payment_provider_tax')->value;
-        $platform_tax = Setting::getSetting('payment_platform_tax')->value;
-        $bank_tax = Setting::getSetting('payment_bank_tax')->value;
 
-        $total = 0;
-        $taxes = 0;
-        $totalTaxes = $bank_tax+$platform_tax+$provider_tax;
-        $totalWithTaxes = 0;
-        $cart = !empty(session('donations')) ? session('donations') : [];
+
+
+        $cart = !empty(Session::get('donations')) ? Session::get('donations') : [];
         $recurring = false;
         $status = !empty(Input::get('status')) ? Input::get('status') : null;
+
+        if ($cart) {
+            $order = $this->process();
+        } else {
+            $order = null;
+        }
+
+        $orderId = explode("_", $order->order_number);
+        $orderId = $orderId[count($orderId)-1];
+        $ordModel = Order::find($orderId);
+
+
+        $provider_tax = $ordModel->payment_method == 'bank_transfer'?0:Setting::getSetting('payment_provider_tax')->value;
+        $platform_tax = Setting::getSetting('payment_platform_tax')->value;
+        $bank_tax = $ordModel->payment_method == 'bank_transfer'?0:Setting::getSetting('payment_bank_tax')->value;
+        $total = 0;
+        $totalTaxes = $bank_tax+$platform_tax+$provider_tax;
 
 
         //Setup cart display data
@@ -97,9 +110,6 @@ class DonationsController extends Controller
                 $recurring = true;
             }
             $total += $item['amount'];
-            $tax = 0;
-            $taxes += $tax;
-            $totalWithTaxes += $item['amount'];
         }
 
 
@@ -140,19 +150,14 @@ class DonationsController extends Controller
         }
 
 
-        if ($cart) {
-            $order = $this->process();
-        } else {
-            $order = null;
-        }
-
         return view('donation.cart', [
             'donations' => $cart,
             'total' => $total,
             'taxes' => ['bank_tax' => $bank_tax, 'credit_card_processor_tax' => $provider_tax, 'platform_tax' => $platform_tax],
             'total_tax' => $totalTaxes,
             'recurring' => $recurring,
-            'order' => $order
+            'order' => $order,
+            'orderModel' => $ordModel
         ]);
 
     }
@@ -199,5 +204,27 @@ class DonationsController extends Controller
         return redirect()->back()->with('success', [trans('Item removed')]);
     }
 
+
+    public function bank($request, $orderNr){
+        $order = Order::find($orderNr);
+        $cart = !empty(session('donations')) ? session('donations') : [];
+        //Setup cart display data
+        foreach ($cart as &$item) {
+            $item['campaign'] = Campaign::where('id', $item['campaign'])->get()->first();
+
+        }
+        if($order){
+            $order->update(['payment_method' => 'bank_transfer']);
+            $order->save();
+        }else{
+            abort(404);
+
+        }
+
+        return view('donation.bank', [
+            'order' => $order,
+            'donations' => $cart
+        ]);
+    }
 
 }

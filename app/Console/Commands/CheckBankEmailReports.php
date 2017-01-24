@@ -110,7 +110,7 @@ class CheckBankEmailReports extends Command
                             $inputs = new $classname('storage/app/temp/' . $attachment->getFilename());
                             foreach ($inputs->getData() as $item) {
                                 $received[] = $item;
-                           };
+                            };
 
                         } catch (\Exception $e) {
                             $this->info('Processing of attachment nr ' . ($key + 1) . ' failed with message: ' . $e->getMessage());
@@ -158,11 +158,11 @@ class CheckBankEmailReports extends Command
             $this->info("//////");
             $this->info('Processing payment nr ' . ($key + 1) . ' of ' . $item['amount'] . ' and date ' . $item['date']);
 
-            $order = Order::where('reference', trim($item['description']))->orderBy('created_at',
+            $order = Order::where('reference', mb_substr(trim($item['description']), 0, -1))->orderBy('created_at',
                 'desc')->get()->first();
             if ($order) {
                 $this->info('Order for payment ' . ($key + 1) . ' found');
-                $donation = unserialize($order->donations);
+
                 //Replace amount with real received amount
                 $order->amount = (int)str_replace([".", ","], "", $item['amount']);
 
