@@ -37,11 +37,11 @@ class MonetaryInputObserver
         $donations = [];
         if (isset($donationInfo)) {
             if ($monetaryInput->payment_provider_datum->order->payment_method == 'bank_transfer') {
-                $tax = $platform_tax ;
+                $tax = $platform_tax;
                 $don = unserialize($donationInfo);
                 foreach ($don as $key => $item) {
-                    $index = (int) substr($monetaryInput->bank_transfers_datum->reference, -1);
-                    if($key != $index){
+                    $index = substr($monetaryInput->bank_transfers_datum->reference, -1);
+                    if (!is_numeric($index) || (int)$index > count($don) || $key != (int)$index || !isset($key[$index])) {
                         continue;
                     }
 
