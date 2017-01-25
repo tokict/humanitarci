@@ -46,27 +46,27 @@ class DonationsController extends Controller
 
         if ($campaign) {
 
-                //Add the donation to cart
-                $donations = session('donations');
-                $exists = false;
-                if (!empty($donations)) {
-                    foreach ($donations as &$d) {
-                        //Exists, Add the amount to existing donation
-                        if ($d['campaign'] == $campaignId && $d['type'] == $type) {
-                            $d['amount'] = $d['amount'] += $amount;
-                            $exists = true;
+            //Add the donation to cart
+            $donations = session('donations');
+            $exists = false;
+            if (!empty($donations)) {
+                foreach ($donations as &$d) {
+                    //Exists, Add the amount to existing donation
+                    if ($d['campaign'] == $campaignId && $d['type'] == $type) {
+                        $d['amount'] = $d['amount'] += $amount;
+                        $exists = true;
 
-                        }
                     }
                 }
-                //New donation
-                if (!$exists) {
-                    session()->push('donations', ['campaign' => $campaign->id, 'type' => $type, 'amount' => $amount]);
-                } else {
-                    session()->put('donations', $donations);
-                }
+            }
+            //New donation
+            if (!$exists) {
+                session()->push('donations', ['campaign' => $campaign->id, 'type' => $type, 'amount' => $amount]);
+            } else {
+                session()->put('donations', $donations);
+            }
 
-                return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'));
+            return redirect("/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart'));
 
         }
     }
@@ -80,7 +80,6 @@ class DonationsController extends Controller
     {
 
 
-
         $cart = !empty(Session::get('donations')) ? Session::get('donations') : [];
         $recurring = false;
         $status = !empty(Input::get('status')) ? Input::get('status') : null;
@@ -91,21 +90,33 @@ class DonationsController extends Controller
             $order = null;
         }
 
-        $orderId = explode("_", $order->order_number);
-        $orderId = $orderId[count($orderId)-1];
-        $ordModel = Order::find($orderId);
+        if(count($cart) && !isset($cart[0]['order_id'])) {
+            foreach ($cart as &$item) {
+                $item['order_id'] = $order->order_id;
+            }
+            Session::set('donations', $cart);
+        }
 
 
-        $provider_tax = $ordModel->payment_method == 'bank_transfer'?0:Setting::getSetting('payment_provider_tax')->value;
+        if ($order) {
+            $orderId = explode("_", $order->order_number);
+            $orderId = $orderId[count($orderId) - 1];
+            $ordModel = Order::find($orderId);
+        }else{
+            $ordModel = null;
+        }
+
+
+        $provider_tax = (!isset($ordModel) || $ordModel->payment_method == 'bank_transfer') ? 0 : Setting::getSetting('payment_provider_tax')->value;
         $platform_tax = Setting::getSetting('payment_platform_tax')->value;
-        $bank_tax = $ordModel->payment_method == 'bank_transfer'?0:Setting::getSetting('payment_bank_tax')->value;
+        $bank_tax = (!isset($ordModel) || $ordModel->payment_method == 'bank_transfer') ? 0 : Setting::getSetting('payment_bank_tax')->value;
         $total = 0;
-        $totalTaxes = $bank_tax+$platform_tax+$provider_tax;
+        $totalTaxes = $bank_tax + $platform_tax + $provider_tax;
 
 
         //Setup cart display data
         foreach ($cart as &$item) {
-            $item['campaign'] = Campaign::where('id', $item['campaign'])->get()->first();
+            $item['campaign'] = Campaign::where('id', $item['campaign']->id)->get()->first();
             if ($item['type'] == 'monthly') {
                 $recurring = true;
             }
@@ -205,7 +216,8 @@ class DonationsController extends Controller
     }
 
 
-    public function bank($request, $orderNr){
+    public function bank($request, $orderNr)
+    {
         $order = Order::find($orderNr);
         $cart = !empty(session('donations')) ? session('donations') : [];
         //Setup cart display data
@@ -213,10 +225,10 @@ class DonationsController extends Controller
             $item['campaign'] = Campaign::where('id', $item['campaign'])->get()->first();
 
         }
-        if($order){
+        if ($order) {
             $order->update(['payment_method' => 'bank_transfer']);
             $order->save();
-        }else{
+        } else {
             abort(404);
 
         }

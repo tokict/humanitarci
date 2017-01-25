@@ -100,6 +100,8 @@ class Order
 
     public $payment_method;
 
+    public $order_id;
+
 
 
 
@@ -135,7 +137,7 @@ class Order
             //Create data for update of existing order
             $amount = 0;
             foreach ($single as $key => $item) {
-                $campaign = Campaign::where('id', $item['campaign'])->get()->first();
+                $campaign = Campaign::where('id', $item['campaign']->id)->get()->first();
                 $amount += $item['amount'];
                 $this->cart .= '|' . $campaign->name . ' - ' . $item['amount'] . env('CURRENCY');
 
@@ -145,6 +147,7 @@ class Order
             //if the donation has order_id it means it was saved before and this is page reload or addition of new items
             if (isset($single[0]['order_id'])) {
                 $order = \App\Models\Order::find($single[0]['order_id']);
+                $this->order_id = $order->id;
 
                 if ($order) {
                     //In case order was made with unregistered user, update donor info if the user is registered now
@@ -199,6 +202,7 @@ class Order
                 $order->reference = strtoupper(str_random(4).'-'.str_random(4));
                 $order->user_ip = \Illuminate\Support\Facades\Request::ip();
                 $order->save();
+                $this->order_id = $order->id;
                 $donations = Session::get('donations');
                 foreach ($donations as &$donation) {
                     $donation['order_id'] = $order->id;
@@ -220,6 +224,7 @@ class Order
             if (isset($monthly[0]['order_id'])) {
                 $order = \App\Models\Order::find($monthly[0]['order_id']);
                 if ($order) {
+                    $this->order_id = $order->id;
                     if (!$order->donor_id && Auth::check()) {
                         $order->donor_id = Auth::User()->donor->id;
                         $order->save();
