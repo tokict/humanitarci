@@ -76,7 +76,7 @@ class DonationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cart($request, $id)
+    public function cart()
     {
 
 
@@ -116,7 +116,8 @@ class DonationsController extends Controller
 
         //Setup cart display data
         foreach ($cart as &$item) {
-            $item['campaign'] = Campaign::where('id', $item['campaign']->id)->get()->first();
+            $cid = isset($item['campaign']->id)?$item['campaign']->id:$item['campaign'];
+            $item['campaign'] = Campaign::where('id', $cid)->get()->first();
             if ($item['type'] == 'monthly') {
                 $recurring = true;
             }
@@ -174,7 +175,7 @@ class DonationsController extends Controller
     }
 
     /**
-     * Process tha cart and send user to payment
+     * Process the cart and send user to payment
      *
      */
     public function process()
@@ -222,7 +223,8 @@ class DonationsController extends Controller
         $cart = !empty(session('donations')) ? session('donations') : [];
         //Setup cart display data
         foreach ($cart as &$item) {
-            $item['campaign'] = Campaign::where('id', $item['campaign'])->get()->first();
+            $cid = isset($item['campaign']->id)?$item['campaign']->id:$item['campaign'];
+            $item['campaign'] = Campaign::where('id', $cid)->get()->first();
 
         }
         if ($order) {

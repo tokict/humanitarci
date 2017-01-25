@@ -152,7 +152,7 @@
                                            type="text"
                                            pattern=".{3,100}"/>
                                 </div>
-                                {{Form::text('order_token', $order->order_token, ['class' => 'hidden'])}}
+                                {{Form::text('order_token', $orderModel->order_token, ['class' => 'hidden'])}}
 
                             @endif
                         </div>

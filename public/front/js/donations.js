@@ -138,6 +138,7 @@ $(document).ready(function () {
             method: 'post',
             data: data
         }).then(function (response) {console.log(response);
+            //This cookie is here because of payment provider verification hash which changes if amount was changed
             createCookie('wentToCheckout', true, 1);
             var form = $('#processForm');
             if($('[name="payment_type"]').find(":selected").val() == 'bank'){
@@ -146,7 +147,6 @@ $(document).ready(function () {
             }
             form.submit();
         })
-
 
     });
 

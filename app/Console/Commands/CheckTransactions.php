@@ -4,11 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Campaign;
 use App\Models\Donation;
-use App\Models\MonetaryInput;
-use App\Models\Order;
-use App\Models\Setting;
 use App\Models\Transaction;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +27,7 @@ class CheckTransactions extends Command
     /**
      * orders.
      *
-     * @var string
+     * @var array
      */
     protected $campaigns;
 

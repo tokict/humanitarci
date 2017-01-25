@@ -137,7 +137,8 @@ class Order
             //Create data for update of existing order
             $amount = 0;
             foreach ($single as $key => $item) {
-                $campaign = Campaign::where('id', $item['campaign']->id)->get()->first();
+                $cid = isset($item['campaign']->id)?$item['campaign']->id:$item['campaign'];
+                $campaign = Campaign::where('id', $cid)->get()->first();
                 $amount += $item['amount'];
                 $this->cart .= '|' . $campaign->name . ' - ' . $item['amount'] . env('CURRENCY');
 
