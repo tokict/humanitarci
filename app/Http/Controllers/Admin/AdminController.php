@@ -26,6 +26,8 @@ class AdminController extends Controller
 
     public function home($id = null)
     {
+        $this->index(false);
+
         if (Auth::User()->super_admin && !$id) {
             $campaigns = Campaign::count('created_at', '>=', Carbon::now()->startOfWeek());
             $persons = Person::count('created_at', '>=', Carbon::now()->startOfWeek());
