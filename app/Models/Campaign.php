@@ -240,7 +240,7 @@ class Campaign extends BaseModel
     public function recalculate()
     {
         $donations = Donation::where('campaign_id', $this->getAttribute('id'))->get();
-        $target = $this->getAttribute('target_amount');
+        $target = $this->getAttribute('target_amount') + $this->getAttribute('target_amount_extra');
 
         $amount = 0;
         $donors = [];
@@ -254,8 +254,8 @@ class Campaign extends BaseModel
         $this->setAttribute('current_funds', $amount);
         $this->setAttribute('donors_number', count($donors));
         $this->setAttribute('percent_done', ($amount / $target) * 100);
-        if($amount >= $this->getAttribute('target_amount')){
-            $this->setAttribute('status', 'succeeded');
+        if(!empty($this->getAttribute('target_amount')) && $amount >= $target){
+            $this->setAttribute('status', 'target_reached');
         }
 
 

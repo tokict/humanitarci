@@ -4,8 +4,11 @@ namespace App\Observers;
 
 use App\Models\ActionLog;
 use App\Models\Campaign;
+use Carbon\Carbon;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 
 class CampaignObserver
@@ -56,7 +59,7 @@ class CampaignObserver
     public function saving(Campaign $campaign)
     {
         /** NOT ALLOWED FOR UPDATE AFTER CAMPAIGN LAUNCH*/
-        $user = empty(Auth::User()->id)?0:Auth::User()->id;
+        $user = empty(Auth::User()->id) ? 0 : Auth::User()->id;
         $fieldsLaunch = [
             'beneficiary_id',
             'target_amount',
@@ -67,7 +70,6 @@ class CampaignObserver
             'organization_id',
             'type',
             'slug',
-            'ends',
             'category',
             'classification_code',
             'registration_code',
@@ -79,9 +81,110 @@ class CampaignObserver
         ];
 
 
-        //Disallow rollback of status
+        //Disallow rollback of status rules
         $origStatus = $campaign->getOriginal()['status'];
         if ($origStatus != $campaign->status) {
+
+            #Send mails on campaign target_reached
+            if ($origStatus != 'target_reached' && $campaign->status == 'target_reached') {
+                Log::info('Marking campaign ' . $campaign->id . ' as target_reached');
+                Mail::queue('emails.campaign_target_reached', [
+                    'campaign' => $campaign
+                ], function ($m) use ($campaign) {
+                    $mails = [];
+                    foreach ($campaign->donors as $d) {
+                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                        $email = User::where('donor_id', $d->id)->get()->first()->email;
+                        $mails[] = (object)['email' => $email, 'name' => $name];
+                    }
+
+                    $m->to($mails)->subject('Akcija ' . $campaign->name . ' je prikupila traženi iznos!');
+
+
+                    $when = new \DateTime('tomorrow noon');
+                    $m->later($when);
+
+                });
+
+            }
+
+
+            #If we are setting extra amount to be donated then we send emails to all previous donors
+            if (!$campaign->getOriginal()['target_amount_extra']
+                && $campaign->target_amount_extra
+                && (!in_array($campaign->status, ['finalized'])
+                )
+            ) {
+                Log::info('Asking more funds for campaign ' . $campaign->id);
+                Mail::queue('emails.campaign_extra_funds', [
+                    'campaign' => $campaign
+                ], function ($m) use ($campaign) {
+                    $mails = [];
+                    foreach ($campaign->donors as $d) {
+                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                        $email = User::where('donor_id', $d->id)->get()->first()->email;
+                        $mails[] = (object)['email' => $email, 'name' => $name];
+                    }
+
+                    $m->to($mails)->subject('Akcija ' . $campaign->name . ' je uspješno dostigla cilj!');
+
+
+                    $when = new \DateTime('tomorrow noon');
+                    $m->later($when);
+
+                });
+
+            }
+
+
+            #Send mails on campaign finalized
+            if ($origStatus != 'finalized' && $campaign->status == 'finalized') {
+                Log::info('Marking campaign ' . $campaign->id . ' as finalized');
+                Mail::queue('emails.campaign_finalized', [
+                    'campaign' => $campaign
+                ], function ($m) use ($campaign) {
+                    $mails = [];
+                    foreach ($campaign->donors as $d) {
+                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                        $email = User::where('donor_id', $d->id)->get()->first()->email;
+                        $mails[] = (object)['email' => $email, 'name' => $name];
+                    }
+
+                    $m->to($mails)->subject('Sredstva akcije ' . $campaign->name . ' su uspješno dostavljena korisnicima!');
+
+
+                    $when = new \DateTime('tomorrow noon');
+                    $m->later($when);
+
+                });
+
+            }
+
+
+            #Send mails on campaign failed
+            if ($origStatus != 'failed' && $campaign->status == 'failed') {
+                Log::info('Marking campaign ' . $campaign->id . ' as failed');
+                Mail::queue('emails.campaign_finalized', [
+                    'campaign' => $campaign
+                ], function ($m) use ($campaign) {
+                    $mails = [];
+                    foreach ($campaign->donors as $d) {
+                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                        $email = User::where('donor_id', $d->id)->get()->first()->email;
+                        $mails[] = (object)['email' => $email, 'name' => $name];
+                    }
+
+                    $m->to($mails)->subject('Akcija' . $campaign->name . ' nije dostigla cilj!');
+
+
+                    $when = new \DateTime('tomorrow noon');
+                    $m->later($when);
+
+                });
+
+            }
+
+
             if ($origStatus == 'failed' || $origStatus == 'finalized') {
                 Log::alert('User: ' . $user . ': You cannot edit campaign ' . $campaign->id . ' after it is finished !');
                 session()->flash('error', 'You cannot edit campaign after it is finished !');
@@ -101,7 +204,7 @@ class CampaignObserver
             //From active it can go everywhere but inactive
 
             if ($origStatus == 'active' && $campaign->status == 'inactive') {
-                Log::alert('User: ' . $user. ': If campaign ' . $campaign->id . ' was active, the next status cannot be inactive!');
+                Log::alert('User: ' . $user . ': If campaign ' . $campaign->id . ' was active, the next status cannot be inactive!');
                 session()->flash('error', 'If a campaign was active, the next status cannot be inactive!');
                 return false;
             }
@@ -129,10 +232,10 @@ class CampaignObserver
         }
 
         $tableCols = $campaign->getTableColumns();
-        unset($tableCols['beneficiary_receipt_doc_id'], $tableCols['modified_at']);
+        unset($tableCols['beneficiary_receipt_doc_id'], $tableCols['modified_at'], $tableCols['target_amount_extra']);
 
         //If the status is succeeded then we can only add beneficiary_receipt_id and modified_at
-        if (in_array($campaign->getOriginal()['status'], ['succeeded'])) {
+        if (in_array($campaign->getOriginal()['status'], ['succeeded']) && !$campaign->target_amount_extra) {
             foreach ($campaign->getOriginal() as $key => $value) {
                 if (in_array($key, $tableCols)) {
                     Log::alert('User: ' . $user . ': If campaign ' . $campaign->id . ' has succeeded, you can only add beneficiary report. No changes otherwise !');
@@ -143,7 +246,7 @@ class CampaignObserver
         }
 
         //No updates to campaign are allowed after finalization
-        if (in_array($campaign->getOriginal()['status'], ['failed', 'succeeded','finalized', 'blocked'])) {
+        if (in_array($campaign->getOriginal()['status'], ['failed', 'succeeded', 'finalized', 'blocked'])) {
             Log::alert('User: ' . $user . ': Campaign ' . $campaign->id . ' cannot be edited cannot be edited after campaign end!');
             session()->flash('error', 'Campaign cannot be edited cannot be edited after campaign end!');
             return false;

@@ -25,22 +25,22 @@ trait ControllerIndexTrait
     protected $page;
     protected $input;
 
-    public function __construct()
-    {
 
+    public function index($full = true)
+    {
 
         $request = Route::current();
         $routeArray = $request->getAction();
-        $this->action = !empty(Route::current()->parameters()['action'])?Route::current()->parameters()['action']:null;
+        $this->action = !empty(Route::current()->parameters()['action']) ? Route::current()->parameters()['action'] : null;
         $controllerAction = class_basename($routeArray['controller']);
         $this->controller = explode('@', $controllerAction)[0];
         $this->params = $request->parameters();
-        if(Request::isMethod('get')) {
+        if (Request::isMethod('get')) {
             $this->input = Input::all();
         }
 
         if ($request->getPrefix() != "/admin") {
-            if(!Request::ajax()) {
+            if (!Request::ajax()) {
                 $this->action = Lang::get('routes.actions.' . $this->action, [], '');
             }
 
@@ -57,21 +57,19 @@ trait ControllerIndexTrait
         $this->page->image = env('PROJECT_LOGO');
 
         View::share(['controller' => $this->controller, 'action' => $this->action, 'params' => $this->params, 'page' => $this->page, 'input' => $this->input]);
-    }
 
-    public function index(\Illuminate\Http\Request $request)
-    {
+        if ($full) {
+            $params = isset($this->params['params']) ? $this->params['params'] : null;
 
-        $params = isset($this->params['params'])?$this->params['params']:null;
+            if (method_exists($this, 'initialize')) {
+                $this->{'initialize'}($request, $params);
+            }
 
-        if (method_exists($this, 'initialize')) {
-            $this->{'initialize'}($request, $params);
-        }
-
-        if (method_exists($this, $this->action)) {
-            return $this->{$this->action}($request, $params);
-        } else {
-            abort(404, 'Page not found.');
+            if (method_exists($this, $this->action)) {
+                return $this->{$this->action}($request, $params);
+            } else {
+                abort(404, 'Page not found.');
+            }
         }
     }
 }
