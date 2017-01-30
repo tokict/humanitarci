@@ -118,18 +118,24 @@ $(document).ready(function () {
         //save person in db and create donor
 
         var data = {
-            'contact_email' : email.val(),
-            'first_name': name.val(),
-            'last_name' : last_name.val(),
-            'city' : city.val(),
-            'zip' : zip.val(),
-            'title' : title.val(),
-            'gender' : (title.val() == 'Mr')?'male':'female',
-            'address' : address.val(),
-            'country' : country.val(),
-            'order_token' : $('[name="order_token"]').val(),
-            'phone' : phone.val()
+            contact_email : email.val(),
+            first_name: name.val(),
+            last_name : last_name.val(),
+            city : city.val(),
+            zip : zip.val(),
+            gender : (title.val() == 'Mr')?'male':'female',
+            address : address.val(),
+            country : country.val(),
+            order_token : $('[name="order_token"]').val(),
+            contact_phone : phone.val(),
+            entity_name: $('[name="entity_name"]').val(),
+            entity_address: $('[name="entity_address"]').val(),
+            entity_city_id: $('[name="entity_city_id"]').val(),
+            entity_tax_id: $('[name="entity_tax_id"]').val(),
+            payeeType: $('[name="payeeType"]:checked').val()
+
         };
+
 
 
         $.ajax({
@@ -137,7 +143,9 @@ $(document).ready(function () {
             dataType: 'json',
             method: 'post',
             data: data
-        }).then(function (response) {console.log(response);
+        }).then(function (response) {
+            console.log(response);
+            setTimeout('a', 1000);
             //This cookie is here because of payment provider verification hash which changes if amount was changed
             createCookie('wentToCheckout', true, 1);
             var form = $('#processForm');
@@ -156,9 +164,26 @@ $(document).ready(function () {
             dataType: 'json',
             method: 'post',
             data: {type:$('[name="payment_type"]').find(":selected").val() }
-        }).then(function (response) {console.log(response);
+        }).then(function (response) {
+            console.log(response);
             window.location.reload();
         })
 
     });
+
+
+    $('[name="payeeType"]').change(function(){
+
+
+            if($(this).val() == 'company'){console.log('company');
+                $("#companyInfo").removeClass('hidden');
+                bindSelect2();
+                $("#payeeIndividualLabel").hide();
+            }else{
+                $("#companyInfo").addClass('hidden');
+                $("#payeeIndividualLabel").show();
+            }
+
+    });
+
 });

@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @property int $created_by
      * @property int $donor_id
      * @property int $person_id
+     * @property int $entity_id
      * @property int $admin_id
      * @property int $super_admin
      * @property \Carbon\Carbon $created_at
@@ -30,6 +31,7 @@ class User extends Authenticatable
      *
      * @property \App\Models\Admin $creator
      * @property \App\Models\Admin $admin
+     * @property \App\Models\LegalEntity $entity
      *
      * @property \Illuminate\Database\Eloquent\Collection $users
      *
@@ -44,9 +46,10 @@ class User extends Authenticatable
         'id' => 'int',
         'created_by' => 'int',
         'organization_id' => 'int',
-        'person_id'=> 'int',
+        'person_id' => 'int',
         'donor_id' => 'int',
-        'admin_id' => 'int'
+        'admin_id' => 'int',
+        'entity_id' => 'int'
     ];
 
     protected $dates = [
@@ -61,7 +64,8 @@ class User extends Authenticatable
         'created_by',
         'person_id',
         'donor_id',
-        'admin_id'
+        'admin_id',
+        'entity_id'
     ];
 
 
@@ -90,9 +94,13 @@ class User extends Authenticatable
         return $this->belongsTo(\App\Models\Organization::class, 'organization_id', 'id');
     }
 
-
     public function donor()
     {
         return $this->hasOne(\App\Models\Donor::class);
+    }
+
+    public function entity()
+    {
+        return $this->hasOne(\App\Models\LegalEntity::class);
     }
 }

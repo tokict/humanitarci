@@ -26,6 +26,7 @@ namespace App\Models;
  *
  *
  * @property string $organization_id
+ * Maybe we dont need this
  *
  *
  * @property string $address
@@ -42,8 +43,15 @@ namespace App\Models;
  *
  * @property int $created_by
  *
- *  * @property bool $donor_id
+ * @property bool $donor_id
  * Is the organization a donor
+ *
+ * @property int $represented_by
+ *
+ * @property string $contact_email
+ *
+ * @property string $contact_phone
+ *
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at

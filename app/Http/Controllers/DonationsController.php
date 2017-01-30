@@ -52,7 +52,8 @@ class DonationsController extends Controller
             if (!empty($donations)) {
                 foreach ($donations as &$d) {
                     //Exists, Add the amount to existing donation
-                    if ($d['campaign'] == $campaignId && $d['type'] == $type) {
+                    $cId = isset($d['campaign']->id)?$d['campaign']->id:$d['campaign'];
+                    if ($cId == $campaignId && $d['type'] == $type) {
                         $d['amount'] = $d['amount'] += $amount;
                         $exists = true;
 

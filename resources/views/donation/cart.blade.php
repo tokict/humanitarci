@@ -3,11 +3,11 @@
         <!-- Section -->
 <script>
             @if(\Illuminate\Support\Facades\Auth::check())
-                var auth = true;
+    var auth = true;
             @else
-                var auth = false;
+    var auth = false;
             @endif
-                    @if(isset($donations[0]))
+            @if(isset($donations[0]))
     var bankTransfer = '/{{trans('routes.front.donations')}}/{{trans('routes.actions.bank')}}/{{$donations[0]['order_id']}}';
     @endif
 </script>
@@ -104,7 +104,40 @@
                         {{Form::model($order)}}
                         <div class="col-sm-6" id="payeeInfo">
                             @if(!Auth::check())
-                                <h3 class="small-title font-alt">Podatci o uplatitelju</h3>
+                                <label for="name">Osoba</label>
+                                <input type="radio" value="individual" name="payeeType" class="payeeType" checked>
+                                &nbsp;&nbsp;&nbsp;
+                                <label for="name">Tvrtka</label>
+                                <input type="radio" value="company" name="payeeType" class="payeeType">
+                                <br/>
+                                <div id="companyInfo" class="hidden">
+                                    <h3 class="small-title font-alt">Podatci o tvrtki</h3>
+                                    <div class="mb-10">
+                                        <input placeholder="Ime tvrtke" name="entity_name"
+                                               class="input-md form-control"
+                                               type="text"
+                                               pattern=".{3,100}"/>
+                                    </div>
+                                    <div class="mb-10">
+                                        <input placeholder="Adresa" name="entity_address" class="input-md form-control"
+                                               type="text"
+                                               pattern=".{3,100}"/>
+                                    </div>
+                                    <div class="mb-10">
+                                        <select name="entity_city_id" class="input-lg form-control selectCity">
+                                            <option>Grad</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-10">
+                                        <input placeholder="OIB" name="entity_tax_id" class="input-md form-control"
+                                               type="text"
+                                               pattern=".{3,100}"/>
+                                    </div>
+                                    <hr>
+                                    <h4 class="small-title font-alt">Podatci o kontakt osobi</h4>
+                                </div>
+                                <h4 class="small-title font-alt" id="payeeIndividualLabel">Podatci o platitelju</h4>
                                 <div class="mb-10">
                                     {{Form::select('title', ["" => 'Titula', 'Mr' => 'Mr.', 'Ms' => 'Ms', 'Mrs' => 'Mrs'], null, ['class' => 'input-md form-control'])}}
                                 </div>
@@ -162,16 +195,20 @@
 
                             <div>
                                 Ukupna donacija:
-                                <strong><span id="donation_amount">{{number_format($total-$total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}</strong>
+                                <strong><span
+                                            id="donation_amount">{{number_format($total-$total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}
+                                </strong>
                             </div>
 
                             <div class="mb-10">
-                                Naknade: <strong><span id="donation_fees">{{number_format($total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}</strong>
+                                Naknade: <strong><span
+                                            id="donation_fees">{{number_format($total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}
+                                </strong>
                                 <div>
                                     @foreach($taxes as $key => $value)
                                         @if(($key == 'credit_card_processor_tax'
                                          || $key == 'bank_tax') && $orderModel->payment_method == 'bank_transfer')
-                                            @else
+                                        @else
                                             <small id="{{$key}}">{{ucfirst(trans('strings.misc.'.$key))}}
                                                 : {{$total/100*$value}} {{env('CURRENCY')}}</small><br/>
                                         @endif

@@ -102,9 +102,9 @@
                     <!-- End Login Form -->
                 </div>
                 <div class="align-center pt-100">
-                    <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" >
-                       <button class="btn btn-medium btn-round"> Registracija</button>
-                    </a>
+
+                       Registrirati se može isključivo putem donacija. Nakon doniranja na Vašu email adresu stići ce upute za izradu korisničkog profila
+
                 </div>
             </div>
 

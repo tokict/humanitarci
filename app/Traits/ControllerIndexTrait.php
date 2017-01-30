@@ -26,20 +26,20 @@ trait ControllerIndexTrait
     protected $input;
 
 
-    public function index($full = true)
+    public function index(\Illuminate\Http\Request $request, $full = true)
     {
 
-        $request = Route::current();
-        $routeArray = $request->getAction();
+        $requestRoute = Route::current();
+        $routeArray = $requestRoute->getAction();
         $this->action = !empty(Route::current()->parameters()['action']) ? Route::current()->parameters()['action'] : null;
         $controllerAction = class_basename($routeArray['controller']);
         $this->controller = explode('@', $controllerAction)[0];
-        $this->params = $request->parameters();
+        $this->params = $requestRoute->parameters();
         if (Request::isMethod('get')) {
             $this->input = Input::all();
         }
 
-        if ($request->getPrefix() != "/admin") {
+        if ($requestRoute->getPrefix() != "/admin") {
             if (!Request::ajax()) {
                 $this->action = Lang::get('routes.actions.' . $this->action, [], '');
             }

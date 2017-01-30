@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Beneficiary;
 use App\Models\City;
 use App\Models\Donor;
+use App\Models\LegalEntity;
 use App\Models\Order;
 use App\Models\Organization;
 use App\Models\PasswordReset;
@@ -75,7 +76,7 @@ class AjaxController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function registration($request, $params)
+    public function registration(\Illuminate\Http\Request $request)
     {
 
         $this->validate($request, [
@@ -84,18 +85,26 @@ class AjaxController extends Controller
             'last_name' => 'required',
             'city' => 'required',
             'zip' => 'required',
+            'payeeType' => 'required',
             'country' => 'required',
 
 
         ]);
+
         $input = Input::all();
+
         $user = User::whereEmail($input['contact_email'])->get()->first();
         if ($user) {
             //Create donor only
             if (!$user->donor) {
                 $donor = new Donor;
                 $donor->user_id = $user->id;
-                $donor->person_id = $user->person_id;
+                if($input['payeeType'] == 'company'){
+                    $donor->entity_id = $user->entity_id;
+                }else{
+                    $donor->person_id = $user->person_id;
+                }
+
                 $donor->save();
                 $user->donor_id = $donor->id;
                 $user->save();
@@ -110,7 +119,7 @@ class AjaxController extends Controller
             }
 
 
-            //Create user and donor
+            //Create user, company and donor
             $uData = [
                 'email' => $input['contact_email'],
             ];
@@ -118,10 +127,30 @@ class AjaxController extends Controller
             $existingPerson = Person::whereContactEmail($input['contact_email'])->get()->first();
             if ($existingPerson) {
                 $uData['person_id'] = $existingPerson->id;
+                $person = $existingPerson;
             } else {
                 $person = Person::create($input);
 
                 $uData['person_id'] = $person->id;
+            }
+
+            //Register a company if its a company donation
+            if($input['payeeType'] == 'company'){
+                $entity = new LegalEntity();
+                $entity->name = $input['entity_name'];
+                $entity->tax_id = $input['entity_tax_id'];
+                $entity->city_id = $input['entity_city_id'];
+                $entity->address = $input['entity_address'];
+                $entity->represented_by = $uData['person_id'];
+                $entity->contact_email = $uData['email'];
+                $entity->contact_phone = $person->contact_phone;
+                try{
+                    $entity->save();
+                }catch(\Exception $e){
+                    dd($e->getMessage());
+                }
+
+                $uData['entity_id'] = $entity->id;
             }
 
             //Create user
@@ -129,8 +158,11 @@ class AjaxController extends Controller
             $user = new User($uData);
             $user->save();
 
-
-            $donor = Donor::create(['user_id' => $user->id, 'person_id' => $person->id]);
+            if($input['payeeType'] == 'company') {
+                $donor = Donor::create(['user_id' => $user->id, 'entity_id' => $entity->id]);
+            }else{
+                $donor = Donor::create(['user_id' => $user->id, 'person_id' => $person->id]);
+            }
 
             $user->donor_id = $donor->id;
             $user->save();
