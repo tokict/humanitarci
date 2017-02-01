@@ -29,17 +29,25 @@
 
                                         <dt>Donor:</dt>
                                         <dd>
-                                            <a href="/donors/view/{{$donation->donor_id}}">{{$donation->donor->user->name}}</a>
+                                            <a href="/donors/view/{{$donation->donor_id}}">{{$donation->donor->user->username}}</a>
                                         </dd>
                                         <dt>Time:</dt>
                                         <dd>{{$donation->created_at}} ({{$donation->created_at->diffForHumans()}})</dd>
                                         <dt>Amount:</dt>
                                         <dd>{{number_format($donation->amount/100, 2)}} {{env('CURRENCY')}}</dd>
                                         @if($donation->source == 'site')
-                                            <dt>Order number:</dt>
-                                            <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->order_number)}}</dd>
-                                            <dt>Transaction time nr:</dt>
-                                            <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->transaction_datetime)}}</dd>
+                                            @if(isset($donation->monetary_input->payment_provider_datum))
+                                                <dt>Order number:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->order_number)}}</dd>
+                                                <dt>Transaction time nr:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->transaction_datetime)}}</dd>
+                                            @endif
+                                            @if(isset($donation->monetary_input->bank_transfer_datum))
+                                                <dt>Order reference:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->bank_transfer_datum->order->reference)}}</dd>
+                                                <dt>Transaction time nr:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->bank_transfer_datum->time)}}</dd>
+                                            @endif
                                         @endif
                                     </dl>
                                 </div>
@@ -51,13 +59,22 @@
                                         <dt>Source:</dt>
                                         <dd>{{strtoupper($donation->source)}}</dd>
                                         @if($donation->source == 'site')
-                                            <dt>Card:</dt>
-                                            <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->card_type)}}</dd>
-                                            <dt>Card nr:</dt>
-                                            <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->card_details)}}</dd>
-                                            <dt>Cardholder:</dt>
-                                            <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->cardholder_name)}}
-                                                {{strtoupper($donation->monetary_input->payment_provider_datum->cardholder_surname)}}</dd>
+                                            @if(isset($donation->monetary_input->payment_provider_datum))
+                                                <dt>Card:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->card_type)}}</dd>
+                                                <dt>Card nr:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->card_details)}}</dd>
+                                                <dt>Cardholder:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->payment_provider_datum->cardholder_name)}}
+                                                    {{strtoupper($donation->monetary_input->payment_provider_datum->cardholder_surname)}}</dd>
+                                            @endif
+
+                                            @if(isset($donation->monetary_input->bank_transfers_datum))
+                                                <dt>Payee name:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->bank_transfers_datum->payee_name)}}</dd>
+                                                <dt>Payee account:</dt>
+                                                <dd>{{strtoupper($donation->monetary_input->bank_transfers_datum->payee_account)}}</dd>
+                                            @endif
                                         @endif
 
 

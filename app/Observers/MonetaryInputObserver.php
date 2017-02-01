@@ -36,7 +36,7 @@ class MonetaryInputObserver
 
         $donations = [];
         if (isset($donationInfo)) {
-            $order = isset($monetaryInput->payment_provider_datum)?$monetaryInput->payment_provider_datum->order:
+            $order = isset($monetaryInput->payment_provider_datum) ? $monetaryInput->payment_provider_datum->order :
                 $monetaryInput->bank_transfers_datum->order;
             if ($order->payment_method == 'bank_transfer') {
                 $tax = $platform_tax;
@@ -81,15 +81,21 @@ class MonetaryInputObserver
                     $donor->save();
                 }
 
-                Mail::queue('emails.donation_thankyou', [
-                    'user' => $donor->user,
-                    'donations' => $donations,
-                    'donation' => $donation,
-                    'amount' => $amount
-                ], function ($m) use ($donor) {
+                try {
+                    Mail::queue('emails.donation_thankyou', [
+                        'user' => $donor->user,
+                        'donations' => $donations,
+                        'donation' => $donation,
+                        'amount' => $amount
+                    ], function ($m) use ($donor) {
 
-                    $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-                });
+                        $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+                    });
+
+                } catch (\Exception $e) {
+                    Log::error('Could not send mail for donation: ' . ' on line ' . $e->getMessage() . ' on line ' . $e->getLine() . ' file ' . $e->getFile());
+                }
+
             } else {
                 $tax = $bank_tax + $platform_tax + $provider_tax;
                 $don = unserialize($donationInfo);
@@ -147,15 +153,19 @@ class MonetaryInputObserver
                     $donor->save();
                 }
 
-                Mail::queue('emails.donation_thankyou', [
-                    'user' => $donor->user,
-                    'donations' => $donations,
-                    'donation' => $donation,
-                    'amount' => $amount
-                ], function ($m) use ($donor) {
+                try {
+                    Mail::queue('emails.donation_thankyou', [
+                        'user' => $donor->user,
+                        'donations' => $donations,
+                        'donation' => $donation,
+                        'amount' => $amount
+                    ], function ($m) use ($donor) {
 
-                    $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-                });
+                        $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+                    });
+                } catch (\Exception $e) {
+                    Log::error('Could not send mail for donation: ' . ' on line ' . $e->getMessage() . ' on line ' . $e->getLine() . ' file ' . $e->getFile());
+                }
 
             }
         }

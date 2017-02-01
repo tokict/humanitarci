@@ -88,23 +88,27 @@ class CampaignObserver
             #Send mails on campaign target_reached
             if ($origStatus != 'target_reached' && $campaign->status == 'target_reached') {
                 Log::info('Marking campaign ' . $campaign->id . ' as target_reached');
-                Mail::queue('emails.campaign_target_reached', [
-                    'campaign' => $campaign
-                ], function ($m) use ($campaign) {
-                    $mails = [];
-                    foreach ($campaign->donors as $d) {
-                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
-                        $email = User::where('donor_id', $d->id)->get()->first()->email;
-                        $mails[] = (object)['email' => $email, 'name' => $name];
-                    }
+                try {
+                    Mail::queue('emails.campaign_target_reached', [
+                        'campaign' => $campaign
+                    ], function ($m) use ($campaign) {
+                        $mails = [];
+                        foreach ($campaign->donors as $d) {
+                            $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                            $email = User::where('donor_id', $d->id)->get()->first()->email;
+                            $mails[] = (object)['email' => $email, 'name' => $name];
+                        }
 
-                    $m->to($mails)->subject('Akcija ' . $campaign->name . ' je prikupila traženi iznos!');
+                        $m->to($mails)->subject('Akcija ' . $campaign->name . ' je prikupila traženi iznos!');
 
 
-                    $when = new \DateTime('tomorrow noon');
-                    $m->later($when);
+                        $when = new \DateTime('tomorrow noon');
+                        $m->later($when);
 
-                });
+                    });
+                } catch (\Exception $e) {
+                    Log::error('Could not send mail for campaign target reached: ' . ' on line ' . $e->getMessage().' on line '.$e->getLine().' file '.$e->getFile());
+                }
 
             }
 
@@ -116,23 +120,27 @@ class CampaignObserver
                 )
             ) {
                 Log::info('Asking more funds for campaign ' . $campaign->id);
-                Mail::queue('emails.campaign_extra_funds', [
-                    'campaign' => $campaign
-                ], function ($m) use ($campaign) {
-                    $mails = [];
-                    foreach ($campaign->donors as $d) {
-                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
-                        $email = User::where('donor_id', $d->id)->get()->first()->email;
-                        $mails[] = (object)['email' => $email, 'name' => $name];
-                    }
+                try {
+                    Mail::queue('emails.campaign_extra_funds', [
+                        'campaign' => $campaign
+                    ], function ($m) use ($campaign) {
+                        $mails = [];
+                        foreach ($campaign->donors as $d) {
+                            $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                            $email = User::where('donor_id', $d->id)->get()->first()->email;
+                            $mails[] = (object)['email' => $email, 'name' => $name];
+                        }
 
-                    $m->to($mails)->subject('Akcija ' . $campaign->name . ' je uspješno dostigla cilj!');
+                        $m->to($mails)->subject('Akcija ' . $campaign->name . ' je uspješno dostigla cilj!');
 
 
-                    $when = new \DateTime('tomorrow noon');
-                    $m->later($when);
+                        $when = new \DateTime('tomorrow noon');
+                        $m->later($when);
 
-                });
+                    });
+                } catch (\Exception $e) {
+                    Log::error('Could not send mail for campaign target reached: ' . ' on line ' . $e->getMessage().' on line '.$e->getLine().' file '.$e->getFile());
+                }
 
             }
 
@@ -140,23 +148,27 @@ class CampaignObserver
             #Send mails on campaign finalized
             if ($origStatus != 'finalized' && $campaign->status == 'finalized') {
                 Log::info('Marking campaign ' . $campaign->id . ' as finalized');
-                Mail::queue('emails.campaign_finalized', [
-                    'campaign' => $campaign
-                ], function ($m) use ($campaign) {
-                    $mails = [];
-                    foreach ($campaign->donors as $d) {
-                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
-                        $email = User::where('donor_id', $d->id)->get()->first()->email;
-                        $mails[] = (object)['email' => $email, 'name' => $name];
-                    }
+                try {
+                    Mail::queue('emails.campaign_finalized', [
+                        'campaign' => $campaign
+                    ], function ($m) use ($campaign) {
+                        $mails = [];
+                        foreach ($campaign->donors as $d) {
+                            $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                            $email = User::where('donor_id', $d->id)->get()->first()->email;
+                            $mails[] = (object)['email' => $email, 'name' => $name];
+                        }
 
-                    $m->to($mails)->subject('Sredstva akcije ' . $campaign->name . ' su uspješno dostavljena korisnicima!');
+                        $m->to($mails)->subject('Sredstva akcije ' . $campaign->name . ' su uspješno dostavljena korisnicima!');
 
 
-                    $when = new \DateTime('tomorrow noon');
-                    $m->later($when);
+                        $when = new \DateTime('tomorrow noon');
+                        $m->later($when);
 
-                });
+                    });
+                } catch (\Exception $e) {
+                    Log::error('Could not send mail for campaign target reached: ' . ' on line ' . $e->getMessage().' on line '.$e->getLine().' file '.$e->getFile());
+                }
 
             }
 
@@ -164,23 +176,27 @@ class CampaignObserver
             #Send mails on campaign failed
             if ($origStatus != 'failed' && $campaign->status == 'failed') {
                 Log::info('Marking campaign ' . $campaign->id . ' as failed');
-                Mail::queue('emails.campaign_finalized', [
-                    'campaign' => $campaign
-                ], function ($m) use ($campaign) {
-                    $mails = [];
-                    foreach ($campaign->donors as $d) {
-                        $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
-                        $email = User::where('donor_id', $d->id)->get()->first()->email;
-                        $mails[] = (object)['email' => $email, 'name' => $name];
-                    }
+                try {
+                    Mail::queue('emails.campaign_finalized', [
+                        'campaign' => $campaign
+                    ], function ($m) use ($campaign) {
+                        $mails = [];
+                        foreach ($campaign->donors as $d) {
+                            $name = isset($d->user->person) ? $d->user->person->first_name : $d->entity->name;
+                            $email = User::where('donor_id', $d->id)->get()->first()->email;
+                            $mails[] = (object)['email' => $email, 'name' => $name];
+                        }
 
-                    $m->to($mails)->subject('Akcija' . $campaign->name . ' nije dostigla cilj!');
+                        $m->to($mails)->subject('Akcija' . $campaign->name . ' nije dostigla cilj!');
 
 
-                    $when = new \DateTime('tomorrow noon');
-                    $m->later($when);
+                        $when = new \DateTime('tomorrow noon');
+                        $m->later($when);
 
-                });
+                    });
+                } catch (\Exception $e) {
+                    Log::error('Could not send mail for campaign target reached: ' . ' on line ' . $e->getMessage().' on line '.$e->getLine().' file '.$e->getFile());
+                }
 
             }
 
