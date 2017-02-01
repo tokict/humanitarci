@@ -36,12 +36,15 @@ class MonetaryInputObserver
 
         $donations = [];
         if (isset($donationInfo)) {
-            if ($monetaryInput->payment_provider_datum->order->payment_method == 'bank_transfer') {
+            $order = isset($monetaryInput->payment_provider_datum)?$monetaryInput->payment_provider_datum->order:
+                $monetaryInput->bank_transfers_datum->order;
+            if ($order->payment_method == 'bank_transfer') {
                 $tax = $platform_tax;
                 $don = unserialize($donationInfo);
                 foreach ($don as $key => $item) {
                     $index = substr($monetaryInput->bank_transfers_datum->reference, -1);
-                    if (!is_numeric($index) || (int)$index > count($don) || $key != (int)$index || !isset($key[$index])) {
+                    //Check the last number on reference user put in
+                    if (!is_numeric($index) || (int)$index > count($don) || $key != (int)$index || !isset($don[$index])) {
                         continue;
                     }
 

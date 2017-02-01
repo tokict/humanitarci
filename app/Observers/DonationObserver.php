@@ -25,7 +25,7 @@ class DonationObserver
         $campaign->save();
 
 
-        error_log('Donation entered');
+        Log::info('Donation of '.($donation->amount/100).' from donor id '.$donation->donor_id.' for campaign '.$donation->campaign_id.' entered and campaign recalculated');
 
 
 

@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\CheckCampaigns::class,
         Commands\CheckBankEmailReports::class,
         Commands\Reset::class,
+        Commands\Tests::class,
     ];
 
     /**

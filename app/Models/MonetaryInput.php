@@ -67,7 +67,7 @@ class MonetaryInput extends BaseModel
 
 	public function payment_provider_datum()
 	{
-		return $this->belongsTo(\App\Models\PaymentProviderDatum::class, 'payment_provider_data_id', 'id');
+		return $this->belongsTo(\App\Models\PaymentProviderDatum::class, 'payment_provider_data_id');
 	}
 
 	public function donations()

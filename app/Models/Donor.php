@@ -50,7 +50,7 @@ namespace App\Models;
  * Donoations that closed the required amount
  *
  * @property \App\Models\Person $person
- * @property \App\Models\Person $entity
+ * @property \App\Models\LegalEntity $entity
  * @property \App\User $user
  *
  * @property \Carbon\Carbon $created_at

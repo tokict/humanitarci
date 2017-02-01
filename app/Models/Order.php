@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 class Order extends BaseModel
 {
     /**
-     * Class Organization
+     * Class Order
      *
      * @property int $id
      * @property int $donor_id

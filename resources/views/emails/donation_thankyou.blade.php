@@ -567,7 +567,7 @@
                                                                         <td align="center"
                                                                             style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;width: 100%">
                                                                             <div align="center" style="font-size:12px">
-                                                                                <a href="https://beefree.io"
+                                                                                <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$donation->campaign->id}}"
                                                                                    target="_blank">
                                                                                     <img class="center" align="center"
                                                                                          border="0"
@@ -643,7 +643,7 @@
                                                                                     <div style="font-size:12px;line-height:14px;color:#C7702E;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;">
                                                                                         <p style="margin: 0;font-size: 12px;line-height: 14px">
                                                                                             <strong><span
-                                                                                                        style="font-size: 14px; line-height: 16px;">Više<a
+                                                                                                        style="font-size: 14px; line-height: 16px; text-decoration: none">Više<a
                                                                                                             style="color:#C7702E"
                                                                                                             href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$donation->campaign->id}}"
                                                                                                             target="_blank"

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\BankTransfersDatum;
 use App\Models\Beneficiary;
 use App\Models\Campaign;
 use App\Models\Donation;
@@ -62,9 +63,11 @@ class Reset extends Command
 
         MonetaryOutputSource::truncate();
         MonetaryOutput::truncate();
+        MonetaryInput::truncate();
         Order::truncate();
         Donation::truncate();
         PaymentProviderDatum::truncate();
+        BankTransfersDatum::truncate();
         Transaction::truncate();
         DB::statement("SET foreign_key_checks=1");
 
@@ -74,6 +77,10 @@ class Reset extends Command
                 'total_donations' => 0,
                 'services_donated' => 0,
                 'goods_donated' => 0,
+                'diversity_score' => 0,
+                'recurring_score' => 0,
+                'critical_score' => 0,
+                'closer_score' => 0,
             ]);
 
         Campaign::whereNotNull('current_funds')->orWhere('current_funds', 0)->update(
@@ -81,6 +88,7 @@ class Reset extends Command
                 'current_funds'=> 0,
                 'donors_number' => 0,
                 'percent_done' => 0,
+                'status' => 'inactive',
                 'funds_transferred_amount' => 0,
             ]);
 
@@ -92,6 +100,7 @@ class Reset extends Command
 
 
         $this->info('Data is reset!');
+        $this->warn('You should edit campaign start and end dates if you want to test');
 
     }
 
