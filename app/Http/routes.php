@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Admin controllers
 Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function () {
+
     Route::get('/{params?}', 'Admin\AdminController@home');
 
 

@@ -24,9 +24,9 @@ class AdminController extends Controller
 {
     use \App\Traits\ControllerIndexTrait;
 
-    public function home($id = null)
+    public function home(\Illuminate\Http\Request $request,$id = null)
     {
-        $this->index(false);
+        $this->index($request, false);
 
         if (Auth::User()->super_admin && !$id) {
             $campaigns = Campaign::count('created_at', '>=', Carbon::now()->startOfWeek());
