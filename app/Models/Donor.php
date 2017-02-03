@@ -284,8 +284,9 @@ class Donor extends BaseModel
 
         $score = 0;
         $incrementer = 100 / count($types);
+        //the score can go down also if we add a new type of campaign which wasn't there when this was calculated before
         foreach ($types as $class => $value) {
-            if ($value >= 2) {
+            if ($value >= 1) {
                 $score += $incrementer;
             }
         }

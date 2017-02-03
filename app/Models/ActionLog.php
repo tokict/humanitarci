@@ -48,7 +48,10 @@ class ActionLog extends BaseModel
     const TYPE_MONETARY_OUTPUT = 'monetary_output';
     const TYPE_CAMPAIGN_UPDATE = 'campaign_update';
     const TYPE_DONOR_UPDATE = 'donor_update';
+    const TYPE_DONATION_CREATE = 'donation_create';
     const TYPE_NOTICE = 'notice';
+    const TYPE_USER_CREATE = 'user_created';
+    const TYPE_USER_UPDATE = 'user_updated';
     const TYPE_CAMPAIGN_CREATE = 'campaign_create';
     const TYPE_DONOR_CREATE = 'donor_create';
     const TYPE_BENEFICIARY_CREATE = 'beneficiary_create';

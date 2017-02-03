@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\ActionLog;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
@@ -170,7 +171,7 @@ class MonetaryInputObserver
             }
         }
 
-
+        ActionLog::log(ActionLog::TYPE_MONETARY_INPUT, $monetaryInput->toArray());
     }
 
     /**

@@ -19,7 +19,7 @@ class SettingObserver
     public function updated(Setting $setting)
     {
 
-        ActionLog::log(ActionLog::TYPE_PERSON_UPDATE, $setting->toArray());
+        ActionLog::log(ActionLog::TYPE_SETTING_UPDATE, $setting->toArray());
     }
 
 

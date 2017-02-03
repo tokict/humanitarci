@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\ActionLog;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
@@ -19,7 +20,7 @@ class DonationObserver
      */
     public function created(Donation $donation)
     {
-
+        ActionLog::log(ActionLog::TYPE_DONATION_CREATE, $donation->toArray());
         $campaign = Campaign::find($donation->campaign_id);
         $campaign->recalculate();
         $campaign->save();

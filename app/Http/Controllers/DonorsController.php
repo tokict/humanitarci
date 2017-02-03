@@ -41,6 +41,7 @@ class DonorsController extends Controller
      */
     public function login($request, $id)
     {
+
         if (Request::isMethod('post')) {
             $this->validate($request, [
                 'email' => 'required|max:30|email',

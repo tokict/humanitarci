@@ -10,7 +10,8 @@ return array(
 
     'login' => [
         'The email field is required' => 'Vaš email je obavezan za registraciju',
-        'The password and re-password must match' => 'Lozinka i ponovljena lozinka nisu iste!'
+        'The password and re-password must match' => 'Lozinka i ponovljena lozinka nisu iste!',
+        'The password field is required' => 'Lozinka je obavezna'
     ]
 
 );

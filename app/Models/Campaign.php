@@ -256,6 +256,7 @@ class Campaign extends BaseModel
         $this->setAttribute('percent_done', ($amount / $target) * 100);
         if(!empty($this->getAttribute('target_amount')) && $amount >= $target){
             $this->setAttribute('status', 'target_reached');
+            $this->setAttribute('priority', 0);
         }
 
 

@@ -26,9 +26,9 @@ trait ControllerIndexTrait
     protected $input;
 
 
-    public function index( $full = true)
+    public function index(\Illuminate\Http\Request $request, $full = true)
     {
-        $request = new Request();
+
         $requestRoute = Route::current();
         $routeArray = $requestRoute->getAction();
         $this->action = !empty(Route::current()->parameters()['action']) ? Route::current()->parameters()['action'] : null;

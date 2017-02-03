@@ -74,17 +74,27 @@ class Tests extends Command
 
             $donors[] = $d->id . ':' . $donor_name;
         }
+        if (!count($donors)) {
+            $this->error('No usable donors in DB. Aborting!');
+            dd();
+        }
 
         $donor_index = $this->choice('Please select a donor from the list', $donors);
         $donor_id = explode(':', $donor_index)[0];
+        $donor = Donor::find($donor_id);
+        dd($donor->recalculateDiversityScore());
 
 
         $campaignsRes = Campaign::whereIn('status', ['active', 'target_reached'])->get();
         $campaigns = [];
         foreach ($campaignsRes as $key => $c) {
-            $campaign_name = $c->status=='active'?$c->name:$c->name.' (target reached)';
+            $campaign_name = $c->status == 'active' ? $c->name : $c->name . ' (target reached)';
 
             $campaigns[] = $c->id . ':' . $campaign_name;
+        }
+        if (!count($campaigns)) {
+            $this->error('No usable campaigns in DB. Aborting!');
+            dd();
         }
         $campaign_index = $this->choice('Please select a campaign from the list', $campaigns);
         $campaign_id = explode(':', $campaign_index)[0];
@@ -108,15 +118,15 @@ class Tests extends Command
             $order->amount = $amount;
             $order->order_token = Str::random(60);
             $order->type = 'single';
-            $order->reference = strtoupper(str_random(4) . '-' . str_random(4)).'0';
-            $order->payment_method = $payment_type == 'bank'?'bank_transfer':'credit_card';
+            $order->reference = strtoupper(str_random(4) . '-' . str_random(4)) . '0';
+            $order->payment_method = $payment_type == 'bank' ? 'bank_transfer' : 'credit_card';
             $order->user_ip = '127.0.0.1';
             try {
                 $order->save();
                 $this->info('Order created');
 
             } catch (\Exception $e) {
-                $this->error('Creating order entry failed with message: ' . $e->getMessage().' on line '.$e->getLine());
+                $this->error('Creating order entry failed with message: ' . $e->getMessage() . ' on line ' . $e->getLine());
                 dd();
             }
 
@@ -137,7 +147,7 @@ class Tests extends Command
                     $transfer = BankTransfersDatum::create($paymentData);
                     $this->info('Bank transfer entry created');
                 } catch (\Exception $e) {
-                    $this->error('Creating bank transfer entry failed with message: ' . $e->getMessage().' on line '.$e->getLine());
+                    $this->error('Creating bank transfer entry failed with message: ' . $e->getMessage() . ' on line ' . $e->getLine());
                     dd();
 
                 }
@@ -172,7 +182,7 @@ class Tests extends Command
                     $pData->save();
                     $this->info('Payment provider data entry created');
                 } catch (\Exception $e) {
-                    $this->error('Creating provider data entry failed with message: ' . $e->getMessage().' on line '.$e->getLine());
+                    $this->error('Creating provider data entry failed with message: ' . $e->getMessage() . ' on line ' . $e->getLine());
                     dd();
 
                 }
@@ -185,14 +195,14 @@ class Tests extends Command
                 'donor_id' => $donor_id,
                 'amount' => $amount,
                 'order_id' => $order->id,
-                'payment_provider_data_id' => isset($pData)?$pData->id:null,
-                'bank_transfer_data_id' => isset($pData)?null:$transfer->id,
+                'payment_provider_data_id' => isset($pData) ? $pData->id : null,
+                'bank_transfer_data_id' => isset($pData) ? null : $transfer->id,
             ];
             try {
                 $mInput = MonetaryInput::create($inputData);
                 $this->info('Monetary input data entry created');
             } catch (\Exception $e) {
-                $this->error('Creating monetary input entry failed with message: ' . $e->getMessage().' on line '.$e->getLine().' file '.$e->getFile());
+                $this->error('Creating monetary input entry failed with message: ' . $e->getMessage() . ' on line ' . $e->getLine() . ' file ' . $e->getFile());
                 dd();
 
             }

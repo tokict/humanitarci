@@ -80,7 +80,7 @@ class CampaignObserver
             'beneficiary_request_doc_id',
         ];
 
-
+        ActionLog::log(ActionLog::TYPE_CAMPAIGN_UPDATE, $campaign->toArray());
         //Disallow rollback of status rules
         $origStatus = $campaign->getOriginal()['status'];
         if ($origStatus != $campaign->status) {
@@ -174,10 +174,10 @@ class CampaignObserver
 
 
             #Send mails on campaign failed
-            if ($origStatus != 'failed' && $campaign->status == 'failed') {
-                Log::info('Marking campaign ' . $campaign->id . ' as failed');
+            if ($origStatus != 'ended' && $campaign->status == 'ended') {
+                Log::info('Marking campaign ' . $campaign->id . ' as ended');
                 try {
-                    Mail::queue('emails.campaign_finalized', [
+                    Mail::queue('emails.campaign_ended', [
                         'campaign' => $campaign
                     ], function ($m) use ($campaign) {
                         $mails = [];
@@ -201,7 +201,7 @@ class CampaignObserver
             }
 
 
-            if ($origStatus == 'failed' || $origStatus == 'finalized') {
+            if ($origStatus == 'ended' || $origStatus == 'finalized') {
                 Log::alert('User: ' . $user . ': You cannot edit campaign ' . $campaign->id . ' after it is finished !');
                 session()->flash('error', 'You cannot edit campaign after it is finished !');
                 return false;

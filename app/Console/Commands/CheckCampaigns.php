@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\ActionLog;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\MonetaryInput;
@@ -61,13 +62,11 @@ class CheckCampaigns extends Command
         foreach ($this->campaigns as $campaign) {
             //Close the ones with past date that are active
             if (strtotime($campaign->ends) <= time()) {
-                // if the campaign was never active, leave it. Just fail those that tried to get funded
-                if (in_array($campaign->status, ['active'])) {
-                    if ($campaign->target_amount) {
-                        //Failed because we had a target to reach and didn't
-                        //We would be in target_reached if we did and this is why we don't check for amount. Its implied
-                        $this->info('Marking campaign "'.$campaign->name.'" ID: '.$campaign->id.' as failed');
-                        $campaign->status = 'failed';
+                // if the campaign was never active, leave it. Just END those that tried to get funded
+                if (in_array($campaign->status, ['active', 'target_reached'])) {
+                    if ($campaign->target_amount && $campaign->target_amount > $campaign->current_funds) {
+                        $this->info('Marking campaign "'.$campaign->name.'" ID: '.$campaign->id.' as ended');
+                        $campaign->status = 'ended';
 
                     } else {
                         //Succeeded because the campaign had no target to fail

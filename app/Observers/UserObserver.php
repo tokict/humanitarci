@@ -4,6 +4,7 @@ namespace App\Observers;
 
 
 
+use App\Models\ActionLog;
 use App\Models\PasswordReset;
 use App\User;
 use Illuminate\Support\Facades\Mail;
@@ -20,6 +21,7 @@ class UserObserver
      */
     public function created(User $user)
     {
+        ActionLog::log(ActionLog::TYPE_USER_CREATE, $user->toArray());
         //Send reset link
         error_log('User created!');
         $reset = new PasswordReset(['email' => $user->email, 'token' => Str::random(60)]);
@@ -43,6 +45,8 @@ class UserObserver
         //
     }
 
-
+    public function saving(User $user){
+        ActionLog::log(ActionLog::TYPE_USER_UPDATE, $user->toArray());
+    }
 
 }

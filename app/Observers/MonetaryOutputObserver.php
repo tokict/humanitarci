@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\ActionLog;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\MonetaryInput;
@@ -29,6 +30,7 @@ class MonetaryOutputObserver
 
         //Get through donations one by one and take amount needed from each until amount is full
         $this->distributeAmount($monetaryOutput);
+        ActionLog::log(ActionLog::TYPE_MONETARY_OUTPUT, $monetaryOutput->toArray());
 
 
     }

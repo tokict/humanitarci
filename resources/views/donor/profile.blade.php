@@ -111,7 +111,7 @@
                 <!-- Counter Item -->
                 <div class="col-xs-6 col-sm-3">
                     <div class="count-number">
-                        {{count($donor->getRecurringDonationsSum())}}
+                        {{$donor->getRecurringDonationsSum()}}
                     </div>
                     <div class="count-descr font-alt">
                         <i class="fa fa-refresh"></i>
@@ -136,18 +136,6 @@
                     {{$d->donation->campaign->name}}:  <span
                             class="pull-right">{{number_format($d->amount/100)}} {{env('CURRENCY')}}</span><br/>
                     <small>({{$d->monetary_output->description}})</small>
-                    <hr>
-                @endforeach
-            </div>
-            <div class="col-md-4">
-                <h5>{{trans('donations_transfers')}}</h5>
-                @foreach($donationTransfers as $d)
-                    {{$d->transaction->from_campaign->name}}
-                    &nbsp;>>&nbsp;
-                    {{$d->transaction->to_campaign->name}}
-                    <span class="pull-right">{{number_format($d->transaction->amount/100)}} {{env('CURRENCY')}}</span>
-                    <br/>
-                    <small>({{$d->transaction->description}})</small>
                     <hr>
                 @endforeach
             </div>

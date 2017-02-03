@@ -22,18 +22,6 @@ class TransactionObserver
 
 
 
-    /**
-     * Listen to the Transaction update event.
-     *
-     * @param  Campaign  $transaction
-     * @return void
-     */
-    public function updated(Transaction $transaction)
-    {
-
-        ActionLog::log(ActionLog::TYPE_TRANSACTION_UPDATE, $transaction->toArray());
-    }
-
 
 
 }
