@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     use \App\Traits\ControllerIndexTrait;
+
     /**
      * Show the main page.
      *
@@ -17,9 +18,11 @@ class HomeController extends Controller
     public function home()
     {
         $campaigns = Campaign::where('status', 'active')
-        ->orderBy('created_at', 'desc')
-        ->take(3)
-        ->get();
+            ->orderBy('priority', 'desc')
+            ->orderBy('percent_done', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
 
         return view('welcome', ['campaigns' => $campaigns]);
     }

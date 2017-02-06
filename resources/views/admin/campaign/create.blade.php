@@ -209,10 +209,14 @@
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
+                            @if(\Illuminate\Support\Facades\Auth::User()->super_admin)
                             <div class="col-sm-2">
                                 <label class="control-label">Status</label>
-                                {{Form::select('status', $campaign->getEnumValues('status'), null, ['class' => 'form-control'])}}
+
+                                {{Form::select('status', $campaign->getEnumValues('status'), 'inactive', ['class' => 'form-control'])}}
+
                             </div>
+                            @endif
                             <div class="col-sm-2">
                                 <label class="control-label">Priority</label>
                                 {{Form::select('priority', [1,2,3,4,5], null, ['class' => 'form-control'])}}

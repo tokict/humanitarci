@@ -21,19 +21,9 @@ class CampaignObserver
      */
     public function created(Campaign $campaign)
     {
-        dd('Fire created event');
-    }
-
-    /**
-     * Listen to the Campaign deleting event.
-     *
-     * @param  Campaign $campaign
-     * @return void
-     */
-    public function deleting(Campaign $campaign)
-    {
         ActionLog::log(ActionLog::TYPE_CAMPAIGN_CREATE, $campaign->toArray());
     }
+
 
 
     /**
@@ -82,8 +72,8 @@ class CampaignObserver
 
         ActionLog::log(ActionLog::TYPE_CAMPAIGN_UPDATE, $campaign->toArray());
         //Disallow rollback of status rules
-        $origStatus = $campaign->getOriginal()['status'];
-        if ($origStatus != $campaign->status) {
+        $origStatus = isset($origStatus)?$origStatus:null;
+        if ($origStatus && $origStatus != $campaign->status) {
 
             #Send mails on campaign target_reached
             if ($origStatus != 'target_reached' && $campaign->status == 'target_reached') {
@@ -237,7 +227,7 @@ class CampaignObserver
 
 
         //Prevent editing of certain fields after campaign becomes active
-        if ($campaign->getOriginal()['status'] == 'active') {
+        if ($origStatus && $origStatus == 'active') {
             foreach ($campaign->getDirty() as $key => $value) {
                 if (in_array($key, $fieldsLaunch)) {
                     Log::alert('User: ' . $user . ': Campaign ' . $campaign->id . ' field "' . $key . '" cannot be changed after campaign launch!');
@@ -251,7 +241,7 @@ class CampaignObserver
         unset($tableCols['beneficiary_receipt_doc_id'], $tableCols['modified_at'], $tableCols['target_amount_extra']);
 
         //If the status is succeeded then we can only add beneficiary_receipt_id and modified_at
-        if (in_array($campaign->getOriginal()['status'], ['succeeded']) && !$campaign->target_amount_extra) {
+        if (in_array($origStatus, ['succeeded']) && !$campaign->target_amount_extra) {
             foreach ($campaign->getOriginal() as $key => $value) {
                 if (in_array($key, $tableCols)) {
                     Log::alert('User: ' . $user . ': If campaign ' . $campaign->id . ' has succeeded, you can only add beneficiary report. No changes otherwise !');
@@ -262,7 +252,7 @@ class CampaignObserver
         }
 
         //No updates to campaign are allowed after finalization
-        if (in_array($campaign->getOriginal()['status'], ['failed', 'succeeded', 'finalized', 'blocked'])) {
+        if (in_array($origStatus, ['failed', 'succeeded', 'finalized', 'blocked'])) {
             Log::alert('User: ' . $user . ': Campaign ' . $campaign->id . ' cannot be edited cannot be edited after campaign end!');
             session()->flash('error', 'Campaign cannot be edited cannot be edited after campaign end!');
             return false;

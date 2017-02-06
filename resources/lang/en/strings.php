@@ -19,5 +19,8 @@ return [
         'credit_card_processor_tax' => 'Payment processor fee',
         'bank_tax' => 'Bank fee',
         'platform_tax' => 'Campaign expenses'
+    ],
+    'home' => [
+        'No active campaigns at the moment' => 'Trenutno nemamo aktivnih akcija'
     ]
 ];
