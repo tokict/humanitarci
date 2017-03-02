@@ -16,7 +16,7 @@
                     <!-- Post Title -->
                     <h2 class="blog-item-title font-alt">{{$campaign->name}}</h2>
                     <h5>Korisnik: <a
-                                href="{{trans('routes.front.beneficiaries')}}/{{trans('routes.actions.view')}}/{{$campaign->beneficiary->id}}">{{$campaign->beneficiary->name}}</a>
+                                href="/{{trans('routes.front.beneficiaries')}}/{{trans('routes.actions.view')}}/{{$campaign->beneficiary->id}}">{{$campaign->beneficiary->name}}</a>
                     </h5>
 
                     <!-- Author, Categories, Comments -->
