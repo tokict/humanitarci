@@ -31,7 +31,7 @@ class GroupController extends Controller
         if(Request::isMethod('post')){
             $this->validate($request, [
                 'name' => 'required|max:30',
-                'description' => 'required|max:30',
+                'description' => 'required',
                 'representing_person_id' => 'required_without:representing_entity_id|numeric',
                 'representing_entity_id' => 'required_without:representing_person_id|numeric'
 
@@ -57,7 +57,7 @@ class GroupController extends Controller
         if(Request::isMethod('post')){
             $this->validate($request, [
                 'name' => 'required|max:30',
-                'description' => 'required|max:30',
+                'description' => 'required',
                 'representing_person_id' => 'required_without:representing_entity_id|numeric',
                 'representing_entity_id' => 'required_without:representing_person_id|numeric'
             ]);

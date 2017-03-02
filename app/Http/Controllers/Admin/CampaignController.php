@@ -94,7 +94,7 @@ class CampaignController extends Controller
                 'type' => 'required',
                 'target_amount' => 'digits_between:3,6',
                 'description_short' => 'required|max:500',
-                'description_full' => 'required|max:2000',
+                'description_full' => 'required|max:5000',
                 'status' => 'required',
                 'action_plan_doc_id' => 'required|numeric',
                 'registration_doc_id' => 'required|numeric',
