@@ -8,6 +8,7 @@
           content="Humanitarci.hr je potpuno transparentna platforma za doniranje novca, hrane i nuznih potrepstina">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="google-site-verification" content="pKDL-2njZLD7AHfG5Lhf1kqockfqKfhmqpBTGmz5GcU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 
