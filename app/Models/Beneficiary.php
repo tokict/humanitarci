@@ -211,7 +211,7 @@ class Beneficiary extends BaseModel
                 }
             }
         };
-
+return Donor::take(10)->get();
         return $donors;
 
     }
@@ -231,5 +231,16 @@ class Beneficiary extends BaseModel
         }
         return $totalAmount;
 
+    }
+
+    /**
+     * Get active campaign is there is one
+     * @return Campaign | bool
+     */
+    public function getActiveCampaign()
+    {
+        $campaign = Campaign::where('beneficiary_id', $this->getAttribute('id'))->where('status', 'active')->get()->first();
+
+        return isset($campaign)? $campaign:false;
     }
 }

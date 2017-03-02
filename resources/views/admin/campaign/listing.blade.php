@@ -97,8 +97,8 @@
                                 @foreach ($campaigns as $campaign)
                                     <tr class="gradeX">
                                         <td>{{ $campaign->name }}</td>
-                                        <td class="center">{{ $campaign->beneficiary->name }}</td>
-                                        <td>{{ $campaign->organization->name }}</td>
+                                        <td class="center"><a href="/admin/beneficiary/view/{{ $campaign->beneficiary->id }}">{{ $campaign->beneficiary->name }}</a></td>
+                                        <td><a href="/admin/organization/view/{{ $campaign->organization->id }}">{{ $campaign->organization->name }}</a></td>
                                         <td>
                                             <div class="progress progress-striped active m-b-sm">
                                                 <div style="width: {{$campaign->percent_done}}%;"

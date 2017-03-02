@@ -31,7 +31,17 @@ class DonorsController extends Controller
 
 
 
+    /**
+     * Show a single donor.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function view($request, $id)
+    {
 
+        $donor = Donor::whereId($id)->first();
+        return view('donor.view', ['donor' => $donor]);
+    }
 
 
     /**

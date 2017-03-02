@@ -22,6 +22,7 @@ Route::match(array('GET', 'POST'),"/contacts/newsletter-signup", 'ContactsContro
 Route::match(array('GET'),'/'.Lang::get('routes.front.campaigns',[], env('LANGUAGE')).'/{action}/{params?}', 'CampaignsController@index');
 Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.donors',[], env('LANGUAGE')).'/{action}/{params?}', 'DonorsController@index');
 Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.donations',[], env('LANGUAGE')).'/{action}/{params?}', 'DonationsController@index');
+Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.beneficiaries',[], env('LANGUAGE')).'/{action}/{params?}', 'BeneficiariesController@index');
 Route::match(array('GET', 'POST'),'/'.Lang::get('routes.front.pages',[], env('LANGUAGE')).'/{action}/{params?}', 'PagesController@index');
 //Ajax
 Route::match(array('GET', 'POST'),'/ajax/{action}/{params?}', 'AjaxController@index');
