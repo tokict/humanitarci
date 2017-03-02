@@ -31,7 +31,7 @@ class BankController extends Controller
 
                 'name' => 'required|max:30',
                 'swift_code' => 'required|max:30',
-                'legal_entity_id' => 'required|max:3|numeric'
+                'legal_entity_id' => 'required|numeric'
 
             ]);
 

@@ -6,6 +6,7 @@ use App\Models\Beneficiary;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
+use App\Models\Group;
 use App\Models\LegalEntity;
 use App\Models\Organization;
 use App\Models\Person;
@@ -69,6 +70,24 @@ class AuthServiceProvider extends ServiceProvider
             }else{
                 if($params['action'] == 'edit'){
                     $beneficiary = Beneficiary::whereId((int) $params['params'])->get()->first();;
+                    return isset($user->admin->organization) && $user->admin->organization->id == $beneficiary->creator->admin->organization->id ;
+                }
+                return true;
+            }
+            return false;
+        });
+
+
+        $gate->define('GroupController', function ($user,  $params) {
+
+            if (!$user->super_admin && !$user->admin) {
+                return false;
+            }
+            if ($user->super_admin) {
+                return true;
+            }else{
+                if($params['action'] == 'edit'){
+                    $beneficiary = Group::whereId((int) $params['params'])->get()->first();;
                     return isset($user->admin->organization) && $user->admin->organization->id == $beneficiary->creator->admin->organization->id ;
                 }
                 return true;

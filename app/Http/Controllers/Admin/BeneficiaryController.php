@@ -68,13 +68,13 @@ class BeneficiaryController extends Controller
         if (Request::isMethod('post')) {
             $this->validate($request, [
                 'name' => 'required|max:30',
+                'description' => 'required',
                 'contact_phone' => 'numeric',
                 'contact_email' => 'unique:persons|max:100',
-                'entity_id' => 'required_without_all:person_id, group_id',
-                'person_id' => 'required_without_all:entity_id, group_id',
-                'group_id' => 'required_without_all:person_id, entity_id',
+                'entity_id' => 'required_without_all:person_id,group_id',
+                'person_id' => 'required_without_all:entity_id,group_id',
+                'group_id' => 'required_without_all:person_id,entity_id',
                 'status' => 'required'
-
             ]);
 
             $input = Input::all();
@@ -87,7 +87,7 @@ class BeneficiaryController extends Controller
                 $mediaLink = new MediaLink(
                     [
                         'beneficiary_id' => $beneficiary->id,
-                        'media_id' => $input['profile_photo_id'],
+                        'media_id' => $input['profile_image_id'],
                         'organization_id' => Auth::User()->admin->organization_id,
                         'user_id' => Auth::User()->user_id
 
