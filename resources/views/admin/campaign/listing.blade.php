@@ -105,7 +105,10 @@
                                                      class="progress-bar"></div>
                                             </div>
                                             <strong>{{$campaign->current_funds/100}}
-                                                / {{ number_format($campaign->target_amount/100) }}  {{env('CURRENCY')}}</strong>
+                                                @if($campaign->target_amount)
+                                                    /
+                                                    {{ number_format($campaign->target_amount/100) }}
+                                                @endif{{env('CURRENCY')}}</strong>
 
                                         <td>{{ $campaign->status }}</td>
                                         <td>{{ $campaign->priority }}</td>

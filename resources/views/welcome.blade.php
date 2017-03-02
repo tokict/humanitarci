@@ -120,51 +120,69 @@
             @if(!$campaigns->count())
                 <div class="col-sm-12">
                     <h3 class="text-center">{{trans('strings.home.No active campaigns at the moment')}}</h3>
+                </div>
+                @endif
+                @foreach($campaigns as $campaign)
+                        <!-- Post Item -->
+                <div class="col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
+
+                    <div class="post-prev-img">
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><img
+                                    src="{{$campaign->cover->getPath('small')}}" alt=""></a>
                     </div>
-            @endif
-            @foreach($campaigns as $campaign)
-                    <!-- Post Item -->
-            <div class="col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
+                    @if(isset($campaign->target_amount))
+                        <div class="progress tpl-progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{$campaign->percent_done}}"
+                                 aria-valuemin="0" aria-valuemax="100" style="width: {{$campaign->percent_done}}%;">
+                                <span>{{$campaign->percent_done}}%</span>
+                            </div>
+                            <br/>
 
-                <div class="post-prev-img">
-                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><img
-                                src="{{$campaign->cover->getPath('small')}}" alt=""></a>
-                </div>
+                            {{number_format($campaign->target_amount/100)}} {{env('CURRENCY')}}
+                        </div>
+                    @endif
 
-                <div class="progress tpl-progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{$campaign->percent_done}}"
-                         aria-valuemin="0" aria-valuemax="100" style="width: {{$campaign->percent_done}}%;">
-                        <span>{{$campaign->percent_done}}%</span>
+
+                    <div class="post-prev-info font-alt">
+                        @if($campaign->beneficiary->entity)
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->entity->city_id}}"><i
+                                        class="fa fa-map-marker"></i> {{$campaign->beneficiary->entity->city}}
+                            </a>
+                            <span>/</span>
+                        @endif
+                        @if($campaign->beneficiary->person)
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city}}"><i
+                                        class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
+                            </a>
+                                <span>/</span>
+                        @endif
+                        @if($campaign->beneficiary->group)
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->group->city
+                        ?$campaign->beneficiary->group->city_id:''}}"><i
+                                        class="fa fa-map-marker"></i> {{$campaign->beneficiary->group->city->name}}
+                            </a>
+                                <span>/</span>
+                        @endif
+
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
                     </div>
-                    <br/>
-                    {{number_format($campaign->target_amount/100)}} {{env('CURRENCY')}}
+
+                    <div class="post-prev-text line-clamp">
+                        <b>{!! $campaign->name!!}</b>
+                    </div>
+                    <div class="post-prev-text line-clamp">
+                        {!! $campaign->description_short!!}
+                    </div>
+
+                    <div class="post-prev-more">
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"
+                           class="btn btn-mod btn-gray btn-round">Pročitaj više <i class="fa fa-angle-right"></i></a>
+                    </div>
+
                 </div>
+                <!-- End Post Item -->
 
-
-                <div class="post-prev-info font-alt">
-                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city
-                        ?$campaign->beneficiary->person->city:$campaign->beneficiary->entity->city_id}}"><i
-                                class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
-                    </a> <span>/</span>
-                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
-                </div>
-
-                <div class="post-prev-text line-clamp">
-                    <b>{!! $campaign->name!!}</b>
-                </div>
-                <div class="post-prev-text line-clamp">
-                    {!! $campaign->description_short!!}
-                </div>
-
-                <div class="post-prev-more">
-                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"
-                       class="btn btn-mod btn-gray btn-round">Pročitaj više <i class="fa fa-angle-right"></i></a>
-                </div>
-
-            </div>
-            <!-- End Post Item -->
-
-            @endforeach
+                @endforeach
 
         </div>
     </div>
@@ -324,7 +342,7 @@
     <!-- End Slide Item -->
 
 </section>--}}
-<!-- End Testimonials Section -->
+        <!-- End Testimonials Section -->
 
 {{--<div align="center" style="color: red">Ovdje dolje idu logotipovi medija gdje se spominjemo i linkovi na članke.</div>
 <!-- Logotypes Section -->
@@ -396,7 +414,7 @@
 
     </div>
 </section>--}}
-<!-- End Logotypes -->
+        <!-- End Logotypes -->
 
 
 @endsection
