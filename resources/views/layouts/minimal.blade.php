@@ -11,16 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="front/images/humanitarci-icon.png">
+    <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
     <link rel="apple-touch-icon" href="http://rhythm.bestlooker.pro/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="http://rhythm.bestlooker.pro/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114"
           href="http://rhythm.bestlooker.pro/images/apple-touch-icon-114x114.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="front/css/bootstrap.min.css">
-    <link rel="stylesheet" href="administrator/css/style.css">
-    <link rel="stylesheet" href="administrator/css/animate.css">
+    <link rel="stylesheet" href="/front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/administrator/css/style.css">
+    <link rel="stylesheet" href="/administrator/css/animate.css">
+    <link rel="stylesheet" href="/administrator/css/extended.css">
 
     <style type="text/css">
         .accent {

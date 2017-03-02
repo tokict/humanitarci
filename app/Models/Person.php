@@ -8,7 +8,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Person
@@ -19,16 +19,18 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $middle_name
  * @property string $last_name
  * @property string $social_id
- * @property int $city_id
+ * @property int $city
  * @property string $address
  * @property string $contact_phone
  * @property string $contact_email
  * @property string $social_accounts
  * @property string $gender
  * @property string $title
- * @property bool $is_donor
- * @property bool $is_beneficiary
- * @property bool $is_admin
+ * @property string $country
+ * @property string $zip
+ * @property bool $donor_id
+ * @property int $created_by
+ * @property bool $user_id
  * @property int $bank_id
  * @property string $bank_acc
  * @property \Carbon\Carbon $created_at
@@ -36,10 +38,14 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $device_id
  * 
  * @property \App\Models\Bank $bank
- * @property \App\Models\City $city
+ * @property \App\Models\Donor $donor
+ * @property \App\Models\Admin $creator
+ * @property \App\Models\Beneficiary $beneficiary
+ * @property \App\User$user
  * @property \App\Models\Device $device
- * @property \Illuminate\Database\Eloquent\Collection $admins
+ * @property \Illuminate\Database\Eloquent\Collection $users
  * @property \Illuminate\Database\Eloquent\Collection $documents
+ * @property \Illuminate\Database\Eloquent\Collection $organizations
  * @property \Illuminate\Database\Eloquent\Collection $groups
  * @property \Illuminate\Database\Eloquent\Collection $media_links
  * @property \Illuminate\Database\Eloquent\Collection $outgoing_mails
@@ -48,7 +54,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Person extends Eloquent
+class Person extends BaseModel
 {
 	use SoftDeletes;
 
@@ -61,12 +67,9 @@ class Person extends Eloquent
 	public $timestamps = false;
 
 	protected $casts = [
-		'city_id' => 'int',
-		'is_donor' => 'bool',
-		'is_beneficiary' => 'bool',
-		'is_admin' => 'bool',
 		'bank_id' => 'int',
-		'device_id' => 'int'
+		'device_id' => 'int',
+		'created_by' => 'int'
 	];
 
 	protected $dates = [
@@ -78,14 +81,20 @@ class Person extends Eloquent
 		'middle_name',
 		'last_name',
 		'social_id',
-		'city_id',
+		'city',
+		'donor_id',
+		'user_id',
 		'address',
 		'contact_phone',
 		'contact_email',
 		'gender',
+		'created_by',
 		'title',
 		'bank_id',
 		'bank_acc',
+		'country',
+		'zip'
+
 	];
 
 	public function bank()
@@ -93,19 +102,33 @@ class Person extends Eloquent
 		return $this->belongsTo(\App\Models\Bank::class);
 	}
 
-	public function city()
+
+	public function beneficiary()
 	{
-		return $this->belongsTo(\App\Models\City::class);
+		return $this->belongsTo(\App\Models\Beneficiary::class);
 	}
+
+	public function user()
+	{
+		return $this->belongsTo(\App\User::class);
+	}
+
+	public function creator()
+	{
+		return $this->belongsTo(\App\Models\Admin::class);
+	}
+
 
 	public function device()
 	{
 		return $this->belongsTo(\App\Models\Device::class);
 	}
 
-	public function admins()
+
+
+	public function organizations()
 	{
-		return $this->hasMany(\App\Models\Admin::class);
+		return $this->hasMany(\App\Models\Organization::class, 'represented_by');
 	}
 
 	public function documents()
@@ -138,7 +161,4 @@ class Person extends Eloquent
 		return $this->hasMany(\App\Models\OutgoingSms::class);
 	}
 
-	public function test(){
-	dd('this is a test');
-}
 }

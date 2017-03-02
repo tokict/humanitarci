@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Create new person</h5>
+                        <h5>Create new bank</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -34,45 +34,45 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" class="form-horizontal" action="/admin/bank/create">
-                            {{csrf_field()}}
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
+                            </div>
+                        @endif
+                        {!! Form::open(['url' => '/admin/bank/create', 'class' => 'form-horizontal']) !!}
+                        {{Form::token()}}
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
 
-                                <div class="col-sm-2"><label class="control-label">Name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="name"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-2"
-                                ><label class="control-label">Swift</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="swift_code"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-5">
-                                    <label class="control-label">Legal entity</label>
-                                    <select class="form-control entitySelect" name="legal_entity_id">
-                                        <option value="">Select</option>
-                                    </select>
-                                </div>
-
-
+                            <div class="col-sm-5"><label class="control-label">Name</label>
+                                {{Form::text('title', null,['class' =>'form-control' ] )}}
                             </div>
 
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-white" type="submit">Cancel</button>
-                                    <button class="btn btn-primary" type="submit">Save changes</button>
-                                </div>
+                            <div class="col-sm-4"
+                            ><label class="control-label">Swift</label>
+                                {{Form::text('swift_code', null,['class' =>'form-control' ] )}}
                             </div>
-                        </form>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-lg-8">
+                                <label class="control-label">Legal entity</label>
+                                {{Form::select('legal_entity_id', [], null, ['class' => 'form-control selectEntity'])}}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <a class="btn btn-white" href="/admin/bank/listing">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Save changes</button>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

@@ -35,8 +35,8 @@ class BankController extends Controller
 
             ]);
 
-            $banks = Bank::create(Input::all());
-            if($banks){
+            $bank = Bank::create(Input::all());
+            if($bank){
                 return redirect('admin/bank/listing');
             }else{
                 dd("Not saved");
@@ -45,5 +45,25 @@ class BankController extends Controller
 
         }
         return view('admin.bank.create');
+    }
+
+    public function edit($request, $id)
+    {
+        $bank = Bank::find($id);
+        if(Request::isMethod('post')){
+            $this->validate($request, [
+
+                'name' => 'required|max:30',
+                'swift_code' => 'required|max:30',
+                'legal_entity_id' => 'required|numeric'
+
+            ]);
+
+            $input = Input::all();
+            if($bank->update($input)) {
+                return redirect('admin/bank/listing');
+            }
+        }
+        return view('admin.bank.edit', ['bank' => $bank]);
     }
 }

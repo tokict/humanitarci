@@ -1,0 +1,108 @@
+.bg-facebook {
+    background-color: #08c;
+}
+
+span.iznos-donacije {
+    font-weight: bold;
+    color: black;
+}
+span.donator {
+    color: black;
+}
+
+.btn-circle-right {
+    border-radius: 0px 30px 30px 30px;
+}
+
+.input-circle-left {
+    border-radius: 30px 30px 30px 30px;
+}
+
+.donation-progress {
+    border: #08c 3px solid;
+    color: gray;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.donation-progress-top {
+    font-size: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.donation-progress-bottom {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.donation-progress > .tpl-progress {
+    height: 5px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+}
+
+.donation-progress > .tpl-progress > .progress-bar {
+    background-color: #08c;
+    color: white;
+}
+
+.donation-progress-alt {
+    font-size: 40px;
+    color: black;
+    font-weight: lighter;
+    line-height: 0.8em;
+}
+
+.donation-progress-alt p {
+    font-size: 18px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.donation-progress-alt {
+    font-size: 40px;
+    color: black;
+    font-weight: lighter;
+    line-height: 0.8em;
+}
+
+.donation-progress-alt > .item span {
+    color: black;
+    font-weight: bold;
+}
+
+.font-alt-cased {
+    font-family: 'Roboto', sans-serif;
+}
+
+.donation-progress-alt > .tpl-progress {
+    margin-bottom: 20px;
+    background-color: #ccc;
+    height: 4px;
+}
+
+.donation-progress-alt > .tpl-progress > .progress-bar {
+    background-color: #08c;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    color: gray;
+    font-weight: lighter;
+}
+
+.accent {
+    color: #08c;
+}
+
+.team-item-name a{
+    text-decoration: none;
+}
+
+.mn-soc-link i {
+    left: 1px;
+    position: relative;
+}
+
+.blog-item-body {
+    min-height: 500px;
+}

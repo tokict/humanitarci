@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class PaymentProvider
@@ -29,7 +29,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class PaymentProvider extends Eloquent
+class PaymentProvider extends BaseModel
 {
 	public $timestamps = false;
 

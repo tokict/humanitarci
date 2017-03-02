@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class IncomingCommunication
@@ -26,7 +26,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class IncomingCommunication extends Eloquent
+class IncomingCommunication extends BaseModel
 {
 	protected $table = 'incoming_communication';
 	public $timestamps = false;

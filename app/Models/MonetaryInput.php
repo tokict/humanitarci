@@ -7,29 +7,28 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class MonetaryInput
  * Monetary input handles all cash coming into the platform. We make donations from this data
- * 
+ *
  * @property int $id
  * @property int $donor_id
  * @property int $amount
  * @property \Carbon\Carbon $created_at
- * @property int $campaign_id
  * @property int $payment_provider_data_id
  * @property int $bank_transfer_data_id
- * 
+ *
  * @property \App\Models\BankTransfersDatum $bank_transfers_datum
  * @property \App\Models\Campaign $campaign
  * @property \App\Models\Donor $donor
+ * @property \App\Models\Donor $order
  * @property \App\Models\PaymentProviderDatum $payment_provider_datum
  * @property \Illuminate\Database\Eloquent\Collection $donations
  *
  * @package App\Models
  */
-class MonetaryInput extends Eloquent
+class MonetaryInput extends BaseModel
 {
 	protected $table = 'monetary_input';
 	public $timestamps = false;
@@ -55,14 +54,15 @@ class MonetaryInput extends Eloquent
 		return $this->belongsTo(\App\Models\BankTransfersDatum::class, 'bank_transfer_data_id');
 	}
 
-	public function campaign()
-	{
-		return $this->belongsTo(\App\Models\Campaign::class);
-	}
 
 	public function donor()
 	{
 		return $this->belongsTo(\App\Models\Donor::class);
+	}
+
+	public function order()
+	{
+		return $this->belongsTo(\App\Models\Order::class);
 	}
 
 	public function payment_provider_datum()

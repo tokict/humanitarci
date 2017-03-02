@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class GroupLegalEntity
@@ -23,7 +23,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class GroupLegalEntity extends Eloquent
+class GroupLegalEntity extends BaseModel
 {
 	protected $primaryKey = 'legal_entity_id';
 	public $timestamps = false;

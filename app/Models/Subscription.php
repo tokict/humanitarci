@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Subscription
@@ -38,7 +38,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Subscription extends Eloquent
+class Subscription extends BaseModel
 {
 	public $timestamps = false;
 

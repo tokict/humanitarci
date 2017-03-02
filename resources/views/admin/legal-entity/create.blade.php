@@ -34,111 +34,92 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" class="form-horizontal" action="/admin/legal-entity/create">
-                            {{csrf_field()}}
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-
-                                <div class="col-sm-2"><label class="control-label">Name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="name"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">Tax id</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="tax_id"
-                                           maxlength="30">
-                                </div>
-
-
-                                <div class="col-sm-3">
-                                    <label class="control-label">Current city</label>
-                                    <select class="form-control citySelect" name="city_id">
-                                        <option value="">Select</option>
-
-                                    </select>
-                                    <span class="help-block m-b-none">City of residence</span>
-                                </div>
-
-
-                                <div class="col-sm-3">
-                                    <label class="control-label">Address</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="address"
-                                           maxlength="150">
-                                    <span class="help-block m-b-none">Headquarters address</span>
-                                </div>
-
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
                             </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-2">
-                                    <label class="control-label">Phone</label>
-                                    <input type="number"
-                                           class="form-control"
-                                           name="contact_phone">
-                                    <span class="help-block m-b-none">Contact phone</span>
-                                </div>
+                        @endif
+                        {!! Form::open(['url' => '/admin/legal-entity/create', 'class' => 'form-horizontal']) !!}
 
-                                <div class="col-sm-3">
-                                    <label class="control-label">Email</label>
-                                    <input type="email"
-                                           class="form-control"
-                                           name="contact_email"
-                                           maxlength="100">
-                                    <span class="help-block m-b-none">Contact email</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-2">
-                                    <label class="control-label">Bank</label>
-                                    <select class="form-control" name="bank_id">
-                                        <option value="">Select</option>
-                                        @foreach($banks as $bank)
-                                            <option value="{{$bank->id}}">{{$bank->name}}</option>
-                                        @endforeach
-                                    </select>
-                                    <span class="help-block m-b-none">Select bank</span>
-                                </div>
+                        {{Form::token()}}
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
 
-                                <div class="col-sm-3">
-                                    <label class="control-label">Bank account</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="bank_acc"
-                                           maxlength="100">
-                                    <span class="help-block m-b-none">Bank acc number</span>
-                                </div>
+                            <div class="col-sm-2"><label class="control-label">Name</label>
+                                {{Form::text('name', null,['class' =>'form-control' ] )}}
                             </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-2">
-                                    <label class="control-label">Represented by</label>
-                                    <select class="form-control selectPerson" name="represented_by">
-                                        <option value="">Select</option>
-                                    </select>
-                                    <span class="help-block m-b-none">Responsible person</span>
-                                </div>
+
+                            <div class="col-sm-2"><label class="control-label">Tax id</label>
+                                {{Form::text('tax_id', null,['class' =>'form-control' ] )}}
                             </div>
 
 
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-white" type="submit">Cancel</button>
-                                    <button class="btn btn-primary" type="submit">Save changes</button>
-                                </div>
+                            <div class="col-sm-3">
+                                <label class="control-label">Current city</label>
+                                {{Form::select('city_id', [], null, ['class' => 'form-control selectCity'])}}
+                                <span class="help-block m-b-none">City of residence</span>
                             </div>
-                        </form>
+
+
+                            <div class="col-sm-3">
+                                <label class="control-label">Address</label>
+                                {{Form::text('address', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Headquarters address</span>
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-2">
+                                <label class="control-label">Phone</label>
+                                {{Form::text('contact_phone', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Contact phone</span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <label class="control-label">Email</label>
+                                {{Form::text('contact_email', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Contact email</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-5">
+                                <label class="control-label">Bank</label>
+                                {{Form::select('bank_id', $banks, null, ['class' => 'form-control'])}}
+                                <span class="help-block m-b-none">Select bank</span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <label class="control-label">Bank account</label>
+                                {{Form::text('bank_acc', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Bank acc number</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-2">
+                                <label class="control-label">Represented by</label>
+                                {{Form::select('represented_by', [], null, ['class' => 'form-control selectPerson'])}}
+                                <span class="help-block m-b-none">Responsible person</span>
+                            </div>
+                        </div>
+
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <a class="btn btn-white" href="/admin/legal-entity/listing">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Save changes</button>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

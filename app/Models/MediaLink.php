@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class MediaLink
@@ -32,7 +32,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class MediaLink extends Eloquent
+class MediaLink extends BaseModel
 {
 	public $timestamps = false;
 

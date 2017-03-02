@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Donation
@@ -17,7 +17,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Id of the beneficiary
  *
  * @property int $campaign_id
- * campaing for which donation has been made
+ * Campaign for which donation has been made
  *
  * @property int $donor_id
  * Who donated it
@@ -31,7 +31,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $status
  * What's the internal status of the donation
  *
- * @property \Carbon\Carbon $created_date
+ * @property \Carbon\Carbon $created_at
  *
  *
  * @property string $source
@@ -41,7 +41,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Serialized array of goods this donation has (From goods table)
  *
  * @property int $payment_id
- * Id of payment if cash
+ * Id of monetary_input
  *
  * @property int $transaction_id
  * Id of transaction in case this donation was made by transfering goods or cash from other donations
@@ -71,7 +71,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Donation extends Eloquent
+class Donation extends BaseModel
 {
 	public $timestamps = false;
 
@@ -89,7 +89,7 @@ class Donation extends Eloquent
 	];
 
 	protected $dates = [
-		'created_date'
+		'created_at'
 	];
 
 	protected $fillable = [
@@ -99,7 +99,7 @@ class Donation extends Eloquent
 		'type',
 		'amount',
 		'status',
-		'created_date',
+		'created_at',
 		'payment_reference_used',
 		'source',
 		'goods',
@@ -154,5 +154,15 @@ class Donation extends Eloquent
 	public function transactions()
 	{
 		return $this->hasMany(\App\Models\Transaction::class, 'from_donation_id');
+	}
+
+	public function getUtilizedAmount()
+	{
+		return MonetaryOutputSource::whereDonationId($this->getAtt('id'))->sum('amount');
+	}
+
+	public function getFreeAmount()
+	{
+		return $this->getAtt('amount') - MonetaryOutputSource::whereDonationId($this->getAtt('id'))->sum('amount');
 	}
 }
