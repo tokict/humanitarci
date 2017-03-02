@@ -81,8 +81,8 @@
 <!-- Clock picker -->
 <script src="/administrator/js/plugins/clockpicker/clockpicker.js"></script>
 
-<script type="text/javascript" src="/front/js/maps.js"></script>
-<script type="text/javascript" src="/front/js/gmap3.min.js"></script>
+
+
 <script type="text/javascript" src="/front/js/wow.min.js"></script>
 <script type="text/javascript" src="/front/js/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="/front/js/jquery.simple-text-rotator.min.js"></script>
@@ -197,5 +197,7 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5bqySB73b-fsaoP4446s0CB-dlIBjjJc&callback=initMap"
+        async defer></script>
 </body>
 </html>
