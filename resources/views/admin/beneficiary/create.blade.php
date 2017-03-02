@@ -64,7 +64,7 @@
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-3">
                                 <label class="control-label">Profile image</label><br/>
-                                {{Form::hidden('profile_image')}}
+                                {{Form::hidden('profile_image_id')}}
                                 <button type="button" class=" btn btn-default fileSelect" data-toggle="modal"
                                         data-target="#fileModal">Select image
                                 </button>

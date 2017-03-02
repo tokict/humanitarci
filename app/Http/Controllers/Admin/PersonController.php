@@ -83,7 +83,7 @@ class PersonController extends Controller
 
     public function view($request, $id)
     {
-        $person = Person::find($id)->first();
+        $person = Person::find($id);
 
         return view('admin.person.view', ['person' => $person]);
     }

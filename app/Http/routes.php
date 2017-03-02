@@ -82,6 +82,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function () {
     //Settings
     Route::match(array('GET', 'POST'),'/settings/{action}/{params?}', 'Admin\SettingsController@index');
 
+    //Groups
+    Route::match(array('GET', 'POST'),'/group/{action}/{params?}', 'Admin\GroupController@index');
+
     //Admin
     Route::match(array('GET', 'POST'),'/{action}/{params?}', 'Admin\AdminController@index');
 });

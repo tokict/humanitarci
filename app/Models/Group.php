@@ -18,9 +18,11 @@ namespace App\Models;
  * @property string $description
  * @property int $representing_person_id
  * @property int $representing_entity_id
+ * @property int $owned_by
  * 
- * @property \App\Models\LegalEntity $representingEntity
+ * @property \App\Models\LegalEntity $legalEntity
  * @property \App\Models\Person $representingPerson
+ * @property Organization $owner
  * @property \Illuminate\Database\Eloquent\Collection $beneficiaries
  * @property \Illuminate\Database\Eloquent\Collection $group_legal_entities
  * @property \Illuminate\Database\Eloquent\Collection $people
@@ -36,14 +38,17 @@ class Group extends BaseModel
 
 	protected $casts = [
 		'representing_person_id' => 'int',
-		'representing_entity_id' => 'int'
+		'representing_entity_id' => 'int',
+		'owned_by' => 'int'
 	];
 
 	protected $fillable = [
 		'name',
 		'description',
 		'representing_person_id',
-		'representing_entity_id'
+		'representing_entity_id',
+		'owned_by'
+
 	];
 
 	public function legalEntity()
@@ -51,7 +56,7 @@ class Group extends BaseModel
 		return $this->belongsTo(\App\Models\LegalEntity::class, 'representing_entity_id');
 	}
 
-	public function person()
+	public function representingPerson()
 	{
 		return $this->belongsTo(\App\Models\Person::class, 'representing_person_id');
 	}
@@ -59,6 +64,11 @@ class Group extends BaseModel
 	public function beneficiaries()
 	{
 		return $this->hasMany(\App\Models\Beneficiary::class);
+	}
+
+	public function owner()
+	{
+		return $this->belongsTo(\App\Models\Organization::class, 'owned_by');
 	}
 
 	public function group_legal_entities()

@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Persons listing</h5>
+                        <h5>Banks listing</h5>
                     </div>
                     <div class="ibox-content">
 

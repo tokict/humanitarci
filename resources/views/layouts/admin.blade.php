@@ -179,6 +179,16 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="#"><i class="fa fa-group"></i> <span class="nav-label">Groups</span> <span
+                                class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level {{$controller == 'GroupsController'?'collapse in':''}}">
+                        <li class="{{$controller == 'GroupsController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/group/create">New group</a></li>
+                        <li class="{{$controller == 'GroupsController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/group/listing">List</a></li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#"><i class="fa fa-list-alt"></i> <span class="nav-label">Reports</span> <span
                                 class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
