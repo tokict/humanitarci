@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Group
@@ -19,8 +19,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $representing_person_id
  * @property int $representing_entity_id
  * 
- * @property \App\Models\LegalEntity $legal_entity
- * @property \App\Models\Person $person
+ * @property \App\Models\LegalEntity $representingEntity
+ * @property \App\Models\Person $representingPerson
  * @property \Illuminate\Database\Eloquent\Collection $beneficiaries
  * @property \Illuminate\Database\Eloquent\Collection $group_legal_entities
  * @property \Illuminate\Database\Eloquent\Collection $people
@@ -30,7 +30,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Group extends Eloquent
+class Group extends BaseModel
 {
 	public $timestamps = false;
 
@@ -46,7 +46,7 @@ class Group extends Eloquent
 		'representing_entity_id'
 	];
 
-	public function legal_entity()
+	public function legalEntity()
 	{
 		return $this->belongsTo(\App\Models\LegalEntity::class, 'representing_entity_id');
 	}

@@ -34,104 +34,83 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" class="form-horizontal" action="/admin/person/create">
-                            {{csrf_field()}}
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-1">
-                                    <label class="control-label">Title</label>
-                                    <input type="text" class="form-control" name="title" maxlength="15">
-                                    <span class="help-block m-b-none">(Mr. Ms. , etc..)</span>
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">First name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="first_name"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">Middle name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="middle_name"
-                                           maxlength="30">
-                                </div>
-
-                                <div class="col-sm-2"><label class="control-label">Last name</label>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="last_name"
-                                           maxlength="30">
-                                </div>
-                                <div class="col-sm-2"><label class="control-label">Gender</label>
-                                    <select class="form-control m-b" name="gender">
-                                        <option value="-1">Select</option>
-                                        <option value="0">Male</option>
-                                        <option value="1">Female</option>
-
-                                    </select>
-                                </div>
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{session('error')}}</li>
+                                </ul>
                             </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Social ID</label>
-                                <div class="col-sm-3">
-                                    <input type="text"
-                                           class="form-control"
-                                           name="social_id"
-                                           maxlength="30">
-                                    <span class="help-block m-b-none">ID that government uses to identify this person (Social security or tax number i.e)</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
-                                <div class="col-sm-5">
-                                    <select class="form-control citySelect" name="city_id">
-                                        <option value="">Select</option>
-
-                                    </select>
-                                    <span class="help-block m-b-none">City of residence</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Address</label>
-                                <div class="col-sm-4">
-                                    <input type="text"
-                                           class="form-control"
-                                           name="address"
-                                           maxlength="150">
-                                    <span class="help-block m-b-none">Current address</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Phone</label>
-                                <div class="col-sm-2">
-                                    <input type="number"
-                                           class="form-control"
-                                           name="contact_phone">
-                                    <span class="help-block m-b-none">Contact phone</span>
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-3">
-                                    <input type="email"
-                                           class="form-control"
-                                           name="contact_email"
-                                           maxlength="100">
-                                    <span class="help-block m-b-none">Contact email</span>
-                                </div>
+                        @endif
+                        {!! Form::open(['url' => '/admin/person/create', 'class' => 'form-horizontal']) !!}
+                        {{Form::token()}}
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-1">
+                                <label class="control-label">Title</label>
+                                {{Form::text('title', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">(Mr. Ms. , etc..)</span>
                             </div>
 
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-white" type="submit">Cancel</button>
-                                    <button class="btn btn-primary" type="submit">Save changes</button>
-                                </div>
+                            <div class="col-sm-2"><label class="control-label">First name</label>
+                                {{Form::text('first_name', null,['class' =>'form-control' ] )}}
                             </div>
-                        </form>
+
+                            <div class="col-sm-2"><label class="control-label">Middle name</label>
+                                {{Form::text('middle_name', null,['class' =>'form-control' ] )}}
+                            </div>
+
+                            <div class="col-sm-2"><label class="control-label">Last name</label>
+                                {{Form::text('last_name', null,['class' =>'form-control' ] )}}
+                            </div>
+                            <div class="col-sm-2"><label class="control-label">Gender</label>
+                                {{Form::select('gender', $person->getEnumValues('gender'), null, ['class' => 'form-control'])}}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Social ID</label>
+                            <div class="col-sm-3">
+                                {{Form::text('social_id', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">ID that government uses to identify this person (Social security or tax number i.e)</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Current city</label>
+                            <div class="col-sm-5">
+                                {{Form::text('city', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">City of residence</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-4">
+                                {{Form::text('address', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Current address</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Phone</label>
+                            <div class="col-sm-2">
+                                {{Form::text('contact_phone', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Contact phone</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-3">
+                                {{Form::email('contact_email', null,['class' =>'form-control' ] )}}
+                                <span class="help-block m-b-none">Contact email</span>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <a class="btn btn-white" href="/admin/person/listing">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Save changes</button>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

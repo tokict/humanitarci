@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Password;
+use Illuminate\View\View;
 
 class PasswordController extends Controller
 {
@@ -21,12 +26,68 @@ class PasswordController extends Controller
     use ResetsPasswords;
 
     /**
+     * Where to redirect users after password reset.
+     *
+     * @var string
+     */
+    protected $redirectTo;
+
+    /**
      * Create a new password controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $user = User::where('email', Input::get('email'))->get()->first();
+        if(isset($user->admin)){
+            \Illuminate\Support\Facades\View::share('username', $user->username);
+            $this->redirectTo =  '/admin';
+        }else {
+            $this->redirectTo =  trans('routes.front.donors').'/'.trans('routes.actions.profile');
+        }
+
+
+    }
+
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reset(Request $request)
+    {
+
+        $this->validate(
+            $request,
+            $this->getResetValidationRules(),
+            $this->getResetValidationMessages(),
+            $this->getResetValidationCustomAttributes()
+        );
+
+        $credentials = $this->getResetCredentials($request);
+
+        $input = Input::all();
+
+
+
+        $broker = $this->getBroker();
+
+        $response = Password::broker($broker)->reset($credentials, function ($user, $password) use ($input) {
+            if(isset($input['username'])) {
+                $user->username = $input['username'];
+                $user->save();
+            }
+            $this->resetPassword($user, $password);
+        });
+
+        switch ($response) {
+            case Password::PASSWORD_RESET:
+                return $this->getResetSuccessResponse($response);
+            default:
+                return $this->getResetFailureResponse($request, $response);
+        }
     }
 }

@@ -7,12 +7,11 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class Setting
- * 
- * @property int $id
+ *
  * @property string $key
  * @property string $value
  * @property \Carbon\Carbon $created_at
@@ -20,9 +19,11 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class Setting extends Eloquent
+class Setting extends BaseModel
 {
 	public $timestamps = false;
+	protected $primaryKey = 'key';
+	public $incrementing = false;
 
 	protected $dates = [
 		'modified_at'
@@ -33,4 +34,10 @@ class Setting extends Eloquent
 		'value',
 		'modified_at'
 	];
+
+
+	public static function getSetting($key)
+	{
+		return self::whereKey($key)->get()->first();
+	}
 }

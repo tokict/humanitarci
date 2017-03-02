@@ -7,42 +7,72 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class PaymentProviderDatum
- * Data related to payment providers and payments. Callbackd data etc
- * 
+ * Data related to payment providers and payments. Callback data etc
+ *
+ *
  * @property int $id
- * @property int $subscription_id
- * @property int $provider_id
- * 
- * @property \App\Models\PaymentProvider $payment_provider
- * @property \Illuminate\Database\Eloquent\Collection $monetary_inputs
+ * @property int $order_id
+ * @property string $order_number
+ * @property int $transaction_amount
+ * @property string  $transaction_datetime
+ * @property string $status
+ * @property string $response_message
+ * @property string $response_code
+ * @property string $currency_code
+ * @property string $card_type
+ * @property string $cardholder_name
+ * @property string $cardholder_surname
+ * @property string $cardholder_address
+ * @property string $cardholder_city
+ * @property string $cardholder_zip_code
+ * @property string $cardholder_email
+ * @property string $cardholder_phone
+ * @property string $cardholder_country
+ * @property string $card_details
+ * @property string $reference_number
+ * @property string $approval_code
+ * $@property \App\Models\Order $order;
  *
  * @package App\Models
  */
-class PaymentProviderDatum extends Eloquent
+class PaymentProviderDatum extends BaseModel
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $casts = [
-		'subscription_id' => 'int',
-		'provider_id' => 'int'
-	];
+    protected $casts = [
+        'order_id' => 'int'
+    ];
 
-	protected $fillable = [
-		'subscription_id',
-		'provider_id'
-	];
 
-	public function payment_provider()
-	{
-		return $this->belongsTo(\App\Models\PaymentProvider::class, 'provider_id');
-	}
+    protected $fillable = [
+        'order_id',
+        'order_number',
+        'transaction_amount',
+        'transaction_datetime',
+        'response_message',
+        'response_code',
+        'currency_code',
+        'status',
+        'card_type',
+        'cardholder_name',
+        'cardholder_surname',
+        'cardholder_address',
+        'cardholder_city',
+        'cardholder_zip_code',
+        'cardholder_email',
+        'cardholder_phone',
+        'cardholder_country',
+        'card_details',
+        'reference_number',
+        'approval_code',
+    ];
 
-	public function monetary_inputs()
-	{
-		return $this->hasMany(\App\Models\MonetaryInput::class, 'payment_provider_data_id');
-	}
+
+    public function order()
+    {
+        return $this->belongsTo(\App\Models\Order::class);
+    }
 }

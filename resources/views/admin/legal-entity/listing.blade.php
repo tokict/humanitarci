@@ -6,28 +6,14 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>Persons listing</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
                     </div>
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover persons-table" >
+                            <div class="col-md-12 text-center">
+                                {{$legalEntities->appends($input)->links()}}
+                            </div>
+                            <table class="table table-striped table-bordered table-hover legal-entities-table">
                                 <thead>
                                 <tr>
                                     <th>Name</th>
@@ -40,6 +26,7 @@
                                     <th>Bank acc</th>
                                     <th>Roles</th>
                                     <th>Represented by</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,12 +41,16 @@
                                         <td>{{ isset( $entity->bank)?$entity->bank->name:"" }}</td>
                                         <td class="center">{{ $entity->bank_acc }}</td>
                                         <td>{{ $entity->roles }}</td>
-
+                                        @if(isset($entity->person))
+                                            <td>{{ $entity->person->first_name }} {{$entity->person->last_name}}</td>
+                                        @endif
 
                                         <td class="center">
-                                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Lock</a>
+                                            <a href="/admin/legal-entity/view/{{$entity->id}}"
+                                               class="btn btn-sm btn-default">
+                                                <i class="fa fa-list"></i> Details</a>
+                                            <a href="/admin/legal-entity/edit/{{$entity->id}}"
+                                               class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
 
@@ -78,9 +69,13 @@
                                     <th>Bank acc</th>
                                     <th>Roles</th>
                                     <th>Represented by</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="col-md-12 text-center">
+                                {{$legalEntities->appends($input)->links()}}
+                            </div>
                         </div>
 
                     </div>

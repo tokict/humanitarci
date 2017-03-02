@@ -6,28 +6,14 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>Persons listing</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
                     </div>
                     <div class="ibox-content">
 
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover persons-table" >
+                            <div class="col-md-12 text-center">
+                                {{$banks->links()}}
+                            </div>
+                            <table class="table table-striped table-bordered table-hover banks-table" >
                                 <thead>
                                 <tr>
                                     <th>Name</th>
@@ -45,9 +31,8 @@
 
 
                                         <td class="center">
-                                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-sm btn-primary">Lock</a>
+                                            <a href="/admin/bank/edit/{{$bank->id}}"
+                                               class="btn btn-sm btn-default"><i class="fa fa-edit"></i> Edit</a>
                                         </td>
                                     </tr>
 
@@ -66,6 +51,9 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            <div class="col-md-12 text-center">
+                                {{$banks->links()}}
+                            </div>
                         </div>
 
                     </div>

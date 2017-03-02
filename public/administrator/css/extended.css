@@ -1,0 +1,113 @@
+.noPadding {
+    padding: 0 !important;
+}
+
+.p-b-5 {
+    padding-bottom: 5px;
+}
+
+.p-b-10 {
+    padding-bottom: 10px;
+}
+
+.p-b-20 {
+    padding-bottom: 20px;
+}
+
+.p-b-30 {
+    padding-bottom: 30px;
+}
+
+.p-t-5 {
+    padding-top: 5px;
+}
+
+.p-t-10 {
+    padding-top: 10px;
+}
+
+.p-t-20 {
+    padding-top: 20px;
+}
+
+.p-t-30 {
+    padding-top: 30px;
+}
+
+
+
+
+.m-b-5 {
+    margin-bottom: 5px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.m-t-5 {
+    margin-top: 5px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-30 {
+    margin-top: 30px;
+}
+
+
+
+.beneficiaries-table img {
+    max-height:150px;
+}
+
+.campaigns-table img {
+    max-height:150px;
+}
+
+#fileModal .modal-dialog {
+    width: 90%;
+
+}
+
+#fileModal .modal-content {
+    height: 830px!important;;
+}
+#fileModal .modal-body{
+    height: 750px!important;
+    overflow: auto;
+}
+
+.folder-list .active {
+    background-color: rgba(67, 255, 0, 0.2);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.file-name textarea {
+    font-size: 12px;
+}
+
+.file-name input {
+    font-size: 12px;
+}
+
+.file-active {
+    border-color:#1ab394 ;
+}

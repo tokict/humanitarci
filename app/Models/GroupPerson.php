@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class GroupPerson
@@ -23,7 +23,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class GroupPerson extends Eloquent
+class GroupPerson extends BaseModel
 {
 	protected $table = 'group_persons';
 	protected $primaryKey = 'person_id';

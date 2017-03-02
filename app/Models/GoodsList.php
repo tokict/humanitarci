@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class GoodsList
@@ -24,7 +24,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class GoodsList extends Eloquent
+class GoodsList extends BaseModel
 {
 	protected $table = 'goods_list';
 	public $timestamps = false;

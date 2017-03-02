@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class OutgoingPush
@@ -30,7 +30,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class OutgoingPush extends Eloquent
+class OutgoingPush extends BaseModel
 {
 	protected $table = 'outgoing_push';
 	public $timestamps = false;

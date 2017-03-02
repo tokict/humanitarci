@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
 
     <title>Add title
     </title>
@@ -16,11 +17,35 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- date picker -->
     <link rel="stylesheet" href="/administrator/plugins/datepicker/datepicker3.css">
+
+    <link href="/administrator/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/administrator/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
     <!-- daterange picker -->
     <link rel="stylesheet"
           href="/administrator/plugins/daterangepicker/daterangepicker-bs3.css">
+
+    {{--jasny--}}
+    <link href="/administrator/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
     {{--Select2--}}
     <link href="/administrator/css/plugins/select2/select2.min.css" rel="stylesheet">
+
+    {{--summernote--}}
+    <link href="/administrator/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/administrator/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    {{--ClockPicker--}}
+    <link href="/administrator/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    {{--DatePicker--}}
+    <link href="/administrator/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="/administrator/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <!-- FooTable -->
+    <link href="/administrator/css/plugins/footable/footable.core.css" rel="stylesheet">
+
+
+
     <!-- Theme style -->
     <link rel="stylesheet" href="/administrator/css/animate.css">
     <link rel="stylesheet" href="/administrator/css/style.css">
@@ -50,6 +75,8 @@
             display: none !important;
         }
     </style>
+    <!-- jQuery 2.1.4 -->
+    <script src="/administrator/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -58,12 +85,15 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
+                        <span>
+                            <img alt="image" class="img-responsive" src="/front/images/humanitarci-logo-small.png" />
+                             </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                         <span class="clear">
                                             <span class="block m-t-xs">
-                                                <strong class="font-bold">Tino</strong>
+                                                <strong class="font-bold">{{\Illuminate\Support\Facades\Auth::User()->username}}</strong>
                                              </span>
-                                            <span class="text-muted text-xs block">Art Director
+                                            <span class="text-muted text-xs block">{{\Illuminate\Support\Facades\Auth::User()->super_admin?'Super Admin':'Admin'}}
                                                 <b class="caret"></b>
                                             </span>
                                         </span>
@@ -73,69 +103,79 @@
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="/auth/logout">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
                         IN+
                     </div>
                 </li>
-                <li class="active">
-                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Overviews</span> <span
+                <li class="{{$controller == 'AdminController'?'active':''}}">
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Weekly overviews</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="index.html">Campaigns</a></li>
-                        <li><a href="dashboard_2.html">Donations</a></li>
-                        <li><a href="dashboard_3.html">Donors</a></li>
-                        <li><a href="dashboard_4_1.html">Distribution</a></li>
-                        <li><a href="dashboard_5.html">Incomes </a></li>
+                    <ul class="nav nav-second-level {{$controller == 'AdminController'?'collapse in':''}}">
+                        <li class="{{$controller == 'AdminController' && $action == 'campaigns'?'active':''}}"><a href="/admin/overview/campaigns">Campaigns</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'donations'?'active':''}}"><a href="/admin/overview/donations">Donations</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'donors'?'active':''}}"><a href="/admin/overview/donors">Donors</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'distributions'?'active':''}}"><a href="/admin/overview/distributions">Distribution</a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'incomes'?'active':''}}"><a href="/admin/overview/incomes">Incomes </a></li>
+                        <li class="{{$controller == 'AdminController' && $action == 'transactions'?'active':''}}"><a href="/admin/overview/transactions">Internal transactions </a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-dot-circle-o"></i> <span class="nav-label">Campaigns</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/campaign/create">New campaign</a></li>
-                        <li><a href="admin/campaign/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'CampaignController'?'collapse in':''}}">
+                        <li class="{{$controller == 'CampaignController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/campaign/create">New campaign</a></li>
+                        <li class="{{$controller == 'CampaignController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/campaign/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-dollar"></i> <span class="nav-label">Donations</span> <span
+                    <a href="#"><i class="fa fa-heart"></i> <span class="nav-label">Donations</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/donation/create">New donation</a></li>
-                        <li><a href="/admin/donation/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'DonationController'?'collapse in':''}}">
+                        <li class="{{$controller == 'DonationController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/donation/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Beneficiaries</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/beneficiary/create">New beneficiary</a></li>
-                        <li><a href="/admin/beneficiary/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'BeneficiaryController'?'collapse in':''}}">
+                        <li class="{{$controller == 'BeneficiaryController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/beneficiary/create">New beneficiary</a></li>
+                        <li class="{{$controller == 'BeneficiaryController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/beneficiary/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Donors</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="/admin/donor/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'DonorController'?'collapse in':''}}">
+                        <li class="{{$controller == 'DonorController' && $action == 'create'?'listing':''}}"><a
+                                    href="/admin/donor/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Persons</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/person/create">New person</a></li>
-                        <li><a href="/admin/person/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'PersonController'?'collapse in':''}}">
+                        <li class="{{$controller == 'PersonController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/person/create">New person</a></li>
+                        <li class="{{$controller == 'PersonController' && $action == 'create'?'listing':''}}"><a
+                                    href="/admin/person/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Legal entities</span> <span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/legal-entity/create">New entity</a></li>
-                        <li><a href="/admin/legal-entity/listing">List</a></li>
+                    <ul class="nav nav-second-level {{$controller == 'LegalEntityController'?'collapse in':''}}">
+                        <li class="{{$controller == 'LegalEntityController' && $action == 'create'?'active':''}}"><a
+                                    href="/admin/legal-entity/create">New entity</a></li>
+                        <li class="{{$controller == 'LegalEntityController' && $action == 'listing'?'active':''}}"><a
+                                    href="/admin/legal-entity/listing">List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -145,52 +185,61 @@
 
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">Documents</span> <span
-                                class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="active"><a href="/admin/document/create">New document</a></li>
-                        <li><a href="/admin/document/listing">List</a></li>
-                    </ul>
-                </li>
-
+                @if(Auth::User()->super_admin)
                 <li>
                     <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Administration</span><span
                                 class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
+                    <ul class="nav nav-second-level collapse in">
                         <li>
                             <a href="#">Banks <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="/admin/bank/listing">List</a>
-                                </li>
-                                <li>
+                            <ul class="nav nav-third-level {{$controller == 'BankController'?'collapse in':''}}">
+                                <li class="{{$controller == 'BankController' && $action == 'create'?'active':''}}">
                                     <a href="/admin/bank/create">New bank</a>
+                                </li>
+                                <li class="{{$controller == 'BankController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/bank/listing">List</a>
                                 </li>
 
                             </ul>
                         </li>
-                        <li><a href="dashboard_4_1.html">Persons</a></li>
-                        <li><a href="dashboard_5.html">Legal entities </a></li>
                         <li>
-                            <a href="/admin/users">Admins</a></li>
+                            <a href="#">Organizations <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level {{$controller == 'OrganizationController'?'collapse in':''}}">
+                                <li class="{{$controller == 'OrganizationController' && $action == 'create'?'active':''}}">
+                                    <a href="/admin/organization/create">New organization</a>
+                                </li>
+                                <li class="{{$controller == 'OrganizationController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/organization/listing">List</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Users & Admins <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level {{$controller == 'UserController'?'collapse in':''}}">
+                                <li class="{{$controller == 'UserController' && $action == 'create'?'active':''}}">
+                                    <a href="/admin/user/create">New administrator</a>
+                                </li>
+                                <li class="{{$controller == 'UserController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/user/listing">List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Logs <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level {{$controller == 'LogController'?'collapse in':''}}">
+                                <li class="{{$controller == 'LogController' && $action == 'listing'?'active':''}}">
+                                    <a href="/admin/log/listing">List</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+                    <li>
+                        <a href="/admin/settings/all">Settings </a>
+
+                    </li>
                 </li>
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David
-                                        Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b
-                                            class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
+                @endif
             </ul>
 
         </div>
@@ -201,16 +250,16 @@
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
 
-                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                    <form role="search" method="GET" class="navbar-form-custom" action="listing">
                         <div class="form-group">
                             <input type="text" placeholder="Search for something..." class="form-control"
-                                   name="top-search" id="top-search">
+                                   name="search" id="top-search">
                         </div>
                     </form>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">Welcome to Humanitarci.hr</span>
+                        <span class="m-r-sm text-muted welcome-message">{{Auth::User()->admin->organization->name}}</span>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -309,7 +358,7 @@
 
 
                     <li>
-                        <a href="login.html">
+                        <a href="{{ url('logout') }}">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
@@ -324,19 +373,37 @@
         </div>
         @yield('content')
     </div>
-
+    <div class="modal inmodal fade" id="fileModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <script type="text/javascript">
+            var modal;
+            var dir;
+            var selectedFiles = [];
+            var invoker;
+            var input;
+            var filterType = 'all';
+            var page = 1;
+        </script>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="height: 600px; overflow: auto;">
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 
-<!-- jQuery 2.1.4 -->
-<script src="/administrator/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+
 <!-- Bootstrap 3.3.5 -->
 <script src="/administrator/bootstrap/js/bootstrap.min.js"></script>
 {{--Datatables --}}
 <script src="/administrator/js/plugins/dataTables/datatables.min.js" type="text/javascript"></script>
 <!-- Flot -->
 <script src="/administrator/js/plugins/flot/jquery.flot.js"></script>
+<script src="/administrator/js/plugins/flot/jquery.flot.categories.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.spline.js"></script>
 <script src="/administrator/js/plugins/flot/jquery.flot.resize.js"></script>
@@ -361,6 +428,9 @@
 <!-- ChartJS-->
 <script src="/administrator/js/plugins/chartJs/Chart.min.js"></script>
 
+<!-- Jasny -->
+<script src="/administrator/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
 
 <!-- Toastr -->
 <script src="/administrator/js/plugins/toastr/toastr.min.js"></script>
@@ -384,13 +454,36 @@
 <script type="text/javascript"
         src="/administrator/plugins/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+{{--iCheck--}}
+<script src="/administrator/js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="/administrator/js/plugins/summernote/summernote.min.js"></script>
+
+<!-- Clock picker -->
+<script src="/administrator/js/plugins/clockpicker/clockpicker.js"></script>
+
+<!-- Data picker -->
+<script src="/administrator/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript"
+        src="/administrator/js/plugins/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
+
+<!-- FooTable -->
+<script src="/administrator/js/plugins/footable/footable.all.min.js"></script>
+
+
 <!-- AdminLTE App -->
 <script src="/administrator/js/inspinia.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/administrator/js/plugins/pace/pace.min.js"></script>
 <script src="/administrator/js/pages/listings.js"></script>
 <script src="/administrator/js/pages/create.js"></script>
-
+<script src="/administrator/js/shared.js"></script>
+<script src="/administrator/js/filemanager.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw-IJobkXTjBne6HW-naXFKbXZ_BqqbVM&callback=initMap">
+</script>
 
 </body>
 </html>

@@ -50,11 +50,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember"> Remember Me
-                        </label>
-                    </div>
                     <a href="{{ url('/password/reset') }}">
                         <small>Forgot password?</small>
                     </a>

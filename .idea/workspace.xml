@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="Removed counter">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/play-pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/video-play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/chosen/chosen-sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/chosen/chosen-sprite@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/footable/fonts/footable.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/footable/fonts/footable.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/footable/fonts/footable.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/iCheck/green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/iCheck/green@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/bootstrap-colorpicker/alpha-horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/bootstrap-colorpicker/alpha.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/bootstrap-colorpicker/hue-horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/bootstrap-colorpicker/hue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/bootstrap-colorpicker/saturation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sort.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sort_asc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sort_desc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sprite-skin-flat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sprite-skin-flat2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sprite-skin-nice.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/sprite-skin-simple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/spritemap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/images/spritemap@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/animated-overlay.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-icons_222222_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-icons_2e83ff_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-icons_454545_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-icons_888888_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jsTree/32px.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jsTree/39px.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jsTree/40px.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jsTree/throbber.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/fonts/slick.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/fonts/slick.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/fonts/slick.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/summernote/font/summernote.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/summernote/font/summernote.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/summernote/font/summernote.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AjaxController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BankController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LegalEntityController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PersonController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Traits/ControllerIndexTrait.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_11_06_000001_alter_persons_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_11_06_000002_alter_cities_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_11_07_000001_alter_banks_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2016_11_07_000005_alter_legal_entities_table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/newsletter.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/css/blueimp-gallery-indicator.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/css/blueimp-gallery-video.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/css/blueimp-gallery.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/css/blueimp-gallery.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/css/demo.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/error.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/play-pause.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/blueimp/img/video-play.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrap-markdown/bootstrap-markdown.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrap-rtl/bootstrap-rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrap-rtl/bootstrap-rtl.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrap-rtl/bootstrap-rtl.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrapSocial/bootstrap-social.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/bootstrapTour/bootstrap-tour.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/c3/c3.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/chartist/chartist.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/chosen/bootstrap-chosen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/chosen/chosen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/clockpicker/clockpicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/codemirror/ambiance.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/codemirror/codemirror.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/colorpicker/bootstrap-colorpicker.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/cropper/cropper.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/dataTables/datatables.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/datapicker/datepicker3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/daterangepicker/daterangepicker-bs3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/dropzone/basic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/dropzone/dropzone.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/dualListbox/bootstrap-duallistbox.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/footable/fonts/footable.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/footable/footable.core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/fullcalendar/fullcalendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/fullcalendar/fullcalendar.print.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/iCheck/custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/ionRangeSlider/ion.rangeSlider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/ionRangeSlider/ion.rangeSlider.skinNice.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/ionRangeSlider/ion.rangeSlider.skinSimple.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/jquery-ui-1.10.4.custom.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jQueryUI/jquery-ui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jasny/jasny-bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jqGrid/ui.jqgrid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jsTree/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/jsTree/style.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/ladda/ladda-themeless.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/ladda/ladda.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/morris/morris-0.4.3.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/nouslider/jquery.nouislider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/select2/select2.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/fonts/slick.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/slick-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/slick/slick.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/social-buttons/social-buttons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/steps/jquery.steps.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/summernote/summernote-bs3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/summernote/summernote.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/sweetalert/sweetalert.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/switchery/switchery.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/toastr/toastr.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/pages/create.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/administrator/js/pages/listings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/bank/create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/bank/listing.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/legal-entity/create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/legal-entity/listing.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/person/create.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/person/listing.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/auth/emails/password.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/errors/401.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/layouts/minimal.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/blade.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/hum.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/BeneficiariesController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/CampaignsController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/LegalEntitiesController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/PersonsController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/BlankPanel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/DatabasePanel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/MembersPanel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/OverviewPanel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Beneficiaries.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Campaigns.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Donors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Languages.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/LegalEntities.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Persons.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Settings.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Texts.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Users.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Terranet/Administrator/routes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/administrator/js/demo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/administrator/js/pages/dashboard.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/administrator/js/pages/dashboard2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/auth/login.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/messages.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/notifications.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/badges/tasks.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/dashboard/database.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/dashboard/members.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/actions.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/create.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/index.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/row.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/edit/scripts.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/errors/403.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/batch.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/create.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/export.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/filters.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/header.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/index.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/paginator.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/row.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/scopes.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/index/scripts.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/content.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/print.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/settings.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/menus/sidebar.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/menus/tools.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/actions.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/badges.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/breadcrumbs.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/partials/messages.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/scripts/editors.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/scripts/listeners.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/create.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/index.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/model.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/relations/one_to_many.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/administrator/view/relations/one_to_one.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/child/dropdown.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/child/item.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/default.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/item/dropdown.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/item/item.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/menu.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills-justified.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills-stacked.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-pills.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-tabs-justified.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/nav-tabs.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/navbar-left.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/navbar-right.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/vendor/pingpong/menus/style.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/administrator" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Menu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenuBuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenuFacade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenuItem.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/MenusServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavMenuPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavPillsPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavTabPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavbarPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/NavbarRightPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Bootstrap/SidebarMenuPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/Presenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/Presenters/PresenterInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/shots/multilevel-menu-pingpong.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/config/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/child/dropdown.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/child/item.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/default.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/item/dropdown.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/item/item.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/menu.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-pills-justified.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-pills-stacked.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-pills.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-tabs-justified.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/nav-tabs.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/navbar-left.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/navbar-right.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/menus/src/views/style.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/UPGRADE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/Collection/FormatterSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/Collection/OxfordSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/DateTime/DifferenceSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/DateTime/FormatterSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/DateTime/PreciseFormatterSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/spec/Coduo/PHPHumanizer/String/WordBreakpointSpec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Collection/Formatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Collection/Oxford.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/CollectionHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Difference.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Difference/CompoundResult.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Formatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/PreciseDifference.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/PreciseFormatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Day.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Hour.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/JustNow.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Minute.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Month.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Second.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Week.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTime/Unit/Year.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/DateTimeHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/Ordinal.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/Ordinal/Builder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/Ordinal/StrategyInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Number/RomanNumeral.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/NumberHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/Ordinal/EnStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/Ordinal/IdStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/Ordinal/NlStrategy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.af.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.bg.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.da.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.de.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.en.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.es.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.fr.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.id.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.it.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.nl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.no.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.pl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.pt.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.pt_BR.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.ru.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.th.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.tr.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.uk.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/difference.zh_CN.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.da.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.en.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.es.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.fr.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.id.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.it.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.nl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.pl.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.ru.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.th.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.uk.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Resources/translations/oxford.zh_CN.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/BinarySuffix.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/Breakpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/HtmlTruncate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/Humanize.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/MetricSuffix.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/ShortcodeProcessor.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/TextTruncate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/TruncateInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/String/WordBreakpoint.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/StringHumanizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/src/Coduo/PHPHumanizer/Translator/Builder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/CollectionHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/DateTimeHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/NumberHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/Coduo/PHPHumanizer/Tests/StringHumanizerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/php-humanizer/tests/bootstrap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/phpunit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/Exception/LocalesNotDefinedException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/HasTranslations.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/Translatable.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/TranslatableServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/terranet/translatable/src/config.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/overview.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Bank.php" afterPath="$PROJECT_DIR$/app/Models/Bank.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/LegalEntity.php" afterPath="$PROJECT_DIR$/app/Models/LegalEntity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Person.php" afterPath="$PROJECT_DIR$/app/Models/Person.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_24_000022_create_legal_entities_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_24_000022_create_legal_entities_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/full.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/full.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+    </list>
+    <ignored path="humanitarci.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="humanitarci" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="artisan" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/artisan">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.42677826">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BeneficiariesController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CampaignsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LegalEntitiesController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PersonsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Beneficiary.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Donor.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Campaign.php" />
+        <option value="$PROJECT_DIR$/vendor/adminarchitect/localizer/src/config/localizer.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_11_03_000001_create_languages_table.php" />
+        <option value="$PROJECT_DIR$/vendor/adminarchitect/localizer/src/helpers.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Persons.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/vendor/laravel/framework/src/Illuminate/Translation/Translator.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/vendor/symfony/translation/IdentityTranslator.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Arr.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_11_05_000001_create_texts_table.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Translation/Translator.php" />
+        <option value="$PROJECT_DIR$/resources/lang/vendor/administrator/hr/errors.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_11_04_075931_create_texts_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/Text.php" />
+        <option value="$PROJECT_DIR$/app/Models/Language.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Languages.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Texts.php" />
+        <option value="$PROJECT_DIR$/vendor/terranet/administrator/src/Terranet/Administrator/Resource.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/administrator/menus/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/terranet/administrator/src/Terranet/Administrator/Navigation/Presenters/Bootstrap/SidebarMenuPresenter.php" />
+        <option value="$PROJECT_DIR$/resources/lang/vendor/administrator/en/module.php" />
+        <option value="$PROJECT_DIR$/vendor/terranet/administrator/publishes/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/public/administrator/css/extended.css" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/Overview.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/MembersPanel.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/src/Dashboard/Factory.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/OverviewPanel.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/publishes/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/overview.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Campaigns.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Beneficiaries.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/Donors.php" />
+        <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Modules/LegalEntities.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/src/Middleware/Resources.php" />
+        <option value="$PROJECT_DIR$/vendor/terranet/administrator/src/Terranet/Administrator/Middleware/Resources.php" />
+        <option value="$PROJECT_DIR$/resources/views/vendor/administrator/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/src/Navigation/Presenters/Bootstrap/SidebarMenuPresenter.php" />
+        <option value="$PROJECT_DIR$/packages/administrator/vendor/terranet/menus/Presenters/Bootstrap/SidebarMenuPresenter.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1914" />
+    <option name="height" value="1197" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/administrator/font-awesome" />
+      <recent name="$PROJECT_DIR$/public/administrator/js/plugins" />
+      <recent name="$PROJECT_DIR$/app/Models" />
+      <recent name="$PROJECT_DIR$/resources/lang/vendor/administrator" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bootstrap/cache" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="" />
+      <created>1476612007472</created>
+      <option name="number" value="Default" />
+      <updated>1476612007472</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Init comit">
+      <created>1476616880954</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1476616880954</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added migrations for initial db schema">
+      <created>1477319743159</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1477319743159</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix for current timestamp in migrations">
+      <created>1477320226549</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1477320226549</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Working migrations">
+      <created>1477395693534</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1477395693534</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added base models">
+      <created>1477396226918</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1477396226918</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added base models (4 real now)">
+      <created>1477396380120</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1477396380120</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added group_beneficiaries table. Fixed created models bugs with increment/integer">
+      <created>1477573175048</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1477573175048</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Modifications to migrations. Explanations in some classes. Partial">
+      <created>1477579072632</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1477579072632</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Https broken fix for fonts">
+      <created>1477903501063</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1477903501063</updated>
+    </task>
+    <task id="LOCAL-00010" summary="More comments on models. Changes to DB">
+      <created>1477928761211</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1477928761211</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Applied inspinia theme">
+      <created>1478014863915</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1478014863915</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Applied inspinia theme">
+      <created>1478094359748</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1478094359748</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Applied vendor views">
+      <created>1478094755036</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1478094755036</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed view includes for FE">
+      <created>1478159567935</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1478159567935</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Removed superadmin check that did not allow anyone but user with id 1 to login to admin panel. Fxed layout">
+      <created>1478162790056</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1478162790057</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added name to dashboard so we can see the current user">
+      <created>1478162976910</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1478162976910</updated>
+    </task>
+    <task id="LOCAL-00017" summary="more initial setup with css and translations">
+      <created>1478248714559</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1478248714559</updated>
+    </task>
+    <task id="LOCAL-00018" summary="more initial setup with css and translations">
+      <created>1478248850454</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1478248850454</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Navigation fixed nad font-awesome replaced">
+      <created>1478252701157</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1478252701157</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Navigation fixed nad font-awesome replaced">
+      <created>1478252771393</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1478252771393</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Remove duplicated body and js">
+      <created>1478253105993</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1478253105993</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1914" height="1197" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22025724" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4154275" sideWeight="0.50213444" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993513" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30669144" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Init comit" />
+    <MESSAGE value="Added migrations for initial db schema" />
+    <MESSAGE value="Fix for current timestamp in migrations" />
+    <MESSAGE value="Working migrations" />
+    <MESSAGE value="Added base models" />
+    <MESSAGE value="Added base models (4 real now)" />
+    <MESSAGE value="Added group_beneficiaries table. Fixed created models bugs with increment/integer" />
+    <MESSAGE value="Modifications to migrations. Explanations in some classes. Partial" />
+    <MESSAGE value="Https broken fix for fonts" />
+    <MESSAGE value="More comments on models. Changes to DB" />
+    <MESSAGE value="Applied inspinia theme" />
+    <MESSAGE value="Applied vendor views" />
+    <MESSAGE value="Fixed view includes for FE" />
+    <MESSAGE value="Removed superadmin check that did not allow anyone but user with id 1 to login to admin panel. Fxed layout" />
+    <MESSAGE value="Added name to dashboard so we can see the current user" />
+    <MESSAGE value="more initial setup with css and translations" />
+    <MESSAGE value="Navigation fixed nad font-awesome replaced" />
+    <MESSAGE value="Remove duplicated body and js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove duplicated body and js" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/artisan">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/vendor/administrator/en/module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/vendor/administrator/en/module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/vendor/administrator/en/module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Translation/ArrayLoader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Translation/TranslationServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-70.18519">
+          <caret line="699" column="37" selection-start-line="699" selection-start-column="37" selection-end-line="699" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Translation/Translator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.333334">
+          <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_24_000039_create_transactions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_04_075944_create_languages_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71727747">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_11_04_075931_create_texts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44117647">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028431373">
+          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/vendor/administrator/hr/errors.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0882353">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Person.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.0">
+          <caret line="51" column="4" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Text.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3882353">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Language.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3882353">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/administrator/js/plugins/blueimp/jquery.blueimp-gallery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/administrator/css/extended.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/administrator/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.89411765">
+          <caret line="8391" column="0" selection-start-line="8391" selection-start-column="0" selection-end-line="8391" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/vendor/administrator/en/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/administrator/font-awesome/css/font-awesome.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5647059">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12041885">
+          <caret line="156" column="50" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/vendor/administrator/en/module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5235294">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/artisan">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42677826">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

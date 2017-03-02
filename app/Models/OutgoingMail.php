@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+
 
 /**
  * Class OutgoingMail
@@ -33,7 +33,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  *
  * @package App\Models
  */
-class OutgoingMail extends Eloquent
+class OutgoingMail extends BaseModel
 {
 	public $timestamps = false;
 
