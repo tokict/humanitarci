@@ -24,10 +24,22 @@
                         <a href="#"><i class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}}
                             .</a>
                         <span class="separator">&nbsp;</span>
-                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city
-                        ?$campaign->beneficiary->person->city_id:$campaign->beneficiary->entity->city_id}}"><i
-                                    class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
-                        </a>
+                        @if(isset($campaign->beneficiary->entity->city))
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->entity->city_id}}"><i
+                                        class="fa fa-map-marker"></i> {{$campaign->beneficiary->entity->city}}
+                            </a>
+                        @endif
+                        @if(isset($campaign->beneficiary->person->city))
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city}}"><i
+                                        class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
+                            </a>
+                        @endif
+                        @if(isset($campaign->beneficiary->group->city))
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->group->city
+                        ?$campaign->beneficiary->group->city_id:''}}"><i
+                                        class="fa fa-map-marker"></i> {{$campaign->beneficiary->group->city->name}}
+                            </a>
+                        @endif
                         <span class="separator">&nbsp;</span>
                         <i class="fa fa-folder-open"></i>
                         <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/
