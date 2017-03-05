@@ -23,7 +23,7 @@
         <meta property="og:site_name" content="Humanitarci.hr"/>
         <meta property="og:image" content="<?= $page->image ?>"/>
         <meta property="og:url" content="<?= env('APP_URL').$page->url ?>"/>
-        <meta property="og:description" content="<?= htmlentities($page->description) ?>"/>
+        <meta property="og:description" content="<?= htmlentities(strip_tags($page->description)) ?>"/>
 
         <!-- START: TWITTER -->
         <meta name="twitter:card" content="summary_large_image">
