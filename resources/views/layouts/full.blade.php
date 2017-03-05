@@ -14,7 +14,7 @@
 
     {{--Social tags--}}
     @if(isset($page))
-        <meta name="description" content="<?= htmlentities($page->description) ?>">
+        <meta name="description" content="<?= htmlentities(strip_tags($page->description)) ?>">
         <meta name="title" content="Humanitarci.hr">
         <meta property="fb:app_id" content="1022391537889674">
         <meta property="og:title" content="<?= htmlentities($page->title) ?>"/>
@@ -30,7 +30,7 @@
         <meta name="twitter:site" content="@humanitarci.hr">
         <meta name="twitter:creator" content="@humanitarci.hr">
         <meta name="twitter:title" content="<?= htmlentities($page->title) ?>">
-        <meta name="twitter:description" content="<?= htmlentities($page->description) ?>">
+        <meta name="twitter:description" content="<?= htmlentities(strip_tags($page->description)) ?>">
         <meta name="twitter:image" content="<?= $page->image ?>">
         @endif
                 <!-- Favicons -->
