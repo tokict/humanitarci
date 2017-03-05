@@ -64,8 +64,7 @@
 
                         <p>
                             <button class="btn-mod btn-circle bg-facebook fbShare"
-                                    data-link="{{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/
-                                 {{trans('routes.actions.view')}}/{{$campaign->id}}" data-id="{{$campaign->id}}"
+                                    data-link="{{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}" data-id="{{$campaign->id}}"
                                     data-type="campaign">
                                 <i class="fa fa-facebook">
                                 </i> Share
