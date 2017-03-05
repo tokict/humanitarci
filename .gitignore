@@ -14,8 +14,22 @@ bootstrap/cache/
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
-.idea/*
+.idea
 .htaccess
 
 
 Corvus.pem
+/composer.lock
+app/Exceptions/.fuse_hidden000001f900000012
+app/Providers/.fuse_hidden0000010300000017
+app/Providers/.fuse_hidden0000010600000018
+app/Providers/.fuse_hidden0000010800000019
+app/Providers/.fuse_hidden0000010a0000001a
+app/Traits/.fuse_hidden0000018e0000001b
+config/.fuse_hidden000000a70000000e
+config/.fuse_hidden000000bc0000000f
+config/excel.php
+config/ide-helper.php
+packages/
+resources/lang/en/.fuse_hidden000001c100000010
+resources/lang/hr/.fuse_hidden0000017300000011
