@@ -26,10 +26,30 @@ class DonorsController extends Controller
      */
     public function listing()
     {
-        $donors = Donor::paginate(30);
-        return view('donor.list', ['donors' => $donors]);
-    }
+        $param = Input::get('sort');
+        if (!Input::get('search')) {
+            $order = Input::get('order');
+            if ($order) {
+                $sort = Input::get('dir');
 
+                $donors = Donor::orderBy($order, $sort)->paginate(20);
+
+            } else {
+                $donors = Donor::paginate(20);
+
+            }
+        } else {
+            $q = Input::get('search');
+            $donors = Donor::with('Entity')->with('User')
+                ->whereHas('Entity', function ($x) use ($q) {
+                    $x->where('name', 'like', '%' . $q . '%');
+                })
+                ->orWhereHas('User', function ($x) use ($q) {
+                    $x->where('username', 'like', '%' . $q . '%');
+                })->paginate(20);
+        }
+        return view('donor.list', ['donors' => $donors, 'param' => $param]);
+    }
 
 
     /**
@@ -66,18 +86,19 @@ class DonorsController extends Controller
                 //Login user
                 if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
                     Auth::login($user);
-                    if(!empty(session::has('redirectToCart'))){
-                        return redirect('/'.trans('routes.front.donations').'/'.trans('routes.actions.cart'))->withInput();
+                    if (!empty(session::has('redirectToCart'))) {
+                        return redirect('/' . trans('routes.front.donations') . '/' . trans('routes.actions.cart'))->withInput();
                     }
-                    return redirect()->intended('/' . Lang::get('routes.front.donors', [], '') . '/' . Lang::get('routes.actions.profile', [], ''))->withInput();
+                    return redirect()->intended('/' . Lang::get('routes.front.donors', [],
+                            '') . '/' . Lang::get('routes.actions.profile', [], ''))->withInput();
 
                 }
             }
 
         }
-            if(Input::get('fromCart')){
-                session()->put('redirectToCart', true);
-            }
+        if (Input::get('fromCart')) {
+            session()->put('redirectToCart', true);
+        }
         return view('donor.login');
     }
 
@@ -88,27 +109,31 @@ class DonorsController extends Controller
     }
 
 
-    public function profile($request,$username)
+    public function profile($request, $username)
     {
-        if($username){
+        if ($username) {
             $user = User::where('username', $username)->get()->first();
-            if($user && $user->donor) {
+            if ($user && $user->donor) {
                 $donor = $user->donor;
-                }
-        }else{
-            if(isset(Auth::User()->donor)) {
-                $donor = Donor::find(Auth::User()->donor->id);
-            }else{
+            } else {
+                abort(404, 'Donor sa tim korisničkim imenom ne postoji');
+            }
+        } else {
+            if (isset(Auth::User()->donor)) {
+                $donor = Auth::User()->donor;
+            } else {
                 return redirect('/');
             }
         }
 
-        $distributedFunds = MonetaryOutputSource::with('Donation')->whereHas('Donation', function($q) use ($donor){
+        $distributedFunds = MonetaryOutputSource::with('Donation')->whereHas('Donation', function ($q) use ($donor) {
             $q->where('donor_id', $donor->id);
         })->get();
 
-        $donationTransfers= Donation::where('donor_id', Auth::User()->donor->id)->whereNotNull('transaction_id')->get();
+        $donationTransfers = Donation::where('donor_id',
+            Auth::User()->donor->id)->whereNotNull('transaction_id')->get();
 
-        return view('donor.profile', ['donor' => $donor, 'distributedFunds' => $distributedFunds, 'donationTransfers' => $donationTransfers]);
+        return view('donor.profile',
+            ['donor' => $donor, 'distributedFunds' => $distributedFunds, 'donationTransfers' => $donationTransfers]);
     }
 }

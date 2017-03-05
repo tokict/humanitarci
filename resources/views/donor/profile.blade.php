@@ -13,15 +13,7 @@
                 <div class="col-sm-6 mb-sm-50 mb-xs-30">
 
                     <h4 class="mt-0 font-alt">{{$donor->user->username}}</h4>
-
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In maximus ligula semper metus
-                        pellentesque mattis. Maecenas volutpat, diam enim sagittis quam.
-                    </p>
-                    <p>
-                        Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque
-                        porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero.
-                    </p>
+                    <h5>{{$donor->person->city}}</h5>
                 </div>
 
                 <div class="col-sm-6 mb-sm-50 mb-xs-30">
@@ -128,7 +120,7 @@
         <!-- Team -->
         <div class="row multi-columns-row">
             <div class="col-md-4">
-                <h5>{{trans('donations_distribution')}}</h5>
+                <h5>{{'Povijest upotrebe donacija'}}</h5>
                 @foreach($distributedFunds as $d)
                     @if($d->transaction)
                         {{$d->transaction->from_campaign->name}} &nbsp;>>&nbsp;
@@ -140,6 +132,7 @@
                 @endforeach
             </div>
             <div class="col-md-8">
+                <h5>{{'Povijest donacija'}}</h5>
                 @foreach($donor->getCampaigns() as $c)
                         <!-- Team Item -->
                 <div class="col-sm-6 col-md-3 col-lg-3 mb-sm-30 wow fadeInUp">
@@ -197,7 +190,7 @@
 
 
 <!-- Logotypes Section -->
-<section class="small-section pt-20 pb-20">
+{{--<section class="small-section pt-20 pb-20">
     <div class="container relative">
 
         <div class="row">
@@ -260,7 +253,7 @@
         </div>
 
     </div>
-</section>
+</section>--}}
 <!-- End Logotypes -->
 
 

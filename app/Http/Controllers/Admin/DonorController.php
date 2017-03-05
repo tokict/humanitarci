@@ -17,6 +17,7 @@ class DonorController extends Controller
 
     public function listing()
     {
+
         if (!Input::get('search')) {
             $order = Input::get('order');
             if ($order) {

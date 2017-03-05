@@ -13,7 +13,7 @@
 
         <div class="row multi-columns-row">
             @if(!count($campaigns))
-                <h3 class="text-center">There are no campaigns that match your criteria</h3>
+                <h3 class="text-center">Trenutno nemamo akcije koja zadovoljava zadane kriterije</h3>
             @endif
             @foreach($campaigns as $campaign)
                     <!-- Post Item -->

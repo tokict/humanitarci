@@ -13,8 +13,22 @@
             <!-- Contact Form -->
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-
-                    <form class="form contact-form" id="contact_form">
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li>{{session('error')}}</li>
+                            </ul>
+                        </div>
+                    @endif
+                        @if(session()->has('success'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>Vaša poruka je uspješno poslana!</li>
+                                </ul>
+                            </div>
+                        @endif
+                    {!! Form::open(['url' => "/".trans('routes.front.pages')."/".trans('routes.actions.contacts'), 'class' => 'form contact-form', 'id' => 'contact_form']) !!}
+                    {{Form::token()}}
                         <div class="clearfix">
 
                             <div class="cf-left-col">
@@ -67,7 +81,7 @@
 
 
                         <div id="result"></div>
-                    </form>
+                    {!!  Form::close()!!}
 
                 </div>
             </div>

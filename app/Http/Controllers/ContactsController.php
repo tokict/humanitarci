@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: tino
@@ -12,6 +13,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 
 class ContactsController extends Controller
@@ -29,14 +31,14 @@ class ContactsController extends Controller
                 'EMAIL' => 'required|email|max:100',
             ]);
 
-            $write = file_put_contents('../newsletter.txt', ",".Input::get("EMAIL"), FILE_APPEND);
+            $write = file_put_contents('../newsletter.txt', "," . Input::get("EMAIL"), FILE_APPEND);
 
-            if($write){
+            if ($write) {
                 return response()->json([
                     'result' => 'success',
                     'msg' => "Vaša email adresa je uspješno zapisana na listu"
                 ])->setCallback(Input::get('c'));
-            }else{
+            } else {
                 return response()->json([
                     'result' => 'error',
                     'msg' => "Nastao je problem pri zapisivanju Vaše adrese. Molimo obavijestite administratora na email: info@humanitarci.hr"
@@ -54,4 +56,6 @@ class ContactsController extends Controller
 
         // The email is valid, store in database...
     }
+
+
 }

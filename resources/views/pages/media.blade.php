@@ -4,7 +4,7 @@
 <div class="page" id="top">
 
     <!-- About Section -->
-    <section class="page-section" id="about">
+{{--    <section class="page-section" id="about">
         <div class="container relative">
 
             <!-- Intro Text -->
@@ -122,12 +122,12 @@
             <!-- End Logo Grid -->
 
         </div>
-    </section>
+    </section>--}}
     <!-- End About Section -->
 
 
     <!-- Testimonials Section -->
-    <section class="page-section bg-dark bg-dark-alfa-90 fullwidth-slider" data-background="/front/images/full-width-images/section-bg-3.jpg">
+    {{--<section class="page-section bg-dark bg-dark-alfa-90 fullwidth-slider" data-background="/front/images/full-width-images/section-bg-3.jpg">
 
         <!-- Slide Item -->
         <div>
@@ -204,7 +204,7 @@
         </div>
         <!-- End Slide Item -->
 
-    </section>
+    </section>--}}
     <!-- End Testimonials Section -->
 
 

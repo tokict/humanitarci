@@ -112,6 +112,8 @@
             </div>
 
         </div>
+
     </section>
-    <!-- End Section -->
+</div>
+<!-- End Section -->
 @endsection
