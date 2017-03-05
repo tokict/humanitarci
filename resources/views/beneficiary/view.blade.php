@@ -26,15 +26,18 @@
                                     </small>
 
                                     <small>
-                                        -
+
                                         @if(isset($beneficiary->person))
+                                            -
                                             {{$beneficiary->person->city}}
                                         @endif
                                         @if(isset($beneficiary->legalEntity))
+                                                -
                                             {{$beneficiary->legalEntity->city}}
                                             , {{$beneficiary->legalEntity->city->region->name}}
                                         @endif
-                                        @if(isset($beneficiary->group))
+                                        @if(isset($beneficiary->group->city))
+                                                -
                                             {{$beneficiary->group->city}}
                                             , {{$beneficiary->group->city->region->name}}
                                         @endif
@@ -146,7 +149,7 @@
                                 <small>{{$c->current_funds}} {{env("CURRENCY")}}
                                     / {{$c->target_amount}} {{env("CURRENCY")}}</small>
                             </h2>
-                            <p>{{$c->description_short}}
+                            <p>{!!  $c->description_short !!}
                             </p>
                             <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}" class="btn btn-sm btn-primary"
                                style="text-decoration: none;"> Više..</a>

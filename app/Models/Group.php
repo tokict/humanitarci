@@ -19,6 +19,7 @@ namespace App\Models;
  * @property int $representing_person_id
  * @property int $representing_entity_id
  * @property int $owned_by
+ * @property int $city_id
  * 
  * @property \App\Models\LegalEntity $legalEntity
  * @property \App\Models\Person $representingPerson
@@ -94,6 +95,11 @@ class Group extends BaseModel
 
 	public function outgoing_sms()
 	{
-		return $this->hasMany(\App\Models\OutgoingSm::class);
+		return $this->hasMany(\App\Models\OutgoingSms::class);
+	}
+
+	public function city()
+	{
+		return $this->belongsTo(\App\Models\City::class);
 	}
 }

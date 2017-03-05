@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PageViewed;
 use App\Http\Requests;
 use App\Models\Donation;
 use App\Models\Donor;
@@ -40,6 +41,7 @@ class DonorsController extends Controller
     {
 
         $donor = Donor::whereId($id)->first();
+        event(new PageViewed(['type' => 'donor', 'id' => $id]));
         return view('donor.view', ['donor' => $donor]);
     }
 

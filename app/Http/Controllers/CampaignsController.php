@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PageViewed;
 use App\Http\Requests;
 use App\Models\Campaign;
 use App\Models\Media;
@@ -45,6 +46,7 @@ class CampaignsController extends Controller
         $campaign = Campaign::whereId($id)->first();
         $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
         $campaign->media_info = $media_info;
+        event(new PageViewed(['type' => 'campaign', 'id' => $id]));
 
         return view('campaign.view', ['campaign' => $campaign]);
     }

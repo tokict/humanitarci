@@ -63,8 +63,17 @@
                     <div class="blog-item-body">
 
                         <p>
-                            <btn class="btn-mod btn-circle bg-facebook fbShare" data-link="{{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><i class="fa fa-facebook"></i> Share</btn>
-                            <a class="btn-mod btn-circle" href="https://twitter.com/intent/tweet?text={{env('APP_URL')}}"><i class="fa fa-twitter"></i> Tweet</a>
+                            <button class="btn-mod btn-circle bg-facebook fbShare"
+                                    data-link="{{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/
+                                 {{trans('routes.actions.view')}}/{{$campaign->id}}" data-id="{{$campaign->id}}"
+                                    data-type="campaign">
+                                <i class="fa fa-facebook">
+                                </i> Share
+                            </button>
+                            <a class="btn-mod btn-circle twitterShare"
+                               href="https://twitter.com/intent/tweet?text={{env('APP_URL')}}" data-id="{{$campaign->id}}"
+                               data-type="campaign">
+                                <i class="fa fa-twitter"></i> Tweet</a>
                         </p>
 
                         {!! $campaign->description_full!!}
@@ -141,9 +150,9 @@
                             <h5 class="text-center">Potvrda primljene donacije</h5>
                             <div class="col-md-10 col-md-offset-1"><a
                                         href="{{$campaign->beneficiary_receipt_doc->getPath('large')}}" target="_blank">
-                                    <img    alt="image" class="img-responsive"
-                                            src="{{$campaign->beneficiary_receipt_doc->getPath('thumb')}}"
-                                            style="width: 70px;margin:auto;"></a></div>
+                                    <img alt="image" class="img-responsive"
+                                         src="{{$campaign->beneficiary_receipt_doc->getPath('thumb')}}"
+                                         style="width: 70px;margin:auto;"></a></div>
                         </div>
                     @endif
 

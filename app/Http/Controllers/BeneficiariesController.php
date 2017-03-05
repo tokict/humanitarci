@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PageViewed;
 use App\Http\Requests;
 use App\Models\Beneficiary;
 
@@ -30,6 +31,7 @@ class BeneficiariesController extends Controller
     {
 
         $beneficiary = Beneficiary::whereId($id)->first();
+        event(new PageViewed(['type' => 'beneficiary', 'id' => $id]));
         return view('beneficiary.view', ['beneficiary' => $beneficiary]);
     }
 }

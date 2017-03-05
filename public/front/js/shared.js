@@ -266,6 +266,9 @@ function bindSelect2(){
 
     $('.fbShare').click(function(){
         var link = $(this).data('link');
+        var id = $(this).data('id');
+        var type = $(this).data('type');
+
         if(!link){
             console.log('Dev forgot to put link on fb share button');
         }
@@ -274,6 +277,22 @@ function bindSelect2(){
             display: 'popup',
             link: link,
         }, function (response) {
+            //Log share attempt in backend
+            $.ajax({
+                url:'/ajax/logShare',
+                data: {type:type, id:id},
+                dataType: 'JSON'
+            });
+        });
+    });
+
+    $('.twitterShare').click(function(){
+        var id = $(this).data('id');
+        var type = $(this).data('type');
+        $.ajax({
+            url:'/ajax/logShare',
+            data: {type:type, id:id},
+            dataType: 'JSON'
         });
     });
 }

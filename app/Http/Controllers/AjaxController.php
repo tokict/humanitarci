@@ -8,6 +8,7 @@ use App\Models\Donor;
 use App\Models\LegalEntity;
 use App\Models\Order;
 use App\Models\Organization;
+use App\Models\PagesData;
 use App\Models\PasswordReset;
 use App\Models\Person;
 
@@ -203,6 +204,27 @@ class AjaxController extends Controller
                 ->json(['success' => false]);
         }
 
+
+    }
+
+
+    public function logShare()
+    {
+        $input = Input::all();
+
+        $pageData = PagesData::where('page_id', $input['id'])->where('page_type', $input['type'])->get()->first();
+        if($pageData){
+            $pageData->shares = $pageData->shares + 1;
+            $pageData->save();
+        }else{
+            PagesData::create([
+                'page_id' => $input['id'],
+                'page_type' => $input['type'],
+                'shares' => 1
+            ]);
+        }
+        return response()
+            ->json(['success' => true]);
 
     }
 
