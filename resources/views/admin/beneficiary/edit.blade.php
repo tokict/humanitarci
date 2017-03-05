@@ -144,7 +144,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-10"><label class="control-label">Description</label>
-                                {{Form::textarea('description', null, ['class' => 'summernote'] )}}
+                                {{Form::textarea('description', null, [] )}}
 
                             </div>
                         </div>

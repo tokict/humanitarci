@@ -32,6 +32,11 @@ class BeneficiariesController extends Controller
 
         $beneficiary = Beneficiary::whereId($id)->first();
         event(new PageViewed(['type' => 'beneficiary', 'id' => $id]));
-        return view('beneficiary.view', ['beneficiary' => $beneficiary]);
+        $page = new \stdClass();
+        $page->description = $beneficiary->description;
+        $page->title = $beneficiary->name;
+        $page->image = $beneficiary->profile_image->getPath('medium');
+        $page->url = '/'.trans('routes.front.beneficiaries').'/'.trans('routes.actions.view').'/'.$beneficiary->id;
+        return view('beneficiary.view', ['beneficiary' => $beneficiary, 'page' => $page]);
     }
 }
