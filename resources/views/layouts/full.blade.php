@@ -22,7 +22,7 @@
         <meta property="og:locale" content="en_US"/>
         <meta property="og:site_name" content="Humanitarci.hr"/>
         <meta property="og:image" content="<?= $page->image ?>"/>
-        <meta property="og:url" content="<?= $page->url ?>"/>
+        <meta property="og:url" content="<?= env('APP_URL').$page->url ?>"/>
         <meta property="og:description" content="<?= htmlentities($page->description) ?>"/>
 
         <!-- START: TWITTER -->
