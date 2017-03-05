@@ -48,6 +48,12 @@ class CampaignsController extends Controller
         $campaign->media_info = $media_info;
         event(new PageViewed(['type' => 'campaign', 'id' => $id]));
 
-        return view('campaign.view', ['campaign' => $campaign]);
+        $page = new \stdClass();
+        $page->description = $campaign->description_short;
+        $page->title = $campaign->name;
+        $page->image = $campaign->cover->getPath('medium');
+        $page->url = '/'.trans('routes.front.campaigns').'/'.trans('routes.actions.view').'/'.$campaign->id;
+
+        return view('campaign.view', ['campaign' => $campaign, 'page' => $page]);
     }
 }

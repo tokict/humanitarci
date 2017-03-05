@@ -17,13 +17,21 @@
         <meta name="description" content="<?= htmlentities($page->description) ?>">
         <meta name="title" content="Humanitarci.hr">
         <meta property="fb:app_id" content="1022391537889674">
-        <meta property="og:title" content="<?= $page->title ?>"/>
+        <meta property="og:title" content="<?= htmlentities($page->title) ?>"/>
         <meta property="og:type" content="website"/>
         <meta property="og:locale" content="en_US"/>
         <meta property="og:site_name" content="Humanitarci.hr"/>
         <meta property="og:image" content="<?= $page->image ?>"/>
         <meta property="og:url" content="<?= $page->url ?>"/>
         <meta property="og:description" content="<?= htmlentities($page->description) ?>"/>
+
+        <!-- START: TWITTER -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@humanitarci.hr">
+        <meta name="twitter:creator" content="@humanitarci.hr">
+        <meta name="twitter:title" content="<?= htmlentities($page->title) ?>">
+        <meta name="twitter:description" content="<?= htmlentities($page->description) ?>">
+        <meta name="twitter:image" content="<?= $page->image ?>">
         @endif
                 <!-- Favicons -->
         <link rel="shortcut icon" href="/front/images/humanitarci-icon.png">
