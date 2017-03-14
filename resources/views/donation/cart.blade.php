@@ -210,7 +210,7 @@
                                          || $key == 'bank_tax') && $orderModel->payment_method == 'bank_transfer')
                                         @else
                                             <small id="{{$key}}">{{ucfirst(trans('strings.misc.'.$key))}}
-                                                : {{$total/100*$value}} {{env('CURRENCY')}}</small><br/>
+                                                : {{number_format($total/100*$value, 2)}} {{env('CURRENCY')}}</small><br/>
                                         @endif
 
                                     @endforeach

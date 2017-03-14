@@ -8,6 +8,7 @@ use App\Models\Campaign;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class CampaignsController extends Controller
 {

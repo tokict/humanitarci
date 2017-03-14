@@ -96,7 +96,7 @@ class User extends Authenticatable
 
     public function donor()
     {
-        return $this->hasOne(\App\Models\Donor::class);
+        return $this->belongsTo(\App\Models\Donor::class);
     }
 
     public function entity()
