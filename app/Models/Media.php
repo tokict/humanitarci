@@ -23,7 +23,7 @@ use League\Flysystem\File;
  *
  * @property int $created_by
  *
- * @property \App\Usercreator
+ * @property \App\User $creator
  *
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $modified_at
@@ -82,23 +82,31 @@ class Media extends BaseModel
     {
         $s3 = \Storage::cloud('s3');
         $name = time() . rand(1, 9999) . "." . $file->getClientOriginalExtension();
-        $this->prepareForUpload($file->getPathname(), $name);
+        if($file->getClientOriginalExtension() != 'pdf') {
+            $this->prepareForUpload($file->getPathname(), $name);
+            if ($s3->put($folder . '/original_' . $name, file_get_contents($file->getPathname()), $permission)
+                && $s3->put($folder . '/thumb_' . $name, file_get_contents('/tmp/thumb_' . $name), $permission)
+                && $s3->put($folder . '/small_' . $name, file_get_contents('/tmp/small_' . $name), $permission)
+                && $s3->put($folder . '/medium_' . $name, file_get_contents('/tmp/medium_' . $name), $permission)
+                && $s3->put($folder . '/large_' . $name, file_get_contents('/tmp/large_' . $name), $permission)
+            ) {
 
-        if ($s3->put($folder . '/original_' . $name, file_get_contents($file->getPathname()), $permission)
-            && $s3->put($folder . '/thumb_' . $name, file_get_contents('/tmp/thumb_' . $name), $permission)
-            && $s3->put($folder . '/small_' . $name, file_get_contents('/tmp/small_' . $name), $permission)
-            && $s3->put($folder . '/medium_' . $name, file_get_contents('/tmp/medium_' . $name), $permission)
-            && $s3->put($folder . '/large_' . $name, file_get_contents('/tmp/large_' . $name), $permission)
-        ) {
-
-            unlink('/tmp/thumb_' . $name);
-            unlink('/tmp/small_' . $name);
-            unlink('/tmp/medium_' . $name);
-            unlink('/tmp/large_' . $name);
-            return $name;
-        } else {
+                unlink('/tmp/thumb_' . $name);
+                unlink('/tmp/small_' . $name);
+                unlink('/tmp/medium_' . $name);
+                unlink('/tmp/large_' . $name);
+                return $name;
+            } else {
+                return false;
+            }
+        }else{
+            if($s3->put($folder . '/' . $name, file_get_contents($file->getPathname()), $permission)){
+                return true;
+            }
             return false;
         }
+
+
 
     }
 
@@ -129,9 +137,13 @@ class Media extends BaseModel
         return true;
     }
 
-    public function getPath($size)
+    public function getPath($size = null)
     {
-        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/".$this->creator->admin->organization_id."/" . $size . "_" . $this->getAtt('reference');
+        $sizeStr = '';
+        if($size){
+            $sizeStr = $size. "_";
+        }
+        return 'https://s3.eu-central-1.amazonaws.com/humanitarci/' . $this->getAtt('directory') . "/".$this->creator->admin->organization_id."/" . $sizeStr  . $this->getAtt('reference');
     }
 
 
