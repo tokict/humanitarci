@@ -88,6 +88,8 @@ namespace App\Models;
  * @property \Illuminate\Database\Eloquent\Collection $media_links
  * Media links collection tied to this beneficiary
  *
+ * @property \Illuminate\Database\Eloquent\Collection $page_data
+ *
  * @package App\Models
  */
 class Beneficiary extends BaseModel
@@ -196,6 +198,11 @@ class Beneficiary extends BaseModel
         return Campaign::where('beneficiary_id', $this->getAttribute('id'))->whereIn('status', ['reached', 'failed'])->get();
     }
 
+    public function page_data()
+    {
+        return $this->hasOne(\App\Models\PagesData::class, 'page_id')->where('page_type', 'beneficiary');
+    }
+
     /**
      * Get all donors that donated to this beneficiary
      * @return array
@@ -206,12 +213,12 @@ class Beneficiary extends BaseModel
         $donors = [];
         foreach ($campaigns as $c) {
             foreach ($c->donations as $d) {
-                if(!$d->donor->anonymous) {
+                if (!$d->donor->anonymous) {
                     $donors[] = $d->donor;
                 }
             }
         };
-return Donor::take(10)->get();
+        return Donor::take(10)->get();
         return $donors;
 
     }
@@ -241,6 +248,6 @@ return Donor::take(10)->get();
     {
         $campaign = Campaign::where('beneficiary_id', $this->getAttribute('id'))->where('status', 'active')->get()->first();
 
-        return isset($campaign)? $campaign:false;
+        return isset($campaign) ? $campaign : false;
     }
 }

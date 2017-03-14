@@ -148,6 +148,8 @@ use Carbon\Carbon;
  * @property \Illuminate\Database\Eloquent\Collection $subscriptions
  *
  * @property \Illuminate\Database\Eloquent\Collection $transactions
+ * @property \Illuminate\Database\Eloquent\Collection $page_data
+ *
  *
  * @package App\Models
  */
@@ -253,6 +255,12 @@ class Campaign extends BaseModel
     {
         return $this->belongsTo(\App\Models\Organization::class);
     }
+
+    public function page_data()
+    {
+        return $this->hasOne(\App\Models\PagesData::class, 'page_id')->where('page_type', 'campaign');
+    }
+
 
     public function campaign_reports()
     {

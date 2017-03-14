@@ -44,6 +44,12 @@
                         <i class="fa fa-folder-open"></i>
                         <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/
                         {{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
+                        <span class="separator">&nbsp;</span>
+                        <i class="fa fa-eye"></i>
+                        {{$campaign->page_data->views}}
+                        <span class="separator">&nbsp;</span>
+                        <i class="fa fa-share-alt"></i>
+                        {{$campaign->page_data->shares}}
                     </div>
 
                     <!-- Media Gallery -->

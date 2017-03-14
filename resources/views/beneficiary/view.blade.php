@@ -74,10 +74,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>154</strong> dijeljenja
+                                <strong>{{isset($beneficiary->page_data)?$beneficiary->page_data->shares:0}}</strong> dijeljenja
                             </td>
                             <td>
-                                <strong>32</strong> pregleda profila
+                                <strong>{{isset($beneficiary->page_data)?$beneficiary->page_data->views:0}}</strong> pregleda profila
                             </td>
                         </tr>
                         </tbody>

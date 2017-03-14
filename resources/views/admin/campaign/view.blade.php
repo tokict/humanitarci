@@ -55,9 +55,9 @@
                                         <dt>Donors:</dt>
                                         <dd> {{count($campaign->beneficiary->getDonors())}}</dd>
                                         <dt>Views:</dt>
-                                        <dd> {{count($campaign->beneficiary->getDonors())}}</dd>
+                                        <dd> {{$campaign->page_data->views}}</dd>
                                         <dt>Shares:</dt>
-                                        <dd> {{count($campaign->beneficiary->getDonors())}}</dd>
+                                        <dd> {{$campaign->page_data->shares}}</dd>
                                     </dl>
                                 </div>
                                 <div class="col-lg-7" id="cluster_info">
