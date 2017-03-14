@@ -45,7 +45,7 @@
                         Swift: {{$d['campaign']->organization->legalEntity->bank->swift_code}}<br/>
                         Iban: {{$d['campaign']->iban}}<br/>
                         Iznos: {{number_format($order->amount, 2)}} {{env('CURRENCY')}}<br/><br/>
-                        Description: Donacija #{{$order->reference}}{{$key}}<br/>
+                        Opis plaćanja: "Donacija #{{$order->reference}}{{$key}}"<br/>
                         -----------------------------------------------------------------------------------------
 
 
@@ -103,9 +103,9 @@
 
     .description {
         position: relative;
-        top: -377px;
+        top: -380px;
         float: left;
-        font-size: 10px;
+        font-size: 14px;
         width: 275px;
         right: -336px;
         height: 75px;
