@@ -101,9 +101,9 @@
                     <div class="col-md-2">
                         <h5 class="text-center">Dozvola akcije</h5>
                         <div class="col-md-10 col-md-offset-1">
-                            <a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"> <img
+                            <a href="{{$campaign->registration_doc->getPath('large')}}" target="_blank"> <img
                                         alt="image" class="img-responsive"
-                                        src="{{$campaign->registration_request_doc->getPath('thumb')}}"
+                                        src="{{$campaign->registration_doc->getPath('thumb')}}"
                                         style="width: 70px;margin:auto;"></a>
                         </div>
                     </div>
