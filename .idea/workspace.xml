@@ -49,7 +49,27 @@
         <entry file="file://$PROJECT_DIR$/resources/views/campaign/view.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.3841642">
-              <caret line="105" column="74" selection-start-line="105" selection-start-column="74" selection-end-line="105" selection-end-column="74" />
+              <caret line="103" column="136" selection-start-line="103" selection-start-column="136" selection-end-line="103" selection-end-column="136" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Media.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Media.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-25.333334">
+              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/FileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.88889">
+              <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -105,16 +125,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Beneficiary.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Beneficiary.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="214" column="23" selection-start-line="214" selection-start-column="23" selection-end-line="214" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -130,8 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vendor/terranet/administrator/publishes/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/public/administrator/css/extended.css" />
         <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/Overview.php" />
         <option value="$PROJECT_DIR$/app/Http/Terranet/Administrator/Dashboard/MembersPanel.php" />
         <option value="$PROJECT_DIR$/packages/administrator/src/Dashboard/Factory.php" />
@@ -180,6 +188,8 @@
         <option value="$PROJECT_DIR$/resources/views/donor/view.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Campaign.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CampaignController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/FileController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Media.php" />
         <option value="$PROJECT_DIR$/resources/views/campaign/view.blade.php" />
       </list>
     </option>
@@ -466,28 +476,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Console" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Commands" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -768,7 +756,25 @@
       <option name="project" value="LOCAL" />
       <updated>1489496032748</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fix for path">
+      <created>1489496172764</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1489496172764</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fix for pdf uploads">
+      <created>1489496889965</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1489496889965</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Fix paths">
+      <created>1489497778741</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1489497778741</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -834,9 +840,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added base models (4 real now)" />
-    <MESSAGE value="Added group_beneficiaries table. Fixed created models bugs with increment/integer" />
-    <MESSAGE value="Modifications to migrations. Explanations in some classes. Partial" />
     <MESSAGE value="Https broken fix for fonts" />
     <MESSAGE value="More comments on models. Changes to DB" />
     <MESSAGE value="Applied inspinia theme" />
@@ -859,20 +862,16 @@
     <MESSAGE value="Fix link to beneficiary" />
     <MESSAGE value="Add donor and beneficiary page" />
     <MESSAGE value="Remove not needed docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove not needed docs" />
+    <MESSAGE value="Fix for path" />
+    <MESSAGE value="Fix for pdf uploads" />
+    <MESSAGE value="Fix paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix paths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/PaymentProviderDatum.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1793722">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51121074">
@@ -933,14 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1222,10 +1213,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AjaxController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Media.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.333334">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/FileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.88889">
+          <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/campaign/view.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3841642">
-          <caret line="105" column="74" selection-start-line="105" selection-start-column="74" selection-end-line="105" selection-end-column="74" />
+          <caret line="103" column="136" selection-start-line="103" selection-start-column="136" selection-end-line="103" selection-end-column="136" />
           <folding />
         </state>
       </provider>
