@@ -239,11 +239,7 @@
                     <div class="row">
                         <h5>Campaign files</h5>
                         <ul class="list-unstyled project-files">
-                            <li><a href="{{$campaign->registration_request_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Registration request</a></li>
-                            <li><a href="{{$campaign->registration_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Registration approval</a></li>
-                            <li><a href="{{$campaign->action_plan_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Action plan</a></li>
-                            <li><a href="{{$campaign->distribution_plan_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Distribution plan</a></li>
-                            <li><a href="{{$campaign->beneficiary_request_doc->getPath('large')}}" target="_blank"><i class="fa fa-file"></i> Beneficiary request</a></li>
+                            <li><a href="{{$campaign->registration_doc->getPath()}}" target="_blank"><i class="fa fa-file"></i> Registration approval</a></li>
                         </ul>
                     </div>
                 </div>
