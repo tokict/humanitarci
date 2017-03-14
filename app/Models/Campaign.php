@@ -79,15 +79,6 @@ use Carbon\Carbon;
  *
  * @property int $registration_doc_id
  *
- * @property int $action_plan_doc_id
- *
- * @property int $distribution_plan_doc_id
- *
- * @property int $registration_request_doc_id
- *
- * @property int $beneficiary_request_doc_id
- *
- * @property int $beneficiary_receipt_doc_id
  *
  * @property \Carbon\Carbon $created_at
  *
@@ -133,15 +124,10 @@ use Carbon\Carbon;
  * @property \App\Models\Organization $organization
  * Related organization object
  *
- * @property Media $registration_request_doc
  *
  * @property Media $registration_doc
  *
- * @property Media $action_plan_doc
- *
- * @property Media $distribution_plan_doc
- *
- * @property Media $beneficiary_request_doc
+
  *
  * @property Media $beneficiary_receipt_doc
  *
@@ -176,9 +162,6 @@ class Campaign extends BaseModel
         'cover_photo_id' => 'int',
         'action_plan_doc_id' => 'int',
         'registration_doc_id' => 'int',
-        'distribution_plan_doc_id' => 'int',
-        'beneficiary_request_doc_id' => 'int',
-        'registration_request_doc_id' => 'int',
         'organization_id' => 'int',
         'current_funds' => 'int',
         'funds_transferred_amount' => 'int',
@@ -208,9 +191,6 @@ class Campaign extends BaseModel
         'status',
         'action_plan_doc_id',
         'registration_doc_id',
-        'distribution_plan_doc_id',
-        'beneficiary_request_doc_id',
-        'registration_request_doc_id',
         'registration_code',
         'classification_code',
         'funds_transferred_amount',
@@ -323,26 +303,6 @@ class Campaign extends BaseModel
     public function registration_doc()
     {
         return $this->belongsTo(\App\Models\Media::class, 'registration_doc_id');
-    }
-
-    public function action_plan_doc()
-    {
-        return $this->belongsTo(\App\Models\Media::class, 'action_plan_doc_id');
-    }
-
-    public function distribution_plan_doc()
-    {
-        return $this->belongsTo(\App\Models\Media::class, 'distribution_plan_doc_id');
-    }
-
-    public function registration_request_doc()
-    {
-        return $this->belongsTo(\App\Models\Media::class, 'registration_request_doc_id');
-    }
-
-    public function beneficiary_request_doc()
-    {
-        return $this->belongsTo(\App\Models\Media::class, 'beneficiary_request_doc_id');
     }
 
     public function beneficiary_receipt_doc()

@@ -98,9 +98,6 @@ class CampaignController extends Controller
                 'status' => 'required',
                 'action_plan_doc_id' => 'required|numeric',
                 'registration_doc_id' => 'required|numeric',
-                'distribution_plan_doc_id' => 'required|numeric',
-                'beneficiary_request_doc_id' => 'required|numeric',
-                'registration_request_doc_id' => 'required|numeric',
                 'registration_code' => 'required|max:20',
                 'classification_code' => 'required|max:20',
                 'priority' => 'numeric',
@@ -144,49 +141,6 @@ class CampaignController extends Controller
                 );
                 $registration_doc->save();
 
-                $action_plan_doc = new MediaLink(
-                    [
-                        'campaign_id' => $campaign->id,
-                        'media_id' => $input['action_plan_doc_id'],
-                        'organization_id' => Auth::User()->admin->organization_id,
-                        'user_id' => Auth::User()->id
-
-                    ]
-                );
-                $action_plan_doc->save();
-
-                $distribution_plan_doc = new MediaLink(
-                    [
-                        'campaign_id' => $campaign->id,
-                        'media_id' => $input['distribution_plan_doc_id'],
-                        'organization_id' => Auth::User()->admin->organization_id,
-                        'user_id' => Auth::User()->id
-
-                    ]
-                );
-                $distribution_plan_doc->save();
-
-                $registration_request_doc = new MediaLink(
-                    [
-                        'campaign_id' => $campaign->id,
-                        'media_id' => $input['registration_request_doc_id'],
-                        'organization_id' => Auth::User()->admin->organization_id,
-                        'user_id' => Auth::User()->id
-
-                    ]
-                );
-                $registration_request_doc->save();
-
-                $beneficiary_request_doc = new MediaLink(
-                    [
-                        'campaign_id' => $campaign->id,
-                        'media_id' => $input['beneficiary_request_doc_id'],
-                        'organization_id' => Auth::User()->admin->organization_id,
-                        'user_id' => Auth::User()->id
-
-                    ]
-                );
-                $beneficiary_request_doc->save();
                 /*End save documents*/
 
                 if (isset($input['media_info'])) {
