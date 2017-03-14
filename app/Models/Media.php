@@ -101,8 +101,9 @@ class Media extends BaseModel
             }
         }else{
             if($s3->put($folder . '/' . $name, file_get_contents($file->getPathname()), $permission)){
-                return true;
+                return $name;
             }
+
             return false;
         }
 

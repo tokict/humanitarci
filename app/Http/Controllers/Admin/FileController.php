@@ -102,7 +102,7 @@ class FileController extends Controller
                 $media->setAtt('directory', $category);
 
                 if ($media->save()) {
-                    $input['cover_photo_id'] = $media->id;
+
                 } else {
                     $fails++;
                 }
