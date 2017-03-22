@@ -157,8 +157,15 @@ class CheckBankEmailReports extends Command
         foreach ($received as $key => $item) {
             $this->info("//////");
             $this->info('Processing payment nr ' . ($key + 1) . ' of ' . $item['amount'] . ' and date ' . $item['date']);
+            $parts = explode(" ", $item['description']);
+            if(count($parts) >= 2){
+                $desc = $parts[1];
+            }else{
+                $desc = $item['description'];
+            }
 
-            $order = Order::where('reference', mb_substr(trim($item['description']), 0, -1))->orderBy('created_at',
+            //Last number of $desc is index and should not be used to find reference in DB
+            $order = Order::where('reference', mb_substr(trim($desc), 0, -1))->orderBy('created_at',
                 'desc')->get()->first();
             if ($order) {
                 $this->info('Order for payment ' . ($key + 1) . ' found');
