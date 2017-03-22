@@ -37,7 +37,7 @@
                         {{$d['campaign']->organization->legalEntity->city->name}}
                     </div>
                     <div class="description">
-                        Donacija #{{$order->reference}}{{$key}}
+                        Donacija {{$order->reference}}{{$key}}
                     </div>
                     <div class="abroad">
                         <br/>
