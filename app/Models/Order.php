@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use GuzzleHttp\Client;
+use Illuminate\Database\Eloquent\Collection;
 
 class Order extends BaseModel
 {
@@ -11,8 +12,7 @@ class Order extends BaseModel
      *
      * @property int $id
      * @property int $donor_id
-     * @property int $user_id
-     * @property int $campaign_id
+     * @property $donations
      * @property string $status
      * @property string $created_at
      * @property string $updated_at
@@ -24,8 +24,7 @@ class Order extends BaseModel
      * @property string $reference
      *
      * @property \App\Models\Donor $donor
-     * @property \App\Models\Campaign $campaign
-     * @property \App\User $user
+     * @property Collection $campaigns
      *
      *
      * @package App\Models
@@ -33,14 +32,11 @@ class Order extends BaseModel
 
 
     protected $casts = [
-        'user_id' => 'int',
         'donor_id' => 'int',
-        'campaign_id' => 'int',
         'amount' => 'int',
     ];
 
     protected $fillable = [
-        'user_id',
         'donor_id',
         'campaign_id',
         'updated_at',
@@ -58,15 +54,18 @@ class Order extends BaseModel
         return $this->belongsTo(\App\Models\Donor::class);
     }
 
-    public function campaign()
+    public function campaigns()
     {
-        return $this->belongsTo(\App\Models\Campaign::class);
+        $arr = [];
+        if(unserialize($this->getAtt('donations'))){
+            foreach (unserialize($this->getAtt('donations')) as $d) {
+                $arr[] = $d->campaign;
+
+            }
+        }
+        return $this->hasMany(\App\Models\Campaign::class)->whereIn('id', $arr);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(\App\User::class);
-    }
 
     //Check the status of transaction with the provider
     public function checkTransaction()

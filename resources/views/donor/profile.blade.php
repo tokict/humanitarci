@@ -117,7 +117,7 @@
         <!-- End Counters -->
 
 
-        <!-- Team -->
+        <!-- Donations -->
         <div class="row multi-columns-row">
             <div class="col-md-4">
                 <h5>{{'Povijest upotrebe donacija'}}</h5>
@@ -131,7 +131,7 @@
                     <hr>
                 @endforeach
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <h5>{{'Povijest donacija'}}</h5>
                 @foreach($donor->getCampaigns() as $c)
                         <!-- Team Item -->
@@ -178,10 +178,24 @@
                 <!-- End Team Item -->
                 @endforeach
             </div>
+            <div class="col-md-2">
+                @if($orders && \Illuminate\Support\Facades\Auth::user()->id == $donor->user->id)
+                <h5>{{'Donacije za uplatu'}}</h5>
+                    @foreach($orders as $o)
+                        <a href="/{{trans('routes.front.donations')}}/{{trans('routes.actions.bank')}}/{{$o->id}}">
+                    {{$o->created_at->format('d.m.Y')}}  <span
+                            class="pull-right">{{number_format($o->amount)}} {{env('CURRENCY')}}</span>
+                        </a>
+                    <hr>
+                @endforeach
+                    @endif
+            </div>
 
 
         </div>
-        <!-- End Team -->
+        <!-- End Donations -->
+
+
 
 
     </div>

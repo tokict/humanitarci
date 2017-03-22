@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\Donation;
 use App\Models\Donor;
 use App\Models\MonetaryOutputSource;
+use App\Models\Order;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -92,6 +93,9 @@ class DonorsController extends Controller
                     return redirect()->intended('/' . Lang::get('routes.front.donors', [],
                             '') . '/' . Lang::get('routes.actions.profile', [], ''))->withInput();
 
+                }else{
+                    Session::flash('error', trans("errors.login.We couldn't authorize you using that email and password combination"));
+
                 }
             }
 
@@ -111,7 +115,7 @@ class DonorsController extends Controller
 
     public function profile($request, $username)
     {
-        if ($username) {
+        if (isset($username)) {
             $user = User::where('username', $username)->get()->first();
             if ($user && $user->donor) {
                 $donor = $user->donor;
@@ -133,7 +137,15 @@ class DonorsController extends Controller
         $donationTransfers = Donation::where('donor_id',
             Auth::User()->donor->id)->whereNotNull('transaction_id')->get();
 
+        $orders = Order::where('donor_id', $donor->id)->where('status', 'pending')->get();
+
         return view('donor.profile',
-            ['donor' => $donor, 'distributedFunds' => $distributedFunds, 'donationTransfers' => $donationTransfers]);
+            [
+                'donor' => $donor,
+                'distributedFunds' => $distributedFunds,
+                'donationTransfers' => $donationTransfers,
+                'orders' => $orders
+
+            ]);
     }
 }

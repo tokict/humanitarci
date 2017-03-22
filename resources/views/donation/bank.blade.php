@@ -1,4 +1,5 @@
 @extends('layouts.full')
+
 @section('content')
         <!-- Section -->
 <section class="page-section">
@@ -6,7 +7,7 @@
         @foreach($donations as $key =>  $d)
             <div class="row">
 
-                <div style="width:640; height:422; margin: auto">
+                <div style="width:640px; height:422px; margin: auto">
                     <img src="/front/images/uplatnica.png" style="width:100%">
                     <div class="payee">
                         @if(isset($order->donor->person))
@@ -61,61 +62,3 @@
 @endsection
 
 
-<style>
-    .payee {
-        position: relative;
-        top: -380px;
-        left: 25px;
-        width: 170px;
-        height: 93px;
-        text-align: left;
-        font-weight: bold;
-    }
-
-    .amount {
-        position: relative;
-        top: -470px;
-        float: right;
-        right: 23px;
-        letter-spacing: 7px;
-        font-weight: bold;
-    }
-
-    .iban {
-        position: relative;
-        top: -357px;
-        float: left;
-        font-size: 10px;
-        right: -117px;
-        letter-spacing: 9px;
-        font-weight: bold;
-    }
-
-    .receiver {
-        position: relative;
-        top: -345px;
-        left: 25px;
-        width: 170px;
-        height: 93px;
-        text-align: left;
-        font-weight: bold;
-    }
-
-    .description {
-        position: relative;
-        top: -380px;
-        float: left;
-        font-size: 14px;
-        width: 275px;
-        right: -336px;
-        height: 75px;
-        line-height: 18px;
-        font-weight: bold;
-    }
-
-    .abroad {
-        position: absolute;
-        top: 550px;
-        padding-left:20px;
-    }
-</style>

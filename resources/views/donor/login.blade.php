@@ -18,9 +18,7 @@
             <div class="align-center mb-40 mb-xxs-30">
 
 
-
-                        <h4>Prijava</h4>
-
+                <h4>Prijava</h4>
 
 
             </div>
@@ -76,11 +74,11 @@
                                 </div>
 
                             </div>
-
+                            <br/>
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
-                                        @foreach ($errors->all() as $error)
+                                        @foreach ($errors as $error)
 
                                             <li>{{ trans('errors.login.'.substr($error,0, strlen($error)-1)) }}</li>
                                         @endforeach
@@ -90,7 +88,7 @@
                             @if(session()->has('error'))
                                 <div class="alert alert-danger">
                                     <ul>
-                                        <li>{{session('error')}}</li>
+                                        <li class="text-red">{{session('error')}}</li>
                                     </ul>
                                 </div>
                             @endif
@@ -103,7 +101,8 @@
                 </div>
                 <div class="align-center pt-100">
 
-                       Registrirati se može isključivo putem donacija. Nakon doniranja na Vašu email adresu stići ce upute za izradu korisničkog profila
+                    Registrirati se može isključivo putem donacija. Nakon doniranja na Vašu email adresu stići ce upute
+                    za izradu korisničkog profila
 
                 </div>
             </div>

@@ -52,7 +52,7 @@ class DonationsController extends Controller
             if (!empty($donations)) {
                 foreach ($donations as &$d) {
                     //Exists, Add the amount to existing donation
-                    $cId = isset($d['campaign']->id)?$d['campaign']->id:$d['campaign'];
+                    $cId = isset($d['campaign']->id) ? $d['campaign']->id : $d['campaign'];
                     if ($cId == $campaignId && $d['type'] == $type) {
                         $d['amount'] = $d['amount'] += $amount;
                         $exists = true;
@@ -91,7 +91,7 @@ class DonationsController extends Controller
             $order = null;
         }
 
-        if(count($cart) && !isset($cart[0]['order_id'])) {
+        if (count($cart) && !isset($cart[0]['order_id'])) {
             foreach ($cart as &$item) {
                 $item['order_id'] = $order->order_id;
             }
@@ -103,7 +103,7 @@ class DonationsController extends Controller
             $orderId = explode("_", $order->order_number);
             $orderId = $orderId[count($orderId) - 1];
             $ordModel = Order::find($orderId);
-        }else{
+        } else {
             $ordModel = null;
         }
 
@@ -117,7 +117,7 @@ class DonationsController extends Controller
 
         //Setup cart display data
         foreach ($cart as &$item) {
-            $cid = isset($item['campaign']->id)?$item['campaign']->id:$item['campaign'];
+            $cid = isset($item['campaign']->id) ? $item['campaign']->id : $item['campaign'];
             $item['campaign'] = Campaign::where('id', $cid)->get()->first();
             if ($item['type'] == 'monthly') {
                 $recurring = true;
@@ -223,18 +223,30 @@ class DonationsController extends Controller
         $order = Order::find($orderNr);
         $cart = !empty(session('donations')) ? session('donations') : [];
         //Setup cart display data
+
         foreach ($cart as &$item) {
-            $cid = isset($item['campaign']->id)?$item['campaign']->id:$item['campaign'];
+            $cid = isset($item['campaign']->id) ? $item['campaign']->id : $item['campaign'];
             $item['campaign'] = Campaign::where('id', $cid)->get()->first();
 
         }
+
+
         if ($order) {
             $order->update(['payment_method' => 'bank_transfer']);
             $order->save();
+            if (!count($cart)) {
+                foreach (unserialize($order->donations) as $d) {
+                    $cid = $d['campaign'];
+                    $campaign = Campaign::where('id', $cid)->get()->first();
+                    $cart[]['campaign'] = $campaign;
+
+                }
+            }
+
         } else {
             abort(404);
 
-        }
+        };
 
         return view('donation.bank', [
             'order' => $order,
