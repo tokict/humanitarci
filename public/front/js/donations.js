@@ -2,8 +2,20 @@
  * Created by tino on 11/25/16.
  */
 
+var missing = 0;
 
 $(document).ready(function () {
+    var name = $('[name="cardholder_name"]');
+    var title = $('[name="title"]');
+    var last_name = $('[name="cardholder_surname"]');
+    var city = $('[name="cardholder_city"]');
+    var gender = $('[name="gender"]');
+    var zip = $('[name="cardholder_zip_code"]');
+    var address = $('[name="cardholder_address"]');
+    var country = $('[name="cardholder_country"]');
+    var email = $('[name="cardholder_email"]');
+    var phone = $('[name="cardholder_phone"]');
+
     $('.fixedDonation').click(function () {
         var url = $(this).data("url");
         var amount = $(this).data("amount");
@@ -24,110 +36,95 @@ $(document).ready(function () {
 
     $("#processFormBtn").click(function (event) {
         event.preventDefault();
+        missing = 0;
 
-
-        var name = $('[name="cardholder_name"]');
-        var title = $('[name="title"]');
-        var last_name = $('[name="cardholder_surname"]');
-        var city = $('[name="cardholder_city"]');
-        var gender = $('[name="gender"]').find(":selected");
-        var zip = $('[name="cardholder_zip_code"]');
-        var address = $('[name="cardholder_address"]');
-        var country = $('[name="cardholder_country"]');
-        var email = $('[name="cardholder_email"]');
-        var phone = $('[name="cardholder_phone"]');
-
-
-        var missing;
-
-        if (title.val() == "") {
+        if (title.find(":selected").val() == "") {
             title.css({border: '1px solid red'});
-            missing = 1;
+            missing = 'title';
         } else {
-            name.css({border: '1px solid #ccc'});
+            title.css({border: '1px solid #ccc'});
         }
+
         if (name.val() == "") {
             name.css({border: '1px solid red'});
-            missing = 1;
+            missing = 'name';
         } else {
             name.css({border: '1px solid #ccc'});
         }
 
         if (last_name.val() == "") {
             last_name.css({border: '1px solid red'});
-            missing = 1;
+            missing = 'last_name';
         } else {
             last_name.css({border: '1px solid #ccc'});
         }
 
         if (city.val() == "") {
             city.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'city';
         } else {
             city.parent().css({border: '1px solid #ccc'});
         }
 
-        if (gender.val() == "") {
+        if (gender.find(":selected").val() == "") {
             gender.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'gender';
         } else {
             gender.parent().css({border: '1px solid #ccc'});
         }
 
         if (zip.val() == "") {
             zip.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'zip';
         } else {
             zip.parent().css({border: '1px solid #ccc'});
         }
 
         if (address.val() == "") {
             address.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'address';
         } else {
             address.parent().css({border: '1px solid #ccc'});
         }
 
         if (country.val() == "") {
             country.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'country';
         } else {
             country.parent().css({border: '1px solid #ccc'});
         }
 
         if (email.val() == "") {
             email.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'email';
         } else {
             email.parent().css({border: '1px solid #ccc'});
         }
 
         if (phone.val() == "") {
             phone.parent().css({border: '1px solid red'});
-            missing = 1;
+            missing = 'phone';
         } else {
             phone.parent().css({border: '1px solid #ccc'});
         }
 
-        if (missing && typeof auth == 'undefined') {
-            console.log('Missing data');
+        if (missing != 0 && (typeof auth == 'undefined' || auth == false)) {
+            console.log('Missing ' + missing);
             return false;
         }
 
 
-        //save person in db and create donor
-
         var data = {
-            contact_email : email.val(),
+            contact_email: email.val(),
             first_name: name.val(),
-            last_name : last_name.val(),
-            city : city.val(),
-            zip : zip.val(),
-            gender : (title.val() == 'Mr')?'male':'female',
-            address : address.val(),
-            country : country.val(),
-            order_token : $('[name="order_token"]').val(),
-            contact_phone : phone.val(),
+            last_name: last_name.val(),
+            city: city.val(),
+            zip: zip.val(),
+            gender: (title.find(":selected").val() == 'Mr') ? 'male' : 'female',
+            address: address.val(),
+            country: country.val(),
+            order_token: $('[name="order_token"]').val(),
+            contact_phone: phone.val(),
             entity_name: $('[name="entity_name"]').val(),
             entity_address: $('[name="entity_address"]').val(),
             entity_city_id: $('[name="entity_city_id"]').val(),
@@ -137,33 +134,48 @@ $(document).ready(function () {
         };
 
 
-
         $.ajax({
-            url: '/ajax/registration',
+            url: '/ajax/checkUser',
             dataType: 'json',
             method: 'post',
             data: data
-        }).then(function (response) {
-            console.log(response);
-            setTimeout('a', 1000);
-            //This cookie is here because of payment provider verification hash which changes if amount was changed
-            createCookie('wentToCheckout', true, 1);
-            var form = $('#processForm');
-            if($('[name="payment_type"]').find(":selected").val() == 'bank'){
+        }).then(function (response) { console.log(response);
+            if (response && response.success == true) {
+                //save person in db and create donor
+                $("#emailErrMsg").addClass('hidden');
+                $.ajax({
+                    url: '/ajax/registration',
+                    dataType: 'json',
+                    method: 'post',
+                    data: data
+                }).then(function (response) {
+                    if (response && response.success == true) {
+                        setTimeout('a', 1000);
+                        //This cookie is here because of payment provider verification hash which changes if amount was changed
+                        createCookie('wentToCheckout', true, 1);
+                        var form = $('#processForm');
+                        if ($('[name="payment_type"]').find(":selected").val() == 'bank') {
 
-                form.attr('action', bankTransfer)
+                            form.attr('action', bankTransfer)
+                        }
+                        form.submit();
+                    }
+                })
+            } else {
+                $("#emailErrMsg").removeClass('hidden');
             }
-            form.submit();
+
         })
+
 
     });
 
-    $('[name="payment_type"]').change(function(){
+    $('[name="payment_type"]').change(function () {
         $.ajax({
             url: '/ajax/changePaymentType',
             dataType: 'json',
             method: 'post',
-            data: {type:$('[name="payment_type"]').find(":selected").val() }
+            data: {type: $('[name="payment_type"]').find(":selected").val()}
         }).then(function (response) {
             console.log(response);
             window.location.reload();
@@ -172,17 +184,18 @@ $(document).ready(function () {
     });
 
 
-    $('[name="payeeType"]').change(function(){
+    $('[name="payeeType"]').change(function () {
 
 
-            if($(this).val() == 'company'){console.log('company');
-                $("#companyInfo").removeClass('hidden');
-                bindSelect2();
-                $("#payeeIndividualLabel").hide();
-            }else{
-                $("#companyInfo").addClass('hidden');
-                $("#payeeIndividualLabel").show();
-            }
+        if ($(this).val() == 'company') {
+            console.log('company');
+            $("#companyInfo").removeClass('hidden');
+            bindSelect2();
+            $("#payeeIndividualLabel").hide();
+        } else {
+            $("#companyInfo").addClass('hidden');
+            $("#payeeIndividualLabel").show();
+        }
 
     });
 

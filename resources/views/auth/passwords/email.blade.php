@@ -1,12 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.full')
 
 <!-- Main Content -->
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 mt-100 mb-100">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+                <h3 class="panel-heading">Promijeni lozinku</h3>
+                <br/>
+                <br/>
+                <br/>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -18,7 +21,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail adresa</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -34,7 +37,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i> Send Password Reset Link
+                                    <i class="fa fa-btn fa-envelope"></i> Pošalji zahtjev
                                 </button>
                             </div>
                         </div>

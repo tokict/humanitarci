@@ -184,6 +184,10 @@ class AjaxController extends Controller
     }
 
 
+    /**
+     * Swithc payment type on saved order
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function changePaymentType()
     {
         $input = Input::all();
@@ -208,6 +212,10 @@ class AjaxController extends Controller
     }
 
 
+    /**
+     * Log the sharing of the page to the db
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logShare()
     {
         $input = Input::all();
@@ -225,6 +233,20 @@ class AjaxController extends Controller
         }
         return response()
             ->json(['success' => true]);
+
+    }
+
+    public function checkUser(){
+        $email = Input::get('contact_email');
+
+        $user = User::where('email', $email)->count();
+        if($user){
+            return response()
+                ->json(['success' => false]);
+        }else{
+            return response()
+                ->json(['success' => true]);
+        }
 
     }
 

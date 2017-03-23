@@ -152,7 +152,12 @@
                                            type="text"
                                            pattern=".{3,100}"/>
                                 </div>
-
+                                <div class="mb-10">
+                                    <input placeholder="Email" name="cardholder_email" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                    <div id="emailErrMsg" class="hidden" style="color:darkred; padding: 5px">Email adresa je zauzeta.<br/> Molimo izaberite drugu ili izvršite prijavu</div>
+                                </div>
                                 <div class="mb-10">
                                     <input placeholder="Grad" name="cardholder_city" class="input-md form-control"
                                            type="text"
@@ -164,18 +169,13 @@
                                            pattern=".{3,100}"/>
                                 </div>
                                 <div class="mb-10">
+                                    <input placeholder="Adresa" name="cardholder_address" class="input-md form-control"
+                                           type="text"
+                                           pattern=".{3,100}"/>
+                                </div>
+                                <div class="mb-10">
                                     <input placeholder="Poštanski broj" name="cardholder_zip_code"
                                            class="input-md form-control"
-                                           type="text"
-                                           pattern=".{3,100}"/>
-                                </div>
-                                <div class="mb-10">
-                                    <input placeholder="Email" name="cardholder_email" class="input-md form-control"
-                                           type="text"
-                                           pattern=".{3,100}"/>
-                                </div>
-                                <div class="mb-10">
-                                    <input placeholder="Adresa" name="cardholder_address" class="input-md form-control"
                                            type="text"
                                            pattern=".{3,100}"/>
                                 </div>
