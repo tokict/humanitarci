@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DonationsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DonationsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/donations.js" afterPath="$PROJECT_DIR$/public/front/js/donations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/donation/cart.blade.php" afterPath="$PROJECT_DIR$/resources/views/donation/cart.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/donor/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/donor/login.blade.php" />
     </list>
     <ignored path="humanitarci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,34 +37,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForgotPasswordController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResetPasswordController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cart.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/donation/cart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70087975">
-              <caret line="158" column="137" selection-start-line="158" selection-start-column="137" selection-end-line="158" selection-end-column="137" />
+            <state vertical-scroll-proportion="15.157895">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="32" />
               <folding>
-                <element signature="e#8380#8415#0#HTML" expanded="true" />
-                <marker date="1490273192121" expanded="true" signature="4197:4387" placeholder="..." />
+                <element signature="e#8327#8362#0#HTML" expanded="true" />
+                <marker date="1490274495393" expanded="true" signature="4197:4334" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -75,28 +53,38 @@
       <file leaf-file-name="donations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/front/js/donations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.8">
-              <caret line="144" column="42" selection-start-line="144" selection-start-column="42" selection-end-line="144" selection-end-column="42" />
+            <state vertical-scroll-proportion="-11.333333">
+              <caret line="176" column="48" selection-start-line="176" selection-start-column="36" selection-end-line="176" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AjaxController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
+      <file leaf-file-name="DonationsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonationsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.88889">
-              <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.45454547">
+              <caret line="237" column="32" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PasswordController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
+      <file leaf-file-name="navbar.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/sections/navbar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.555555">
-              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            <state vertical-scroll-proportion="-11.421053">
+              <caret line="113" column="102" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bank.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.3333335">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,10 +145,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DonorsController.php" />
         <option value="$PROJECT_DIR$/app/Models/Order.php" />
         <option value="$PROJECT_DIR$/resources/views/donor/profile.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DonationsController.php" />
         <option value="$PROJECT_DIR$/public/front/css/extended.css" />
         <option value="$PROJECT_DIR$/app/Console/Commands/CheckBankEmailReports.php" />
-        <option value="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/pay_registration.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/campaign/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/donor/login.blade.php" />
@@ -168,6 +154,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" />
         <option value="$PROJECT_DIR$/public/front/js/donations.js" />
         <option value="$PROJECT_DIR$/resources/views/donation/cart.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DonationsController.php" />
       </list>
     </option>
   </component>
@@ -1019,7 +1007,13 @@
       <option name="project" value="LOCAL" />
       <updated>1490262375454</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Registration validation fixes">
+      <created>1490273221876</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1490273221876</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1085,7 +1079,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Navigation fixed nad font-awesome replaced" />
     <MESSAGE value="Remove duplicated body and js" />
     <MESSAGE value="Merge branch 'dev' of github.com:tokict/humanitarci&#10;&#10;Conflicts:&#10;&#9;composer.json&#10;&#9;resources/views/welcome.blade.php&#10;" />
     <MESSAGE value="Fix for http insecure" />
@@ -1110,20 +1103,14 @@
     <MESSAGE value="Fixed reference parsing" />
     <MESSAGE value="Fix registration email" />
     <MESSAGE value="Fix raw html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix raw html" />
+    <MESSAGE value="Registration validation fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registration validation fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AjaxController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1340,14 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.157895">
-          <caret line="235" column="27" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/front/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45747802">
@@ -1392,14 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.518518">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1599,20 +1570,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/front/js/donations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.8">
-          <caret line="144" column="42" selection-start-line="144" selection-start-column="42" selection-end-line="144" selection-end-column="42" />
+        <state vertical-scroll-proportion="-11.333333">
+          <caret line="176" column="48" selection-start-line="176" selection-start-column="36" selection-end-line="176" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/sections/navbar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.421053">
+          <caret line="113" column="102" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/donation/cart.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70087975">
-          <caret line="158" column="137" selection-start-line="158" selection-start-column="137" selection-end-line="158" selection-end-column="137" />
+        <state vertical-scroll-proportion="15.157895">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="32" />
           <folding>
-            <element signature="e#8380#8415#0#HTML" expanded="true" />
-            <marker date="1490273192121" expanded="true" signature="4197:4387" placeholder="..." />
+            <element signature="e#8327#8362#0#HTML" expanded="true" />
+            <marker date="1490274495393" expanded="true" signature="4197:4334" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45454547">
+          <caret line="237" column="32" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 
 class DonationsController extends Controller
@@ -51,10 +52,10 @@ class DonationsController extends Controller
             $exists = false;
             if (!empty($donations)) {
                 foreach ($donations as &$d) {
-                    //Exists, Add the amount to existing donation
+                    //Exists, replace the amount in existing donation
                     $cId = isset($d['campaign']->id) ? $d['campaign']->id : $d['campaign'];
                     if ($cId == $campaignId && $d['type'] == $type) {
-                        $d['amount'] = $d['amount'] += $amount;
+                        $d['amount'] = $amount;
                         $exists = true;
 
                     }
@@ -247,6 +248,10 @@ class DonationsController extends Controller
             abort(404);
 
         };
+
+        if(URL::previous() == env('APP_URL')."/".trans('routes.front.donations')."/".trans('routes.actions.cart')){
+            Session::remove('donations');
+        }
 
         return view('donation.bank', [
             'order' => $order,

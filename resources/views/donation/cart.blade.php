@@ -94,7 +94,7 @@
                     <hr class="mb-60"/>
                     <div class="row mb-20">
                         <div class="col-md-4 col-md-offset-8">
-                            {{Form::select('payment_type', ["" => 'Odaberi način plaćanja', 'card' => 'Kartica', 'bank' => 'Uplatnica'], $orderModel->payment_method == 'credit_card'?'card':'bank', ['class' => 'input-md form-control'])}}
+                            {{Form::select('payment_type', ['bank' => 'Uplatnica'], $orderModel->payment_method == 'credit_card'?'card':'bank', ['class' => 'input-md form-control'])}}
                         </div>
                     </div>
 
