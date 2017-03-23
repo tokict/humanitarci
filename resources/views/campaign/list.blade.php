@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="post-prev-text line-clamp">
-                    {{$campaign->description_short}}
+                    {!! $campaign->description_short!!}
                 </div>
 
                 <div class="post-prev-more">
