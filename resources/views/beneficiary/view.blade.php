@@ -32,12 +32,12 @@
                                             {{$beneficiary->person->city}}
                                         @endif
                                         @if(isset($beneficiary->legalEntity))
-                                                -
+                                            -
                                             {{$beneficiary->legalEntity->city}}
                                             , {{$beneficiary->legalEntity->city->region->name}}
                                         @endif
                                         @if(isset($beneficiary->group->city))
-                                                -
+                                            -
                                             {{$beneficiary->group->city}}
                                             , {{$beneficiary->group->city->region->name}}
                                         @endif
@@ -68,23 +68,25 @@
                                 <strong>{{count($beneficiary->donations)}}</strong> donacija
                             </td>
                             <td>
-                                <strong>{{$beneficiary->getAverageDonation()}} {{env('CURRENCY')}}</strong> prosječna
+                                <strong>{{number_format($beneficiary->getAverageDonation() / 100)}} {{env('CURRENCY')}}</strong> prosječna
                                 visina donacije
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <strong>{{isset($beneficiary->page_data)?$beneficiary->page_data->shares:0}}</strong> dijeljenja
+                                <strong>{{isset($beneficiary->page_data)?$beneficiary->page_data->shares:0}}</strong>
+                                dijeljenja
                             </td>
                             <td>
-                                <strong>{{isset($beneficiary->page_data)?$beneficiary->page_data->views:0}}</strong> pregleda profila
+                                <strong>{{isset($beneficiary->page_data)?$beneficiary->page_data->views:0}}</strong>
+                                pregleda profila
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="col-md-3">
-                    <small>Prikupljeni iznos donacija</small>
+                    <small>Iznos uručenih donacija</small>
                     <h2 class="no-margins">{{$beneficiary->funds_used}}</h2>
                     <div id="sparkline1"></div>
                 </div>
@@ -109,15 +111,17 @@
 
                     <h4 class="font-alt mb-20 mb-sm-40">Vodeći donori</h4>
                     <div class="user-friends">
-                        @foreach($beneficiary->getDonors() as $donor)
-                            <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.view')}}/{{$donor->id}}" style="text-decoration: none">
-                                @if(isset($donor->person))
-                                    {{$donor->person->first_name}} {{$donor->person->last_name}}
+                        @foreach($beneficiary->amountsByDonor() as $item)
+                            <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.view')}}/{{$item['donor']->id}}"
+                               style="text-decoration: none">
+                                @if(isset($item['donor']->person))
+                                    {{$item['donor']->person->first_name}} {{$item['donor']->person->last_name}}
                                 @endif
-                                @if(isset($donor->legalEntity))
-                                    {{$donor->legalEntity->name}}
+                                @if(isset($item['donor']->legalEntity))
+                                    {{$item['donor']->legalEntity->name}}
                                 @endif
                             </a>
+                             / {{$item['sum']}} {{env('CURRENCY')}}
                             <br/>
                         @endforeach
                     </div>
@@ -128,7 +132,6 @@
                 <div class="col-lg-4 m-b-lg">
                     <h4 class="section-title font-alt mb-70 mb-sm-40">Povijest akcija</h4>
                     @foreach($beneficiary->campaigns as $c)
-                        <div style="box-shadow: 1px 1px 1px gray; padding: 20px;">
                             <h2 class="inline">
                                 <div style="color:
                                 {{$c->status == 'active'?'green':''}}
@@ -146,18 +149,20 @@
                                         {{$c->status == 'inactive'?'Deaktivirana':''}}
                                     </small>
                                 </div>
-                                <small>{{$c->current_funds}} {{env("CURRENCY")}}
+                                <small>{{number_format($c->current_funds / 100)}} {{env("CURRENCY")}}
                                     / {{$c->target_amount}} {{env("CURRENCY")}}</small>
                             </h2>
                             <p>{!!  $c->description_short !!}
                             </p>
-                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}" class="btn btn-sm btn-primary"
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}"
+                               class="btn btn-sm btn-primary"
                                style="text-decoration: none;"> Više..</a>
                             <br/>
 
                             <small>Od {{date("d.m.Y", strtotime($c->starts))}}
                                 do {{date("d.m.Y", strtotime($c->ends))}}</small>
-                        </div>
+                        <hr>
+
                     @endforeach
 
 

@@ -5,20 +5,26 @@
     <div class="widget">
 
         <div class="donation-progress-alt font-alt-cased">
-            <div class="item">{{$campaign->target_amount / 100}} {{env('CURRENCY')}} <p>potrebno</p></div>
+            @if(isset($campaign->target_amount))
+                <div class="item">{{$campaign->target_amount / 100}} {{env('CURRENCY')}} <p>potrebno</p></div>
+            @endif
             <div class="item">{{$campaign->current_funds / 100}} {{env('CURRENCY')}} <p>prikupljeno od
                     <span>{{date("d.m.Y", strtotime($campaign->created_at))}}</span></p>
             </div>
 
-            <div class="progress tpl-progress">
-                <div class="progress-bar orange" role="progressbar" aria-valuenow="{{$campaign->percent_done}}"
-                     aria-valuemin="0" aria-valuemax="100" style="width: {{$campaign->percent_done}}%;">
-                    <span>{{$campaign->percent_done}}%</span>
+            @if(isset($campaign->target_amount))
+                <div class="progress tpl-progress">
+                    <div class="progress-bar orange" role="progressbar" aria-valuenow="{{$campaign->percent_done}}"
+                         aria-valuemin="0" aria-valuemax="100" style="width: {{$campaign->percent_done}}%;">
+                        <span>{{$campaign->percent_done}}%</span>
+                    </div>
                 </div>
-            </div>
+            @endif
 
-            <div class="item accent mb-30">{{($campaign->target_amount - $campaign->current_funds)/100}} {{env('CURRENCY')}}
-                <p>još nedostaje</p></div>
+            @if(isset($campaign->target_amount))
+                <div class="item accent mb-30">{{($campaign->target_amount - $campaign->current_funds)/100}} {{env('CURRENCY')}}
+                    <p>još nedostaje</p></div>
+            @endif
         </div>
 
 
@@ -76,11 +82,11 @@
                                     {{$donation->donor->person->first_name}} {{$donation->donor->person->last_name}}
                                     <a></a>
                                     @else
-                                        <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$donation->donor->username}}">{{$donation->donor->user->name}}</a>
+                                        <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$donation->donor->username}}">{{$donation->donor->user->username}}</a>
                                     @endif
                                     @if(isset($donation->donor->person->city))
                                         ,
-                                        {{$donation->donor->person->city}}
+                                {{$donation->donor->person->city}}
                             @endif
                         </span>
                     </li>

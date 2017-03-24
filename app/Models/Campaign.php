@@ -127,7 +127,6 @@ use Carbon\Carbon;
  *
  * @property Media $registration_doc
  *
-
  *
  * @property Media $beneficiary_receipt_doc
  *
@@ -136,6 +135,8 @@ use Carbon\Carbon;
  *
  *
  * @property \Illuminate\Database\Eloquent\Collection $donations
+ *
+ *  @property amountsByDonor
  *
  * @property \Illuminate\Database\Eloquent\Collection $goods_inputs
  *
@@ -235,10 +236,10 @@ class Campaign extends BaseModel
         }
         $this->setAttribute('current_funds', $amount);
         $this->setAttribute('donors_number', count($donors));
-        if(!empty($target)) {
+        if (!empty($target)) {
             $this->setAttribute('percent_done', ($amount / $target) * 100);
         }
-        if(!empty($this->getAttribute('target_amount')) && $amount >= $target){
+        if (!empty($this->getAttribute('target_amount')) && $amount >= $target) {
             $this->setAttribute('status', 'target_reached');
             $this->setAttribute('priority', 0);
         }
@@ -302,6 +303,25 @@ class Campaign extends BaseModel
     public function transactions()
     {
         return $this->hasMany(\App\Models\Transaction::class);
+    }
+
+    public function amountsByDonor()
+    {
+        $arr = [];
+        $donations = Donation::where('campaign_id', $this->getAttribute('id'))
+            ->groupBy('donor_id')
+            ->get();
+
+        foreach ($donations as $d){
+            $arr[] = [
+                'donor' => $d->donor,
+                'sum' => Donation::where('campaign_id', $this->getAttribute('id'))->where('donor_id', $d->id)
+                    ->sum('amount')
+            ];
+        }
+
+            return $arr;
+
     }
 
 
@@ -466,5 +486,10 @@ class Campaign extends BaseModel
             'donations' => 1
 
         ];
+    }
+
+    public function getDonors()
+    {
+
     }
 }

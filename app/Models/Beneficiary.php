@@ -82,6 +82,9 @@ namespace App\Models;
  * @property \Illuminate\Database\Eloquent\Collection $campaigns
  * Campaigns collection made for this beneficiary
  *
+ * @property $amountsByDonor
+ * Return donor and amounts for this beneficiary
+ *
  * @property \Illuminate\Database\Eloquent\Collection $donations
  * Donations collection donated to this beneficiary
  *
@@ -213,12 +216,12 @@ class Beneficiary extends BaseModel
         $donors = [];
         foreach ($campaigns as $c) {
             foreach ($c->donations as $d) {
-                if (!$d->donor->anonymous) {
+
                     $donors[] = $d->donor;
-                }
+
             }
         };
-        return Donor::take(10)->get();
+
         return $donors;
 
     }
@@ -249,5 +252,25 @@ class Beneficiary extends BaseModel
         $campaign = Campaign::where('beneficiary_id', $this->getAttribute('id'))->where('status', 'active')->get()->first();
 
         return isset($campaign) ? $campaign : false;
+    }
+
+
+    public function amountsByDonor()
+    {
+        $arr = [];
+        $donations = Donation::where('beneficiary_id', $this->getAttribute('id'))
+            ->groupBy('donor_id')
+            ->get();
+
+        foreach ($donations as $d){
+            $arr[] = [
+                'donor' => $d->donor,
+                'sum' => Donation::where('beneficiary_id', $this->getAttribute('id'))->where('donor_id', $d->id)
+                    ->sum('amount')
+            ];
+        }
+
+        return $arr;
+
     }
 }
