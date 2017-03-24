@@ -124,7 +124,7 @@
                             <div class="col-sm-10">
                                 <label class="control-label">Donations coordinates</label>
                                 {{Form::text('donations_coordinates', null,['class' =>'form-control' ] )}}
-                                <div class="coordinatesPicker" style="height:400px"></div>
+                                <div class="coordinatesPicker" data-coordinates="{{$organization->donations_coordinates}}" style="height:400px"></div>
 
                             </div>
                         </div>

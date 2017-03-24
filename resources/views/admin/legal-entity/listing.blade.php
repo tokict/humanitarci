@@ -41,9 +41,12 @@
                                         <td>{{ isset( $entity->bank)?$entity->bank->name:"" }}</td>
                                         <td class="center">{{ $entity->bank_acc }}</td>
                                         <td>{{ $entity->roles }}</td>
-                                        @if(isset($entity->person))
-                                            <td>{{ $entity->person->first_name }} {{$entity->person->last_name}}</td>
-                                        @endif
+
+                                        <td>
+                                            @if(isset($entity->person)){{ $entity->person->first_name }} {{$entity->person->last_name}}
+                                            @endif
+                                        </td>
+
 
                                         <td class="center">
                                             <a href="/admin/legal-entity/view/{{$entity->id}}"

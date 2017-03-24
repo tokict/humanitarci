@@ -13,6 +13,12 @@ function initMap() {
             center: center
         });
 
+        var c = $(this).data('coordinates');
+        if(c){
+            var parts = c.split(",");
+            center = {lat: parseFloat(parts[0]), lng: parseFloat(parts[1])};
+        }
+
         google.maps.event.addListener(map, 'click', function(event) {
             //Get the location that the user clicked.
             var clickedLocation = event.latLng;
