@@ -15,6 +15,7 @@ namespace App\Models;
  * @property int $id
  * @property int $donor_id
  * @property int $amount
+ * @property int $order_id
  * @property \Carbon\Carbon $created_at
  * @property int $payment_provider_data_id
  * @property int $bank_transfer_data_id
@@ -44,6 +45,7 @@ class MonetaryInput extends BaseModel
 	protected $fillable = [
 		'donor_id',
 		'amount',
+		'order_id',
 		'campaign_id',
 		'payment_provider_data_id',
 		'bank_transfer_data_id'

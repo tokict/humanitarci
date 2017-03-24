@@ -235,7 +235,9 @@ class Campaign extends BaseModel
         }
         $this->setAttribute('current_funds', $amount);
         $this->setAttribute('donors_number', count($donors));
-        $this->setAttribute('percent_done', ($amount / $target) * 100);
+        if(!empty($target)) {
+            $this->setAttribute('percent_done', ($amount / $target) * 100);
+        }
         if(!empty($this->getAttribute('target_amount')) && $amount >= $target){
             $this->setAttribute('status', 'target_reached');
             $this->setAttribute('priority', 0);

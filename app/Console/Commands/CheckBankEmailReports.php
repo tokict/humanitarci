@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Models\BankTransfersDatum;
-use App\Models\Media;
 use App\Models\MonetaryInput;
 use App\Models\Order;
 use App\Models\Organization;
@@ -12,11 +11,6 @@ use Ddeboer\Imap\Search\Email\FromAddress;
 use Ddeboer\Imap\SearchExpression;
 use Ddeboer\Imap\Server;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 
 class CheckBankEmailReports extends Command
 {
@@ -154,18 +148,18 @@ class CheckBankEmailReports extends Command
             $this->info('Processing received payments');
 
         }
+
         foreach ($received as $key => $item) {
             $this->info("//////");
             $this->info('Processing payment nr ' . ($key + 1) . ' of ' . $item['amount'] . ' and date ' . $item['date']);
             $parts = explode(" ", $item['description']);
             if(count($parts) >= 2){
-                $desc = $parts[1];
-            }else{
-                $desc = $item['description'];
+                $item['description'] = $parts[1];
             }
 
+            $item['description']  = rtrim(trim($item['description'], ""), "-");
             //Last number of $desc is index and should not be used to find reference in DB
-            $order = Order::where('reference', mb_substr(trim($desc), 0, -1))->orderBy('created_at',
+            $order = Order::where('reference', mb_substr($item['description'] , 0, -1))->orderBy('created_at',
                 'desc')->get()->first();
             if ($order) {
                 $this->info('Order for payment ' . ($key + 1) . ' found');

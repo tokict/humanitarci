@@ -35,6 +35,7 @@ class MonetaryInputObserver
         Log::info('Monetary input created from input ' . $monetaryInput->id
             . ' with amount of ' . $monetaryInput->amount . ' to campaign ' . $monetaryInput->campaign_id);
 
+
         $donations = [];
         if (isset($donationInfo)) {
             $order = isset($monetaryInput->payment_provider_datum) ? $monetaryInput->payment_provider_datum->order :
@@ -62,10 +63,12 @@ class MonetaryInputObserver
                     $donation->status = 'received';
                     $donation->source = 'site';
                     #Applying tax here because we cannot put all in donation, only whats left after tax
-                    $donation->amount = $item['amount'] - (($item['amount']) / 100 * $tax);
+                    $donation->amount = $monetaryInput->amount - (($monetaryInput->amount) / 100 * $tax);
                     $donation->payment_id = $monetaryInput->id;
                     $donation->organization_id = $campaign->organization_id;
-                    $donation->save();
+                    if(!$donation->save()){
+                        $this->error('Failed to save donation of: '.$monetaryInput->amount);
+                    }
                     $remaining -= $donation->amount;
 
                     $donations[] = $donation;
@@ -134,7 +137,7 @@ class MonetaryInputObserver
                     $donation->status = 'received';
                     $donation->source = 'site';
                     #Applying tax here because we cannot put all in donation, only whats left after tax
-                    $donation->amount = $item['amount'] - (($item['amount']) / 100 * $tax);
+                    $donation->amount = $remaining - (($remaining) / 100 * $tax);
                     $donation->payment_id = $monetaryInput->id;
                     $donation->organization_id = $campaign->organization_id;
                     $donation->save();
