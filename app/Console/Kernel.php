@@ -35,5 +35,7 @@ class Kernel extends ConsoleKernel
             ->cron('* * * * *');
         $schedule->command('CheckTransactions')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/transactionChecker.log")
             ->cron('0 * * * *');
+        $schedule->command('CheckBankEmailReports')->sendOutputTo(env('PROJECT_DIR') . "/storage/logs/bankTransactionChecker.log")
+            ->cron('0 0,4,8,12,16,20 * * *');
     }
 }
