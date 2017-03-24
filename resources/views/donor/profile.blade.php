@@ -119,23 +119,23 @@
 
         <!-- Donations -->
         <div class="row multi-columns-row">
-            <div class="col-md-4">
-                <h5>{{'Povijest upotrebe donacija'}}</h5>
+            <div class="col-md-4 text-center">
+                <h5 class="text-center">{{'Povijest upotrebe donacija'}}</h5>
                 @foreach($distributedFunds as $d)
                     @if($d->transaction)
                         {{$d->transaction->from_campaign->name}} &nbsp;>>&nbsp;
                     @endif
                     {{$d->donation->campaign->name}}:  <span
                             class="pull-right">{{number_format($d->amount/100)}} {{env('CURRENCY')}}</span><br/>
-                    <small>({{$d->monetary_output->description}})</small>
+                    <small>({!!$d->monetary_output->description!!})</small>
                     <hr>
                 @endforeach
             </div>
-            <div class="col-md-6">
-                <h5>{{'Povijest donacija'}}</h5>
+            <div class="col-md-6 text-center">
+                <h5 class="text-center">{{'Povijest donacija'}}</h5>
                 @foreach($donor->getCampaigns() as $c)
                         <!-- Team Item -->
-                <div class="col-sm-6 col-md-3 col-lg-3 mb-sm-30 wow fadeInUp">
+                <div class="col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 mb-sm-30 wow fadeInUp">
                     <div class="team-item">
 
                         <div class="team-item-image">
@@ -147,7 +147,7 @@
                                 <h4 class="font-alt normal">{{$c->beneficiary->name}}</h4>
 
                                 <p>
-                                    {{$c->description_short}}
+                                    {!!$c->description_short!!}
                                 </p>
 
                                 <div class="team-social-links">
@@ -166,9 +166,10 @@
                             </div>
 
                             <div class="team-item-role">
-                                Donated:
+                                Donirano:
                                 <br/>
                                 {{number_format($c->getTotalDonationsFromDonor($donor->id)/100)}} {{env('CURRENCY')}}
+
                             </div>
 
                         </div>

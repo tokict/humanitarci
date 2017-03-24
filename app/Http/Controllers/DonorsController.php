@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\PageViewed;
 use App\Http\Requests;
+use App\Models\BankTransfersDatum;
 use App\Models\Donation;
 use App\Models\Donor;
 use App\Models\MonetaryOutputSource;
@@ -137,7 +138,20 @@ class DonorsController extends Controller
         $donationTransfers = Donation::where('donor_id',
             Auth::User()->donor->id)->whereNotNull('transaction_id')->get();
 
-        $orders = Order::where('donor_id', $donor->id)->where('status', 'pending')->get();
+        $ordersArr = Order::where('donor_id', $donor->id)->where('status', 'pending')->get();
+        $orders = [];
+        foreach ($ordersArr as $order) {
+            //We need to check reference with all possible indexes at the end of reference to see has a certain donation peen paid
+            $countOfDonations = count(unserialize($order->donations));
+
+            for($i = 0; $i <= $countOfDonations; $i++){
+                $transfer = BankTransfersDatum::where('reference', $order->reference.$i)->get();
+                if(!$transfer){
+                    $orders[] = $order;
+                }
+            }
+
+        }
 
         return view('donor.profile',
             [
