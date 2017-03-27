@@ -127,6 +127,7 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('AdminController', function ($user, $params) {
 
             if (!$user->super_admin && !$user->admin) {
+                Auth::logout();
                 return false;
             }
 

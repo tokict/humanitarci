@@ -46,6 +46,9 @@ trait ControllerIndexTrait
 
         } else {
             if (Gate::denies($this->controller, [$this->params])) {
+                if(!Auth::user()){
+                    return redirect('/admin/login');
+                }
                 abort(403, 'You do not have permission to access this resource');
             }
         }

@@ -51,7 +51,7 @@ class LogController extends Controller
             //Group differences
             $differences = [];
             foreach(unserialize($old_data) as $key => $value){
-                if(isset($newerData[$key]) && $newData[$key] !== $value && $key != 'modified_at' && $key != 'updated_at'){
+                if(isset($newerData[$key]) && $old_data[$key] !== $value && $key != 'modified_at' && $key != 'updated_at'){
                     $differences[$key] = ['old' => $value, 'new' => $newerData[$key]];
                 }
             }
@@ -60,6 +60,7 @@ class LogController extends Controller
 
         } else {
             $old_data = null;
+            $differences = [];
         }
 
         if ($log) {
