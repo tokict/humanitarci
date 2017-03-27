@@ -627,7 +627,7 @@
                                                                                             {{number_format($donation->amount/100)}} {{env('CURRENCY')}}
                                                                                             <br/>
                                                                                             <br/>
-                                                                                            {{$donation->campaign->description_short}}</p>
+                                                                                            {!! $donation->campaign->description_short !!}</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </td>
