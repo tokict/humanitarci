@@ -33,3 +33,5 @@ config/ide-helper.php
 packages/
 resources/lang/en/.fuse_hidden000001c100000010
 resources/lang/hr/.fuse_hidden0000017300000011
+
+_ide_helper\.php
