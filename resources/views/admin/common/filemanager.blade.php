@@ -109,8 +109,15 @@
                                                 <small><i class="fa fa-edit pointer"
                                                           onclick="filemanager.editImage('{{$item->id}}')"></i> &nbsp;
                                                 </small>
-                                                <small><a href="{{$item->getPath('original')}}" target="_blank"
-                                                          class="fa fa-eye pointer"></a> &nbsp;</small>
+                                                <small>
+                                                    @if($item->type == 'image')
+                                                        <a href="{{$item->getPath('original')}}" target="_blank"
+                                                           class="fa fa-eye pointer"></a> &nbsp;
+                                                        @else
+                                                    <a href="{{$item->getPath()}}" target="_blank"
+                                                          class="fa fa-eye pointer"></a> &nbsp;
+                                                        @endif
+                                                </small>
                                                 @if(count($item->links) == 0)
                                                     <small class="pull-right pointer"
                                                            onclick="filemanager.deleteImage('{{$item->id}}')"><i
