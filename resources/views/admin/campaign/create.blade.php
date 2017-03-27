@@ -166,29 +166,29 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
-                            <div class="col-sm-3">
+                            {{--<div class="col-sm-3">
                                 <label class="control-label">Registration request</label>
                                 {{Form::hidden('registration_request_doc_id')}}
                                 <button type="button" class=" btn btn-default fileSelect" data-toggle="modal"
                                         data-target="#fileModal" data-single="true">Select
                                 </button>
-                            </div>
+                            </div>--}}
                             <div class="col-sm-3">
-                                <label class="control-label">Registration approval</label>
+                                <label class="control-label">Registration doc</label>
                                 {{Form::hidden('registration_doc_id')}}
                                 <button type="button" class="btn btn-default fileSelect" data-toggle="modal"
                                         data-target="#fileModal" data-single="true">Select
                                 </button>
                             </div>
-                            <div class="col-sm-3">
+                            {{--<div class="col-sm-3">
                                 <label class="control-label">Action plan</label>
                                 {{Form::hidden('action_plan_doc_id')}}
                                 <button type="button" class="btn btn-default fileSelect" data-toggle="modal"
                                         data-target="#fileModal" data-single="true">Select
                                 </button>
-                            </div>
+                            </div>--}}
                         </div>
-                        <div class="form-group">
+{{--                        <div class="form-group">
                             <label class="col-sm-2 control-label"></label>
                             <div class="col-sm-3">
                                 <label class="control-label">Distribution plan</label>
@@ -204,7 +204,7 @@
                                         data-target="#fileModal" data-single="true">Select
                                 </button>
                             </div>
-                        </div>
+                        </div>--}}
 
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
