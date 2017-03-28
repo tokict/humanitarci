@@ -30,7 +30,7 @@
                         <span><b>Novi donatori:</b>
                                 <br/>Nakon upisivanja Vaših podataka na unesenu email adresu dobiti ćete link za aktivaciju Vašeg profila ukoliko ne postoji na platformi.<br/>
                         Uplate će biti vidljive pod Vašim imenom tek nakon aktivacije profila.<br/>Ukoliko niste primili mail,
-                            provjerite spam folder ili nam pišite na <a href="mailto:webmaster@hrumnitarci.hr">webmaster@hrumnitarci.hr</a>
+                            provjerite spam folder ili nam pišite na <a href="mailto:webmaster@humanitarci.hr">webmaster@humanitarci.hr</a>
                             </span>
                         @endif
 
