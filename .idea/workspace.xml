@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/images/team/Tino.jpg" afterPath="$PROJECT_DIR$/public/front/images/team/Tino.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/donations.js" afterPath="$PROJECT_DIR$/public/front/js/donations.js" />
     </list>
     <ignored path="humanitarci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +30,8 @@
       <file leaf-file-name="navbar.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/sections/navbar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="98" column="24" lean-forward="false" selection-start-line="98" selection-start-column="20" selection-end-line="99" selection-end-column="99" />
+            <state relative-caret-position="1116">
+              <caret line="72" column="67" lean-forward="false" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -59,23 +59,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <file leaf-file-name="bank.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="702">
+              <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+              <folding>
+                <element signature="e#1263#1298#0#HTML" expanded="true" />
+                <element signature="e#1429#1476#0#HTML" expanded="true" />
+                <element signature="e#2700#2735#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extended.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/front/css/extended.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bank.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
+      <file leaf-file-name="team.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/team.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+            <state relative-caret-position="353">
+              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding>
-                <element signature="e#1380#1427#0#HTML" expanded="true" />
+                <marker date="1490697467864" expanded="false" signature="914:2320" ph="..." />
+                <marker date="1490697467864" expanded="false" signature="2478:3856" ph="..." />
+                <marker date="1490697467864" expanded="false" signature="4014:5400" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,31 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="donations.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="donations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/front/js/donations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DonationsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DonationsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="222" column="5" lean-forward="true" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/hr/strings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            <state relative-caret-position="991">
+              <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -142,15 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>s</find>
-      <find>str</find>
-      <find>strin</find>
-      <find>string</find>
-      <find>strings.month</find>
-      <find>strings.mont</find>
-      <find>strings.mon</find>
-      <find>strings.mo</find>
-      <find>strings.m</find>
       <find>strings.</find>
       <find>strings</find>
       <find>p</find>
@@ -168,10 +155,19 @@
       <find>potrepstina</find>
       <find>pomagali jedni drugima</find>
       <find>pomagali jedni drugima</find>
-      <find>This is a description of a project</find>
       <find>progre</find>
       <find>pra</find>
       <find>pomo</find>
+      <find>This is a description of a project</find>
+      <find>.</find>
+      <find>.de</find>
+      <find>.descr</find>
+      <find>.descripo</find>
+      <find>.descri</find>
+      <find>.descrip</find>
+      <find>.descript</find>
+      <find>descr</find>
+      <find>facebo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/campaign/listing.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/donor/view.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/FileController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/campaign/view.blade.php" />
@@ -190,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LegalEntityController.php" />
         <option value="$PROJECT_DIR$/resources/lang/hr/errors.php" />
         <option value="$PROJECT_DIR$/app/Models/Order.php" />
-        <option value="$PROJECT_DIR$/public/front/css/extended.css" />
         <option value="$PROJECT_DIR$/resources/views/emails/pay_registration.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/donor/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
@@ -222,15 +216,17 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/CheckBankEmailReports.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CampaignController.php" />
         <option value="$PROJECT_DIR$/app/Models/Organization.php" />
-        <option value="$PROJECT_DIR$/resources/views/sections/navbar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/hr/strings.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DonationsController.php" />
         <option value="$PROJECT_DIR$/resources/views/donation/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/full.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/campaign/list.blade.php" />
         <option value="$PROJECT_DIR$/public/front/js/donations.js" />
+        <option value="$PROJECT_DIR$/resources/views/sections/navbar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
+        <option value="$PROJECT_DIR$/public/front/css/extended.css" />
+        <option value="$PROJECT_DIR$/resources/views/pages/team.blade.php" />
       </list>
     </option>
   </component>
@@ -654,6 +650,76 @@
               <option name="myItemId" value="front" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="team" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hum" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -825,11 +891,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/front/images/team" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/resources/views/donor" />
       <recent name="$PROJECT_DIR$/resources/views/beneficiary" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bootstrap/cache" />
@@ -946,41 +1012,6 @@
       <workItem from="1490346855918" duration="41000" />
       <workItem from="1490347002079" duration="506000" />
       <workItem from="1490347633190" duration="16448000" />
-    </task>
-    <task id="LOCAL-00023" summary="Fix for http insecure">
-      <created>1488447132821</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1488447132821</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Google verification">
-      <created>1488447423624</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1488447423624</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Add gmaps key">
-      <created>1488447726462</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1488447726462</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Cumulative fixes for creating campaigns. Add group management">
-      <created>1488454177180</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1488454177180</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Increase description for campaigns">
-      <created>1488455716409</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1488455716409</updated>
     </task>
     <task id="LOCAL-00028" summary="Fix for fontpage campaign display">
       <created>1488456958412</created>
@@ -1290,11 +1321,46 @@
       <option name="project" value="LOCAL" />
       <updated>1490693509062</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Fix for custom amount validation">
+      <created>1490695013901</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1490695013901</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Fb and twitter links in navbar">
+      <created>1490696205741</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1490696205741</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Change reciever in hub">
+      <created>1490696478563</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1490696478563</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Visual improvements in HUB">
+      <created>1490697113135</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1490697113136</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Add team images">
+      <created>1490697487178</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1490697487178</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27548000" />
+    <option name="totallyTimeSpent" value="29638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="0" width="1922" height="1175" extended-state="6" />
@@ -1303,7 +1369,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993513" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41465676" sideWeight="0.50213444" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63472486" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63437796" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47863248" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1373,11 +1439,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fix paths" />
-    <MESSAGE value="Remove image and put file icon" />
-    <MESSAGE value="Remove extra images from backend campaign" />
-    <MESSAGE value="Fixes for page data display" />
-    <MESSAGE value="Cosmetics on bank HUB display" />
     <MESSAGE value="Added waiting donations for banks preview so users can come back to site and get hub preview" />
     <MESSAGE value="Fixed reference parsing" />
     <MESSAGE value="Fix registration email" />
@@ -1398,34 +1459,18 @@
     <MESSAGE value="Add beta mark. Visual changes" />
     <MESSAGE value="Remove buttons" />
     <MESSAGE value="Visual updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Visual updates" />
+    <MESSAGE value="Fix for custom amount validation" />
+    <MESSAGE value="Fb and twitter links in navbar" />
+    <MESSAGE value="Change reciever in hub" />
+    <MESSAGE value="Visual improvements in HUB" />
+    <MESSAGE value="Add team images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add team images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AjaxController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/beneficiary/list.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1779,31 +1824,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sections/navbar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="98" column="24" lean-forward="false" selection-start-line="98" selection-start-column="20" selection-end-line="99" selection-end-column="99" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-36">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding>
-            <element signature="e#1380#1427#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1865,9 +1890,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/front/js/donations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="34" column="29" lean-forward="false" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        <state relative-caret-position="991">
+          <caret line="65" column="13" lean-forward="true" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/sections/navbar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="72" column="67" lean-forward="false" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="e#1263#1298#0#HTML" expanded="true" />
+            <element signature="e#1429#1476#0#HTML" expanded="true" />
+            <element signature="e#2700#2735#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/front/css/extended.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/front/images/team/Tino.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/team.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding>
+            <marker date="1490697467864" expanded="false" signature="914:2320" ph="..." />
+            <marker date="1490697467864" expanded="false" signature="2478:3856" ph="..." />
+            <marker date="1490697467864" expanded="false" signature="4014:5400" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
