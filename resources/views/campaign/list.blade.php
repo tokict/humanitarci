@@ -23,6 +23,7 @@
                     <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}"><img src="{{$campaign->cover->getPath('small')}}" alt=""></a>
                 </div>
 
+                @if(isset($campaign->target_amount))
                 <div class="progress tpl-progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="{{$campaign->percent_done}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$campaign->percent_done}}%;">
                         <span>{{$campaign->percent_done}}%</span>
@@ -30,6 +31,10 @@
                     <br/>
                     {{$campaign->target_amount}} {{env('CURRENCY')}}
                 </div>
+                    @else
+                    <small>Do sada prikupljeno: {{number_format($campaign->current_amount/100)}} {{env('CURRENCY')}}</small>
+                    <br/><br/>
+                @endif
 
 
                 <div class="post-prev-info font-alt">

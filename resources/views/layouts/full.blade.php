@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Humanitarci.hr</title>
     <meta name="description"
-          content="Humanitarci.hr je potpuno transparentna platforma za doniranje novca, hrane i nuznih potrepstina">
+          content="Humanitarci.hr je potpuno transparentna platforma za doniranje novca, hrane i nužnih potrepština">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="google-site-verification" content="pKDL-2njZLD7AHfG5Lhf1kqockfqKfhmqpBTGmz5GcU" />
