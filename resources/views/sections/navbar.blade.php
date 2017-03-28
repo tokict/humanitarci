@@ -66,11 +66,11 @@
                     </li>
 
                     <li>
-                        <a href="/"><span class="mn-soc-link tooltip-bot"
+                        <a href="https://www.facebook.com/humanitarci.hr/"><span class="mn-soc-link tooltip-bot"
                                                                                    title=""
                                                                                    data-original-title="Facebook"><i
                                         class="fa fa-facebook"></i></span></a>
-                        <a href="/"><span class="mn-soc-link tooltip-bot"
+                        <a href="https://twitter.com/humanitarci_hr"><span class="mn-soc-link tooltip-bot"
                                                                                    title=""
                                                                                    data-original-title="Twitter"><i
                                         class="fa fa-twitter"></i></span></a>
