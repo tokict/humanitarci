@@ -81,9 +81,15 @@ class CheckBankEmailReports extends Command
                 $search = new SearchExpression();
                 $search->addCondition(new FromAddress($organization->mail_report_from));
                 $messages = $mailbox->getMessages($search);
-                $this->info('We have ' . count($messages) . ' messages to process');
 
                 foreach ($messages as $key => $message) {
+                    //Skip messages received before last task run
+                    $receivedAt = Carbon::instance($message->getDate());
+                    $last = new Carbon('4 hours ago');
+
+                    if ($receivedAt < $last) {
+                        continue;
+                    }
                     $this->info("************************************************");
 
                     // $message is instance of \Ddeboer\Imap\Message
@@ -147,65 +153,65 @@ class CheckBankEmailReports extends Command
         if (count($received)) {
             $this->info('Processing received payments');
 
-        }
 
-        foreach ($received as $key => $item) {
-            $this->info("//////");
-            $this->info('Processing payment nr ' . ($key + 1) . ' of ' . $item['amount'] . ' and date ' . $item['date']);
-            $parts = explode(" ", $item['description']);
-            if(count($parts) >= 2){
-                $item['description'] = $parts[1];
-            }
-
-            $item['description']  = rtrim(trim($item['description'], ""), "-");
-            //Last number of $desc is index and should not be used to find reference in DB
-            $order = Order::where('reference', mb_substr($item['description'] , 0, -1))->orderBy('created_at',
-                'desc')->get()->first();
-            if ($order) {
-                $this->info('Order for payment ' . ($key + 1) . ' found');
-
-                //Replace amount with real received amount
-                $order->amount = (int)str_replace([".", ","], "", $item['amount']);
-
-                $this->info('Amount is ' . $order->amount);
-                //Create bank transfer record
-                $paymentData = [
-                    "bank_id" => $organization->legalEntity->bank_id,
-                    "payee_name" => $item['name'],
-                    "payee_account" => $item['iban'],
-                    "donor_id" => $order->donor_id,
-                    'order_id' => $order->id,
-                    "time" => date('Y-m-d H:i:s', strtotime($item['date'])),
-                    "amount" => $order->amount,
-                    "reference" => $item['description']
-                ];
-
-                try {
-                    $input = BankTransfersDatum::create($paymentData);
-                } catch (\Exception $e) {
-                    $this->info('Creating bank transfer entry failed with message: ' . $e->getMessage());
-                    continue;
+            foreach ($received as $key => $item) {
+                $this->info("//////");
+                $this->info('Processing payment nr ' . ($key + 1) . ' of ' . $item['amount'] . ' and date ' . $item['date']);
+                $parts = explode(" ", $item['description']);
+                if (count($parts) >= 2) {
+                    $item['description'] = $parts[1];
                 }
 
-                //Create monetary input
-                $inputData = [
-                    'donor_id' => $order->donor_id,
-                    'amount' => $order->amount,
-                    'order_id' => $order->id,
-                    'bank_transfer_data_id' => $input['id']
-                ];
+                $item['description'] = rtrim(trim($item['description'], ""), "-");
+                //Last number of $desc is index and should not be used to find reference in DB
+                $order = Order::where('reference', mb_substr($item['description'], 0, -1))->orderBy('created_at',
+                    'desc')->get()->first();
+                if ($order) {
+                    $this->info('Order for payment ' . ($key + 1) . ' found');
 
-                if (MonetaryInput::create($inputData)) {
-                    $this->info("Payment entered into the system");
+                    //Replace amount with real received amount
+                    $order->amount = (int)str_replace([".", ","], "", $item['amount']);
+
+                    $this->info('Amount is ' . $order->amount);
+                    //Create bank transfer record
+                    $paymentData = [
+                        "bank_id" => $organization->legalEntity->bank_id,
+                        "payee_name" => $item['name'],
+                        "payee_account" => $item['iban'],
+                        "donor_id" => $order->donor_id,
+                        'order_id' => $order->id,
+                        "time" => date('Y-m-d H:i:s', strtotime($item['date'])),
+                        "amount" => $order->amount,
+                        "reference" => $item['description']
+                    ];
+
+                    try {
+                        $input = BankTransfersDatum::create($paymentData);
+                    } catch (\Exception $e) {
+                        $this->info('Creating bank transfer entry failed with message: ' . $e->getMessage());
+                        continue;
+                    }
+
+                    //Create monetary input
+                    $inputData = [
+                        'donor_id' => $order->donor_id,
+                        'amount' => $order->amount,
+                        'order_id' => $order->id,
+                        'bank_transfer_data_id' => $input['id']
+                    ];
+
+                    if (MonetaryInput::create($inputData)) {
+                        $this->info("Payment entered into the system");
+                    } else {
+                        $this->info("Payment CANNOT be entered into the system");
+                    }
+
                 } else {
-                    $this->info("Payment CANNOT be entered into the system");
+                    $this->info("No order found for payment! Skipping!");
                 }
+                $this->info("//////");
 
-            } else {
-                $this->info("No order found for payment! Skipping!");
             }
-            $this->info("//////");
-
         }
 
 
