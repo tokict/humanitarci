@@ -238,7 +238,7 @@ class CampaignController extends Controller
                 if ($old_media_info != $input['media_info']) {
                     $diff = array_diff(explode(",", $old_media_info), explode(",", $input['media_info']));
                     foreach (explode(",", $input['media_info']) as $id) {
-                        $exists = MediaLink::where('campaign_id', $campaign->id)->andWhere('media_id', $id);
+                        $exists = MediaLink::where('campaign_id', $campaign->id)->where('media_id', $id);
 
                         //Add new ones
                         if (!$exists) {
