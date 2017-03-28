@@ -205,7 +205,7 @@
                                             id="donation_fees">{{number_format($total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}
                                 </strong>
                                 <br/>
-                                <small>(Troskovi banke, dostave materijala, itd)</small>
+                                <small>(Troškovi banke, dostave materijala, itd)</small>
 
                                 {{--<div>
                                     @foreach($taxes as $key => $value)

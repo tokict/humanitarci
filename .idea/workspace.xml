@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/donation/cart.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
-              <caret line="207" column="80" lean-forward="false" selection-start-line="207" selection-start-column="80" selection-end-line="207" selection-end-column="80" />
+              <caret line="207" column="44" lean-forward="false" selection-start-line="207" selection-start-column="44" selection-end-line="207" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -823,13 +823,6 @@
       <workItem from="1490347002079" duration="506000" />
       <workItem from="1490347633190" duration="16448000" />
     </task>
-    <task id="LOCAL-00018" summary="more initial setup with css and translations">
-      <created>1478248850454</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1478248850454</updated>
-    </task>
     <task id="LOCAL-00019" summary="Navigation fixed nad font-awesome replaced">
       <created>1478252701157</created>
       <option name="number" value="00019" />
@@ -1166,11 +1159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490691376291</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Remove buttons">
+      <created>1490691706988</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1490691706988</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25077000" />
+    <option name="totallyTimeSpent" value="25135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="0" width="1922" height="1175" extended-state="6" />
@@ -1734,7 +1734,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/donation/cart.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
-          <caret line="207" column="80" lean-forward="false" selection-start-line="207" selection-start-column="80" selection-end-line="207" selection-end-column="80" />
+          <caret line="207" column="44" lean-forward="false" selection-start-line="207" selection-start-column="44" selection-end-line="207" selection-end-column="44" />
           <folding />
         </state>
       </provider>
