@@ -7,12 +7,16 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use App\Models\Admin;
+use App\Models\PasswordReset;
 use App\User;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Validation\Rules\In;
+use Psy\Util\Str;
 
 class UserController extends Controller
 {
@@ -87,5 +91,20 @@ class UserController extends Controller
         }
 
         return view('admin.user.create');
+    }
+
+    public function send(\Illuminate\Http\Request $request, $id)
+    {
+        $user = User::find($id);
+        if($user){
+            $reset = new PasswordReset(['email' => $user->email, 'token' => \Illuminate\Support\Str::random(60)]);
+            $reset->save();
+            Mail::queue('emails.pay_registration', ['user' => $user, 'reset' => $reset->toArray()], function ($m) use ($user, $reset) {
+
+                $m->to($user->email, $user->first_name)->subject('Postavi svoju Humanitarci.hr lozinku');
+            });
+        }else{
+            dd('No user found');
+        }
     }
 }

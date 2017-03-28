@@ -63,7 +63,7 @@
                                 @foreach ($donors as $donor)
                                     <tr class="gradeX">
                                         <td>{{$donor->id}}</td>
-                                        <td>{{ $donor->user->name }}</td>
+                                        <td>{{ isset($donor->user->username)?$donor->user->username:"" }}</td>
                                         <td class="center">
                                             @if(isset($donor->person) && $donor->anonymous != 1)
                                                 <a href="person/view/{{$donor->person->id}}">{{ $donor->person->first_name }} {{ $donor->person->last_name }}</a>
