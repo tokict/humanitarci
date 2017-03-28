@@ -215,7 +215,7 @@ class DonationsController extends Controller
         unset($donations[$index]);
         Session::set('donations', $donations);
 
-        return redirect()->back()->with('success', [trans('Item removed')]);
+        return redirect()->back()->with('success', [trans('strings.donations.Item removed')]);
     }
 
 

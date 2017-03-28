@@ -9,7 +9,8 @@
 return [
     'donations' => [
         'single' => 'jednokratna',
-        'monthly' => 'mjesečna'
+        'monthly' => 'mjesečna',
+        'Item removed' => 'Donacija izbrisana'
     ],
     'payment' => [
         'Payment was successful! Your donation should be visible in no later than 24 hours after payment' =>
