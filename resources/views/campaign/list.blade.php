@@ -32,7 +32,7 @@
                     {{$campaign->target_amount}} {{env('CURRENCY')}}
                 </div>
                     @else
-                    <small>Do sada prikupljeno: {{number_format($campaign->current_amount/100)}} {{env('CURRENCY')}}</small>
+                    <small>Do sada prikupljeno: {{number_format($campaign->current_funds/100)}} {{env('CURRENCY')}}</small>
                     <br/><br/>
                 @endif
 
