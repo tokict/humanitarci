@@ -37,7 +37,7 @@
                                                 {{ $user->person->first_name }} {{ $user->person->last_name }}</a>
                                         </td>
                                         <td class="center">{{ isset($user->admin)?'Yes':'No' }}</td>
-                                        <td class="center">{{ $user->creator->user->username }}</td>
+                                        <td class="center">{{ $user->creator->user->username or ''}}</td>
                                         <td class="center">
                                             @if(isset($user->donor))
                                                 <a href="/admin/donor/view/{{ $user->donor->id }}">Yes</a>
