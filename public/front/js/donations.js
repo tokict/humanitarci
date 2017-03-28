@@ -15,6 +15,7 @@ $(document).ready(function () {
     var country = $('[name="cardholder_country"]');
     var email = $('[name="cardholder_email"]');
     var phone = $('[name="cardholder_phone"]');
+    var customAmount = $('#custom_amount');
 
     $('.fixedDonation').click(function () {
         var url = $(this).data("url");
@@ -30,7 +31,11 @@ $(document).ready(function () {
         var amount = $('#custom_amount').val();
         var campaign = $(this).data("campaign");
         var type = $('input[name=donation_type]:checked').val()
-        window.location = url + '?type=' + type + '&campaign=' + campaign + '&amount=' + amount;
+        if($('#custom_amount').val() === "" || $('#custom_amount').val() < 1){
+            $('#custom_amount').css({border: '1px solid red'});
+        }else {
+            window.location = url + '?type=' + type + '&campaign=' + campaign + '&amount=' + amount;
+        }
     });
 
 
@@ -108,6 +113,8 @@ $(document).ready(function () {
             } else {
                 phone.parent().css({border: '1px solid #ccc'});
             }
+
+
 
             if (missing != 0 && (typeof auth == 'undefined' || auth == false)) {
                 console.log('Missing ' + missing);
