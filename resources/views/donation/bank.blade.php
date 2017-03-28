@@ -52,11 +52,8 @@
                         {{$d['campaign']->iban}}
                     </div>
                     <div class="receiver">
-                        {{$d['campaign']->organization->legalEntity->name}}
-                        <br/>
-                        {{$d['campaign']->organization->legalEntity->address}}
-                        <br/>
-                        {{$d['campaign']->organization->legalEntity->city->name}}
+                        {{$d['campaign']->name}}
+
                     </div>
                     <div class="description">
                         Donacija {{$order->reference}}{{$key}}
