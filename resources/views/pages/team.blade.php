@@ -22,14 +22,14 @@
 
 
             <div class="row">
-
+            <div class="col-sm-10 col-sm-offset-1">
                 <!-- Team item -->
                 <div class="col-sm-4 mb-xs-30 wow fadeInUp">
                     <div class="team-item">
 
                         <div class="team-item-image">
 
-                            <img src="/front/images/team/team-1.jpg" alt="" />
+                            <img src="/front/images/team/Tino.jpg" alt="" />
 
                             <div class="team-item-detail">
 
@@ -70,7 +70,7 @@
 
                         <div class="team-item-image">
 
-                            <img src="/front/images/team/team-2.jpg" alt="" />
+                            <img src="/front/images/team/Damir.jpg" alt="" />
 
                             <div class="team-item-detail">
 
@@ -111,7 +111,7 @@
 
                         <div class="team-item-image">
 
-                            <img src="/front/images/team/team-3.jpg" alt="" />
+                            <img src="/front/images/team/Sladjana.jpg" alt="" />
 
                             <div class="team-item-detail">
 
@@ -145,7 +145,7 @@
                     </div>
                 </div>
                 <!-- End Team item -->
-
+            </div>
             </div>
 
         </div>
