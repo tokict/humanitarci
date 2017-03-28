@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6358b70-2752-4230-9375-3937d9b33159" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/sections/navbar.blade.php" afterPath="$PROJECT_DIR$/resources/views/sections/navbar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/donation/bank.blade.php" afterPath="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
     </list>
     <ignored path="humanitarci.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,22 +69,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="27" selection-end-column="99" />
+            <state relative-caret-position="-36">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bank.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bank.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="110" lean-forward="false" selection-start-line="7" selection-start-column="110" selection-end-line="7" selection-end-column="110" />
-              <folding />
+            <state relative-caret-position="288">
+              <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+              <folding>
+                <element signature="e#1380#1427#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>2015. godin</find>
       <find>coordinatesPicker</find>
       <find>var c \= \$\(this\)\.data\(\'coordinates\'\)\;\n        if\(c\)\{\n            var parts \= c\.split\(\&quot;\,\&quot;\)\;\n            center \= \{lat\: parseFloat\(parts\[0\]\)\, lng\: parseFloat\(parts\[1\]\)\}\;\n        \}</find>
       <find>c</find>
@@ -131,6 +131,7 @@
       <find>kako mo</find>
       <find>kako mog</find>
       <find>kako mogu</find>
+      <find>laklše</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,9 +188,9 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/CheckBankEmailReports.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CampaignController.php" />
         <option value="$PROJECT_DIR$/app/Models/Organization.php" />
-        <option value="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/sections/navbar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/donation/bank.blade.php" />
       </list>
     </option>
   </component>
@@ -812,13 +813,6 @@
       <workItem from="1490347002079" duration="506000" />
       <workItem from="1490347633190" duration="16448000" />
     </task>
-    <task id="LOCAL-00016" summary="Added name to dashboard so we can see the current user">
-      <created>1478162976910</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1478162976910</updated>
-    </task>
     <task id="LOCAL-00017" summary="more initial setup with css and translations">
       <created>1478248714559</created>
       <option name="number" value="00017" />
@@ -1155,11 +1149,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490690420318</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Remove buttons">
+      <created>1490690632553</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1490690632553</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23997000" />
+    <option name="totallyTimeSpent" value="24745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="0" width="1922" height="1175" extended-state="6" />
@@ -1238,7 +1239,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fix for path" />
     <MESSAGE value="Fix for pdf uploads" />
     <MESSAGE value="Fix paths" />
     <MESSAGE value="Remove image and put file icon" />
@@ -1263,7 +1263,8 @@
     <MESSAGE value="Fix for changing cover images" />
     <MESSAGE value="Fix for changing cover images 2" />
     <MESSAGE value="Add beta mark. Visual changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add beta mark. Visual changes" />
+    <MESSAGE value="Remove buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove buttons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1654,7 +1655,7 @@
         <state relative-caret-position="276">
           <caret line="146" column="31" lean-forward="true" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
           <folding>
-            <element signature="e#40#66#0#PHP" expanded="true" />
+            <element signature="e#40#66#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1683,14 +1684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="110" lean-forward="false" selection-start-line="7" selection-start-column="110" selection-end-line="7" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/sections/navbar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -1711,9 +1704,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="27" selection-end-column="99" />
+        <state relative-caret-position="-36">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/donation/bank.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding>
+            <element signature="e#1380#1427#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

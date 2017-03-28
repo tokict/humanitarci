@@ -4,13 +4,29 @@
         <!-- Section -->
 <section class="page-section">
     <div class="container">
+        <div class="row">
         <b>NAPOMENA:</b> Uplate će biti vidljive na sistemu nako što nam banka pošajle izvješće o uplati.<br/>
         Izvješća dobijamo jednom dnevno što znači da je moguće da se Vaša uplate na sistemu registrira tek <b>nakon 48h</b>.<br/>
         U prosjeku bi trebala biti vidljiva unutar 24h.<br/><br/>
 
         Ukoliko se Vaša uplate ne vidi u sistemu nakon isteka 48 sati, molimo da nam pošaljete email sa oznakom donacije
         kako bi mogli provjeriti u čemu je problem.
+        </div>
         @foreach($donations as $key =>  $d)
+    <div class="row">
+               <div class="text-center">
+                   <br/><br/>
+
+                    <strong>Za uplate iz inozemstva ili internet bankarstvom:</strong><br/>
+                     {{$d['campaign']->organization->legalEntity->bank->name}}<br/>
+                    Swift: {{$d['campaign']->organization->legalEntity->bank->swift_code}}<br/>
+                    Iban: {{$d['campaign']->iban}}<br/>
+                    Iznos: {{number_format($order->amount, 2)}} {{env('CURRENCY')}}<br/><br/>
+                    Opis plaćanja: "Donacija {{$order->reference}}{{$key}}"<br/>
+
+               </div>
+
+    </div>
             <div class="row">
 
                 <div style="width:640px; height:422px; margin: auto">
@@ -44,19 +60,6 @@
                     </div>
                     <div class="description">
                         Donacija {{$order->reference}}{{$key}}
-                    </div>
-                    <div class="abroad">
-                        <br/>
-                        <strong>Za uplate iz inozemstva:</strong><br/>
-                        Banka: {{$d['campaign']->organization->legalEntity->bank->name}}<br/>
-                        Swift: {{$d['campaign']->organization->legalEntity->bank->swift_code}}<br/>
-                        Iban: {{$d['campaign']->iban}}<br/>
-                        Iznos: {{number_format($order->amount, 2)}} {{env('CURRENCY')}}<br/><br/>
-                        Opis plaćanja: "Donacija {{$order->reference}}{{$key}}"<br/>
-                        -----------------------------------------------------------------------------------------
-                        <br/>
-
-
                     </div>
                 </div>
 
