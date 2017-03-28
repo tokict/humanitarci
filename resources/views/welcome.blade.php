@@ -24,8 +24,8 @@
                         <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}"
                            class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
                         <span class="hidden-xs">&nbsp;</span>
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}"
-                           class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
+                        {{--<a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}"
+                           class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>--}}
                     </div>
 
                 </div>
