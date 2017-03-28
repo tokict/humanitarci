@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\BankReport;
 use App\Models\BankTransfersDatum;
 use App\Models\MonetaryInput;
 use App\Models\Order;
@@ -85,17 +86,23 @@ class CheckBankEmailReports extends Command
                 foreach ($messages as $key => $message) {
                     //Skip messages received before last task run
                     $receivedAt = Carbon::instance($message->getDate());
-                    $last = new Carbon('4 hours ago');
+                    $last = new Carbon('2 days ago');
 
                     if ($receivedAt < $last) {
                         continue;
                     }
+
                     $this->info("************************************************");
 
                     // $message is instance of \Ddeboer\Imap\Message
                     $attachments = $message->getAttachments();
                     $this->info('Message ' . ($key + 1) . ' has ' . count($attachments) . ' attachments');
                     foreach ($attachments as $key => $attachment) {
+                        $exists = BankReport::where('filename', $attachment->getFilename())->get()->first();
+                        if($exists){
+                            $this->info("Attachment ".$attachment->getFilename()." already processed. Skipping!");
+                            continue;
+                        }
                         $this->info("!!!!!!!!!!!");
                         $this->info('Processing attachment nr ' . ($key + 1) . '(' . $attachment->getFilename() . ') using class ' . $organization->legalEntity->bank->swift_code);
                         // $attachment is instance of \Ddeboer\Imap\Message\Attachment
@@ -140,7 +147,13 @@ class CheckBankEmailReports extends Command
                             });
                             continue;
                         }*/
-                        $this->info("!!!!!!!!!!!");
+                        $this->info("Attachment parsed!");
+                        BankReport::create([
+                            'organization_id' => $organization->id,
+                            'bank_id' =>  $organization->legalEntity->bank->id,
+                            'filename' => $attachment->getFilename(),
+                            'received_at' =>  $receivedAt->format("Y-m-d H:i:s")
+                        ]);
                     }
                     $this->info("************************************************");
                 }
