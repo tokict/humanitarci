@@ -30,6 +30,7 @@ namespace App\Models;
  * @property string $mail_report_file_format
  * @property string $mail_report_server
  * @property string $mail_report_port
+ * @property string $website
  *
  * @property \App\Models\Person $person
  * @property \App\Models\LegalEntity $legalEntity
@@ -75,7 +76,8 @@ class Organization extends BaseModel
 		'mail_report_from',
 		'mail_report_file_format',
 		'mail_report_server',
-		'mail_report_port'
+		'mail_report_port',
+        'website'
 	];
 
 	public function legalEntity()

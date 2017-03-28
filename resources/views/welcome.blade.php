@@ -169,6 +169,8 @@
 
                     <div class="post-prev-text line-clamp">
                         <b>{!! $campaign->name!!}</b>
+                        <br/>
+                        <small>Humanitarna udruga: <a href="{{$campaign->organization->website}}">{{ $campaign->organization->name }}</a></small>
                     </div>
                     <div class="post-prev-text line-clamp">
                         {!! $campaign->description_short!!}

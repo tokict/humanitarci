@@ -16,11 +16,11 @@
             <div class="inner-nav desktop-nav">
                 <ul class="clearlist">
                     <li>
-                        <a href="/"><img src="/front/images/logo-header.png" width="38" height="55" alt=""/></a>
+                        <a href="/"><img src="/front/images/logo-header.png" width="25" height="25" alt=""/><span style="color: #ed172d; font-family: " Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif">BETA</span></a>
                     </li>
                     <!-- Item With Sub -->
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/">Početna</a>
                     </li>
                     <!-- End Item With Sub -->
 
@@ -66,18 +66,18 @@
                     </li>
 
                     <li>
-                        <a href="#" style="height: 75px; line-height: 75px;"><span class="mn-soc-link tooltip-bot"
+                        <a href="/"><span class="mn-soc-link tooltip-bot"
                                                                                    title=""
                                                                                    data-original-title="Facebook"><i
                                         class="fa fa-facebook"></i></span></a>
-                        <a href="#" style="height: 75px; line-height: 75px;"><span class="mn-soc-link tooltip-bot"
+                        <a href="/"><span class="mn-soc-link tooltip-bot"
                                                                                    title=""
                                                                                    data-original-title="Twitter"><i
                                         class="fa fa-twitter"></i></span></a>
                     </li>
 
                     <!-- Search -->
-                    <li>
+                    {{--<li>
                         <a href="#" class="mn-has-sub"><i class="fa fa-search"></i> Traži</a>
                         <ul class="mn-sub">
                             <li>
@@ -93,7 +93,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li>--}}
                     <!-- End Search -->
                     @if(\Illuminate\Support\Facades\Auth::User() == null)
                     <li><a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}" style="height: 75px; line-height: 75px;"><span

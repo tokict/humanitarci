@@ -4,6 +4,12 @@
         <!-- Section -->
 <section class="page-section">
     <div class="container">
+        <b>NAPOMENA:</b> Uplate će biti vidljive na sistemu nako što nam banka pošajle izvješće o uplati.<br/>
+        Izvješća dobijamo jednom dnevno što znači da je moguće da se Vaša uplate na sistemu registrira tek <b>nakon 48h</b>.<br/>
+        U prosjeku bi trebala biti vidljiva unutar 24h.<br/><br/>
+
+        Ukoliko se Vaša uplate ne vidi u sistemu nakon isteka 48 sati, molimo da nam pošaljete email sa oznakom donacije
+        kako bi mogli provjeriti u čemu je problem.
         @foreach($donations as $key =>  $d)
             <div class="row">
 
@@ -48,6 +54,7 @@
                         Iznos: {{number_format($order->amount, 2)}} {{env('CURRENCY')}}<br/><br/>
                         Opis plaćanja: "Donacija {{$order->reference}}{{$key}}"<br/>
                         -----------------------------------------------------------------------------------------
+                        <br/>
 
 
                     </div>
