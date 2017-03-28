@@ -40,9 +40,8 @@
                                 </p>
 
                                 <div class="team-social-links">
-                                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-envelope"></i></a>
+                                    <a href="https://www.facebook.com/ttokic" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/TinoTokic" target="_blank"><i class="fa fa-twitter"></i></a>
                                 </div>
 
                             </div>
@@ -81,9 +80,7 @@
                                 </p>
 
                                 <div class="team-social-links">
-                                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-envelope"></i></a>
+                                    <a href="https://www.facebook.com/damir.bulic" target="_blank"><i class="fa fa-facebook"></i></a>
                                 </div>
 
                             </div>
@@ -122,9 +119,7 @@
                                 </p>
 
                                 <div class="team-social-links">
-                                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-envelope"></i></a>
+                                    <a href="https://www.facebook.com/sladana.bozac" target="_blank"><i class="fa fa-facebook"></i></a>
                                 </div>
 
                             </div>
