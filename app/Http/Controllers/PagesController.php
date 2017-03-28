@@ -42,14 +42,22 @@ class PagesController extends Controller
                     'name' => 'required|max:100',
                     'message' => 'required|max:1000',
                 ]);
+                $data = ['name' => Input::get('name'),
+                    'email' => Input::get('email'),
+                    'message' => Input::get('message')];
+                Mail::queue('emails.contact_form',
+                    [
+                        'data' =>
+                        $data
+                    ],
+                    function ($m) {
 
-                 mail( env('WEBMASTER_MAIL') , 'New humanitarci.hr message' , Input::get('name').' - '.Input::get('email').'  |   '.Input::get('message')
-                      );
+                        $m->to(env('WEBMASTER_MAIL'), 'Tino')->subject('Kontakt preko Humanitarci.hr');
+                    });
+                \Session::flash('success', true);
 
-               \Session::flash('success' , true);
-
-            } catch (\Exception $e) {
-
+            } catch (\Exception $e) {dd($e->getMessage());
+                \Session::flash('error', 'Problem pri slanju poruke');
             }
         }
         return view('pages.contacts');
