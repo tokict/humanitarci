@@ -204,7 +204,10 @@
                                 Naknade: <strong><span
                                             id="donation_fees">{{number_format($total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}
                                 </strong>
-                                <div>
+                                <br/>
+                                <small>(Troskovi banke, dostave materijala, itd)</small>
+
+                                {{--<div>
                                     @foreach($taxes as $key => $value)
                                         @if(($key == 'credit_card_processor_tax'
                                          || $key == 'bank_tax') && $orderModel->payment_method == 'bank_transfer')
@@ -214,7 +217,7 @@
                                         @endif
 
                                     @endforeach
-                                </div>
+                                </div>--}}
 
                             </div>
 
