@@ -217,7 +217,7 @@ class CampaignController extends Controller
             if ($campaign->update($input)) {
                 //Recheck and rebind media links and media
                 if ($old_cover_id != $input['cover_photo_id']) {
-                    $oldCover = MediaLink::where('campaign_id', $campaign->id)->andWhere('media_id', $old_cover_id);
+                    $oldCover = MediaLink::where('campaign_id', $campaign->id)->where('media_id', $old_cover_id);
                     //Delete old cover
                     $oldCover->delete();
 
@@ -259,7 +259,7 @@ class CampaignController extends Controller
 
                     //Remove links that are now not needed
                     foreach ($diff as $d) {
-                        $link = MediaLink::where('campaign_id', $campaign->id)->andWhere('media_id', $d);
+                        $link = MediaLink::where('campaign_id', $campaign->id)->where('media_id', $d);
                         $link->delete();
                     }
                 }
