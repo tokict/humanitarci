@@ -59,7 +59,7 @@ class PasswordController extends Controller
      */
     public function reset(Request $request)
     {
-
+        $input = Input::all();
         $this->validate(
             $request,
             $this->getResetValidationRules(),
@@ -69,7 +69,7 @@ class PasswordController extends Controller
 
         $credentials = $this->getResetCredentials($request);
 
-        $input = Input::all();
+
 
 
 
