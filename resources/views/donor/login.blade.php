@@ -58,7 +58,7 @@
 
                                     <!-- Inform Tip -->
                                     <div class="form-tip pt-20">
-                                        <a href="/pasword/reset">Zaboravljena lozinka?</a>
+                                        <a href="/password/reset">Zaboravljena lozinka?</a>
                                     </div>
 
                                 </div>
