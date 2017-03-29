@@ -77,17 +77,17 @@
                         <br>
                         <span class="iznos-donacije">{{number_format($donation->amount /100, 2)}} {{env('CURRENCY')}}</span>
                         <span class="donator">
-                            @if(isset($donation->donor->person) && $donation->donor->anonymous != 1)
-                                <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$donation->donor->username}}">
-                                    {{$donation->donor->person->first_name}} {{$donation->donor->person->last_name}}
-                                    <a></a>
-                                    @else
-                                        <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$donation->donor->username}}">{{$donation->donor->user->username}}</a>
-                                    @endif
-                                    @if(isset($donation->donor->person->city))
-                                        ,
+                                        @if($donation->donor->user->username)
+                                <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$donation->donor->user->username}}">{{$donation->donor->user->username}}</a>
+                            @else
+                                Anonimno
+
+                            @endif
+                            @if(isset($donation->donor->person->city))
+                                ,
                                 {{$donation->donor->person->city}}
                             @endif
+
                         </span>
                     </li>
                 @endforeach
