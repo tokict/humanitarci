@@ -76,7 +76,7 @@
                                 </i> Share
                             </button>
                             <a class="btn-mod btn-circle twitterShare"
-                               href="https://twitter.com/intent/tweet?text={{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}" data-id="{{$campaign->id}}"
+                               href="https://twitter.com/intent/tweet?text={{$campaign->name}} @ {{env('APP_URL')}}/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$campaign->id}}" data-id="{{$campaign->id}}"
                                data-type="campaign">
                                 <i class="fa fa-twitter"></i> Tweet</a>
                         </p>
