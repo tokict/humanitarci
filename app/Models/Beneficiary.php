@@ -239,7 +239,7 @@ class Beneficiary extends BaseModel
             foreach ($c->donations as $d)
                 $totalAmount += $d->amount;
         }
-        return $totalAmount;
+        return $totalAmount / count($c->donations);
 
     }
 

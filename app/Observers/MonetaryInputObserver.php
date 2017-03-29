@@ -25,9 +25,6 @@ class MonetaryInputObserver
         #New input, create donations if we have info
 
         $amount = $monetaryInput->amount;
-        $provider_tax = Setting::getSetting('payment_provider_tax')->value;
-        $platform_tax = Setting::getSetting('payment_platform_tax')->value;
-        $bank_tax = Setting::getSetting('payment_bank_tax')->value;
         $remaining = $amount;
         $donationInfo = isset($monetaryInput->payment_provider_datum)
             ? $monetaryInput->payment_provider_datum->order->donations :
@@ -41,7 +38,7 @@ class MonetaryInputObserver
             $order = isset($monetaryInput->payment_provider_datum) ? $monetaryInput->payment_provider_datum->order :
                 $monetaryInput->bank_transfers_datum->order;
             if ($order->payment_method == 'bank_transfer') {
-                $tax = $platform_tax;
+
                 $don = unserialize($donationInfo);
                 foreach ($don as $key => $item) {
                     $index = substr($monetaryInput->bank_transfers_datum->reference, -1);
@@ -63,7 +60,7 @@ class MonetaryInputObserver
                     $donation->status = 'received';
                     $donation->source = 'site';
                     #Applying tax here because we cannot put all in donation, only whats left after tax
-                    $donation->amount = $monetaryInput->amount - (($monetaryInput->amount) / 100 * $tax);
+                    $donation->amount = $monetaryInput->amount;
                     $donation->payment_id = $monetaryInput->id;
                     $donation->organization_id = $campaign->organization_id;
                     if (!$donation->save()) {
@@ -111,7 +108,7 @@ class MonetaryInputObserver
                 }
 
             } else {
-                $tax = $bank_tax + $platform_tax + $provider_tax;
+
                 $don = unserialize($donationInfo);
 
                 foreach ($don as $key => $item) {
@@ -146,8 +143,8 @@ class MonetaryInputObserver
                     $donation->type = 'money';
                     $donation->status = 'received';
                     $donation->source = 'site';
-                    #Applying tax here because we cannot put all in donation, only whats left after tax
-                    $donation->amount = $remaining - (($remaining) / 100 * $tax);
+
+                    $donation->amount = $remaining;
                     $donation->payment_id = $monetaryInput->id;
                     $donation->organization_id = $campaign->organization_id;
                     $donation->save();
@@ -197,9 +194,14 @@ class MonetaryInputObserver
      */
     public function saving(MonetaryInput $monetaryInput)
     {
-        $total_tax = Setting::getSetting('payment_provider_tax')->value
-            + Setting::getSetting('payment_platform_tax')->value
-            + Setting::getSetting('payment_bank_tax')->value;
+        $total_tax = Setting::getSetting('payment_platform_tax')->value;
+
+        if(isset($monetaryInput->payment_provider_data_id)){
+            $total_tax += Setting::getSetting('payment_provider_tax')->value;
+        }
+        if(isset($monetaryInput->bank_transfer_data_id)){
+            $total_tax += Setting::getSetting('payment_bank_tax')->value;
+        }
 
         if (isset($monetaryInput->bank_transfer_data_id)) {
             $monetaryInput->amount = number_format($monetaryInput->amount
