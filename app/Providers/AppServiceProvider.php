@@ -28,6 +28,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -55,6 +56,10 @@ class AppServiceProvider extends ServiceProvider
         LegalEntity::observe(EntityObserver::class);
         Setting::observe(SettingObserver::class);
 
+
+        Validator::extend('without_spaces', function($attr, $value){
+            return preg_match('/^\S*$/u', $value);
+        });
 
     }
 
