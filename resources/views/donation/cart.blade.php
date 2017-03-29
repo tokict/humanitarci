@@ -216,27 +216,6 @@
                                     </strong>
                                 </div>
 
-                                <div class="mb-10">
-                                    Naknade: <strong><span
-                                                id="donation_fees">{{number_format($total/100*$total_tax, 2)}}</span> {{env('CURRENCY')}}
-                                    </strong>
-                                    <br/>
-                                    <small>(Troškovi banke, dostave materijala, itd)</small>
-
-                                    {{--<div>
-                                        @foreach($taxes as $key => $value)
-                                            @if(($key == 'credit_card_processor_tax'
-                                             || $key == 'bank_tax') && $orderModel->payment_method == 'bank_transfer')
-                                            @else
-                                                <small id="{{$key}}">{{ucfirst(trans('strings.misc.'.$key))}}
-                                                    : {{number_format($total/100*$value, 2)}} {{env('CURRENCY')}}</small><br/>
-                                            @endif
-
-                                        @endforeach
-                                    </div>--}}
-
-                                </div>
-
                                 <div class="lead mt-0 mb-30">
                                     Za donirati: <strong>{{number_format($total, 2)}} {{env('CURRENCY')}}</strong>
                                 </div>

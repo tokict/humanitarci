@@ -28,7 +28,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row hidden">
             <div class="col-lg-7 col-lg-offset-1">
                 <br/>
                 <label>Jednokratno</label> <input type="radio" name="donation_type" class="pull-right" value="single"
