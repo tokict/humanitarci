@@ -23,7 +23,8 @@
     "ddeboer/imap": "^0.5.2",
     "maatwebsite/excel": "~2.1.0",
     "barryvdh/laravel-ide-helper": "~2.2",
-    "smalot/pdfparser" : "*"
+    "smalot/pdfparser" : "*",
+    "bigfish/pdf417": "^0.2.0"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*",

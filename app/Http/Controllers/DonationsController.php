@@ -8,6 +8,9 @@ use App\Models\Donation;
 use App\Models\Order;
 use App\Models\Person;
 use App\Models\Setting;
+use BigFish\PDF417\PDF417;
+use BigFish\PDF417\Renderers\ImageRenderer;
+use BigFish\PDF417\Renderers\SvgRenderer;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -239,7 +242,10 @@ class DonationsController extends Controller
                 foreach (unserialize($order->donations) as $d) {
                     $cid = $d['campaign'];
                     $campaign = Campaign::where('id', $cid)->get()->first();
-                    $cart[]['campaign'] = $campaign;
+                    $d['campaign'] = $campaign;
+                    $cart[] = $d;
+
+
 
                 }
             }
@@ -249,7 +255,45 @@ class DonationsController extends Controller
 
         };
 
-        if(URL::previous() == env('APP_URL')."/".trans('routes.front.donations')."/".trans('routes.actions.cart')){
+
+
+        //add 2d code to each
+        foreach ($cart as $key => &$d) {
+            $text = '';
+            $zaglavlje = str_pad('', 8, ' ', STR_PAD_RIGHT);
+            $valuta = str_pad(env('CURRENCY'), 3, ' ', STR_PAD_RIGHT);
+            $iznos = str_pad($d['amount'], 15, ' ', STR_PAD_RIGHT);
+            $platitelj = str_pad($order->donor->person->first_name.' '.$order->donor->person->last_name, 30, ' ', STR_PAD_RIGHT);
+            $platitelj_ulica = str_pad($order->donor->person->address, 27, ' ', STR_PAD_RIGHT);
+            $platitelj_mjesto = str_pad($order->donor->person->city, 27, ' ', STR_PAD_RIGHT);
+            $primatelj= str_pad($d['campaign']->name, 25, ' ', STR_PAD_RIGHT);
+            $primatelj_ulica = str_pad('', 25, ' ', STR_PAD_RIGHT);
+            $primatelj_mjesto = str_pad('', 27, ' ', STR_PAD_RIGHT);
+            $iban = str_pad($d['campaign']->iban, 21, ' ', STR_PAD_RIGHT);
+            $model = str_pad('HR00', 4, ' ', STR_PAD_RIGHT);
+            $poziv_broj = str_pad('', 22, ' ', STR_PAD_RIGHT);
+            $sifra_namjene = str_pad('', 4, ' ', STR_PAD_RIGHT);
+            $opis_placanja = str_pad("Donacija ".$order->reference.$key, 35, ' ', STR_PAD_RIGHT);
+
+            $text .= $zaglavlje.= $valuta.= $iznos.= $platitelj.= $platitelj_ulica
+                .= $primatelj.= $platitelj_mjesto.= $primatelj_ulica.= $primatelj_mjesto
+            .= $iban.= $model.= $poziv_broj.= $sifra_namjene .=$opis_placanja;
+
+
+
+            $pdf = new PDF417();
+            $data = $pdf->encode($text);
+
+            $renderer = new ImageRenderer([
+                'format' => 'data-url',
+                'scale' => 2
+            ]);
+            $image = $renderer->render($data);
+            $d['barcode'] = $image->getEncoded();
+
+        }
+
+        if (URL::previous() == env('APP_URL') . "/" . trans('routes.front.donations') . "/" . trans('routes.actions.cart')) {
             Session::remove('donations');
         }
 

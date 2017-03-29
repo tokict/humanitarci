@@ -163,3 +163,9 @@ span.donator {
     top: 550px;
     padding-left:20px;
 }
+
+
+.hubBarcode {
+    position: relative;
+    top: -260px;
+}

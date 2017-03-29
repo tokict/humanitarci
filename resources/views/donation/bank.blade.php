@@ -60,6 +60,10 @@
                     </div>
                 </div>
 
+
+            </div>
+            <div class="row text-center">
+                <img src="{{$d['barcode']}}" class="hubBarcode">
             </div>
         @endforeach
 
