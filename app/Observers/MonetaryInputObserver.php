@@ -66,10 +66,18 @@ class MonetaryInputObserver
                     $donation->amount = $monetaryInput->amount - (($monetaryInput->amount) / 100 * $tax);
                     $donation->payment_id = $monetaryInput->id;
                     $donation->organization_id = $campaign->organization_id;
-                    if(!$donation->save()){
-                        $this->error('Failed to save donation of: '.$monetaryInput->amount);
+                    if (!$donation->save()) {
+                        $this->error('Failed to save donation of: ' . $monetaryInput->amount);
                     }
                     $remaining -= $donation->amount;
+
+                    //Update the number of donors if needed for beneficiary
+                    $donorsNumber = Donor::with('Donations')->whereHas('Donations', function ($q) use ($campaign) {
+                        $q->where('beneficiary_id', $campaign->beneficiary_id);
+                    })->count();
+
+                    $campaign->beneficiary->donor_number = $donorsNumber;
+                    $campaign->beneficiary->save();
 
                     $donations[] = $donation;
 
@@ -86,15 +94,17 @@ class MonetaryInputObserver
                 }
 
                 try {
-                    Mail::queue('emails.donation_thankyou', [
-                        'user' => $donor->user,
-                        'donations' => $donations,
-                        'donation' => $donation,
-                        'amount' => $amount
-                    ], function ($m) use ($donor) {
+                    if (env('APP_ENV') == 'production') {
+                        Mail::queue('emails.donation_thankyou', [
+                            'user' => $donor->user,
+                            'donations' => $donations,
+                            'donation' => $donation,
+                            'amount' => $amount
+                        ], function ($m) use ($donor) {
 
-                        $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-                    });
+                            $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+                        });
+                    }
 
                 } catch (\Exception $e) {
                     Log::error('Could not send mail for donation: ' . ' on line ' . $e->getMessage() . ' on line ' . $e->getLine() . ' file ' . $e->getFile());
@@ -158,15 +168,17 @@ class MonetaryInputObserver
                 }
 
                 try {
-                    Mail::queue('emails.donation_thankyou', [
-                        'user' => $donor->user,
-                        'donations' => $donations,
-                        'donation' => $donation,
-                        'amount' => $amount
-                    ], function ($m) use ($donor) {
+                    if (env('APP_ENV') == 'production') {
+                        Mail::queue('emails.donation_thankyou', [
+                            'user' => $donor->user,
+                            'donations' => $donations,
+                            'donation' => $donation,
+                            'amount' => $amount
+                        ], function ($m) use ($donor) {
 
-                        $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
-                    });
+                            $m->to($donor->user->email, $donor->user->first_name)->subject('Hvala na donaciji!');
+                        });
+                    }
                 } catch (\Exception $e) {
                     Log::error('Could not send mail for donation: ' . ' on line ' . $e->getMessage() . ' on line ' . $e->getLine() . ' file ' . $e->getFile());
                 }

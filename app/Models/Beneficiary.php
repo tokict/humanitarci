@@ -265,10 +265,11 @@ class Beneficiary extends BaseModel
         foreach ($donations as $d){
             $arr[] = [
                 'donor' => $d->donor,
-                'sum' => Donation::where('beneficiary_id', $this->getAttribute('id'))->where('donor_id', $d->id)
+                'sum' => Donation::where('beneficiary_id', $this->getAttribute('id'))->where('donor_id', $d->donor_id)
                     ->sum('amount')
             ];
         }
+
 
         return $arr;
 

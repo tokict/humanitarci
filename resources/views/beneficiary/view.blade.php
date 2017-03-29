@@ -68,7 +68,8 @@
                                 <strong>{{count($beneficiary->donations)}}</strong> donacija
                             </td>
                             <td>
-                                <strong>{{number_format($beneficiary->getAverageDonation() / 100)}} {{env('CURRENCY')}}</strong> prosječna
+                                <strong>{{number_format($beneficiary->getAverageDonation() / 100)}} {{env('CURRENCY')}}</strong>
+                                prosječna
                                 visina donacije
                             </td>
                         </tr>
@@ -115,13 +116,17 @@
                             <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.view')}}/{{$item['donor']->id}}"
                                style="text-decoration: none">
                                 @if(isset($item['donor']->person))
-                                    {{$item['donor']->person->first_name}} {{$item['donor']->person->last_name}}
+                                    @if($item['donor']->user->username)
+                                        {{$item['donor']->user->username}}
+                                    @else
+                                        Anonimno
+                                    @endif
                                 @endif
                                 @if(isset($item['donor']->legalEntity))
                                     {{$item['donor']->legalEntity->name}}
                                 @endif
                             </a>
-                             / {{$item['sum']}} {{env('CURRENCY')}}
+                            / {{number_format($item['sum']/100, 2)}} {{env('CURRENCY')}}
                             <br/>
                         @endforeach
                     </div>
@@ -132,35 +137,35 @@
                 <div class="col-lg-4 m-b-lg">
                     <h4 class="section-title font-alt mb-70 mb-sm-40">Povijest akcija</h4>
                     @foreach($beneficiary->campaigns as $c)
-                            <h2 class="inline">
-                                <div style="color:
+                        <h2 class="inline">
+                            <div style="color:
                                 {{$c->status == 'active'?'green':''}}
-                                {{$c->status == 'blocked'?'red':''}}
-                                {{in_array($c->status, ['reached', 'failed'])?'orange':''}}
-                                {{$c->status == 'inactive'?'gray':''}}">
-                                    <i class="fa fa-dot-circle-o"></i>
-                                    {{$c->name}}
-                                    <small>
+                            {{$c->status == 'blocked'?'red':''}}
+                            {{in_array($c->status, ['reached', 'failed'])?'orange':''}}
+                            {{$c->status == 'inactive'?'gray':''}}">
+                                <i class="fa fa-dot-circle-o"></i>
+                                {{$c->name}}
+                                <small>
 
-                                        {{$c->status == 'active'?'Aktivna':''}}
-                                        {{$c->status == 'blocked'?'Blokirana':''}}
-                                        {{$c->status == 'reached'?'Završena: Cilj postignut':''}}
-                                        {{$c->status == 'failed'?'Završena: Cilj nije dostignut':''}}
-                                        {{$c->status == 'inactive'?'Deaktivirana':''}}
-                                    </small>
-                                </div>
-                                <small>{{number_format($c->current_funds / 100)}} {{env("CURRENCY")}}
-                                    / {{$c->target_amount}} {{env("CURRENCY")}}</small>
-                            </h2>
-                            <p>{!!  $c->description_short !!}
-                            </p>
-                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}"
-                               class="btn btn-sm btn-primary"
-                               style="text-decoration: none;"> Više..</a>
-                            <br/>
+                                    {{$c->status == 'active'?'Aktivna':''}}
+                                    {{$c->status == 'blocked'?'Blokirana':''}}
+                                    {{$c->status == 'reached'?'Završena: Cilj postignut':''}}
+                                    {{$c->status == 'failed'?'Završena: Cilj nije dostignut':''}}
+                                    {{$c->status == 'inactive'?'Deaktivirana':''}}
+                                </small>
+                            </div>
+                            <small>{{number_format($c->current_funds / 100)}} {{env("CURRENCY")}}
+                                / {{$c->target_amount}} {{env("CURRENCY")}}</small>
+                        </h2>
+                        <p>{!!  $c->description_short !!}
+                        </p>
+                        <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$c->id}}"
+                           class="btn btn-sm btn-primary"
+                           style="text-decoration: none;"> Više..</a>
+                        <br/>
 
-                            <small>Od {{date("d.m.Y", strtotime($c->starts))}}
-                                do {{date("d.m.Y", strtotime($c->ends))}}</small>
+                        <small>Od {{date("d.m.Y", strtotime($c->starts))}}
+                            do {{date("d.m.Y", strtotime($c->ends))}}</small>
                         <hr>
 
                     @endforeach
