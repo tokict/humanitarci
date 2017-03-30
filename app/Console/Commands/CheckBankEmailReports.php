@@ -86,7 +86,7 @@ class CheckBankEmailReports extends Command
                 foreach ($messages as $key => $message) {
                     //Skip messages received before last task run
                     $receivedAt = Carbon::instance($message->getDate());
-                    $last = new Carbon('200 days ago');
+                    $last = new Carbon('2 days ago');
 
                     if ($receivedAt < $last) {
                         continue;
