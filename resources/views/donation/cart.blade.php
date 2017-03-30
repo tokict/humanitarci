@@ -30,9 +30,10 @@
                         <span><b>Novi donatori:</b>
                                 <br/>Nakon upisivanja Vaših podataka na unesenu email adresu dobiti ćete link za aktivaciju Vašeg profila ukoliko ne postoji na platformi.<br/>
                         Uplate će biti vidljive pod Vašim imenom tek nakon aktivacije profila.<br/>Ukoliko niste primili mail,
-                            provjerite spam folder ili nam pišite na <a href="mailto:webmaster@humanitarci.hr">webmaster@humanitarci.hr</a>
+                            provjerite spam folder ili nam pišite na <a
+                                    href="mailto:webmaster@humanitarci.hr">webmaster@humanitarci.hr</a>
                             </span>
-                        @endif
+                    @endif
 
                     <?php if(!empty($errors)): ?>
 
@@ -119,6 +120,9 @@
                                     &nbsp;&nbsp;&nbsp;
                                     <label for="name">Tvrtka</label>
                                     <input type="radio" value="company" name="payeeType" class="payeeType">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <label for="name">Anonimno</label>
+                                    <input type="radio" value="anonymous" name="payeeType" class="payeeType">
                                     <br/>
                                     <div id="companyInfo" class="hidden">
                                         <h3 class="small-title font-alt">Podatci o tvrtki</h3>
@@ -244,6 +248,16 @@
                                     <button type="button" class="btn btn-mod btn-round btn-large" id="processFormBtn">
                                         <i class="fa fa-2x fa-heart"></i> Doniraj
                                     </button>
+                                </div>
+                                <div class="col-sm-11 col-sm-offset-1 text-left mt-50">
+                                    <div class="col-sm-10 col-sm-offset-2">
+                                        <b>Napomena:</b><br/>
+                                        <small>Podatci koje unesete ovdje poznati su samo osoblju
+                                        humanitarci.hr i
+                                        ni u kojem slučaju se ne otkrivaju javnosti putem stranice.
+                                        Sve Vaše uplate su vidljive isključivo pod korisničkim imenom koje sami
+                                            odaberete.<br/><br/></small>
+                                    </div>
                                 </div>
 
 

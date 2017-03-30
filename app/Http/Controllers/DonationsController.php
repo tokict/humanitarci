@@ -263,9 +263,9 @@ class DonationsController extends Controller
             $zaglavlje = str_pad('', 8, ' ', STR_PAD_RIGHT);
             $valuta = str_pad(env('CURRENCY'), 3, ' ', STR_PAD_RIGHT);
             $iznos = str_pad($d['amount'], 15, ' ', STR_PAD_RIGHT);
-            $platitelj = str_pad($order->donor->person->first_name.' '.$order->donor->person->last_name, 30, ' ', STR_PAD_RIGHT);
-            $platitelj_ulica = str_pad($order->donor->person->address, 27, ' ', STR_PAD_RIGHT);
-            $platitelj_mjesto = str_pad($order->donor->person->city, 27, ' ', STR_PAD_RIGHT);
+            $platitelj = str_pad(isset($order->donor)?$order->donor->person->first_name.' '.$order->donor->person->last_name:'', 30, ' ', STR_PAD_RIGHT);
+            $platitelj_ulica = str_pad(isset($order->donor)?$order->donor->person->address:'', 27, ' ', STR_PAD_RIGHT);
+            $platitelj_mjesto = str_pad(isset($order->donor)?$order->donor->person->city:'', 27, ' ', STR_PAD_RIGHT);
             $primatelj= str_pad($d['campaign']->name, 25, ' ', STR_PAD_RIGHT);
             $primatelj_ulica = str_pad('', 25, ' ', STR_PAD_RIGHT);
             $primatelj_mjesto = str_pad('', 27, ' ', STR_PAD_RIGHT);
@@ -273,7 +273,7 @@ class DonationsController extends Controller
             $model = str_pad('HR00', 4, ' ', STR_PAD_RIGHT);
             $poziv_broj = str_pad('', 22, ' ', STR_PAD_RIGHT);
             $sifra_namjene = str_pad('', 4, ' ', STR_PAD_RIGHT);
-            $opis_placanja = str_pad("Donacija ".$order->reference.$key, 35, ' ', STR_PAD_RIGHT);
+            $opis_placanja = str_pad(isset($order->donor)?"Donacija ".$order->reference.$key:'', 35, ' ', STR_PAD_RIGHT);
 
             $text .= $zaglavlje.= $valuta.= $iznos.= $platitelj.= $platitelj_ulica
                 .= $primatelj.= $platitelj_mjesto.= $primatelj_ulica.= $primatelj_mjesto
