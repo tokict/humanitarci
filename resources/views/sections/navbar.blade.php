@@ -58,7 +58,7 @@
                     </li>
 
                     <li>
-                        <a href="https://blog.humanitarci.hr">Blog</a>
+                        <a href="https://humanitarci.hr/blog">Blog</a>
                     </li>
 
                     <li>
