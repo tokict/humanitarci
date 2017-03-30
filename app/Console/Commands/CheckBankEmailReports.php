@@ -79,9 +79,9 @@ class CheckBankEmailReports extends Command
 
 
                 $mailbox = $connection->getMailbox('INBOX');
-                $search = new SearchExpression();
-                $search->addCondition(new FromAddress($organization->mail_report_from));
-                $messages = $mailbox->getMessages($search);
+/*                $search = new SearchExpression();
+                $search->addCondition(new FromAddress($organization->mail_report_from));*/
+                $messages = $mailbox->getMessages();
 
                 foreach ($messages as $key => $message) {
                     //Skip messages received before last task run
@@ -116,7 +116,9 @@ class CheckBankEmailReports extends Command
                         try {
                             $inputs = new $classname('storage/app/temp/' . $attachment->getFilename());
                             foreach ($inputs->getData() as $item) {
-                                $received[] = $item;
+                                if(isset($item['amount']) && is_float(floatval($item['amount']))) {
+                                    $received[] = $item;
+                                }
                             };
 
                         } catch (\Exception $e) {
@@ -194,7 +196,7 @@ class CheckBankEmailReports extends Command
                         "donor_id" => $order->donor_id,
                         'order_id' => $order->id,
                         "time" => date('Y-m-d H:i:s', strtotime($item['date'])),
-                        "amount" => $order->amount,
+                        "amount" => (int)floatval($item['amount'])*100 ,
                         "reference" => $item['description']
                     ];
 
@@ -208,7 +210,7 @@ class CheckBankEmailReports extends Command
                     //Create monetary input
                     $inputData = [
                         'donor_id' => $order->donor_id,
-                        'amount' => $order->amount,
+                        'amount' => (int)floatval($item['amount'])*100,
                         'order_id' => $order->id,
                         'bank_transfer_data_id' => $input['id']
                     ];
