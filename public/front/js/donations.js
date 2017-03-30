@@ -15,7 +15,7 @@ $(document).ready(function () {
     var country = $('[name="cardholder_country"]');
     var email = $('[name="cardholder_email"]');
     var phone = $('[name="cardholder_phone"]');
-
+    var customAmount = $('#custom_amount');
 
     $('.fixedDonation').click(function () {
         var url = $(this).data("url");
@@ -42,11 +42,6 @@ $(document).ready(function () {
     $("#processFormBtn").click(function (event) {
         event.preventDefault();
         missing = 0;
-
-        if($('[name="payeeType"]:checked').val() === 'anonymous'){
-            window.location.href = bankTransfer;
-            return;
-        }
 
         if((typeof auth == 'undefined' || auth == false)) {
             if (title.find(":selected").val() == "") {
@@ -145,7 +140,6 @@ $(document).ready(function () {
                 payeeType: $('[name="payeeType"]:checked').val()
 
             };
-
 
 
             $.ajax({

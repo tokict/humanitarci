@@ -120,9 +120,6 @@
                                     &nbsp;&nbsp;&nbsp;
                                     <label for="name">Tvrtka</label>
                                     <input type="radio" value="company" name="payeeType" class="payeeType">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <label for="name">Anonimno</label>
-                                    <input type="radio" value="anonymous" name="payeeType" class="payeeType">
                                     <br/>
                                     <div id="companyInfo" class="hidden">
                                         <h3 class="small-title font-alt">Podatci o tvrtki</h3>
