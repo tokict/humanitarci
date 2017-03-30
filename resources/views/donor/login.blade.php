@@ -39,7 +39,7 @@
 
                                 <!-- Username -->
                                 <div class="form-group">
-                                    <input type="text" name="email" id="email" class="input-md round form-control"
+                                    <input type="email" name="email" id="email" class="input-md round form-control"
                                            placeholder="Email" pattern=".{3,100}" required>
                                 </div>
 
