@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\PasswordReset;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -37,7 +38,7 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->middleware('guest');
     }
@@ -54,22 +55,16 @@ class ResetPasswordController extends Controller
 
         $this->validate($request, [
             'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
-            'username' => 'required|without_spaces|min:6',
+            'password' => 'required|confirmed|min:6'
         ], $this->validationErrorMessages());
 
-
+        $email = PasswordReset::where('token', Input::get('token'))->get()->first()->email;
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
         $response = $this->broker()->reset(
-            $this->credentials($request), function ($user, $password) {
-            if(!empty(Input::get('username'))) {
-
-                $user->username = Input::get('username');
-                $user->save();
-            }
+            ['email' => $email, 'password' => Input::get('password'),
+                'password_confirmation' => Input::get('password_confirmation'), 'token' => Input::get('token')], function ($user, $password) {
             $this->resetPassword($user, $password);
         }
         );
