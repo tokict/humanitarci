@@ -109,6 +109,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'message' => 'poruka',
+        'name' => 'ime',
+    ],
 
 ];
