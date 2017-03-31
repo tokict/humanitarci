@@ -21,15 +21,7 @@ class CampaignsController extends Controller
      */
     public function listing($request, $category)
     {
-        $v = \Illuminate\Support\Facades\Validator::make([
-            'category' => $category
-        ],[
-            'category' => 'required'
-        ]);
-        if ($v->fails())
-        {
-            abort(404, trans('errors.Category not found!'));
-        }
+
 
         if (isset($category) && trans('routes.campaignTypes.' . $category) != 'all') {
             $campaigns = Campaign::where('category', trans('routes.campaignTypes.' . $category))->paginate(30);
