@@ -58,7 +58,7 @@ class PersonController extends Controller
                 'first_name' => 'required|max:30',
                 'middle_name' => 'max:30',
                 'last_name' => 'required|max:30',
-                'social_id' => 'required|unique:persons|max:30',
+                'social_id' => 'unique:persons|max:30',
                 'city' => 'required',
                 'address' => 'required|max:150',
                 'contact_phone' => 'numeric',

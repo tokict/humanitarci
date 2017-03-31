@@ -42,20 +42,33 @@ class MonetaryOutputObserver
     public function distributeAmount(MonetaryOutput $monetaryOutput)
     {
         $donations = $monetaryOutput->campaign->donations()->orderBy('created_at', 'asc')->get();
-        $amount = $monetaryOutput->amount;
+        //echo "There is ".$donations->count()."<br>";
+
+        $amountNeeded = $monetaryOutput->amount;
+        //echo "We need  ".$amountNeeded."<br>";
         foreach ($donations as $d) {
+            //echo "Doing donation  ".$d->id."<br>";
+
             $freeAmount = $d->getFreeAmount();
-            if ($amount <= $freeAmount) {
+            //echo "Free amount is ".$freeAmount."<br>";
+            if ($amountNeeded <= $freeAmount) {
+                //echo "We are taking all from this one <br>";
                 //The donation has enough funds to cove the whole amount
-                MonetaryOutputSource::create(['donation_id' => $d->id, 'amount' => $amount, 'monetary_output_id' => $monetaryOutput->id]);
+                MonetaryOutputSource::create(['donation_id' => $d->id, 'amount' => $amountNeeded, 'monetary_output_id' => $monetaryOutput->id]);
+                $amountNeeded -= $freeAmount;
+                break; //end it all
             } else {
+                //echo "We are taking ".$freeAmount." from this one<br>";
                 //The donation does not have enough funds to cover the whole amount
                 MonetaryOutputSource::create(['donation_id' => $d->id, 'amount' => $freeAmount, 'monetary_output_id' => $monetaryOutput->id]);
-                $amount -= $freeAmount;
+                $amountNeeded -= $freeAmount;
             }
+            //echo "WE NEED ".$amountNeeded.' MORE<br>';
 
         }
     }
+
+
 
     /**
      * Listen to the MonetaryInput saving event.
@@ -65,7 +78,7 @@ class MonetaryOutputObserver
      */
     public function saving(MonetaryOutput $monetaryOutput)
     {
-
+        $monetaryOutput->created_by_id = Auth::user()->id;
         //Money can be taken only if there is enough in the campaign and if the campaign has right status
         $campaign = $monetaryOutput->campaign;
         if ($campaign->current_funds - $campaign->getTakenFunds() < $monetaryOutput->amount) {

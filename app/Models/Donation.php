@@ -67,6 +67,7 @@ namespace App\Models;
  * @property \App\Models\MonetaryInput $monetary_input
  * @property \App\Models\ServicesList $services_list
  * @property \App\Models\Transaction $transaction
+ * @property \App\Models\MonetaryOutputSource $outputs
  * @property \Illuminate\Database\Eloquent\Collection $transactions
  *
  * @package App\Models
@@ -155,6 +156,11 @@ class Donation extends BaseModel
 	{
 		return $this->hasMany(\App\Models\Transaction::class, 'from_donation_id');
 	}
+
+    public function outputs()
+    {
+        return $this->hasMany(\App\Models\MonetaryOutputSource::class);
+    }
 
 	public function getUtilizedAmount()
 	{

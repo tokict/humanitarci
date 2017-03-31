@@ -21,7 +21,7 @@ namespace App\Models;
  * @property int $beneficiary_payment
  * @property string $receipt_ids
  * @property \Carbon\Carbon $created_at
- * @property string $action_time
+ * @property \Carbon\Carbon $action_time
  * @property int $created_by_id
  * @property int $expenses_payment
  *

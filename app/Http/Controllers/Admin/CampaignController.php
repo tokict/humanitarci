@@ -297,11 +297,10 @@ class CampaignController extends Controller
                 'campaign_id' => 'required',
                 'amount' => 'required|numeric',
                 'description' => 'required',
-                'receiving_entity_id' => 'required_without:expenses_payment|numeric',
-                'receiving_person_id' => 'required_with:expenses_payment|numeric',
+                'receiving_entity_id' => 'required_without:expenses_payment|numeric|nullable',
+                'receiving_person_id' => 'required_with:expenses_payment|numeric|nullable',
                 'beneficiary_payment',
-                'receipt_ids' => 'required',
-                'action_time' => 'required'
+                'receipt_ids' => 'required'
             ]);
             $input = Input::all();
 
@@ -310,14 +309,11 @@ class CampaignController extends Controller
                 abort(500, 'Cannot take more money than donated');
             }
 
-            if(!in_array($campaign->status, ['succeeded', 'failed'])){
-                abort(500, 'Cannot take funds from unfinished campaign');
-            }
 
             //We calculate all without floating point
             $input['amount'] = $input['amount'] * 100;
             $input['action_time'] = date("Y-m-d H:i:s",
-                strtotime($input['action_date'] . " " . $input['action_time']));
+                strtotime($input['action_date']));
 
             $output = new MonetaryOutput($input);
             if (!$output->save()) {

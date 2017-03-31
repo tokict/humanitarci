@@ -119,16 +119,22 @@
 
         <!-- Donations -->
         <div class="row multi-columns-row">
-            <div class="col-md-4 text-center">
-                <h5 class="text-center">{{'Povijest upotrebe donacija'}}</h5>
-                @foreach($distributedFunds as $d)
-                    @if($d->transaction)
-                        {{$d->transaction->from_campaign->name}} &nbsp;>>&nbsp;
+            <div class="col-md-4">
+                <h5 class="text-center">Povijest upotrebe Vaših donacija</h5>
+                @foreach($donor->donations as $donation)
+                    @if(isset($donation->transaction))
+                        {{$donation->transaction->from_campaign->name}} &nbsp;>>&nbsp;
+                        {{$donation->campaign->name}}:  <span
+                                class="pull-right">{{number_format($donation->amount/100)}} {{env('CURRENCY')}}</span><br/>
                     @endif
-                    {{$d->donation->campaign->name}}:  <span
-                            class="pull-right">{{number_format($d->amount/100)}} {{env('CURRENCY')}}</span><br/>
-                    <small>({!!$d->monetary_output->description!!})</small>
-                    <hr>
+
+                    @foreach($donation->outputs as $o)
+                            Iznos: <strong>{{number_format($o->amount /100, 2)}} {{env("CURRENCY")}}</strong>
+                            <br>
+                            Za: <small>{{$o->monetary_output->description}}</small>
+                        <hr>
+                    @endforeach
+
                 @endforeach
             </div>
             <div class="col-md-6 text-center">
