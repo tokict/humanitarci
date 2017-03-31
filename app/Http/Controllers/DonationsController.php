@@ -42,6 +42,15 @@ class DonationsController extends Controller
      */
     public function create($request)
     {
+
+        $this->validate($request, [
+            'g-recaptcha-response' => 'recaptcha',
+            'campaign' => 'required|numeric',
+            'type' => 'required',
+            'amount' => 'required|numeric',
+        ]);
+
+
         $campaignId = (int)Input::get('campaign');
         $type = Input::get('type');
         $amount = (int)Input::get('amount');

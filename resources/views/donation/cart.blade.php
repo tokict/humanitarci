@@ -256,8 +256,6 @@
                                             odaberete.<br/><br/></small>
                                     </div>
                                 </div>
-
-
                             </div>
                             {{Form::close()}}
                         </div>

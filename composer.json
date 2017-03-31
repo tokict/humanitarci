@@ -24,7 +24,8 @@
     "maatwebsite/excel": "~2.1.0",
     "barryvdh/laravel-ide-helper": "~2.2",
     "smalot/pdfparser" : "*",
-    "bigfish/pdf417": "^0.2.0"
+    "bigfish/pdf417": "^0.2.0",
+    "greggilbert/recaptcha": "^2.1"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*",

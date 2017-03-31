@@ -36,29 +36,29 @@ class PagesController extends Controller
     public function contacts(Request $request)
     {
         if ($request->isMethod('post')) {
-            try {
-                $this->validate($request, [
-                    'email' => 'required|email|max:100',
-                    'name' => 'required|max:100',
-                    'message' => 'required|max:1000',
-                ]);
-                $data = ['name' => Input::get('name'),
-                    'email' => Input::get('email'),
-                    'message' => Input::get('message')];
-                Mail::queue('emails.contact_form',
-                    [
-                        'data' =>
+
+            $this->validate($request, [
+                'email' => 'required|email|max:100',
+                'name' => 'required|max:100',
+                'message' => 'required|max:1000',
+                'g-recaptcha-response' => 'recaptcha',
+            ]);
+            $data = [
+                'name' => Input::get('name'),
+                'email' => Input::get('email'),
+                'message' => Input::get('message')];
+
+            Mail::queue('emails.contact_form',
+                [
+                    'data' =>
                         $data
-                    ],
-                    function ($m) {
+                ],
+                function ($m) {
 
-                        $m->to(env('WEBMASTER_MAIL'), 'Tino')->subject('Kontakt preko Humanitarci.hr');
-                    });
-                \Session::flash('success', true);
+                    $m->to(env('WEBMASTER_MAIL'), 'Tino')->subject('Kontakt preko Humanitarci.hr');
+                });
+            \Session::flash('success', true);
 
-            } catch (\Exception $e) {dd($e->getMessage());
-                \Session::flash('error', 'Problem pri slanju poruke');
-            }
         }
         return view('pages.contacts');
     }

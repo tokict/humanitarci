@@ -1,6 +1,7 @@
-/* ---------------------------------------------
+/*
+/!* ---------------------------------------------
  Contact form
- --------------------------------------------- */
+ --------------------------------------------- *!/
 $(document).ready(function(){
     $("#submit_btn").click(function(){
         
@@ -12,6 +13,10 @@ $(document).ready(function(){
         //simple validation at client's end
         //we simply change border color to red if empty field using .css()
         var proceed = true;
+        if(grecaptcha.getResponse() === ''){
+            $("#result").show().html("Molimo Vas da kliknete na 'Nisam robot' prije slanja").slideDown();
+            proceed = false;
+        }
         if (user_name == "") {
             $('input[name=name]').css('border-color', '#e41919');
             proceed = false;
@@ -32,11 +37,12 @@ $(document).ready(function(){
             post_data = {
                 'userName': user_name,
                 'userEmail': user_email,
-                'userMessage': user_message
+                'userMessage': user_message,
+                'g_recaptcha_response' : grecaptcha.getResponse()
             };
             
             //Ajax post data to server
-            $.post('contact_me.php', post_data, function(response){
+            $.post('/stranice/kontakti', post_data, function(response){
             
                 //load json data from server and output message     
                 if (response.type == 'error') {
@@ -66,3 +72,4 @@ $(document).ready(function(){
     });
     
 });
+*/

@@ -13,6 +13,7 @@ return [
     |
     */
     'without_spaces' => ':attribute ne smije sadržavati razmake',
+    'recaptcha' => 'Molimo, kliknite "Nisam robot" za nastavak',
     'accepted'             => ':attribute mora biti prihvaćen.',
     'active_url'           => ':attribute nije ispravan URL.',
     'after'                => ':attribute mora biti nakon :date.',

@@ -12,7 +12,16 @@
 
             <!-- Contact Form -->
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-2 m-b-n-lg">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     @if(session()->has('error'))
                         <div class="alert alert-danger">
                             <ul>
@@ -48,7 +57,7 @@
                             <div class="cf-right-col">
 
                                 <!-- Message -->
-                                <div class="form-group">
+                                <div class="form-group m-b-100">
                                     <textarea name="message" id="message" class="input-md round form-control" style="height: 84px;" placeholder="Poruka"></textarea>
                                 </div>
 
@@ -73,14 +82,15 @@
                                 <div class="align-right pt-10">
                                     <button class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">Pošalji poruku</button>
                                 </div>
-
                             </div>
+
 
                         </div>
 
 
 
                         <div id="result"></div>
+                        {!! Recaptcha::render()  !!}
                     {!!  Form::close()!!}
 
                 </div>
@@ -91,28 +101,6 @@
     </section>
     <!-- End Contact Section -->
 
-
-    <!-- Google Map -->
-    <div class="google-map">
-
-        <div data-address="Belt Parkway, Queens, NY, United States" id="map-canvas"></div>
-
-        <div class="map-section">
-
-            <div class="map-toggle">
-                <div class="mt-icon">
-                    <i class="fa fa-map-marker"></i>
-                </div>
-                <div class="mt-text font-alt">
-                    <div class="mt-open">Open the map <i class="fa fa-angle-down"></i></div>
-                    <div class="mt-close">Close the map <i class="fa fa-angle-up"></i></div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <!-- End Google Map -->
 
 
 </div>
