@@ -213,6 +213,16 @@ class DonationsController extends Controller
      */
     public function remove($request, $index)
     {
+        $v = \Illuminate\Support\Facades\Validator::make([
+            'index' => $index
+        ],[
+            'index' => 'required'
+        ]);
+        if ($v->fails())
+        {
+            abort(404, trans('errors.Item not found!'));
+        }
+
 
         $donations = Session::get('donations');
         unset($donations[$index]);
@@ -224,6 +234,18 @@ class DonationsController extends Controller
 
     public function bank($request, $orderNr)
     {
+
+        $v = \Illuminate\Support\Facades\Validator::make([
+            'orderNr' => $orderNr
+        ],[
+            'orderNr' => 'required'
+        ]);
+        if ($v->fails())
+        {
+            abort(404, trans('errors.Item not found!'));
+        }
+
+
         $order = Order::find($orderNr);
         $cart = !empty(session('donations')) ? session('donations') : [];
         //Setup cart display data

@@ -61,6 +61,15 @@ class DonorsController extends Controller
      */
     public function view($request, $id)
     {
+        $v = \Illuminate\Support\Facades\Validator::make([
+            'id' => $id
+        ],[
+            'id' => 'required'
+        ]);
+        if ($v->fails())
+        {
+            abort(404, trans('errors.Donor not found!'));
+        }
 
         $donor = Donor::whereId($id)->first();
         event(new PageViewed(['type' => 'donor', 'id' => $id]));
@@ -73,7 +82,7 @@ class DonorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login($request, $id)
+    public function login($request)
     {
 
         if (Request::isMethod('post')) {
@@ -89,9 +98,9 @@ class DonorsController extends Controller
                 if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
                     Auth::login($user);
                     if (!empty(session::has('redirectToCart'))) {
-                        return redirect('/' . trans('routes.front.donations') . '/' . trans('routes.actions.cart'))->withInput();
+                         redirect('/' . trans('routes.front.donations') . '/' . trans('routes.actions.cart'))->withInput();
                     }
-                    return redirect()->intended('/' . Lang::get('routes.front.donors', [],
+                     redirect()->intended('/' . Lang::get('routes.front.donors', [],
                             '') . '/' . Lang::get('routes.actions.profile', [], ''))->withInput();
 
                 }else{
@@ -116,6 +125,16 @@ class DonorsController extends Controller
 
     public function profile($request, $username)
     {
+        $v = \Illuminate\Support\Facades\Validator::make([
+            'username' => $username
+        ],[
+            'username' => 'required'
+        ]);
+        if ($v->fails())
+        {
+            abort(404, trans('errors.Donor not found!'));
+        }
+
         if (isset($username)) {
             $user = User::where('username', $username)->get()->first();
             if ($user && $user->donor) {

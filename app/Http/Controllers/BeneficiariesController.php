@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\PageViewed;
 use App\Http\Requests;
 use App\Models\Beneficiary;
+use Illuminate\Validation\Validator;
 
 
 class BeneficiariesController extends Controller
@@ -29,6 +30,16 @@ class BeneficiariesController extends Controller
      */
     public function view($request, $id)
     {
+        $v = \Illuminate\Support\Facades\Validator::make([
+            'id' => $id
+        ],[
+            'id' => 'required|numeric'
+        ]);
+        if ($v->fails())
+        {
+            abort(404, trans('errors.Beneficiary not found!'));
+        }
+
 
         $beneficiary = Beneficiary::whereId($id)->first();
         event(new PageViewed(['type' => 'beneficiary', 'id' => $id]));

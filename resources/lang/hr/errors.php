@@ -13,6 +13,13 @@ return array(
         'The password and re-password must match' => 'Lozinka i ponovljena lozinka nisu iste!',
         'The password field is required' => 'Lozinka je obavezna',
         "We couldn't authorize you using that email and password combination" => "Kombinacija lozinke i emaila je netočna"
-    ]
+    ],
+    'Beneficiary not found!' => 'Korisnik nije pronađen!',
+    'Campaign not found!' => 'Akcija nije pronađena!',
+    'Donor not found!' => 'Donor nije pronađen!',
+    'Donation not found!' => 'Donacija nije pronađena!',
+    'Page not found!' => 'Stranica nije pronađena!',
+    'Category not found!' => 'Kategorija nije pronađena!',
+    'Item not found!' => 'Stavka nije pronađena!',
 
 );
