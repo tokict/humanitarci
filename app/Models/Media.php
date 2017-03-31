@@ -82,7 +82,7 @@ class Media extends BaseModel
     {
         $s3 = \Storage::cloud('s3');
         $name = time() . rand(1, 9999) . "." . $file->getClientOriginalExtension();
-        if($file->getClientOriginalExtension() != 'pdf') {
+        if($file->getClientOriginalExtension() != 'pdf' && $file->getClientOriginalExtension() != 'PDF') {
             $this->prepareForUpload($file->getPathname(), $name);
             if ($s3->put($folder . '/original_' . $name, file_get_contents($file->getPathname()), $permission)
                 && $s3->put($folder . '/thumb_' . $name, file_get_contents('/tmp/thumb_' . $name), $permission)
