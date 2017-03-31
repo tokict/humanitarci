@@ -21,5 +21,8 @@ return array(
     'Page not found!' => 'Stranica nije pronađena!',
     'Category not found!' => 'Kategorija nije pronađena!',
     'Item not found!' => 'Stavka nije pronađena!',
+    'Error while processing' => 'Greška pri obradi zahtjeva',
+    'Server timeout' => 'Server je trenutno preopterećen. Pokušajte kasnije',
+    'Unauthorized' => 'Niste ovlašteni za pregled ove stranice'
 
 );
