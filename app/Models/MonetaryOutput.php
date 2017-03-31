@@ -6,6 +6,7 @@
  */
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Collection;
 
 
 /**
@@ -80,5 +81,15 @@ class MonetaryOutput extends BaseModel
     public function admin()
     {
         return $this->belongsTo(\App\Models\Admin::class, 'created_by_id');
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getReceipts()
+    {
+        $res =  Media::whereIn('id', explode(",", $this->getAttribute('receipt_ids')))->get();
+        return $res;
+
     }
 }

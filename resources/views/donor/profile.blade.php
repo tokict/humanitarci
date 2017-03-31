@@ -129,9 +129,14 @@
                     @endif
 
                     @foreach($donation->outputs as $o)
+                            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$donation->campaign->id}}">{{$donation->campaign->name}}</a><br/>
                             Iznos: <strong>{{number_format($o->amount /100, 2)}} {{env("CURRENCY")}}</strong>
                             <br>
-                            Za: <small>{{$o->monetary_output->description}}</small>
+                            Za: <small>{{$o->monetary_output->description}}</small><br><br>
+                            @foreach($o->monetary_output->getReceipts() as $r)
+                                <a href="{{$r->type == 'document'?$r->getPath():$r->getPath('large')}}" target="_blank"><i class="fa fa-file-text-o fa-3x"></i></a>
+                                &nbsp;
+                            @endforeach
                         <hr>
                     @endforeach
 

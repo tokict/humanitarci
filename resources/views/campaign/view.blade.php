@@ -125,7 +125,8 @@
                         @endif
                         <div class="col-md-6">
                             <h5 class="text-center">Iskorištena sredstva <br/>
-                                ({{number_format($campaign->monetary_outputs->sum('amount')/100,2)}} {{env('CURRENCY')}} od {{number_format($campaign->current_funds /100, 2)}} {{env('CURRENCY')}})</h5>
+                                ({{number_format($campaign->monetary_outputs->sum('amount')/100,2)}} {{env('CURRENCY')}}
+                                od {{number_format($campaign->current_funds /100, 2)}} {{env('CURRENCY')}})</h5>
                             <hr>
                             <div class="col-md-10 col-md-offset-1">
                                 @foreach($campaign->monetary_outputs as $o)
@@ -136,10 +137,16 @@
                                     <br/><br/>
                                     @if(isset($o->receiving_entity))
                                         Firmi:
-                                        {{$o->receiving_entity->name}},  {{$o->receiving_entity->city->name}} <br>(OIB: {{$o->receiving_entity->tax_id}})
+                                        {{$o->receiving_entity->name}},  {{$o->receiving_entity->city->name}}
+                                        (OIB: {{$o->receiving_entity->tax_id}})
                                     @else
                                         Osobi: {{$o->receiving_person->first_name.' '.$o->receiving_person->last_name}}
                                     @endif
+                                <br>
+                                    @foreach($o->getReceipts() as $r)
+                                        <a href="{{$r->type == 'document'?$r->getPath():$r->getPath('large')}}" target="_blank"><i class="fa fa-file-text-o fa-3x"></i></a>
+                                    &nbsp;
+                                    @endforeach
                                     <hr>
                                 @endforeach
 
