@@ -53,6 +53,7 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
-$response->send();
+$response->header('X-Frame-Options', 'DENY')->send();
+
 
 $kernel->terminate($request, $response);
