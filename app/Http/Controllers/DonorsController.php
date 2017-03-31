@@ -125,15 +125,7 @@ class DonorsController extends Controller
 
     public function profile($request, $username)
     {
-        $v = \Illuminate\Support\Facades\Validator::make([
-            'username' => $username
-        ],[
-            'username' => 'required'
-        ]);
-        if ($v->fails())
-        {
-            abort(404, trans('errors.Donor not found!'));
-        }
+
 
         if (isset($username)) {
             $user = User::where('username', $username)->get()->first();
