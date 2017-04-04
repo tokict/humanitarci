@@ -11,13 +11,13 @@
     <meta name="google-site-verification" content="pKDL-2njZLD7AHfG5Lhf1kqockfqKfhmqpBTGmz5GcU" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-
+    <meta name="title" content="Humanitarci.hr">
+    <meta name="keywords" content="humanitarci, donacije, udruge, online donacije, humanitarna platforma, transparentno doniranje"/>
+    <meta name="robots" content="index, follow" />
     {{--Social tags--}}
     @if(isset($page))
         <meta name="description" content="<?= htmlentities(strip_tags($page->description)) ?>">
-        <meta name="title" content="Humanitarci.hr">
-        <meta name="keywords" content="humanitarci, donacije, udruge, online donacije, humanitarna platforma, transparentno doniranje"/>
-        <meta name="robots" content="index, follow" />
+
 
         <meta property="fb:app_id" content="1022391537889674">
         <meta property="og:title" content="<?= htmlentities($page->title) ?>"/>

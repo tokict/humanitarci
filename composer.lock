@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a96ee6a460ab9f85f228dc73273df9f",
-    "content-hash": "5cdd9241266c16ada8dca9042754ae35",
+    "hash": "47d4a77192bfb12d8b2a140d07978b06",
+    "content-hash": "c4bc7c58fe78daa465010e9ccfdc4dbf",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -201,6 +201,42 @@
                 }
             ],
             "time": "2016-06-13 19:28:20"
+        },
+        {
+            "name": "bigfish/pdf417",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ihabunek/pdf417-php.git",
+                "reference": "b8bf76a02d45a52215475b2b2e22dc5996cb1eb3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ihabunek/pdf417-php/zipball/b8bf76a02d45a52215475b2b2e22dc5996cb1eb3",
+                "reference": "b8bf76a02d45a52215475b2b2e22dc5996cb1eb3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-gd": "*",
+                "intervention/image": "~2.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BigFish\\PDF417\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A library for generating PDF417 barcodes in PHP",
+            "time": "2016-05-05 10:36:25"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -875,6 +911,58 @@
             "time": "2014-09-09 13:34:57"
         },
         {
+            "name": "greggilbert/recaptcha",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greggilbert/recaptcha.git",
+                "reference": "fb835b2ac089e52e643e97b93b4060330485955d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greggilbert/recaptcha/zipball/fb835b2ac089e52e643e97b93b4060330485955d",
+                "reference": "fb835b2ac089e52e643e97b93b4060330485955d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-4": {
+                    "Greggilbert\\Recaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Gilbert",
+                    "email": "greg@greg-gilbert.com"
+                }
+            ],
+            "description": "reCAPTCHA Validator for Laravel 5",
+            "homepage": "http://github.com/greggilbert/recaptcha",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel5",
+                "recaptcha"
+            ],
+            "time": "2016-02-17 12:41:57"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.2",
             "source": {
@@ -1101,6 +1189,68 @@
                 "image processing"
             ],
             "time": "2015-09-19 16:54:05"
+        },
+        {
+            "name": "intervention/image",
+            "version": "2.3.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "e8881fd99b9804b29e02d6d1c2c15ee459335cf1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/e8881fd99b9804b29e02d6d1c2c15ee459335cf1",
+                "reference": "e8881fd99b9804b29e02d6d1c2c15ee459335cf1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2017-02-04 10:37:19"
         },
         {
             "name": "jakub-onderka/php-console-color",
