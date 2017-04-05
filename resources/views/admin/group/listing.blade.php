@@ -30,7 +30,7 @@
                                         <td>{{ $group->description }}</td>
                                         <td class="center">
                                             @if($group->legalEntity)
-                                                <a href="/admin/entity/view/{{$group->representingEntity->id}}">
+                                                <a href="/admin/entity/view/{{$group->legalEntity->id}}">
                                                     {{
                                                 $group->legalEntity->name }}</a>
                                                 @endif
