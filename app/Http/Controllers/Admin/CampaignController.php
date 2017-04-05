@@ -54,10 +54,10 @@ class CampaignController extends Controller
                 ->orWhere('reference_id', 'like', '%' . $q . '%')
                 ->orWhere('end_notes', 'like', '%' . $q . '%')
                 ->orWhere('registration_code', 'like', '%' . $q . '%')
-                ->orWhereHas('Organization', function($x) use ($q){
+                ->orWhereHas('Organization', function ($x) use ($q) {
                     $x->where('name', 'like', '%' . $q . '%');
                 })
-                ->orWhereHas('Beneficiary', function($x) use ($q){
+                ->orWhereHas('Beneficiary', function ($x) use ($q) {
                     $x->where('name', 'like', '%' . $q . '%');
                 })->paginate(20);
         }
@@ -107,10 +107,10 @@ class CampaignController extends Controller
             $input = Input::all();
             $input['created_by_id'] = Auth::User()->id;
             $input['target_amount'] = $input['target_amount'] * 100;
-            $input['starts'] = date("Y-m-d H:i:s", strtotime($input['start_date'] . " " . $input['start_time']));
-            $input['ends'] = date("Y-m-d H:i:s", strtotime($input['end_date'] . " " . $input['end_time']));
+            $input['starts'] = date("Y-m-d H:i:s", strtotime($input['start_date']));
+            $input['ends'] = date("Y-m-d H:i:s", strtotime($input['end_date']));
             $input['action_by_date'] = date("Y-m-d H:i:s",
-                strtotime($input['action_by_date'] . " " . $input['action_by_time']));
+                strtotime($input['action_by_date']));
 
             //Lets save cover_image if presentc
 
@@ -190,12 +190,9 @@ class CampaignController extends Controller
                 'name' => 'required|max:100',
                 'beneficiary_id' => 'required|numeric',
                 'organization_id' => 'required|numeric',
-                'starts_time' => 'required_with:starts_date',
-                'ends_time' => 'required_with:ends_date',
                 'starts_date' => 'required_with:starts_time',
                 'ends_date' => 'required_with:ends_time',
                 'action_by_date' => 'required_with:action_by_time',
-                'action_by_time' => 'required_with:action_by_date',
                 'type' => 'required',
                 'target_amount' => 'digits_between:3,6',
                 'description_short' => 'required|max:300',
@@ -208,10 +205,10 @@ class CampaignController extends Controller
 
             $input = Input::all();
             $input['created_by'] = Auth::User()->id;
-            $input['starts'] = date("Y-m-d H:i:s", strtotime($input['start_date'] . " " . $input['start_time']));
-            $input['ends'] = date("Y-m-d H:i:s", strtotime($input['end_date'] . " " . $input['end_time']));
+            $input['starts'] = date("Y-m-d H:i:s", strtotime($input['start_date']));
+            $input['ends'] = date("Y-m-d H:i:s", strtotime($input['end_date']));
             $input['action_by_date'] = date("Y-m-d H:i:s",
-                strtotime($input['action_by_date'] . " " . $input['action_by_time']));
+                strtotime($input['action_by_date']));
 
 
             if ($campaign->update($input)) {

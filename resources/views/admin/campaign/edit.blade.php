@@ -97,13 +97,13 @@
                                     <input type="text" class="form-control datepicker" name="start_date"
                                            value="{{date('Y-m-d', strtotime($campaign->starts))}}">
                                 </div>
-                                <div class="input-group clockpicker" data-autoclose="true">
+{{--                                <div class="input-group clockpicker" data-autoclose="true">
                                     <input type="text" class="form-control" name="start_time"
                                            value="{{date('H:i', strtotime($campaign->starts))}}">
                                 <span class="input-group-addon">
                                     <span class="fa fa-clock-o"></span>
                                 </span>
-                                </div>
+                                </div>--}}
                             </div>
                             <div class="col-sm-3">
                                 <label class="control-label">End time</label>
@@ -112,13 +112,13 @@
                                     <input type="text" class="form-control datepicker" name="end_date"
                                            value="{{date('Y-m-d', strtotime($campaign->ends))}}">
                                 </div>
-                                <div class="input-group clockpicker" data-autoclose="true">
+{{--                                <div class="input-group clockpicker" data-autoclose="true">
                                     <input type="text" class="form-control" name="end_time"
                                            value="{{date('H:i', strtotime($campaign->ends))}}">
                                 <span class="input-group-addon">
                                     <span class="fa fa-clock-o"></span>
                                 </span>
-                                </div>
+                                </div>--}}
                             </div>
 
                             <div class="col-sm-3">
@@ -128,13 +128,13 @@
                                     <input type="text" class="form-control datepicker" name="action_by_date"
                                            value="{{date('Y-m-d', strtotime($campaign->action_by_date))}}">
                                 </div>
-                                <div class="input-group clockpicker" data-autoclose="true">
+                       {{--         <div class="input-group clockpicker" data-autoclose="true">
                                     <input type="text" class="form-control" name="action_by_time"
                                            value="{{date('H:i', strtotime($campaign->action_by_date))}}">
                                 <span class="input-group-addon">
                                     <span class="fa fa-clock-o"></span>
                                 </span>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
