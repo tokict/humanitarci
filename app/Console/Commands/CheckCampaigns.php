@@ -57,7 +57,7 @@ class CheckCampaigns extends Command
      * @return mixed
      */
     public function handle()
-    {   return;
+    {
         $this->info('Found '.$this->campaigns->count().' non-finalized campaigns in db');
         foreach ($this->campaigns as $campaign) {
             //Close the ones with past date that are active
