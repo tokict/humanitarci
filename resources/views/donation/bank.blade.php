@@ -5,8 +5,8 @@
 <section class="page-section">
     <div class="container">
         <div class="row">
-        <b>NAPOMENA:</b> Uplate će biti vidljive na sistemu nako što nam banka pošajle izvješće o uplati.<br/>
-        Izvješća dobijamo jednom dnevno što znači da je moguće da se Vaša uplate na sistemu registrira tek <b>nakon 48h</b>.<br/>
+        <b>NAPOMENA:</b> Uplate će biti vidljive na sistemu nakon što nam banka pošalje izvješće o uplati.<br/>
+        Izvješća stižu jednom dnevno što znači da je moguće da se Vaša uplate na sistemu registrira tek <b>nakon 48h</b>.<br/>
         U prosjeku bi trebala biti vidljiva unutar 24h.<br/><br/>
 
         Ukoliko se Vaša uplate ne vidi u sistemu nakon isteka 48 sati, molimo da nam pošaljete email sa oznakom donacije
