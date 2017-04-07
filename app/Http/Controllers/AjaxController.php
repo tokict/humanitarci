@@ -88,6 +88,7 @@ class AjaxController extends Controller
             'zip' => 'required',
             'payeeType' => 'required',
             'country' => 'required',
+            'g-recaptcha-response' => 'recaptcha',
 
 
         ]);

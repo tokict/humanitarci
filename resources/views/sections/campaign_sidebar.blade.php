@@ -57,7 +57,7 @@
                       data-url="/{{trans('routes.front.donations')}}/{{trans('routes.actions.create')}}"
                       data-campaign="{{$campaign->id}}">Doniraj</span>
             </div>
-            {!! Recaptcha::render()  !!}
+
         </form>
         @if($errors->any())
             <h4>{{$errors->first()}}</h4>

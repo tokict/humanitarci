@@ -44,7 +44,6 @@ class DonationsController extends Controller
     {
 
         $this->validate($request, [
-            'g-recaptcha-response' => 'recaptcha',
             'campaign' => 'required|numeric',
             'type' => 'required',
             'amount' => 'required|numeric',

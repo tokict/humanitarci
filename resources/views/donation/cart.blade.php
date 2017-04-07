@@ -203,7 +203,10 @@
                                                pattern=".{3,100}"/>
                                     </div>
                                     {{Form::text('order_token', $orderModel->order_token, ['class' => 'hidden'])}}
-
+                                    <div id="cartRecaptcha">
+                                        {!! Recaptcha::render()  !!}
+                                        <div class="recaptcha-error text-danger"></div>
+                                    </div>
                                 @endif
                             </div>
 
