@@ -223,7 +223,7 @@
                 </div>--}}
                 <h3 class="benefit-title font-alt">Mogućnosti</h3>
                 <div class="benefits-descr">
-                    Donirati se uplatom na račun. Trenutno radimo na uplatama putem kartica
+                    Donirati se trenutno može samo uplatom na račun. Trenutno radimo na uplatama putem kartica
                 </div>
             </div>
             <!-- End Features Item -->
