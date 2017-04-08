@@ -265,7 +265,7 @@
         <div class="col-md-6">
             <h4>DO SADA ISKORIŠTENO: {{number_format($totalOutputs/100, 2)}} {{env("CURRENCY")}}</h4><br>
             @foreach($outputs as $o)
-                <b>{{$o->campaign->name}}</b>
+                <b><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d->campaign->id}}">{{$o->campaign->name}}</a></b>
                 <br/>
                 <strong>{{number_format($o->amount /100, 2)}} {{env("CURRENCY")}}</strong>
                 <br>
