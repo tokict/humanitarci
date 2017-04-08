@@ -113,20 +113,16 @@
                     <h4 class="font-alt mb-20 mb-sm-40">Vodeći donori</h4>
                     <div class="user-friends">
                         @foreach($beneficiary->amountsByDonor() as $item)
-                            <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.view')}}/{{$item['donor']->id}}"
-                               style="text-decoration: none">
-                                @if(isset($item['donor']->person))
-                                    @if($item['donor']->user->username)
-                                        {{$item['donor']->user->username}}
-                                    @else
-                                        Anonimno
-                                    @endif
-                                @endif
-                                @if(isset($item['donor']->legalEntity))
-                                    {{$item['donor']->legalEntity->name}}
-                                @endif
-                            </a>
-                            / {{number_format($item['sum']/100, 2)}} {{env('CURRENCY')}}
+                            @if(!$item['donation']->anonymous && !empty($item['donor']->user->username))
+                                <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$item['donor']->user->username}}"
+                                   style="text-decoration: none">
+                                    <b>{{$item['donor']->user->username}}</b>
+                                </a>
+                            @else
+                                Anonimno
+                            @endif
+
+                           / {{number_format($item['sum']/100, 2)}} {{env('CURRENCY')}}
                             <br/>
                         @endforeach
                     </div>
