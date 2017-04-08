@@ -204,9 +204,10 @@
                 {{--<div class="benefit-icon mb-20">
                     <img src="/front/images/construction/icons/3.png" width="64" height="64" alt=""/>
                 </div>--}}
-                <h3 class="benefit-title font-alt">Provjera korisnika</h3>
+                <h3 class="benefit-title font-alt">Provjere</h3>
                 <div class="benefits-descr">
-                    Naši humanitarci svakog korisnika posjete u domu i temeljito provjere.
+                    Naši humanitarci svakog korisnika posjete u domu i temeljito provjere.<br><br>
+                    Svaka humanitarna udruga na platformi je provjerena i nadzire se njezin rad na platformi
                 </div>
             </div>
             <!-- End Features Item -->
@@ -216,9 +217,10 @@
                 {{--<div class="benefit-icon mb-20">
                     <img src="/front/images/construction/icons/4.png" width="64" height="64" alt=""/>
                 </div>--}}
-                <h3 class="benefit-title font-alt">Nema birokracije</h3>
+                <h3 class="benefit-title font-alt">Isključivo po zakonu</h3>
                 <div class="benefits-descr">
-                    Pomažemo jedni drugima, jer država čini premalo i prekasno.
+                    Platforma je napravljena slijedeći SVE odredbe
+                        "Zakona o humanitarnoj pomoći" RH sa ciljem onemogućavanja prevara
                 </div>
             </div>
             <!-- End Features Item -->
