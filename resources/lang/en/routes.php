@@ -38,7 +38,8 @@ return array(
         'mediji' => 'media',
         'uspjeh' => 'success',
         'kupnja' => 'checkout',
-        'banka' => 'bank'
+        'banka' => 'bank',
+        'cesta_pitanja' => 'faq'
 
 
     ],

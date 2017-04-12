@@ -62,4 +62,8 @@ class PagesController extends Controller
         }
         return view('pages.contacts');
     }
+
+    public function faq(){
+        return view('pages.faq');
+    }
 }

@@ -60,7 +60,9 @@
                     <li>
                         <a href="https://humanitarci.hr/blog">Blog</a>
                     </li>
-
+                    <li>
+                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.faq')}}">Pitanja i odgovori</a>
+                    </li>
                     <li>
                         <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.contacts')}}">Kontakt</a>
                     </li>
