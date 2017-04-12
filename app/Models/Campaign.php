@@ -146,6 +146,7 @@ use Carbon\Carbon;
  *
  * @property \Illuminate\Database\Eloquent\Collection $monetary_outputs
  *
+ *
  * @property \Illuminate\Database\Eloquent\Collection $subscriptions
  *
  * @property \Illuminate\Database\Eloquent\Collection $transactions

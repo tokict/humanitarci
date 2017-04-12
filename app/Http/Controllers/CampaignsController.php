@@ -24,13 +24,32 @@ class CampaignsController extends Controller
 
 
         if (isset($category) && trans('routes.campaignTypes.' . $category) != 'all') {
-            $campaigns = Campaign::where('category', trans('routes.campaignTypes.' . $category))->paginate(30);
+
+            if(trans('routes.parameters.'.$category) == 'popular'){
+                $campaigns = Campaign::where('status', 'active')->get();
+
+
+                foreach ($campaigns as &$campaign) {
+                    $shares = $campaign->page_data->shares * 10;
+                    $views = $campaign->page_data->views;
+                    $donations = $campaign->donations->where('status', 'received')->count() * 100;
+                    $campaign->score = $shares+$views+$donations;
+                }
+
+                $campaigns = $campaigns->sortBy('score')->reverse();
+
+            }else {
+
+                $campaigns = Campaign::where('category', trans('routes.campaignTypes.' . $category))
+                    ->where('status', 'active')->paginate(30);
+            }
         }else{
             $campaigns = Campaign::paginate(30);
         }
 
         foreach ($campaigns as $campaign) {
-            $media_info = Media::whereIn('id', explode(",", $campaign->media_info))->get();
+            $media_info = Media::whereIn('id', explode(",", $campaign->media_info))
+                ->get();
             $campaign->media_info = $media_info;
         }
         return view('campaign.list', ['campaigns' => $campaigns]);
