@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Models\Campaign;
+use App\Models\Donation;
+use App\Models\MonetaryOutput;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +26,17 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-        return view('welcome', ['campaigns' => $campaigns]);
+        $donations  = Donation::take(10)->orderBy('created_at', 'desc')->get();
+        $totalDonations = Donation::sum('amount');
+        $outputs = MonetaryOutput::take(10)->orderBy('created_at', 'desc')->get();
+        $totalOutputs = MonetaryOutput::sum('amount');
+
+        return view('welcome', [
+            'campaigns' => $campaigns,
+            'outputs' => $outputs,
+            'totalOutputs' => $totalOutputs,
+            'totalDonations' => $totalDonations,
+            'donations' => $donations
+        ]);
     }
 }

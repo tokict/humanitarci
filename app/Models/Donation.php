@@ -56,6 +56,8 @@ namespace App\Models;
  * @property bool $service_delivered
  * Is the service confirmed as delivered
  *
+ * @property bool $anonymous
+ *
  * @property int $organization_id
  * Id or the organization that will handle this donation
  * 
@@ -109,7 +111,8 @@ class Donation extends BaseModel
 		'goods_received_id',
 		'service_id',
 		'service_delivered',
-		'organization_id'
+		'organization_id',
+		'anonymous'
 	];
 
 	public function beneficiary()

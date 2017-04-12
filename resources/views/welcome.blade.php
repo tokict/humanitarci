@@ -36,37 +36,6 @@
         <!-- End Slide Item -->
 
         <!-- Slide Item -->
-        <div class="page-section bg-scroll bg-dark-alfa-30" data-background="/front/images/hero/sova.jpg">
-
-            <!-- Slide Content -->
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-5 col-md-offset-1">
-
-                    <div class="hs-line-8 no-transp font-alt mb-30 mb-xs-10">
-                        POTPUNO TRANSPARENTNO
-                    </div>
-
-                    <h3 class="mb-40 mb-xs-30">
-                        Vaša donacija se troši SAMO na ono što ste odabrali. SVAKA kuna se prati.
-                    </h3>
-
-                    <div class="local-scroll">
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}"
-                           class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
-                        <span class="hidden-xs">&nbsp;</span>
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}"
-                           class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
-
-                    </div>
-
-                </div>
-            </div>
-            <!-- End Slide Content -->
-
-        </div>
-        <!-- End Slide Item -->
-
-        <!-- Slide Item -->
         <div class="page-section bg-scroll bg-dark-alfa-30" data-background="/front/images/hero/hands.jpg">
 
             <!-- Slide Content -->
@@ -85,8 +54,8 @@
                         <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.mission')}}"
                            class="btn btn-mod btn-border-w btn-circle btn-small">Naša misija</a>
                         <span class="hidden-xs">&nbsp;</span>
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}"
-                           class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>
+                        {{--<a href="/{{trans('routes.front.pages')}}/{{trans('routes.pages.how_to_donate')}}"
+                           class="btn btn-mod btn-circle btn-small btn-w">Kako mogu pomoći?</a>--}}
                     </div>
 
                 </div>
@@ -154,14 +123,14 @@
                             <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->person->city}}"><i
                                         class="fa fa-map-marker"></i> {{$campaign->beneficiary->person->city}}
                             </a>
-                                <span>/</span>
+                            <span>/</span>
                         @endif
                         @if(isset($campaign->beneficiary->group->city))
                             <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.place')}}/{{$campaign->beneficiary->group->city
                         ?$campaign->beneficiary->group->city_id:''}}"><i
                                         class="fa fa-map-marker"></i> {{$campaign->beneficiary->group->city->name}}
                             </a>
-                                <span>/</span>
+                            <span>/</span>
                         @endif
 
                         <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
@@ -170,7 +139,9 @@
                     <div class="post-prev-text line-clamp">
                         <b>{!! $campaign->name!!}</b>
                         <br/>
-                        <small>Humanitarna udruga: <a href="{{$campaign->organization->website}}">{{ $campaign->organization->name }}</a></small>
+                        <small>Humanitarna udruga: <a
+                                    href="{{$campaign->organization->website}}">{{ $campaign->organization->name }}</a>
+                        </small>
                     </div>
                     <div class="post-prev-text line-clamp">
                         {!! $campaign->description_short!!}
@@ -223,7 +194,7 @@
                 </div>--}}
                 <h3 class="benefit-title font-alt">Mogućnosti</h3>
                 <div class="benefits-descr">
-                    Donirati se uplatom na račun. Trenutno radimo na uplatama putem kartica
+                    Donirati se trenutno može samo uplatom na račun. Trenutno radimo na uplatama putem kartica
                 </div>
             </div>
             <!-- End Features Item -->
@@ -233,9 +204,10 @@
                 {{--<div class="benefit-icon mb-20">
                     <img src="/front/images/construction/icons/3.png" width="64" height="64" alt=""/>
                 </div>--}}
-                <h3 class="benefit-title font-alt">Provjera korisnika</h3>
+                <h3 class="benefit-title font-alt">Provjere</h3>
                 <div class="benefits-descr">
-                    Naši humanitarci svakog korisnika posjete u domu i temeljito provjere.
+                    Naši humanitarci svakog korisnika posjete u domu i temeljito provjere.<br><br>
+                    Svaka humanitarna udruga na platformi je provjerena i nadzire se njezin rad na platformi
                 </div>
             </div>
             <!-- End Features Item -->
@@ -245,9 +217,10 @@
                 {{--<div class="benefit-icon mb-20">
                     <img src="/front/images/construction/icons/4.png" width="64" height="64" alt=""/>
                 </div>--}}
-                <h3 class="benefit-title font-alt">Nema birokracije</h3>
+                <h3 class="benefit-title font-alt">Isključivo po zakonu</h3>
                 <div class="benefits-descr">
-                    Pomažemo jedni drugima, jer država čini premalo i prekasno.
+                    Platforma je napravljena slijedeći SVE odredbe
+                        "Zakona o humanitarnoj pomoći" RH sa ciljem onemogućavanja prevara
                 </div>
             </div>
             <!-- End Features Item -->
@@ -255,10 +228,68 @@
         </div>
         <!-- End Features Grid -->
 
-{{--        <div class="align-center">
-            <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}"
-               class="btn btn-mod btn-large btn-circle">Želim pomoći</a>
-        </div>--}}
+        {{--        <div class="align-center">
+                    <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.registration')}}"
+                       class="btn btn-mod btn-large btn-circle">Želim pomoći</a>
+                </div>--}}
+
+    </div>
+</section>
+<!-- End Section -->
+
+<!-- Section -->
+<section class="small-section bg-gray-lighter">
+    <div class="container relative">
+
+        <h2 class="section-title font-alt mb-70 mb-sm-40">
+            Posljednje donacije i korištenje sredstava
+        </h2>
+        <div class="col-md-6">
+            <h4> UKUPNO PRIMLJENO: {{number_format($totalDonations/100, 2)}} {{env("CURRENCY")}}</h4><br>
+            @foreach($donations as $d)
+
+                <b>
+                    <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d->campaign->id}}"
+                       target="_blank">{{$d->campaign->name}}</a>
+                </b>
+                <br/>
+                Donor:
+                @if($d->donor->user->username && !$d->anonymous)
+                    <a href="/{{trans('routes.front.donors')}}/{{trans('routes.actions.profile')}}/{{$d->donor->user->username}}"
+                       target="_blank">{{$d->donor->user->username}}</a><br/>
+                @else
+                    Anoniman <br/>
+                @endif
+                Iznos: {{number_format($d->amount / 100, 2)}} {{env('CURRENCY')}}<br/>
+                <br>
+            @endforeach
+        </div>
+        <div class="col-md-6">
+            <h4>DO SADA ISKORIŠTENO: {{number_format($totalOutputs/100, 2)}} {{env("CURRENCY")}}</h4><br>
+            @foreach($outputs as $o)
+                <b><a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.view')}}/{{$d->campaign->id}}">{{$o->campaign->name}}</a></b>
+                <br/>
+                <strong>{{number_format($o->amount /100, 2)}} {{env("CURRENCY")}}</strong>
+                <br>
+                <small>{{$o->description}}</small>
+                <br/><br/>
+                @if(isset($o->receiving_entity))
+                    Firmi:
+                    {{$o->receiving_entity->name}},  {{$o->receiving_entity->city->name}}
+                    (OIB: {{$o->receiving_entity->tax_id}})
+                @else
+                    Osobi: {{$o->receiving_person->first_name.' '.$o->receiving_person->last_name}}
+                @endif
+                <br>
+                @foreach($o->getReceipts() as $r)
+                    <a href="{{$r->type == 'document'?$r->getPath():$r->getPath('large')}}" target="_blank"><i
+                                class="fa fa-file-text-o fa-3x"></i></a>
+                    &nbsp;
+                @endforeach
+                <hr>
+            @endforeach
+        </div>
+
 
     </div>
 </section>

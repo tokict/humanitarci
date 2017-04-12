@@ -314,6 +314,7 @@ class Campaign extends BaseModel
 
         foreach ($donations as $d){
             $arr[] = [
+                'donation' => $d,
                 'donor' => $d->donor,
                 'sum' => Donation::where('campaign_id', $this->getAttribute('id'))->where('donor_id', $d->id)
                     ->sum('amount')

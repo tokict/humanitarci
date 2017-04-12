@@ -14,8 +14,8 @@
 
                     <!-- Content -->
                     <div class="col-sm-12 accent">
-                        <h3 class="font-alt">Želimo vratiti povjerenje ljudi u doniranje.</h3>
-                        <h3 class="font-alt">Želimo da pomoć dođe u ruke onih kojima je zaista potrebna.</h3>
+                        <h3 class="font-alt">Želimo vratiti povjerenje ljudi u doniranje onemogućavajući malverzacije sa donacijama koje stignu putem ove platforme.</h3>
+                        <h3 class="font-alt">Želimo da pomoć dođe u ruke onih kojima je zaista potrebna a ne u džep profesionalnih žicara ili lažnih humanitarnih udruga.</h3>
                     </div>
                 </div>
             </div>
