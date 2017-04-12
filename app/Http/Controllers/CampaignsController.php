@@ -52,7 +52,7 @@ class CampaignsController extends Controller
                 ->get();
             $campaign->media_info = $media_info;
         }
-        return view('campaign.list', ['campaigns' => $campaigns]);
+        return view('campaign.list', ['campaigns' => $campaigns, 'category' => $category]);
     }
 
     /**

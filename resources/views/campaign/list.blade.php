@@ -5,10 +5,10 @@
     <div class="container relative">
 
         <div class="works-filter font-alt align-center">
-            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.new')}}" class="filter active" >Novo</a>
-            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.popular')}}" class="filter">Izdvojene</a>
-            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.near_goal')}}" class="filter">Pred ciljem</a>
-            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.all')}}" class="filter">Vidi sve</a>
+            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.new')}}" class="filter {{trans('routes.parameters.'.$category) == 'new'?'active':''}}" >Novo</a>
+            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.popular')}}" class="filter {{trans('routes.parameters.'.$category) == 'popular'?'active':''}}">Izdvojene</a>
+            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.near_goal')}}" class="filter {{trans('routes.parameters.'.$category) == 'near_goal'?'active':''}}">Pred ciljem</a>
+            <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.parameters.all')}}" class="filter {{trans('routes.parameters.'.$category) == 'all'?'active':''}}">Vidi sve</a>
         </div>
 
         <div class="row multi-columns-row">

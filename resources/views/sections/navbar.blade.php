@@ -20,13 +20,13 @@
                     </li>
                     <!-- Item With Sub -->
                     <li>
-                        <a href="/">Početna</a>
+                        <a href="/" class="{{$controller == 'HomeController'?'active':''}}">Početna</a>
                     </li>
                     <!-- End Item With Sub -->
 
                     <!-- Item With Sub -->
                     <li>
-                        <a href="#" class="mn-has-sub active">Akcije <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="mn-has-sub {{$controller == 'CampaignsController'?'active':''}}">Akcije <i class="fa fa-angle-down"></i></a>
 
                         <!-- Sub -->
                         <ul class="mn-sub">
@@ -45,7 +45,7 @@
                     <!-- End Item With Sub -->
 
                     <li>
-                        <a href="#" class="mn-has-sub">O nama <i class="fa fa-angle-down"></i></a>
+                        <a href="#" class="mn-has-sub {{$controller == 'PagesController' && in_array($action, ['mission', 'team', 'history', 'media'])?'active':''}}">O nama <i class="fa fa-angle-down"></i></a>
 
                         <!-- Sub -->
                         <ul class="mn-sub">
@@ -61,10 +61,10 @@
                         <a href="https://humanitarci.hr/blog">Blog</a>
                     </li>
                     <li>
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.faq')}}">Pitanja i odgovori</a>
+                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.faq')}}" class="{{$action == 'faq'?'active':''}}">Pitanja i odgovori</a>
                     </li>
                     <li>
-                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.contacts')}}">Kontakt</a>
+                        <a href="/{{trans('routes.front.pages')}}/{{trans('routes.actions.contacts')}}" class="{{$action == 'contacts'?'active':''}}">Kontakt</a>
                     </li>
 
                     <li>
