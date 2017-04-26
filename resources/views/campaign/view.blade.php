@@ -22,7 +22,7 @@
                         <!-- Author, Categories, Comments -->
                         <div class="blog-item-data">
                             <a href="#"><i
-                                        class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}}
+                                        class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}} - {{date("d.m.Y", strtotime($campaign->ends))}}
                                 .</a>
                             <span class="separator">&nbsp;</span>
                             @if(isset($campaign->beneficiary->entity->city))

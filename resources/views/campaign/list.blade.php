@@ -58,6 +58,9 @@
                         <span>/</span>
                     @endif
                     <a href="/{{trans('routes.front.campaigns')}}/{{trans('routes.actions.listing')}}/{{trans('routes.campaignTypes.'.$campaign->category)}}">{{ucfirst(trans('routes.campaignTypes.'.$campaign->category))}}</a>
+                      <br/><i
+                                    class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}} - {{date("d.m.Y", strtotime($campaign->ends))}}
+
                 </div>
 
                 <div class="post-prev-text line-clamp">

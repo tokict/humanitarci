@@ -142,6 +142,10 @@
                         <small>Humanitarna udruga: <a
                                     href="{{$campaign->organization->website}}">{{ $campaign->organization->name }}</a>
                         </small>
+                        </br>
+                        <small><i
+                                class="fa fa-clock-o"></i> {{date("d.m.Y", strtotime($campaign->created_at))}} - {{date("d.m.Y", strtotime($campaign->ends))}}
+                        .</small>
                     </div>
                     <div class="post-prev-text line-clamp">
                         {!! $campaign->description_short!!}
